@@ -1,7 +1,7 @@
 # Smartphone Quadrotor UV
 Master thesis development
 
-by Alejandro Astudillo, Universidad del Valle
+by Alejandro Astudillo V., Universidad del Valle
 
 e-mail: alejandro.astudillo@correounivalle.edu.co
 
