@@ -1,0 +1,81 @@
+\chapter{Quadrotor Helicopter Model \label{ch:model}}
+
+\section{Nonlinear Model}
+
+\section{Linearized Model}
+\setcounter{MaxMatrixCols}{20}
+
+The linearised model of the quad-rotor helicopter written as a state space model is given by
+
+\begin{align*}
+\dot{x}(t)= & Ax(t)+Bu(t),\\
+r(t)= & Cx(t),
+\end{align*}
+where
+\begin{align*}
+A  = & 
+\begin{bmatrix}
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -g & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & g & 0\\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+\end{align*}
+\begin{align*}
+B = & 
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & \frac{1}{m} & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}^T
+\end{align*}
+%
+\begin{align*}
+C  = & 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}^T
+\end{align*}
+
+with the parameters  
+
+$m=0.64 $ kg, 
+
+$g=9.81$ m/s.
+
+
+The state vector is defined as
+
+\begin{align*}
+x(t)=&
+\begin{bmatrix}
+r_x & \dot{r}_x & r_y & \dot{r}_y & r &\dot{r}_z 
+\end{bmatrix}^T,
+\end{align*}
+and the control inputs as
+\begin{align*}
+u(t)=&
+\begin{bmatrix}
+u_1 & u_2 &u_3 & u_4
+\end{bmatrix}^T,
+\end{align*}
+
+and the output vector is defined as
+
+\begin{align*}
+r(t)=
+\begin{bmatrix}
+r_{x} & r_{y} & r_{z}
+\end{bmatrix}^T.
+\end{align*}

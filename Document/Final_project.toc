@@ -1,0 +1,39 @@
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{Abstract}{i}{Doc-Start}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}State of Art}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Quadrotors}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Smartphone as a Controller}{1}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Smartphone-based Quadrotors}{1}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Outline}{1}{section.1.2}
+\contentsline {chapter}{\numberline {2}Quadrotor Helicopter Model }{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Nonlinear Model}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Linearized Model}{3}{section.2.2}
+\contentsline {chapter}{\numberline {3}Smartphone-based Quadrotor Prototype}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Description of the Components}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Smartphone}{5}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Frame}{5}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Motors and Electronic Speed Controllers (ESC)}{5}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Smartphone-ESC Gateway}{5}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Battery}{5}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Assembled Smartphone-based Quadrotor}{5}{subsection.3.1.6}
+\contentsline {section}{\numberline {3.2}Quadrotor Parameters}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Mass}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Inertial Momentum}{5}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Motors Thrust}{5}{subsection.3.2.3}
+\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Optimal Controller}{7}{section.4.1}
+\contentsline {section}{\numberline {4.2}Robust Controller}{7}{section.4.2}
+\contentsline {section}{\numberline {4.3}State Estimation Through Kalman Filter}{7}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation and Results}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Kalman Filter for States Estimation}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Linear Quadratic Regulator Results}{9}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Simple Translational Movements (LQR)}{9}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Trajectory Tracking (LQR)}{9}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}H$\infty $ Regulator Results}{9}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Simple Translational Movements (H$\infty $)}{9}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Trajectory Tracking (H$\infty $)}{9}{subsection.5.3.2}
+\contentsline {chapter}{Conclusions and Outlook}{10}{subsection.5.3.2}
+\contentsline {chapter}{Bibliography}{13}{chapter*.5}
+\contentsline {chapter}{Publications}{15}{appendix*.6}

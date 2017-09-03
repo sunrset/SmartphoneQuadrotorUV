@@ -1,0 +1,156 @@
+% arara: pdflatex
+% arara: nomencl
+% arara: pdflatex
+
+\documentclass[12pt, twoside, letterpaper]{book}
+
+%%% packages  %%%
+
+\usepackage[english]{babel}
+\usepackage{import}
+\usepackage{graphicx, color, transparent, bm, multirow, dcolumn}
+%\usepackage{slashbox}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+%\usepackage{float}		  % force position of figures. Usage: \begin{figure}[H]
+\usepackage{pstricks}
+\usepackage[authoryear,numbers,sort&compress]{natbib}
+%\usepackage[Lenny]{fncychap}     % extended page layout formating
+\usepackage{amsmath}      % special mathematical functions ,amsthm
+\usepackage{amssymb,amsthm}      % special mathematical functions
+\usepackage{psfrag, epsfig}
+\usepackage{latexsym}     % symbols package
+%\usepackage{times}
+%\usepackage{geometry}
+\usepackage[left=2.8cm,top=3cm,right=2.8cm,bottom=3.0cm]{geometry}
+\selectlanguage{english}
+\geometry{bindingoffset=1cm}
+\usepackage{amsthm}
+\usepackage{makeidx}
+\usepackage[intoc]{nomencl} 
+%\usepackage{glossaries}
+%\usepackage[refpages]{gloss}
+\usepackage[utf8]{inputenc} 
+\usepackage{fancyhdr}
+
+%%%%%%Esteban
+%\usepackage{hyperref}
+%\usepackage[hyphenbreaks]{breakurl}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{arydshln}
+\usepackage{afterpage}
+\usepackage{pstool}
+%\usepackage{epstopdf}
+%\usepackage[
+%    latex={-interaction=nonstopmode},
+%    crop=off,runs=2
+%  ]{auto-pst-pdf}
+
+
+\input{macros}
+\newcolumntype{d}{D{.}{.}{2.5}}
+\newcolumntype{s}{D{.}{.}{1.2}}
+
+%\input{levelcontour2}
+
+\makeindex
+%\input{./acronimos.tex}
+%\input{./glosar.tex}
+
+\makenomenclature
+
+
+%\includeonly{introduction_new}
+
+
+\begin{document}
+
+%\maketitle
+ 
+\hyphenation{
+	si-mi-lar-ly en-vi-ron-ment en-han-ced subs-tan-tial di-ffe-rent co-mmu-ni-ca-tion accom-phish }
+
+\graphicspath{{./figures/}} 
+
+%\input{tex/titlepage}
+%\input{tex/Titulopropio}
+\input{tex/OwnTitle}
+\pagenumbering{arabic}
+\setcounter{page}{3} 
+
+
+
+%%% Front matter %%%
+
+\frontmatter
+
+%\include{dedication}
+\cleardoublepage
+%\newpage
+\addcontentsline{toc}{chapter}{Abstract}
+\include{tex/abstract}
+%\include{tex/resumen}
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Acknowledgments}
+%\include{acknowledgements}
+%\include{symbols}
+
+\printnomenclature
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+%\include{symbols}
+\parskip=2mm
+
+
+%%% Main matter %%%
+
+\mainmatter
+
+\include{tex/1Introduction}
+\include{tex/2QuadcopterModel}
+\include{tex/3SmartphoneBasedQuadrotorPrototype}
+\include{tex/4ControlStrategiesAndEstimation}
+\include{tex/5Implementation}
+
+\addcontentsline{toc}{chapter}{Conclusions and Outlook}
+\include{tex/conclusions}
+
+
+\appendix
+
+
+\printindex
+%\glsaddall
+%\printglossaries
+
+
+
+%%% Back matter %%% 
+
+\backmatter
+
+\addcontentsline{toc}{chapter}{\bibname}
+
+%\bibliographystyle{IEEEtran}	% (uses file "plain.bst")
+%\bibliography{references_biblio_mas}		% expects file "myrefs.bib"
+%\bibliographystyle{plainnat}
+%\bibliographystyle{abbrvnat}
+\bibliographystyle{unsrtnat}
+\bibliography{bib/er_biblio}
+%\bibliography{{./references/dokbiblio.bib/}}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Publications}
+\include{tex/publications}
+
+
+
+
+\end{document}
+
+
