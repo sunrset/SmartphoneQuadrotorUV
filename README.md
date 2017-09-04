@@ -6,5 +6,6 @@ by Alejandro Astudillo V., Universidad del Valle
 e-mail: alejandro.astudillo@correounivalle.edu.co
 
 Publications: 
-- Altitude and attitude cascade controller for a smartphone-based quadcopter, http://ieeexplore.ieee.org/document/7991400/
-- Optimal and robust controllers design for a smartphone-based quadrotor
+- A. Astudillo, P. Muñoz, F. Alvarez and E. Rosero, “Altitude and attitude cascade controller for a smartphone-based quadcopter,” in 2017 International Conference on Unmanned Aircraft Systems (ICUAS). IEEE, jun 2017, pp. 1447–1454. [Online].
+Available: http://ieeexplore.ieee.org/document/7991400/
+- A. Astudillo, B. Bacca and E. Rosero, “Optimal and robust controllers design for a smartphone-based quadrotor,” in 2017 IEEE 3rd Colombian Conference on Automatic Control (CCAC).
