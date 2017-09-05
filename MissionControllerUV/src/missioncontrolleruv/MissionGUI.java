@@ -61,8 +61,8 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlRB = new javax.swing.JButton();
         jButtonControlLB = new javax.swing.JButton();
         jButtonControlLT = new javax.swing.JButton();
-        jButtonControllerTest = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanelTests = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -210,13 +210,6 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlLT.setFocusable(false);
         jButtonControlLT.setMargin(new java.awt.Insets(2, 2, 2, 2));
 
-        jButtonControllerTest.setText("Controller Test");
-        jButtonControllerTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonControllerTestActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -238,10 +231,6 @@ public class MissionGUI extends javax.swing.JFrame {
                             .addComponent(jButtonControlA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonControlY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(64, 64, 64))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jButtonControllerTest)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -295,9 +284,7 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addComponent(jLabelTitleController)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jButtonControllerTest, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -371,6 +358,19 @@ public class MissionGUI extends javax.swing.JFrame {
 
         jTabbed1.addTab("Communication", jPanelComm);
 
+        javax.swing.GroupLayout jPanelTestsLayout = new javax.swing.GroupLayout(jPanelTests);
+        jPanelTests.setLayout(jPanelTestsLayout);
+        jPanelTestsLayout.setHorizontalGroup(
+            jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 980, Short.MAX_VALUE)
+        );
+        jPanelTestsLayout.setVerticalGroup(
+            jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 465, Short.MAX_VALUE)
+        );
+
+        jTabbed1.addTab("Tests", jPanelTests);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -386,18 +386,6 @@ public class MissionGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonControllerTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonControllerTestActionPerformed
-        // TODO add your handling code here:
-        if(!MissionControllerUV.controllerTest){
-            MissionControllerUV.readController.startControllerWithUI();
-            MissionControllerUV.controllerTest = true;
-        }
-        else{
-            //MissionControllerUV.readController.stopController();
-            MissionControllerUV.controllerTest = false;
-        }
-    }//GEN-LAST:event_jButtonControllerTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +433,6 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton jButtonControlStart;
     public javax.swing.JButton jButtonControlX;
     public javax.swing.JButton jButtonControlY;
-    private javax.swing.JButton jButtonControllerTest;
     private javax.swing.JComboBox<String> jComboBox_controllers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -459,6 +446,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelComm;
     private javax.swing.JPanel jPanelMission;
+    private javax.swing.JPanel jPanelTests;
     public javax.swing.JProgressBar jProgressBarX;
     public javax.swing.JProgressBar jProgressBarY;
     public javax.swing.JProgressBar jProgressBarZ;

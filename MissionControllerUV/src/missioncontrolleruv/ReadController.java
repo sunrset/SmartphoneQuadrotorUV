@@ -27,8 +27,6 @@ public class ReadController {
         @Override
         public void run(){
             while(true){
-                //System.out.println("Thread Running");
-
                 selectedControllerIndex = window.getSelectedControllerName();
                 controller = foundControllers.get(selectedControllerIndex);
                 if( !controller.poll() ){
@@ -36,11 +34,8 @@ public class ReadController {
                     controllerPrepared = false;
                     break;
                 }
-
                 startAcquiringControllerData();
                 showControllerInWindow();
-
-
             }
         }
     };
@@ -56,7 +51,6 @@ public class ReadController {
                     controllerPrepared = false;
                     break;
                 }
-
                 startAcquiringControllerData();
             }
         }
@@ -77,6 +71,7 @@ public class ReadController {
         // If at least one controller was found we start showing controller data on window.
         if(!foundControllers.isEmpty()){
             controllerPrepared = true;
+            startControllerWithUI();
         }
         else{
             window.addControllerName("No controller found!");
@@ -103,15 +98,14 @@ public class ReadController {
         */
         Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
-        for(int i = 0; i < controllers.length; i++){
-            Controller controller = controllers[i];
-            
+        for (Controller controller1 : controllers) {
+            controller = controller1;
             if (
-                    controller.getType() == Controller.Type.STICK || 
+                    controller.getType() == Controller.Type.STICK ||
                     controller.getType() == Controller.Type.GAMEPAD || 
                     controller.getType() == Controller.Type.WHEEL ||
                     controller.getType() == Controller.Type.FINGERSTICK
-               )
+                    )
             {
                 // Add new controller to the list of all controllers.
                 foundControllers.add(controller);

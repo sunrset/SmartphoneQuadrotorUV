@@ -23,6 +23,7 @@ public class MissionControllerUV {
     
     public static MissionGUI window = new MissionGUI();
     public static ReadController readController = new ReadController();
+    public static Communication communication = new Communication();
    
     public MissionControllerUV () {      
         
