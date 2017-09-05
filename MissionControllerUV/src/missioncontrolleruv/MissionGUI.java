@@ -49,7 +49,6 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabelDPad = new javax.swing.JLabel();
-        jButtonControlTest = new javax.swing.JButton();
         jButtonControlX = new javax.swing.JButton();
         jButtonControlY = new javax.swing.JButton();
         jButtonControlB = new javax.swing.JButton();
@@ -62,6 +61,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlRB = new javax.swing.JButton();
         jButtonControlLB = new javax.swing.JButton();
         jButtonControlLT = new javax.swing.JButton();
+        jButtonControllerTest = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,7 +75,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelMissionLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addComponent(jLabel1)
-                .addContainerGap(794, Short.MAX_VALUE))
+                .addContainerGap(851, Short.MAX_VALUE))
         );
         jPanelMissionLayout.setVerticalGroup(
             jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,8 +116,6 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabelDPad.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabelDPad.setText("D-Pad");
         jLabelDPad.setToolTipText("");
-
-        jButtonControlTest.setText("Control Test");
 
         jButtonControlX.setBackground(new java.awt.Color(255, 255, 255));
         jButtonControlX.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -212,6 +210,13 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlLT.setFocusable(false);
         jButtonControlLT.setMargin(new java.awt.Insets(2, 2, 2, 2));
 
+        jButtonControllerTest.setText("Controller Test");
+        jButtonControllerTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonControllerTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -222,9 +227,6 @@ public class MissionGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelTitleController)
                         .addGap(103, 103, 103))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonControlTest)
-                        .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonControlRJ)
                         .addGap(101, 101, 101))
@@ -237,8 +239,13 @@ public class MissionGUI extends javax.swing.JFrame {
                             .addComponent(jButtonControlY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(64, 64, 64))))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jButtonControllerTest)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel4)
@@ -268,18 +275,17 @@ public class MissionGUI extends javax.swing.JFrame {
                                 .addComponent(jLabelDPad)
                                 .addComponent(jProgressBarZrot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonControlRT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonControlB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonControlRB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jProgressBarX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButtonControlB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jButtonControlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonControlStart, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(85, 85, 85))
-                        .addComponent(jButtonControlRB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(85, 85, 85))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -287,11 +293,11 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelTitleController)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonControlTest, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(12, 12, 12)
+                .addComponent(jButtonControllerTest, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -348,7 +354,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabelTitleComm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -380,6 +386,18 @@ public class MissionGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonControllerTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonControllerTestActionPerformed
+        // TODO add your handling code here:
+        if(!MissionControllerUV.controllerTest){
+            MissionControllerUV.readController.startControllerWithUI();
+            MissionControllerUV.controllerTest = true;
+        }
+        else{
+            //MissionControllerUV.readController.stopController();
+            MissionControllerUV.controllerTest = false;
+        }
+    }//GEN-LAST:event_jButtonControllerTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,9 +443,9 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton jButtonControlRJ;
     public javax.swing.JButton jButtonControlRT;
     public javax.swing.JButton jButtonControlStart;
-    public javax.swing.JButton jButtonControlTest;
     public javax.swing.JButton jButtonControlX;
     public javax.swing.JButton jButtonControlY;
+    private javax.swing.JButton jButtonControllerTest;
     private javax.swing.JComboBox<String> jComboBox_controllers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

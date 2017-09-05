@@ -8,38 +8,93 @@ package missioncontrolleruv;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.paint.Color;
-import static missioncontrolleruv.MissionControllerUV.window;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
 /**
  *
- * @author Asus
+ * @author Alejandro Astudillo
  */
 public class ReadController {
     
-    public static MissionGUI window = new MissionGUI();
+    public static MissionGUI window = MissionControllerUV.window;
     private ArrayList<Controller> foundControllers;
+    public int selectedControllerIndex;
+    public Controller controller;
     
-    public int xAxisPercentage = 0, yAxisPercentage = 0, zUDPercentage = 0, zLRPercentage = 0, zAxis = 0, hatSwitchPosition = 0;
-    public boolean xIsPressed = false, yIsPressed = false, bIsPressed = false, aIsPressed = false;
-    public boolean ltIsPressed = false, rtIsPressed = false, lbIsPressed = false, rbIsPressed = false;
-    public boolean startIsPressed = false, backIsPressed = false, ljIsPressed = false, rjIsPressed = false;
+    public Thread ControllerThreadWithUI = new Thread(){
+        @Override
+        public void run(){
+            while(true){
+                //System.out.println("Thread Running");
+
+                selectedControllerIndex = window.getSelectedControllerName();
+                controller = foundControllers.get(selectedControllerIndex);
+                if( !controller.poll() ){
+                    window.showControllerDisconnected();
+                    controllerPrepared = false;
+                    break;
+                }
+
+                startAcquiringControllerData();
+                showControllerInWindow();
+
+
+            }
+        }
+    };
+    
+    public Thread ControllerThread = new Thread(){
+        @Override
+        public void run(){
+            while(true){
+                selectedControllerIndex = window.getSelectedControllerName();
+                controller = foundControllers.get(selectedControllerIndex);
+                if( !controller.poll() ){
+                    window.showControllerDisconnected();
+                    controllerPrepared = false;
+                    break;
+                }
+
+                startAcquiringControllerData();
+            }
+        }
+    };
+        
+    private int xAxisPercentage = 0, yAxisPercentage = 0, zUDPercentage = 0, zLRPercentage = 0, zAxis = 0, hatSwitchPosition = 0;
+    private boolean xIsPressed = false, yIsPressed = false, bIsPressed = false, aIsPressed = false;
+    private boolean ltIsPressed = false, rtIsPressed = false, lbIsPressed = false, rbIsPressed = false;
+    private boolean startIsPressed = false, backIsPressed = false, ljIsPressed = false, rjIsPressed = false;
+    private boolean controllerPrepared = false;
     
     public ReadController(){
         
         window.jLabelDPad.setText("");
         foundControllers = new ArrayList<>();
         searchForControllers();
-        
+              
         // If at least one controller was found we start showing controller data on window.
-        if(!foundControllers.isEmpty())
-            startShowingControllerData();
-        else
+        if(!foundControllers.isEmpty()){
+            controllerPrepared = true;
+        }
+        else{
             window.addControllerName("No controller found!");
+        }     
     }
+    
+    public void startControllerWithUI(){
+        if(controllerPrepared){
+            ControllerThreadWithUI.start();
+        }
+    }
+    
+    public void startController(){
+        if(controllerPrepared){
+            ControllerThread.start();
+        }
+    }
+
      
     private void searchForControllers() {
         /**
@@ -67,21 +122,17 @@ public class ReadController {
         }
     }
     
-    private void startShowingControllerData(){
+    private void startAcquiringControllerData(){
      /**
      * Starts showing controller data on the window.
      */
-        while(true)
-        {
+        //while(true){
             // Currently selected controller.
-            int selectedControllerIndex = window.getSelectedControllerName();
-            Controller controller = foundControllers.get(selectedControllerIndex);
+            selectedControllerIndex = window.getSelectedControllerName();
+            controller = foundControllers.get(selectedControllerIndex);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
-            if( !controller.poll() ){
-                window.showControllerDisconnected();
-                break;
-            }
+            
             
             // Go trough all components of the controller.
             Component[] components = controller.getComponents();
@@ -159,48 +210,6 @@ public class ReadController {
                                 break;
                         }
                     }
-                        
-                    /*
-                    if(isItPressed){
-                        switch (buttonId){
-                            case 0: System.out.println("Button pressed: Y");
-                                    window.jButtonControlY.doClick();
-                                break;
-                            case 1: System.out.println("Button pressed: B");
-                                    window.jButtonControlB.doClick();
-                                break;
-                            case 2: System.out.println("Button pressed: A");
-                                    window.jButtonControlA.doClick();
-                                break;
-                            case 3: System.out.println("Button pressed: X"); 
-                                    window.jButtonControlX.doClick();
-                                break;
-                            case 4: System.out.println("Button pressed: LB");
-                                    window.jButtonControlLB.doClick();
-                                break;
-                            case 5: System.out.println("Button pressed: RB");
-                                    window.jButtonControlRB.doClick();
-                                break;
-                            case 6: System.out.println("Button pressed: LT");
-                                    window.jButtonControlLT.doClick();
-                                break;
-                            case 7: System.out.println("Button pressed: RT");
-                                    window.jButtonControlRT.doClick();
-                                break;
-                            case 8: System.out.println("Button pressed: BACK");
-                                    window.jButtonControlBack.doClick();
-                                break;
-                            case 9: System.out.println("Button pressed: START");
-                                    window.jButtonControlStart.doClick();
-                                break;
-                            case 10: System.out.println("Button pressed: LJ");
-                                     window.jButtonControlLJ.doClick();
-                                break;
-                            case 11: System.out.println("Button pressed: RJ");
-                                     window.jButtonControlRJ.doClick();
-                                break;
-                        }
-                    }*/
                     // We know that this component was button so we can skip to next component.
                     continue;
                 }
@@ -250,16 +259,14 @@ public class ReadController {
                     }
                   
                 }
-            }
-            showControllerInWindow();
-                      
+            }           
             // We have to give processor some rest.
             try {
                 Thread.sleep(25);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        //}
     }
     
     public void showControllerInWindow(){
@@ -351,5 +358,79 @@ public class ReadController {
      */
         return (int)(((2 - (1 - axisValue)) * 100) / 2);
     }
+    
+    public int getRollJoystick(){
+        return zLRPercentage;
+    }
+    
+    public int getPitchJoystick(){
+        return zUDPercentage;
+    }
+    
+    public int getYawJoystick(){
+        return xAxisPercentage;
+    }
+    
+    public int getThrottleJoystick(){
+        return yAxisPercentage;
+    }
+    
+    public int getDPadPosition(){
+        return hatSwitchPosition;
+    }
+    
+    public boolean getXbutton(){
+        return xIsPressed;
+    }
+    
+    public boolean getYbutton(){
+        return yIsPressed;
+    }
+    
+    public boolean getAbutton(){
+        return aIsPressed;
+    }
+    
+    public boolean getBbutton(){
+        return bIsPressed;
+    }
+    
+    public boolean getSTARTbutton(){
+        return startIsPressed;
+    }
+    
+    public boolean getBACKbutton(){
+        return backIsPressed;
+    }
+    
+    public boolean getLTbutton(){
+        return ltIsPressed;
+    }
+    
+    public boolean getRTbutton(){
+        return rtIsPressed;
+    }
+    
+    public boolean getLBbutton(){
+        return lbIsPressed;
+    }
+    
+    public boolean getRBbutton(){
+        return rbIsPressed;
+    }
+    
+    public boolean getLJbutton(){
+        return ljIsPressed;
+    }
+    
+    public boolean getRJbutton(){
+        return rjIsPressed;
+    }
+    
+    public boolean getControllerPrepared(){
+        return controllerPrepared;
+    }
+    
+    
     
 }

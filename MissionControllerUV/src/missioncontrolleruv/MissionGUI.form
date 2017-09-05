@@ -55,7 +55,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="794" max="32767" attributes="0"/>
+                      <EmptySpace pref="851" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -92,7 +92,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
                       <Component id="jLabelTitleComm" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="236" max="32767" attributes="0"/>
+                      <EmptySpace pref="293" max="32767" attributes="0"/>
                       <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -133,10 +133,6 @@
                                   <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jButtonControlTest" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="jButtonControlRJ" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
@@ -154,9 +150,15 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="jButtonControllerTest" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jComboBox_controllers" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -196,21 +198,20 @@
                                           <Component id="jButtonControlRT" alignment="1" min="-2" pref="48" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="jButtonControlB" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonControlRB" alignment="1" min="-2" pref="48" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jProgressBarX" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jButtonControlB" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jButtonControlBack" min="-2" pref="36" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonControlStart" min="-2" pref="36" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jButtonControlRB" alignment="1" min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jComboBox_controllers" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="39" max="32767" attributes="0"/>
                       </Group>
@@ -221,11 +222,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jLabelTitleController" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jComboBox_controllers" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButtonControlTest" min="-2" pref="36" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jButtonControllerTest" min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -378,14 +379,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="D-Pad"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButtonControlTest">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Control Test"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -669,6 +662,14 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonControllerTest">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Controller Test"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonControllerTestActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
