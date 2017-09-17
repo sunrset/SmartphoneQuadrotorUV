@@ -101,7 +101,8 @@ public class DataCollection implements SensorEventListener {
 		 * can only observe position, not velocity, so the observation vector
 		 * has only two dimensions.
 		 */
-        posKF = new KalmanFilter(4, 2);
+        //posKF = new KalmanFilter(4, 2);
+        //Kalman Filter
     }
 
     @Override

@@ -30,11 +30,11 @@ public class MotorsTestActivity extends AppCompatActivity {
 
 
     private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
-    UsbDevice device;
+    /*UsbDevice device;
     UsbDeviceConnection connection;
     UsbManager usbManager;
     UsbSerialDevice serialPort;
-    PendingIntent pendingIntent;
+    PendingIntent pendingIntent;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
