@@ -34,8 +34,6 @@ import java.text.DecimalFormat;
 
 public class DataCollection implements SensorEventListener {
 
-    private KalmanFilter posKF;
-
     GetLocation mGetLocation = null;
 
     private SensorManager mSensorManager;

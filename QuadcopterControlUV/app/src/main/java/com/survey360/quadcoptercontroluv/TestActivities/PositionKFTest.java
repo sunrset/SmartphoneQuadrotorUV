@@ -128,13 +128,9 @@ public class PositionKFTest extends AppCompatActivity {
                 tv_yaw2.setText(String.valueOf(mDataCollection.orientationValsRad[0]));
                 tv_pitch2.setText(String.valueOf(mDataCollection.orientationValsRad[1]));
                 tv_roll2.setText(String.valueOf(mDataCollection.orientationValsRad[2]));
-                /*tv_x.setText(dfmm.format(mDataCollection.conv_x)+" m");
-                tv_y.setText(dfmm.format(mDataCollection.conv_y)+" m");
-                tv_z.setText(String.valueOf(mDataCollection.gps_altitude)+" m");*/
                 tv_x.setText(dfmm.format(posKF.getEstimatedState()[0])+" m");
                 tv_y.setText(dfmm.format(posKF.getEstimatedState()[1])+" m");
                 tv_z.setText(String.valueOf(posKF.getEstimatedState()[2])+" m");
-                // TODO: Check the linear acceleration coming from DataCollection. I think it is not in World Coordinates
             }
         });
     }
