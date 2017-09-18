@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.survey360.quadcoptercontroluv.Utils.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
+import com.survey360.quadcoptercontroluv.Utils.PositionKalmanFilter;
 
 import java.text.DecimalFormat;
 import java.util.Timer;
@@ -19,6 +21,7 @@ import java.util.TimerTask;
 public class PositionKFTest extends AppCompatActivity {
 
     DataCollection mDataCollection = null;
+    PositionKalmanFilter posKF = new PositionKalmanFilter();
 
     Timer timer, timer2;
     TemporizerPKF mainThread;
@@ -75,6 +78,8 @@ public class PositionKFTest extends AppCompatActivity {
         tv_x = (TextView)findViewById(R.id.X_TV);
         tv_y = (TextView)findViewById(R.id.Y_TV);
         tv_z = (TextView)findViewById(R.id.Z_TV);
+
+        posKF.initPositionKF();
 
     }
 
@@ -134,7 +139,11 @@ public class PositionKFTest extends AppCompatActivity {
             long t_medido = System.nanoTime();
             float dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;
-            //Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
+
+            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.gps_altitude,mDataCollection.linAccVals[0],mDataCollection.linAccVals[1],mDataCollection.linAccVals[2]);
+            Log.w("KF: ",""+posKF.getEstimatedState()[0]);
+
+            Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
             updateTextViews();
             t = t + Ts;
         }

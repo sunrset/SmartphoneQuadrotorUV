@@ -155,6 +155,7 @@ public class DataCollection implements SensorEventListener {
         getGPSData();
     }
 
+
     public void getGPSData(){
         gps_latitude = mGetLocation.latitudeGPS;
         gps_longitude = mGetLocation.longitudeGPS;
