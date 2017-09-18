@@ -1,5 +1,7 @@
 package com.survey360.quadcoptercontroluv.Utils;
 
+import android.content.Context;
+
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.dense.row.CommonOps_DDRM;
 
@@ -9,27 +11,42 @@ import org.ejml.dense.row.CommonOps_DDRM;
 
 public class PositionKalmanFilter {
 
+    InitialConditions mInitialConditions = null;
+
     private static final double dt = 0.01; //Our sample time
     private static final double Q_val = 0.005;
     private static final double R_val = 1000;
+    public double x_ic, y_ic, z_ic = 0;
 
-    double []ic = new double[]{1, 0 , 0 , dt , 0 , 0 , 0.5*dt*dt , 0 , 0 };
-    DMatrixRMaj xhat_k_1 = new DMatrixRMaj(9, 1, true, ic);
+    double[] ic, x_hat;
+    DMatrixRMaj xhat_k_1, P_k_1, A, Q, Ro, H, z;
+    KalmanFilter f;
 
-    //DMatrixRMaj P_k_1 = CommonOps_DDRM.identity(9);
-    DMatrixRMaj P_k_1 = new DMatrixRMaj(9,9); //9x9 matrix of zeros
+    public PositionKalmanFilter(Context context) {
+        mInitialConditions = new InitialConditions(context);
+        mInitialConditions.acquireIC();
 
-    DMatrixRMaj A = createA(dt);
-    DMatrixRMaj Q = createQ(dt*Q_val);
-    DMatrixRMaj Ro = createR(R_val);
-    DMatrixRMaj H = createH();
-    // z is the 6x1 measurement vector
-    //KalmanFilter f = new KalmanFilterEquation();
-    KalmanFilter f = new KalmanFilterOperations();
-    DMatrixRMaj z = new DMatrixRMaj(6, 1);
-    double[] x_hat = new double[9];
+    }
 
     public void initPositionKF(){
+        x_ic = mInitialConditions.getx_ic();
+        y_ic = mInitialConditions.gety_ic();
+        z_ic = mInitialConditions.getz_ic();
+
+        f = new KalmanFilterOperations();
+
+        ic = new double[]{x_ic, y_ic, z_ic , 0 , 0 , 0 , 0 , 0 , 0 };
+        xhat_k_1 = new DMatrixRMaj(9, 1, true, ic);
+        //P_k_1 = CommonOps_DDRM.identity(9);
+        P_k_1 = new DMatrixRMaj(9,9); //9x9 matrix of zeros
+
+        A = createA(dt);
+        Q = createQ(dt*Q_val);
+        Ro = createR(R_val);
+        H = createH();
+        z = new DMatrixRMaj(6, 1); //6x1 vector of zeros
+        x_hat = new double[9];
+
         f.configure(A,Q,H);
         f.setState(xhat_k_1, P_k_1);
     }

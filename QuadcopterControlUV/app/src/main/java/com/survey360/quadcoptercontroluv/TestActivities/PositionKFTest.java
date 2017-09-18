@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.survey360.quadcoptercontroluv.Utils.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
+import com.survey360.quadcoptercontroluv.Utils.InitialConditions;
 import com.survey360.quadcoptercontroluv.Utils.PositionKalmanFilter;
 
 import java.text.DecimalFormat;
@@ -21,7 +23,8 @@ import java.util.TimerTask;
 public class PositionKFTest extends AppCompatActivity {
 
     DataCollection mDataCollection = null;
-    PositionKalmanFilter posKF = new PositionKalmanFilter();
+    InitialConditions mInitialConditions = null;
+    PositionKalmanFilter posKF = null;
 
     Timer timer, timer2;
     TemporizerPKF mainThread;
@@ -42,7 +45,8 @@ public class PositionKFTest extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mDataCollection = new DataCollection(this);
-
+        mInitialConditions = new InitialConditions(PositionKFTest.this);
+        posKF = new PositionKalmanFilter(this);
         bt_start = (Button) findViewById(R.id.bt_Arm);
         bt_stop = (Button) findViewById(R.id.bt_stopPKF);
 
@@ -79,11 +83,12 @@ public class PositionKFTest extends AppCompatActivity {
         tv_y = (TextView)findViewById(R.id.Y_TV);
         tv_z = (TextView)findViewById(R.id.Z_TV);
 
-        posKF.initPositionKF();
+        //posKF.initPositionKF();
 
     }
 
     public void acquireData(){
+        posKF.initPositionKF();
         if (timer != null) {
             timer.cancel();
         }
@@ -123,9 +128,13 @@ public class PositionKFTest extends AppCompatActivity {
                 tv_yaw2.setText(String.valueOf(mDataCollection.orientationValsRad[0]));
                 tv_pitch2.setText(String.valueOf(mDataCollection.orientationValsRad[1]));
                 tv_roll2.setText(String.valueOf(mDataCollection.orientationValsRad[2]));
-                tv_x.setText(dfmm.format(mDataCollection.conv_x)+" m");
+                /*tv_x.setText(dfmm.format(mDataCollection.conv_x)+" m");
                 tv_y.setText(dfmm.format(mDataCollection.conv_y)+" m");
-                tv_z.setText(String.valueOf(mDataCollection.gps_altitude)+" m");
+                tv_z.setText(String.valueOf(mDataCollection.gps_altitude)+" m");*/
+                tv_x.setText(dfmm.format(posKF.getEstimatedState()[0])+" m");
+                tv_y.setText(dfmm.format(posKF.getEstimatedState()[1])+" m");
+                tv_z.setText(String.valueOf(posKF.getEstimatedState()[2])+" m");
+                // TODO: Check the linear acceleration coming from DataCollection. I think it is not in World Coordinates
             }
         });
     }
@@ -140,8 +149,7 @@ public class PositionKFTest extends AppCompatActivity {
             float dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;
 
-            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.gps_altitude,mDataCollection.linAccVals[0],mDataCollection.linAccVals[1],mDataCollection.linAccVals[2]);
-            Log.w("KF: ",""+posKF.getEstimatedState()[0]);
+            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.linAccVals[0],mDataCollection.linAccVals[1],mDataCollection.linAccVals[2]);
 
             Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
             updateTextViews();
