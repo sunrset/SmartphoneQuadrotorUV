@@ -130,6 +130,9 @@ public class AttitudeKFTest extends AppCompatActivity {
         listSpinner1.add("Roll (RV)");
         listSpinner1.add("Pitch (RV)");
         listSpinner1.add("Yaw (RV)");
+        listSpinner1.add("Lin. Acc X");
+        listSpinner1.add("Lin. Acc Y");
+        listSpinner1.add("Lin. Acc Z");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listSpinner1);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -224,6 +227,15 @@ public class AttitudeKFTest extends AppCompatActivity {
                 }
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(3))){
                     seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[0]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(4))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.earthAccVals[0]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(5))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.earthAccVals[1]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(6))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.earthAccVals[2]), true, 500);
                 }
 
                 if(spinnerSelection2.contentEquals(listSpinner2.get(0))){

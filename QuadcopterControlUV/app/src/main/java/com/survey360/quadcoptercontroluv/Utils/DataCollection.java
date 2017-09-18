@@ -47,12 +47,14 @@ public class DataCollection implements SensorEventListener {
     public float[] accVals = new float[3];
     public float[] magVals = new float[3];
     public float[] linAccVals = new float[3];
+    public float[] earthAccVals = new float[4];
     public float[] orientationValsRad = new float[3];
     public float[] orientationValsDeg = new float[3];
     public float absoluteElevation, baroElevation, elevationZero;
     private static final float ALTITUDE_SMOOTHING = 0.95f;
     public float[] speed = new float[3];
     public float pressure, rawAltitudeUnsmoothed;
+    float[] invRotationMatrix = new float[16];
 
     public long time1; // [nanoseconds].
     public boolean running = false;
@@ -96,13 +98,7 @@ public class DataCollection implements SensorEventListener {
             return;
         register();
 
-        /*
-		 * The state model has four dimensions: x, y, x', y' Each time step we
-		 * can only observe position, not velocity, so the observation vector
-		 * has only two dimensions.
-		 */
-        //posKF = new KalmanFilter(4, 2);
-        //Kalman Filter
+
     }
 
     @Override
@@ -139,6 +135,12 @@ public class DataCollection implements SensorEventListener {
 
         else if(event.sensor == LinearAccSensor){
             linAccVals = event.values;
+            earthAccVals[0] = linAccVals[0];
+            earthAccVals[1] = linAccVals[1];
+            earthAccVals[2] = linAccVals[2];
+            earthAccVals[3] = 0;
+            android.opengl.Matrix.invertM(invRotationMatrix, 0, mRotationMatrix, 0);
+            android.opengl.Matrix.multiplyMV(earthAccVals, 0, invRotationMatrix, 0, earthAccVals, 0);
         }
 
         else if(event.sensor == GyroSensor){

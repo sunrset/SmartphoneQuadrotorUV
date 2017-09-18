@@ -149,7 +149,7 @@ public class PositionKFTest extends AppCompatActivity {
             float dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;
 
-            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.linAccVals[0],mDataCollection.linAccVals[1],mDataCollection.linAccVals[2]);
+            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
 
             Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
             updateTextViews();

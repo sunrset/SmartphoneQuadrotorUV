@@ -3,7 +3,6 @@ package com.survey360.quadcoptercontroluv.Utils;
 import android.content.Context;
 
 import org.ejml.data.DMatrixRMaj;
-import org.ejml.dense.row.CommonOps_DDRM;
 
 /**
  * Created by Alejandro Astudillo on 17/09/2017.
