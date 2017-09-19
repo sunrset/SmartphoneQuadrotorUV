@@ -16,13 +16,11 @@
  * limitations under the License.
  */
 
-package com.survey360.quadcoptercontroluv.Utils;
+package com.survey360.quadcoptercontroluv.Utils.StateEstimation;
 
 /**
  * Created by Alejandro Astudillo on 17/09/2017.
  */
-
-import com.survey360.quadcoptercontroluv.Utils.KalmanFilter;
 
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.dense.row.factory.LinearSolverFactory_DDRM;

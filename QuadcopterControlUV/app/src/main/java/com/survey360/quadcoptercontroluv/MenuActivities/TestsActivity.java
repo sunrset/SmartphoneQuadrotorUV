@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.TestActivities.AttitudeKFTest;
+import com.survey360.quadcoptercontroluv.TestActivities.CommunicationTest;
 import com.survey360.quadcoptercontroluv.TestActivities.MotorsTestActivity;
 import com.survey360.quadcoptercontroluv.TestActivities.PositionKFTest;
 
@@ -55,6 +56,17 @@ public class TestsActivity extends AppCompatActivity {
             public void onClick (View view){
                 Intent intentMotor = new Intent(TestsActivity.this, MotorsTestActivity.class);
                 startActivity(intentMotor);
+                finish();
+
+            }
+
+        });
+
+        bt_commTest.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                Intent intentComm = new Intent(TestsActivity.this, CommunicationTest.class);
+                startActivity(intentComm);
                 finish();
 
             }

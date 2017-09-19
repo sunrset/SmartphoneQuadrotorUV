@@ -8,13 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.survey360.quadcoptercontroluv.Utils.DataCollection;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
-import com.survey360.quadcoptercontroluv.Utils.InitialConditions;
-import com.survey360.quadcoptercontroluv.Utils.PositionKalmanFilter;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
 
 import java.text.DecimalFormat;
 import java.util.Timer;

@@ -3,7 +3,11 @@ package com.survey360.quadcoptercontroluv.Utils;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
@@ -25,6 +29,30 @@ public class PermissionsRequest {
         this.ctx = context;
         this.act = activity;
     }
+
+    public void SettingPermission() {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.System.canWrite(this.ctx)) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + this.ctx.getPackageName()));
+                    this.act.startActivityForResult(intent, 200);
+                }
+            }
+
+        if (ContextCompat.checkSelfPermission(this.ctx,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this.ctx,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {//Can add more as per requirement
+            ActivityCompat.requestPermissions(this.act,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},
+                    123);
+
+        } else {
+
+        }
+    }
+
 
     public void LocationPermission(){
         if (ContextCompat.checkSelfPermission(this.ctx, android.Manifest.permission.ACCESS_FINE_LOCATION) ==

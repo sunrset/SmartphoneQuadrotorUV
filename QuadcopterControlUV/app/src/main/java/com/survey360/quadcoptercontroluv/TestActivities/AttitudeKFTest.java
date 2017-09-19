@@ -1,34 +1,27 @@
 package com.survey360.quadcoptercontroluv.TestActivities;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.survey360.quadcoptercontroluv.Utils.DataCollection;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
