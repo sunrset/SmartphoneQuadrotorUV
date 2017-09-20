@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.survey360.quadcoptercontroluv.TestActivities.TcpTest">
+
+    <FrameLayout
+        android:layout_width="395dp"
+        android:layout_height="667dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_BatVolt"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_TextBVolt"
+                android:layout_alignTop="@+id/tv_TextBVolt"
+                android:layout_marginStart="11dp"
+                android:layout_toEndOf="@+id/tv_TextBPerc"
+                android:text="Message:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_TextBVolt"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tb_TCPserver"
+                android:layout_marginEnd="28dp"
+                android:layout_marginTop="32dp"
+                android:text="message"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/tb_TCPserver"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:checked="false"
+                android:text="Arm/Disarm"
+                android:textOff="TCP Server Off"
+                android:textOn="TCP Server On"
+                android:layout_marginTop="19dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

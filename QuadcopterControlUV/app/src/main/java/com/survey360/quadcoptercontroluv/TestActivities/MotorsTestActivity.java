@@ -1,11 +1,7 @@
 package com.survey360.quadcoptercontroluv.TestActivities;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.hardware.usb.UsbDevice;
-import android.hardware.usb.UsbDeviceConnection;
-import android.hardware.usb.UsbManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +10,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.felhr.usbserial.UsbSerialDevice;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
 import com.survey360.quadcoptercontroluv.R;
 
@@ -54,7 +49,7 @@ public class MotorsTestActivity extends AppCompatActivity {
         sb_motor3 = (SeekBar)findViewById(R.id.sb_Motor3);
         sb_motor4 = (SeekBar)findViewById(R.id.sb_Motor4);
         pb_batteryperc = (ProgressBar)findViewById(R.id.pb_BatPercent);
-        tb_arm = (ToggleButton)findViewById(R.id.tb_Arm);
+        tb_arm = (ToggleButton)findViewById(R.id.tb_TCPserver);
 
         sb_motor1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

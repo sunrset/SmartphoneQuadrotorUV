@@ -24,7 +24,7 @@
                 android:text="Battery Percentage:"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_above="@+id/tb_Arm"
+                android:layout_above="@+id/tb_TCPserver"
                 android:layout_alignStart="@+id/tv_TextBVolt" />
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_alignBaseline="@+id/tv_TextBVolt"
                 android:layout_alignBottom="@+id/tv_TextBVolt"
                 android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/tb_Arm"
+                android:layout_toEndOf="@+id/tb_TCPserver"
                 android:text="B_Volt"
                 android:textSize="20sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_marginStart="23dp" />
 
             <ToggleButton
-                android:id="@+id/tb_Arm"
+                android:id="@+id/tb_TCPserver"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginBottom="56dp"

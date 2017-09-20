@@ -12,6 +12,7 @@ import com.survey360.quadcoptercontroluv.TestActivities.AttitudeKFTest;
 import com.survey360.quadcoptercontroluv.TestActivities.CommunicationTest;
 import com.survey360.quadcoptercontroluv.TestActivities.MotorsTestActivity;
 import com.survey360.quadcoptercontroluv.TestActivities.PositionKFTest;
+import com.survey360.quadcoptercontroluv.TestActivities.TcpTest;
 
 public class TestsActivity extends AppCompatActivity {
 
@@ -65,7 +66,7 @@ public class TestsActivity extends AppCompatActivity {
         bt_commTest.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                Intent intentComm = new Intent(TestsActivity.this, CommunicationTest.class);
+                Intent intentComm = new Intent(TestsActivity.this, TcpTest.class);
                 startActivity(intentComm);
                 finish();
 
