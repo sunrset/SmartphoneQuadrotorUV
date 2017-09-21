@@ -5,7 +5,6 @@ package com.survey360.quadcoptercontroluv.Utils.Communication;
  */
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.*;
@@ -13,12 +12,17 @@ import java.net.*;
 
 public class DataExchange {
 
-    Thread tcpServer;
+    Thread tcpServer, decodeFrame;
 
     String clientSentence;
     String capitalizedSentence;
     ServerSocket welcomeSocket = new ServerSocket(6789);
+    BufferedReader inFromClient;
+    DataOutputStream outToClient;
+    Socket connectionSocket = null;
     Context ctx;
+
+    String[] receivedData;
 
     public DataExchange(Context context) throws IOException {
         ctx = context;
@@ -29,22 +33,7 @@ public class DataExchange {
             @Override
             public void run() {
                 while (true) {
-                    Socket connectionSocket = null;
-                    try{
-                        connectionSocket = welcomeSocket.accept();
-                        BufferedReader inFromClient =
-                                new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-                        DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-                        //char[] receivedBuffer = new char[8];
-                        //inFromClient.read(receivedBuffer, 0, 8);
-                        clientSentence = inFromClient.readLine();
-                        System.out.println("Received: " + clientSentence);
-                        //Log.e("Received: ", "receivedBuffer: "+receivedBuffer);
-                        capitalizedSentence = clientSentence.toUpperCase() + '\n';
-                        outToClient.writeBytes(capitalizedSentence);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    TCPserver();
                 }
             }
         };
@@ -55,5 +44,35 @@ public class DataExchange {
     public void stopTCPserver() {
         tcpServer.interrupt();
         Toast.makeText(ctx, "TCP Server Stopped", Toast.LENGTH_SHORT).show();
+    }
+
+    private void TCPserver(){
+        try{
+            connectionSocket = welcomeSocket.accept();
+            inFromClient =
+                    new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+            outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+            clientSentence = inFromClient.readLine();
+            decodeReceived(clientSentence);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void decodeReceived(final String received){
+        decodeFrame = new Thread() {
+            @Override
+            public void run() {
+                receivedData = received.split(",");
+                System.out.println("Received: " + received);
+                capitalizedSentence = received + '\n';
+                try {
+                    outToClient.writeBytes(capitalizedSentence);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        decodeFrame.start();
     }
 }
