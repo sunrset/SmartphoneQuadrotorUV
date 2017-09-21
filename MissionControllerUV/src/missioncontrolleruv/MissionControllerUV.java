@@ -26,7 +26,7 @@ public class MissionControllerUV {
     public static Communication communication = new Communication();
    
     public MissionControllerUV () {      
-        
+        //constructor
         
     }
 
