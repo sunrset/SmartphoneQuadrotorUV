@@ -96,6 +96,17 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        bt_mission.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                Intent intentmission = new Intent(MainActivity.this, MissionActivity.class);
+                startActivity(intentmission);
+                //MainActivity.this.finish();
+                finish();
+            }
+
+        });
+
 
 
     // Example of a call to a native method
@@ -132,14 +143,4 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
 }

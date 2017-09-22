@@ -55,7 +55,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".TestActivities.MotorsTestActivity" />
         <activity android:name=".TestActivities.CommunicationTest" />
-        <activity android:name=".TestActivities.TcpTest"></activity>
+        <activity android:name=".TestActivities.TcpTest" />
+        <activity android:name=".MenuActivities.MissionActivity"></activity>
     </application>
 
 </manifest>

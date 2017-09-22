@@ -15,7 +15,7 @@ public class DataExchange {
     Thread tcpServer, decodeFrame;
 
     String clientSentence;
-    String capitalizedSentence;
+    String responseSentence;
     ServerSocket welcomeSocket = new ServerSocket(6789);
     BufferedReader inFromClient;
     DataOutputStream outToClient;
@@ -65,9 +65,11 @@ public class DataExchange {
             public void run() {
                 receivedData = received.split(",");
                 System.out.println("Received: " + received);
-                capitalizedSentence = received + '\n';
+
+                responseSentence = received + '\n';
+
                 try {
-                    outToClient.writeBytes(capitalizedSentence);
+                    outToClient.writeBytes(responseSentence);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
