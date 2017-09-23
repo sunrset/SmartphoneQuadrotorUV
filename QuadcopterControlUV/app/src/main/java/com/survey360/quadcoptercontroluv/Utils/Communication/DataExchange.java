@@ -16,10 +16,10 @@ public class DataExchange {
 
     String clientSentence;
     String responseSentence;
-    ServerSocket welcomeSocket = new ServerSocket(6789);
+    ServerSocket welcomeSocket1 = new ServerSocket(6789);
     BufferedReader inFromClient;
     DataOutputStream outToClient;
-    Socket connectionSocket = null;
+    Socket connectionSocket1 = null;
     Context ctx;
 
     String[] receivedData;
@@ -32,6 +32,11 @@ public class DataExchange {
         tcpServer = new Thread() {
             @Override
             public void run() {
+                try {
+                    connectionSocket1 = welcomeSocket1.accept();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 while (true) {
                     TCPserver();
                 }
@@ -48,11 +53,13 @@ public class DataExchange {
 
     private void TCPserver(){
         try{
-            connectionSocket = welcomeSocket.accept();
+            //connectionSocket = welcomeSocket.accept();
             inFromClient =
-                    new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-            outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-            clientSentence = inFromClient.readLine();
+                    new BufferedReader(new InputStreamReader(connectionSocket1.getInputStream()));
+            outToClient = new DataOutputStream(connectionSocket1.getOutputStream());
+            clientSentence = null;
+            while((clientSentence = inFromClient.readLine()) == null){ }
+            //clientSentence = inFromClient.readLine();
             decodeReceived(clientSentence);
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,12 +76,28 @@ public class DataExchange {
                 responseSentence = received + '\n';
 
                 try {
-                    outToClient.writeBytes(responseSentence);
+                    if(receivedData[0].equals("wy")){
+                        decodeWaypoints(receivedData);
+                        outToClient.writeBytes("wys"+'\n');
+                    }
+                    else if(receivedData[0].equals("0")){
+                        outToClient.writeBytes("0"+'\n');
+                    }
+                    if(receivedData[0].equals("state")){
+                        outToClient.writeBytes("state,843211.10,1062939.204,1930.204,85,74"+'\n');
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
             }
         };
         decodeFrame.start();
+    }
+
+    private void decodeWaypoints(String[] receivedFrame){
+        System.out.println("North: "+Float.valueOf(receivedFrame[1]));
+        System.out.println("East: "+Float.valueOf(receivedFrame[2]));
+        System.out.println("Elevation: "+Float.valueOf(receivedFrame[3]));
     }
 }
