@@ -127,8 +127,8 @@ public class Communication {
         System.out.println("SmartphoneBattery: "+Integer.parseInt(receivedFrame[5]));
     }
     
-    public void requestStateChange(String state) throws IOException{
-        //sendToServer("st,"+state);
+    public void requestStateChange(String mode) throws IOException{
+        //sendToServer("st,"+mode);
         sendToServer("wy,865125.540,1060712.219,971.418");
         receiveFromServer();
     }
