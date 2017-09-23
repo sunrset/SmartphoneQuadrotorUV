@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package missioncontrolleruv1;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import missioncontrolleruv1.Communication.Communication;
+
 /**
  *
  * @author Alejandro Astudillo
@@ -27,6 +32,18 @@ public class MissionControllerUV {
    
     public MissionControllerUV () {      
         //constructor
+        
+    }
+    
+    public static void startConnection(){
+        communication.startConnection();
+        System.out.println("Connection Established");
+        /*try {
+            communication.sendToServer("wew,102993.12,19293494.19,1029493.19,1929393.20");
+        } catch (Exception ex) {
+            Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        communication.receiveFromServer();*/
         
     }
 

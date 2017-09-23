@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package missioncontrolleruv1;
-
 /**
  *
  * @author Asus
@@ -13,7 +12,11 @@ public class MissionGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MissionGUI
+     * 
      */
+    //public static MissionGUI missionGUI;
+    MissionControllerUV missionControllerUV = new MissionControllerUV();
+    
     public MissionGUI() {
         initComponents();
         
@@ -37,6 +40,7 @@ public class MissionGUI extends javax.swing.JFrame {
         bt_startConnection = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConsole = new javax.swing.JTextArea();
+        jTF_ip1 = new javax.swing.JTextField();
         jPanelComm = new javax.swing.JPanel();
         jLabelTitleComm = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -87,14 +91,19 @@ public class MissionGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreaConsole);
         jTextAreaConsole.getAccessibleContext().setAccessibleParent(jTextAreaConsole);
 
+        jTF_ip1.setText("192.168.0.18");
+        jTF_ip1.setToolTipText("");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(62, 62, 62)
+                .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(bt_startConnection)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 611, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 560, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -104,7 +113,9 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -379,7 +390,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabelTitleComm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 417, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -400,7 +411,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelTests.setLayout(jPanelTestsLayout);
         jPanelTestsLayout.setHorizontalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
+            .addGap(0, 1104, Short.MAX_VALUE)
         );
         jPanelTestsLayout.setVerticalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,42 +438,11 @@ public class MissionGUI extends javax.swing.JFrame {
 
     private void bt_startConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_startConnectionActionPerformed
         // TODO add your handling code here:
-        System.out.println("Connection Established");
+        MissionControllerUV.startConnection();
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MissionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MissionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MissionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MissionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new MissionGUI().setVisible(true);
-        });
-    }
-
+   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_startConnection;
     public javax.swing.JButton jButtonControlA;
@@ -497,6 +477,7 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JProgressBar jProgressBarZrot;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JTextField jTF_ip1;
     private javax.swing.JTabbedPane jTabbed1;
     public javax.swing.JTextArea jTextAreaConsole;
     // End of variables declaration//GEN-END:variables

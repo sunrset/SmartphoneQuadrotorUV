@@ -19,6 +19,7 @@ import net.java.games.input.ControllerEnvironment;
 public class ReadController {
     
     public static MissionGUI window = MissionControllerUV.window;
+    //public static MissionGUI window = MissionGUI.missionGUI;
     private ArrayList<Controller> foundControllers;
     public int selectedControllerIndex;
     public Controller controller;
