@@ -59,7 +59,7 @@ public class Communication {
             receiveFromServer();
             sendToServer("state");
             receiveFromServer();
-            closeCommunication();
+            //closeCommunication();
             
         } catch (IOException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +93,7 @@ public class Communication {
         }
     }
     
-    private void closeCommunication() throws IOException{
+    public void closeCommunication() throws IOException{
         clientSocket.close();
     }
         
@@ -125,6 +125,12 @@ public class Communication {
         System.out.println("Elevation: "+Float.valueOf(receivedFrame[3]));
         System.out.println("QuadBattery: "+Integer.parseInt(receivedFrame[4]));
         System.out.println("SmartphoneBattery: "+Integer.parseInt(receivedFrame[5]));
+    }
+    
+    public void requestStateChange(String state) throws IOException{
+        //sendToServer("st,"+state);
+        sendToServer("wy,865125.540,1060712.219,971.418");
+        receiveFromServer();
     }
     
     private void startMission(){

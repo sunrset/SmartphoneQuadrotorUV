@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package missioncontrolleruv1;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Asus
@@ -34,13 +40,29 @@ public class MissionGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator4 = new javax.swing.JSeparator();
         jTabbed1 = new javax.swing.JTabbedPane();
         jPanelMission = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        bt_startConnection = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConsole = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        bt_startConnection = new javax.swing.JButton();
+        bt_stopConnection = new javax.swing.JButton();
         jTF_ip1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBoxQuadList = new javax.swing.JComboBox<>();
+        jPanelModes = new javax.swing.JPanel();
+        jButtonStabilize = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jButtonAltHold = new javax.swing.JButton();
+        jButtonLoiter = new javax.swing.JButton();
+        jButtonStabilize3 = new javax.swing.JButton();
+        jButtonStabilize4 = new javax.swing.JButton();
+        jButtonStabilize5 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanelComm = new javax.swing.JPanel();
         jLabelTitleComm = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -70,17 +92,10 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlLT = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelTests = new javax.swing.JPanel();
+        jLabelUVlogo = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        bt_startConnection.setText("Establish Connection");
-        bt_startConnection.setFocusPainted(false);
-        bt_startConnection.setFocusable(false);
-        bt_startConnection.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_startConnectionActionPerformed(evt);
-            }
-        });
 
         jTextAreaConsole.setEditable(false);
         jTextAreaConsole.setColumns(20);
@@ -91,19 +106,182 @@ public class MissionGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreaConsole);
         jTextAreaConsole.getAccessibleContext().setAccessibleParent(jTextAreaConsole);
 
+        bt_startConnection.setText("<html><center>Establish<br />Connection</center></html>");
+        bt_startConnection.setFocusPainted(false);
+        bt_startConnection.setFocusable(false);
+        bt_startConnection.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_startConnection.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_startConnection.setOpaque(false);
+        bt_startConnection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_startConnectionActionPerformed(evt);
+            }
+        });
+
+        bt_stopConnection.setText("<html><center>Stop<br />Connection</center></html>");
+        bt_stopConnection.setFocusPainted(false);
+        bt_stopConnection.setFocusable(false);
+        bt_stopConnection.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_stopConnection.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_stopConnection.setOpaque(false);
+        bt_stopConnection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_stopConnectionActionPerformed(evt);
+            }
+        });
+
         jTF_ip1.setText("192.168.0.18");
         jTF_ip1.setToolTipText("");
+
+        jLabel1.setText("IP address");
+
+        jComboBoxQuadList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quadrotor 1" }));
+
+        jButtonStabilize.setText("<html><center>Stabilize</center></html>");
+        jButtonStabilize.setFocusable(false);
+        jButtonStabilize.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonStabilize.setMaximumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize.setMinimumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize.setPreferredSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStabilizeActionPerformed(evt);
+            }
+        });
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Flight Modes");
+        jLabel8.setMaximumSize(new java.awt.Dimension(69, 14));
+        jLabel8.setMinimumSize(new java.awt.Dimension(69, 14));
+        jLabel8.setPreferredSize(new java.awt.Dimension(69, 14));
+
+        jButtonAltHold.setText("<html><center>Altitude<br />Hold</center></html>");
+        jButtonAltHold.setFocusPainted(false);
+        jButtonAltHold.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonAltHold.setPreferredSize(new java.awt.Dimension(69, 37));
+
+        jButtonLoiter.setText("Loiter");
+        jButtonLoiter.setFocusable(false);
+        jButtonLoiter.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonLoiter.setMaximumSize(new java.awt.Dimension(69, 23));
+        jButtonLoiter.setMinimumSize(new java.awt.Dimension(69, 23));
+        jButtonLoiter.setPreferredSize(new java.awt.Dimension(69, 23));
+
+        jButtonStabilize3.setText("RTL");
+        jButtonStabilize3.setFocusable(false);
+        jButtonStabilize3.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonStabilize3.setMaximumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize3.setMinimumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize3.setPreferredSize(new java.awt.Dimension(69, 23));
+
+        jButtonStabilize4.setText("<html><center>Auto</center></html>");
+        jButtonStabilize4.setFocusable(false);
+        jButtonStabilize4.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonStabilize4.setMinimumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize4.setPreferredSize(new java.awt.Dimension(69, 23));
+
+        jButtonStabilize5.setText("<html><center>Land</center></html>");
+        jButtonStabilize5.setFocusable(false);
+        jButtonStabilize5.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        jButtonStabilize5.setMaximumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize5.setMinimumSize(new java.awt.Dimension(69, 23));
+        jButtonStabilize5.setPreferredSize(new java.awt.Dimension(69, 23));
+
+        javax.swing.GroupLayout jPanelModesLayout = new javax.swing.GroupLayout(jPanelModes);
+        jPanelModes.setLayout(jPanelModesLayout);
+        jPanelModesLayout.setHorizontalGroup(
+            jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelModesLayout.createSequentialGroup()
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelModesLayout.createSequentialGroup()
+                        .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonStabilize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonStabilize3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelModesLayout.createSequentialGroup()
+                                .addComponent(jButtonStabilize4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonStabilize5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelModesLayout.createSequentialGroup()
+                                .addComponent(jButtonAltHold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonLoiter, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator5))
+        );
+        jPanelModesLayout.setVerticalGroup(
+            jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator5)
+            .addComponent(jSeparator6)
+            .addGroup(jPanelModesLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonStabilize, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonLoiter, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAltHold, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonStabilize3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonStabilize5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonStabilize4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jComboBoxQuadList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelModes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxQuadList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_stopConnection)
+                    .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap())
+            .addComponent(jPanelModes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(bt_startConnection)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 560, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -111,14 +289,9 @@ public class MissionGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelMissionLayout = new javax.swing.GroupLayout(jPanelMission);
@@ -126,12 +299,15 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelMissionLayout.setHorizontalGroup(
             jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator2)
         );
         jPanelMissionLayout.setVerticalGroup(
             jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMissionLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 347, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
 
         jTabbed1.addTab("Mission Control", jPanelMission);
@@ -370,7 +546,7 @@ public class MissionGUI extends javax.swing.JFrame {
                     .addComponent(jButtonControlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonControlRJ)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonControlRB)
                     .addComponent(jButtonControlLB))
@@ -390,7 +566,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabelTitleComm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 417, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 451, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -402,7 +578,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelTitleComm)
-                .addContainerGap(428, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbed1.addTab("Communication", jPanelComm);
@@ -411,26 +587,40 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelTests.setLayout(jPanelTestsLayout);
         jPanelTestsLayout.setHorizontalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1104, Short.MAX_VALUE)
+            .addGap(0, 1138, Short.MAX_VALUE)
         );
         jPanelTestsLayout.setVerticalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 461, Short.MAX_VALUE)
         );
 
         jTabbed1.addTab("Tests", jPanelTests);
+
+        jLabelUVlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uvlogo.jpg"))); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gicilogo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbed1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelUVlogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbed1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(jTabbed1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelUVlogo)
+                    .addComponent(jLabel7))
+                .addContainerGap())
         );
 
         pack();
@@ -441,10 +631,38 @@ public class MissionGUI extends javax.swing.JFrame {
         MissionControllerUV.startConnection();
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
+    private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
+        try {
+            // TODO add your handling code here:
+            MissionControllerUV.stopConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bt_stopConnectionActionPerformed
+
+    private void jButtonStabilizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStabilizeActionPerformed
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Stabilize mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestStateChange("Stabilize");;
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_jButtonStabilizeActionPerformed
+
    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_startConnection;
+    public javax.swing.JButton bt_startConnection;
+    public javax.swing.JButton bt_stopConnection;
+    public javax.swing.JButton jButtonAltHold;
     public javax.swing.JButton jButtonControlA;
     public javax.swing.JButton jButtonControlB;
     public javax.swing.JButton jButtonControlBack;
@@ -457,19 +675,31 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton jButtonControlStart;
     public javax.swing.JButton jButtonControlX;
     public javax.swing.JButton jButtonControlY;
+    public javax.swing.JButton jButtonLoiter;
+    public javax.swing.JButton jButtonStabilize;
+    public javax.swing.JButton jButtonStabilize3;
+    public javax.swing.JButton jButtonStabilize4;
+    public javax.swing.JButton jButtonStabilize5;
+    private javax.swing.JComboBox<String> jComboBoxQuadList;
     private javax.swing.JComboBox<String> jComboBox_controllers;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabelDPad;
     private javax.swing.JLabel jLabelTitleComm;
     private javax.swing.JLabel jLabelTitleController;
+    private javax.swing.JLabel jLabelUVlogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelComm;
     private javax.swing.JPanel jPanelMission;
+    private javax.swing.JPanel jPanelModes;
     private javax.swing.JPanel jPanelTests;
     public javax.swing.JProgressBar jProgressBarX;
     public javax.swing.JProgressBar jProgressBarY;
@@ -477,6 +707,10 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JProgressBar jProgressBarZrot;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     public javax.swing.JTextField jTF_ip1;
     private javax.swing.JTabbedPane jTabbed1;
     public javax.swing.JTextArea jTextAreaConsole;
