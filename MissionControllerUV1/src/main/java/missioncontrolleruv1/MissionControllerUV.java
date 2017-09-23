@@ -37,15 +37,15 @@ public class MissionControllerUV {
     }
     
     public static void startConnection(){
-        communication.startConnection(); 
+        communication.startConnection("1");
     }
     
     public static void stopConnection() throws IOException{
-        communication.closeCommunication();
+        communication.closeCommunication("1");
     }
     
     public static void requestStateChange(String state) throws IOException{
-        communication.requestStateChange(state);
+        communication.requestModeChange("1",state);
     }
 
 }
