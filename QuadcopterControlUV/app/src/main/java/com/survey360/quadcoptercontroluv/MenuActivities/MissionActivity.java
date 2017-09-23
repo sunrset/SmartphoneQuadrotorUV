@@ -9,6 +9,8 @@ import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -21,6 +23,9 @@ public class MissionActivity extends AppCompatActivity {
     double t;
     float Ts = (float) 0.01;
 
+    public static String flightMode = "AltHold";
+    public static List<float[]> waypointsList1 = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,10 @@ public class MissionActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         mDataExchange.startTCPserver();
+    }
+
+    public static void changeFlightMode(String mode){
+        flightMode = mode;
     }
 
     private void startMission(){

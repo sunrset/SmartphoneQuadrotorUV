@@ -7,6 +7,8 @@ package com.survey360.quadcoptercontroluv.Utils.Communication;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
+
 import java.io.*;
 import java.net.*;
 
@@ -76,15 +78,27 @@ public class DataExchange {
                 responseSentence = received + '\n';
 
                 try {
-                    if(receivedData[0].equals("wy")){
+                    if(receivedData[1].equals("0")){ // Started Connection
+                        verifyConnectionStarted(receivedData[0]);
+                    }
+                    else if(receivedData[1].equals("!0")){ // End connection query
+                        stopTCPserver();
+                    }
+                    else if(receivedData[1].equals("wy")){ // Waypoint received
                         decodeWaypoints(receivedData);
-                        outToClient.writeBytes("wys"+'\n');
                     }
-                    else if(receivedData[0].equals("0")){
-                        outToClient.writeBytes("0"+'\n');
+                    else if(receivedData[1].equals("state")){ // Quadrotor state query
+                        sendState(receivedData[0]);
                     }
-                    if(receivedData[0].equals("state")){
-                        outToClient.writeBytes("state,843211.10,1062939.204,1930.204,85,74"+'\n');
+                    else if(receivedData[1].equals("mode")){ // Requested flight mode change
+                        changeFlightMode(receivedData[2]);
+                    }
+                    else if(receivedData[1].equals("rc")){ // RC controller commands received
+                        decodeRCframe(receivedData);
+                    }
+                    else if(receivedData[1].equals("rcstate")){ // RC controller commands received, quadrotor state query
+                        decodeRCframe(receivedData);
+                        sendState(receivedData[0]);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -95,9 +109,48 @@ public class DataExchange {
         decodeFrame.start();
     }
 
-    private void decodeWaypoints(String[] receivedFrame){
-        System.out.println("North: "+Float.valueOf(receivedFrame[1]));
-        System.out.println("East: "+Float.valueOf(receivedFrame[2]));
-        System.out.println("Elevation: "+Float.valueOf(receivedFrame[3]));
+    private void decodeWaypoints(String[] receivedFrame) throws IOException {
+        outToClient.writeBytes(receivedData[0]+",wys"+'\n');
+        int wp_id =  Integer.parseInt(receivedFrame[2]) - 1;
+        float wp_north = Float.valueOf(receivedFrame[3]);
+        float wp_east = Float.valueOf(receivedFrame[4]);
+        float wp_elevation = Float.valueOf(receivedFrame[5]);
+        float wp_yaw = Float.valueOf(receivedFrame[6]);
+        System.out.println("Waypoint number: "+wp_id);
+        System.out.println("North: "+wp_north);
+        System.out.println("East: "+wp_east);
+        System.out.println("Elevation: "+wp_elevation);
+        System.out.println("Yaw: "+wp_yaw);
+        if(MissionActivity.waypointsList1.size()<=wp_id) {
+            MissionActivity.waypointsList1.add(new float[]{wp_north, wp_east, wp_elevation, wp_yaw});
+        }
+        else{
+            MissionActivity.waypointsList1.set(wp_id,new float[]{wp_north, wp_east, wp_elevation, wp_yaw});
+        }
     }
+
+    private void resetWaypoints(String id){
+        if(id.equals("1")) {
+            MissionActivity.waypointsList1.clear();
+        }
+    }
+
+    private void changeFlightMode(String mode) throws IOException {
+        MissionActivity.changeFlightMode(mode);
+        outToClient.writeBytes(receivedData[0]+",mode,"+receivedData[2]+'\n');
+    }
+
+    private void verifyConnectionStarted(String id) throws IOException {
+        outToClient.writeBytes(id+",0"+'\n');
+    }
+
+    private void sendState(String id) throws IOException {
+        outToClient.writeBytes(id+",state,843211.10,1062939.204,1930.204,0,85,74"+'\n');
+    }
+
+    private void decodeRCframe(String[] receivedFrame){
+
+    }
+
+
 }
