@@ -33,7 +33,7 @@ public class MissionControllerUV {
    
     public MissionControllerUV () {      
         //constructor
-        
+        //window.tf_currentflightmode.setText("");
     }
     
     public static void startConnection(){
@@ -44,7 +44,7 @@ public class MissionControllerUV {
         communication.closeCommunication("1");
     }
     
-    public static void requestStateChange(String state) throws IOException{
+    public static void requestModeChange(String state) throws IOException{
         communication.requestModeChange("1",state);
     }
 

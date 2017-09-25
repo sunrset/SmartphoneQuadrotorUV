@@ -5,15 +5,25 @@
  */
 package missioncontrolleruv1;
 
+import java.awt.BorderLayout;
+import java.util.List;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+//import org.jxmapviewer.*;
+import org.jdesktop.swingx.JXMapKit;
+import org.jdesktop.swingx.JXMapViewer;
+import org.jdesktop.swingx.mapviewer.DefaultWaypoint;
+import org.jdesktop.swingx.mapviewer.Waypoint;
+import org.jdesktop.swingx.mapviewer.WaypointPainter;
 /**
  *
  * @author Asus
  */
+
 public class MissionGUI extends javax.swing.JFrame {
 
     /**
@@ -29,6 +39,19 @@ public class MissionGUI extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
+        //List<DefaultWaypoint> waypoints = new ArrayList<DefaultWaypoint>();
+        //waypoints.add(new DefaultWaypoint(51.5, 0));
+        
+        JXMapKit mapkit = new JXMapKit();
+        mapkit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps);
+        //CustomPainter painter = new CustomPainter();
+        //painter.setWaypoints(waypoints);
+        //mapkit.getMainMap().setOverlayPainter(painter);
+
+        jPanelMap.setLayout(new BorderLayout());
+        jPanelMap.add(mapkit, BorderLayout.CENTER);
+                
     }
 
     /**
@@ -44,25 +67,33 @@ public class MissionGUI extends javax.swing.JFrame {
         jTabbed1 = new javax.swing.JTabbedPane();
         jPanelMission = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaConsole = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         bt_startConnection = new javax.swing.JButton();
         bt_stopConnection = new javax.swing.JButton();
         jTF_ip1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxQuadList = new javax.swing.JComboBox<>();
+        cb_QuadList = new javax.swing.JComboBox<>();
         jPanelModes = new javax.swing.JPanel();
-        jButtonStabilize = new javax.swing.JButton();
+        bt_stabilizeMode = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        jButtonAltHold = new javax.swing.JButton();
-        jButtonLoiter = new javax.swing.JButton();
-        jButtonStabilize3 = new javax.swing.JButton();
-        jButtonStabilize4 = new javax.swing.JButton();
-        jButtonStabilize5 = new javax.swing.JButton();
+        bt_AltHoldMode = new javax.swing.JButton();
+        bt_RTLmode = new javax.swing.JButton();
+        bt_AutoMode = new javax.swing.JButton();
+        bt_LandMode = new javax.swing.JButton();
+        bt_LoiterMode = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaConsole = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        tf_currentflightmode = new javax.swing.JLabel();
+        bt_clearConsole = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
+        jPanelMap = new javax.swing.JPanel();
+        jPanelIndicators = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
         jPanelComm = new javax.swing.JPanel();
         jLabelTitleComm = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -97,15 +128,6 @@ public class MissionGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextAreaConsole.setEditable(false);
-        jTextAreaConsole.setColumns(20);
-        jTextAreaConsole.setLineWrap(true);
-        jTextAreaConsole.setRows(5);
-        jTextAreaConsole.setFocusable(false);
-        jTextAreaConsole.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(jTextAreaConsole);
-        jTextAreaConsole.getAccessibleContext().setAccessibleParent(jTextAreaConsole);
-
         bt_startConnection.setText("<html><center>Establish<br />Connection</center></html>");
         bt_startConnection.setFocusPainted(false);
         bt_startConnection.setFocusable(false);
@@ -119,6 +141,7 @@ public class MissionGUI extends javax.swing.JFrame {
         });
 
         bt_stopConnection.setText("<html><center>Stop<br />Connection</center></html>");
+        bt_stopConnection.setEnabled(false);
         bt_stopConnection.setFocusPainted(false);
         bt_stopConnection.setFocusable(false);
         bt_stopConnection.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -135,17 +158,18 @@ public class MissionGUI extends javax.swing.JFrame {
 
         jLabel1.setText("IP address");
 
-        jComboBoxQuadList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quadrotor 1" }));
+        cb_QuadList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quadrotor 1" }));
 
-        jButtonStabilize.setText("<html><center>Stabilize</center></html>");
-        jButtonStabilize.setFocusable(false);
-        jButtonStabilize.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonStabilize.setMaximumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize.setMinimumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize.setPreferredSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize.addActionListener(new java.awt.event.ActionListener() {
+        bt_stabilizeMode.setText("<html><center>Stabilize</center></html>");
+        bt_stabilizeMode.setEnabled(false);
+        bt_stabilizeMode.setFocusable(false);
+        bt_stabilizeMode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_stabilizeMode.setMaximumSize(new java.awt.Dimension(69, 23));
+        bt_stabilizeMode.setMinimumSize(new java.awt.Dimension(69, 23));
+        bt_stabilizeMode.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_stabilizeMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStabilizeActionPerformed(evt);
+                bt_stabilizeModeActionPerformed(evt);
             }
         });
 
@@ -159,37 +183,65 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabel8.setMinimumSize(new java.awt.Dimension(69, 14));
         jLabel8.setPreferredSize(new java.awt.Dimension(69, 14));
 
-        jButtonAltHold.setText("<html><center>Altitude<br />Hold</center></html>");
-        jButtonAltHold.setFocusPainted(false);
-        jButtonAltHold.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonAltHold.setPreferredSize(new java.awt.Dimension(69, 37));
+        bt_AltHoldMode.setText("<html><center>Altitude<br />Hold</center></html>");
+        bt_AltHoldMode.setEnabled(false);
+        bt_AltHoldMode.setFocusPainted(false);
+        bt_AltHoldMode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_AltHoldMode.setPreferredSize(new java.awt.Dimension(69, 37));
+        bt_AltHoldMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AltHoldModeActionPerformed(evt);
+            }
+        });
 
-        jButtonLoiter.setText("Loiter");
-        jButtonLoiter.setFocusable(false);
-        jButtonLoiter.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonLoiter.setMaximumSize(new java.awt.Dimension(69, 23));
-        jButtonLoiter.setMinimumSize(new java.awt.Dimension(69, 23));
-        jButtonLoiter.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_RTLmode.setText("<html><center>RTL</center></html>");
+        bt_RTLmode.setEnabled(false);
+        bt_RTLmode.setFocusable(false);
+        bt_RTLmode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_RTLmode.setMaximumSize(new java.awt.Dimension(69, 23));
+        bt_RTLmode.setMinimumSize(new java.awt.Dimension(69, 23));
+        bt_RTLmode.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_RTLmode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_RTLmodeActionPerformed(evt);
+            }
+        });
 
-        jButtonStabilize3.setText("RTL");
-        jButtonStabilize3.setFocusable(false);
-        jButtonStabilize3.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonStabilize3.setMaximumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize3.setMinimumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize3.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_AutoMode.setText("<html><center>Auto</center></html>");
+        bt_AutoMode.setEnabled(false);
+        bt_AutoMode.setFocusable(false);
+        bt_AutoMode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_AutoMode.setMinimumSize(new java.awt.Dimension(69, 23));
+        bt_AutoMode.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_AutoMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AutoModeActionPerformed(evt);
+            }
+        });
 
-        jButtonStabilize4.setText("<html><center>Auto</center></html>");
-        jButtonStabilize4.setFocusable(false);
-        jButtonStabilize4.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonStabilize4.setMinimumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize4.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_LandMode.setText("<html><center>Land</center></html>");
+        bt_LandMode.setEnabled(false);
+        bt_LandMode.setFocusable(false);
+        bt_LandMode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_LandMode.setMaximumSize(new java.awt.Dimension(69, 23));
+        bt_LandMode.setMinimumSize(new java.awt.Dimension(69, 23));
+        bt_LandMode.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_LandMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_LandModeActionPerformed(evt);
+            }
+        });
 
-        jButtonStabilize5.setText("<html><center>Land</center></html>");
-        jButtonStabilize5.setFocusable(false);
-        jButtonStabilize5.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jButtonStabilize5.setMaximumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize5.setMinimumSize(new java.awt.Dimension(69, 23));
-        jButtonStabilize5.setPreferredSize(new java.awt.Dimension(69, 23));
+        bt_LoiterMode.setText("<html><center>Loiter</center></html>");
+        bt_LoiterMode.setEnabled(false);
+        bt_LoiterMode.setFocusPainted(false);
+        bt_LoiterMode.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_LoiterMode.setPreferredSize(new java.awt.Dimension(69, 37));
+        bt_LoiterMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_LoiterModeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelModesLayout = new javax.swing.GroupLayout(jPanelModes);
         jPanelModes.setLayout(jPanelModesLayout);
@@ -201,18 +253,18 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelModesLayout.createSequentialGroup()
                         .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonStabilize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonStabilize3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(bt_stabilizeMode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bt_RTLmode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelModesLayout.createSequentialGroup()
-                                .addComponent(jButtonStabilize4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt_AutoMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonStabilize5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(bt_LandMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelModesLayout.createSequentialGroup()
-                                .addComponent(jButtonAltHold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonLoiter, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(bt_AltHoldMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bt_LoiterMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator5))
@@ -226,17 +278,37 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonStabilize, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonLoiter, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonAltHold, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bt_stabilizeMode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_LoiterMode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_AltHoldMode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonStabilize3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonStabilize5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonStabilize4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_AutoMode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelModesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bt_RTLmode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bt_LandMode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jTextAreaConsole.setEditable(false);
+        jTextAreaConsole.setColumns(20);
+        jTextAreaConsole.setLineWrap(true);
+        jTextAreaConsole.setRows(5);
+        jTextAreaConsole.setFocusable(false);
+        jTextAreaConsole.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(jTextAreaConsole);
+        jTextAreaConsole.getAccessibleContext().setAccessibleParent(jTextAreaConsole);
+
+        jLabel9.setText("Current Flight Mode: ");
+
+        tf_currentflightmode.setText("-");
+
+        bt_clearConsole.setText("Clear");
+        bt_clearConsole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_clearConsoleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -246,33 +318,58 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addGap(2, 2, 2)
+                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBoxQuadList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
+                        .addComponent(cb_QuadList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelModes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_currentflightmode, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(bt_clearConsole)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelModes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxQuadList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_stopConnection)
-                    .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap())
-            .addComponent(jPanelModes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(tf_currentflightmode))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_QuadList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bt_stopConnection)
+                            .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(bt_clearConsole))
+                            .addComponent(jScrollPane1))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -281,33 +378,81 @@ public class MissionGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, Short.MAX_VALUE)
         );
+
+        jPanel4.setMaximumSize(new java.awt.Dimension(266, 404));
+        jPanel4.setMinimumSize(new java.awt.Dimension(266, 404));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 404, Short.MAX_VALUE)
+        );
+
+        jPanelMap.setMinimumSize(new java.awt.Dimension(658, 404));
+
+        jPanelIndicators.setMaximumSize(new java.awt.Dimension(201, 404));
+        jPanelIndicators.setMinimumSize(new java.awt.Dimension(201, 404));
+        jPanelIndicators.setRequestFocusEnabled(false);
+
+        javax.swing.GroupLayout jPanelIndicatorsLayout = new javax.swing.GroupLayout(jPanelIndicators);
+        jPanelIndicators.setLayout(jPanelIndicatorsLayout);
+        jPanelIndicatorsLayout.setHorizontalGroup(
+            jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+        jPanelIndicatorsLayout.setVerticalGroup(
+            jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 404, Short.MAX_VALUE)
+        );
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         javax.swing.GroupLayout jPanelMissionLayout = new javax.swing.GroupLayout(jPanelMission);
         jPanelMission.setLayout(jPanelMissionLayout);
         jPanelMissionLayout.setHorizontalGroup(
             jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMissionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator2)
+                .addContainerGap())
+            .addGroup(jPanelMissionLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelIndicators, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelMissionLayout.setVerticalGroup(
             jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMissionLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelMissionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelMap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelIndicators, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator7)))
         );
 
         jTabbed1.addTab("Mission Control", jPanelMission);
@@ -566,7 +711,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabelTitleComm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 451, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -587,11 +732,11 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelTests.setLayout(jPanelTestsLayout);
         jPanelTestsLayout.setHorizontalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1138, Short.MAX_VALUE)
+            .addGap(0, 1201, Short.MAX_VALUE)
         );
         jPanelTestsLayout.setVerticalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGap(0, 535, Short.MAX_VALUE)
         );
 
         jTabbed1.addTab("Tests", jPanelTests);
@@ -604,7 +749,7 @@ public class MissionGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbed1)
+            .addComponent(jTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelUVlogo)
@@ -629,18 +774,34 @@ public class MissionGUI extends javax.swing.JFrame {
     private void bt_startConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_startConnectionActionPerformed
         // TODO add your handling code here:
         MissionControllerUV.startConnection();
+        bt_startConnection.setEnabled(false);
+        bt_stopConnection.setEnabled(true);
+        bt_LoiterMode.setEnabled(true);
+        bt_RTLmode.setEnabled(true);
+        bt_AltHoldMode.setEnabled(true);
+        bt_LandMode.setEnabled(true);
+        bt_stabilizeMode.setEnabled(true);
+        bt_AutoMode.setEnabled(true);
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
     private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
         try {
             // TODO add your handling code here:
             MissionControllerUV.stopConnection();
+            bt_startConnection.setEnabled(true);
+            bt_stopConnection.setEnabled(false);
+            bt_LoiterMode.setEnabled(false);
+            bt_RTLmode.setEnabled(false);
+            bt_AltHoldMode.setEnabled(false);
+            bt_LandMode.setEnabled(false);
+            bt_stabilizeMode.setEnabled(false);
+            bt_AutoMode.setEnabled(false);
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bt_stopConnectionActionPerformed
 
-    private void jButtonStabilizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStabilizeActionPerformed
+    private void bt_stabilizeModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stabilizeModeActionPerformed
         int selectedOption = JOptionPane.showConfirmDialog(null, 
                                   "Do you want to select Stabilize mode?", 
                                   "Choose", 
@@ -648,74 +809,98 @@ public class MissionGUI extends javax.swing.JFrame {
         if (selectedOption == JOptionPane.YES_OPTION) {
             try {
                 // TODO add your handling code here:
-                MissionControllerUV.requestStateChange("Stabilize");;
+                MissionControllerUV.requestModeChange("Stabilize");
             } catch (IOException ex) {
                 Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
-    }//GEN-LAST:event_jButtonStabilizeActionPerformed
+    }//GEN-LAST:event_bt_stabilizeModeActionPerformed
 
-   
-    
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton bt_startConnection;
-    public javax.swing.JButton bt_stopConnection;
-    public javax.swing.JButton jButtonAltHold;
-    public javax.swing.JButton jButtonControlA;
-    public javax.swing.JButton jButtonControlB;
-    public javax.swing.JButton jButtonControlBack;
-    public javax.swing.JButton jButtonControlLB;
-    public javax.swing.JButton jButtonControlLJ;
-    public javax.swing.JButton jButtonControlLT;
-    public javax.swing.JButton jButtonControlRB;
-    public javax.swing.JButton jButtonControlRJ;
-    public javax.swing.JButton jButtonControlRT;
-    public javax.swing.JButton jButtonControlStart;
-    public javax.swing.JButton jButtonControlX;
-    public javax.swing.JButton jButtonControlY;
-    public javax.swing.JButton jButtonLoiter;
-    public javax.swing.JButton jButtonStabilize;
-    public javax.swing.JButton jButtonStabilize3;
-    public javax.swing.JButton jButtonStabilize4;
-    public javax.swing.JButton jButtonStabilize5;
-    private javax.swing.JComboBox<String> jComboBoxQuadList;
-    private javax.swing.JComboBox<String> jComboBox_controllers;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    public javax.swing.JLabel jLabelDPad;
-    private javax.swing.JLabel jLabelTitleComm;
-    private javax.swing.JLabel jLabelTitleController;
-    private javax.swing.JLabel jLabelUVlogo;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelComm;
-    private javax.swing.JPanel jPanelMission;
-    private javax.swing.JPanel jPanelModes;
-    private javax.swing.JPanel jPanelTests;
-    public javax.swing.JProgressBar jProgressBarX;
-    public javax.swing.JProgressBar jProgressBarY;
-    public javax.swing.JProgressBar jProgressBarZ;
-    public javax.swing.JProgressBar jProgressBarZrot;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    public javax.swing.JTextField jTF_ip1;
-    private javax.swing.JTabbedPane jTabbed1;
-    public javax.swing.JTextArea jTextAreaConsole;
-    // End of variables declaration//GEN-END:variables
-    
+    private void bt_AltHoldModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AltHoldModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Altitude Hold mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("AltHold");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_AltHoldModeActionPerformed
+
+    private void bt_LoiterModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LoiterModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Loiter mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Loiter");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_LoiterModeActionPerformed
+
+    private void bt_RTLmodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RTLmodeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Return To Launch mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("RTL");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_RTLmodeActionPerformed
+
+    private void bt_AutoModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AutoModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Auto mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Auto");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_AutoModeActionPerformed
+
+    private void bt_LandModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LandModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to select Land mode?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Land");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_LandModeActionPerformed
+
+    private void bt_clearConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearConsoleActionPerformed
+        // TODO add your handling code here:
+        jTextAreaConsole.setText(null);
+    }//GEN-LAST:event_bt_clearConsoleActionPerformed
+
     public void addControllerName(String controllerName){
         jComboBox_controllers.addItem(controllerName);
     }
@@ -728,4 +913,71 @@ public class MissionGUI extends javax.swing.JFrame {
         jComboBox_controllers.removeAllItems();
         jComboBox_controllers.addItem("Controller disconnected!");
     }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bt_AltHoldMode;
+    public javax.swing.JButton bt_AutoMode;
+    public javax.swing.JButton bt_LandMode;
+    public javax.swing.JButton bt_LoiterMode;
+    public javax.swing.JButton bt_RTLmode;
+    private javax.swing.JButton bt_clearConsole;
+    public javax.swing.JButton bt_stabilizeMode;
+    public javax.swing.JButton bt_startConnection;
+    public javax.swing.JButton bt_stopConnection;
+    private javax.swing.JComboBox<String> cb_QuadList;
+    public javax.swing.JButton jButtonControlA;
+    public javax.swing.JButton jButtonControlB;
+    public javax.swing.JButton jButtonControlBack;
+    public javax.swing.JButton jButtonControlLB;
+    public javax.swing.JButton jButtonControlLJ;
+    public javax.swing.JButton jButtonControlLT;
+    public javax.swing.JButton jButtonControlRB;
+    public javax.swing.JButton jButtonControlRJ;
+    public javax.swing.JButton jButtonControlRT;
+    public javax.swing.JButton jButtonControlStart;
+    public javax.swing.JButton jButtonControlX;
+    public javax.swing.JButton jButtonControlY;
+    private javax.swing.JComboBox<String> jComboBox_controllers;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabelDPad;
+    private javax.swing.JLabel jLabelTitleComm;
+    private javax.swing.JLabel jLabelTitleController;
+    private javax.swing.JLabel jLabelUVlogo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelComm;
+    private javax.swing.JPanel jPanelIndicators;
+    private javax.swing.JPanel jPanelMap;
+    private javax.swing.JPanel jPanelMission;
+    private javax.swing.JPanel jPanelModes;
+    private javax.swing.JPanel jPanelTests;
+    public javax.swing.JProgressBar jProgressBarX;
+    public javax.swing.JProgressBar jProgressBarY;
+    public javax.swing.JProgressBar jProgressBarZ;
+    public javax.swing.JProgressBar jProgressBarZrot;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    public javax.swing.JTextField jTF_ip1;
+    private javax.swing.JTabbedPane jTabbed1;
+    public javax.swing.JTextArea jTextAreaConsole;
+    public javax.swing.JLabel tf_currentflightmode;
+    // End of variables declaration//GEN-END:variables
+
 }
+

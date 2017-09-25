@@ -108,7 +108,8 @@ public class Communication {
                         System.out.println("Waypoint Set for Quadrotor "+receivedData[0]);
                     }
                     else if(receivedData[1].equals("mode")){
-                        System.out.println("Quadrotor "+receivedData[0]+" mode changed to: "+receivedData[2]);
+                        window.tf_currentflightmode.setText(receivedData[2]);
+                        jTextAreaConsole.append("Quadrotor "+receivedData[0]+" mode changed to: "+receivedData[2]+'\n');
                     }
                 System.out.println("timeellapsed: "+estimatedTime+" ms");               
             }
