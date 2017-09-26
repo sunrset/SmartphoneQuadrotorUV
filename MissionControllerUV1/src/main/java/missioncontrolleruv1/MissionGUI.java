@@ -6,32 +6,61 @@
 package missioncontrolleruv1;
 
 import java.awt.BorderLayout;
-import java.util.List;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-//import org.jxmapviewer.*;
-import org.jdesktop.swingx.JXMapKit;
-import org.jdesktop.swingx.JXMapViewer;
-import org.jdesktop.swingx.mapviewer.DefaultWaypoint;
-import org.jdesktop.swingx.mapviewer.Waypoint;
-import org.jdesktop.swingx.mapviewer.WaypointPainter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
+import missioncontrolleruv1.map.Proj4;
+import missioncontrolleruv1.map.RoutePainter;
+
+
+import org.jxmapviewer.JXMapViewer;
+import org.jxmapviewer.JXMapKit;
+import org.jxmapviewer.viewer.GeoPosition;
+import org.jxmapviewer.viewer.WaypointPainter;
+import org.jxmapviewer.input.MapClickListener;
+import org.jxmapviewer.viewer.DefaultWaypoint;
+import org.jxmapviewer.viewer.Waypoint;
+import org.jxmapviewer.painter.CompoundPainter;
+import org.jxmapviewer.painter.Painter;
+import org.osgeo.proj4j.ProjCoordinate;
+
 /**
  *
- * @author Asus
+ * @author Alejandro Astudillo V
  */
-
 public class MissionGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MissionGUI
      * 
      */
-    //public static MissionGUI missionGUI;
     MissionControllerUV missionControllerUV = new MissionControllerUV();
+    
+    JXMapKit mapkit;
+    JXMapViewer mapViewer;
+    List<GeoPosition> track;
+    RoutePainter routePainter;
+    Set<Waypoint> waypoints;
+    WaypointPainter<Waypoint> waypointPainter;
+    List<Painter<JXMapViewer>> painters;
+    CompoundPainter<JXMapViewer> painter;
+    
+    DecimalFormat df = new DecimalFormat("#.00"); 
+    Proj4 mProj4 = null;
+    ProjCoordinate p_result, p_in, converted_coord, converted_ellip;
+    List<double[]> magnaWaypoints;
+    public List<double[]> magnaWaypointsSet = new ArrayList(Arrays.asList());
+    public boolean waypointsSet = false;
     
     public MissionGUI() {
         initComponents();
@@ -40,20 +69,105 @@ public class MissionGUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         
-        //List<DefaultWaypoint> waypoints = new ArrayList<DefaultWaypoint>();
-        //waypoints.add(new DefaultWaypoint(51.5, 0));
+        initializeMap();
         
-        JXMapKit mapkit = new JXMapKit();
-        mapkit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps);
-        //CustomPainter painter = new CustomPainter();
-        //painter.setWaypoints(waypoints);
-        //mapkit.getMainMap().setOverlayPainter(painter);
-
-        jPanelMap.setLayout(new BorderLayout());
-        jPanelMap.add(mapkit, BorderLayout.CENTER);
-                
+        mProj4 = new Proj4();
+        p_in = new ProjCoordinate();
+        p_result = new ProjCoordinate();                       
     }
 
+    private void initializeMap(){
+       
+        final GeoPosition eiee_gp = new GeoPosition(3.3744, -76.5331); 
+        mapkit = new JXMapKit();
+        mapViewer = mapkit.getMainMap();
+        mapkit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps);
+        mapkit.setCenterPosition(eiee_gp);
+        mapkit.setZoom(3);
+               
+        jPanelMap.setLayout(new BorderLayout());
+        jPanelMap.add(mapkit, BorderLayout.CENTER);
+
+        mapViewer.addMouseListener(new MapClickListener(mapViewer) {
+            @Override
+            public void mapClicked(GeoPosition gp) {
+                if(!waypointsSet){
+                    addWaypoint(gp);
+                    drawWaypointsAndRoute();
+                }
+            }
+        });
+        // Create a track from the geo-positions
+        //track = Arrays.asList(cancha1_CENTER, cancha1_NW, cancha1_SW, cancha1_SE, cancha1_NE);
+        track = new ArrayList(Arrays.asList());
+        magnaWaypoints = new ArrayList(Arrays.asList());
+            
+        // Create waypoints from the geo-positions
+        waypoints = new HashSet<>(Arrays.asList());
+        /*waypoints = new HashSet<>(Arrays.asList(
+                        new DefaultWaypoint(cancha1_CENTER),
+                        new DefaultWaypoint(cancha1_NW)
+                        ,new DefaultWaypoint(cancha1_SW)
+                        //,new DefaultWaypoint(cancha1_SE)
+                        //,new DefaultWaypoint(cancha1_NE)
+        ));*/
+        //drawWaypointsAndRoute();
+    }
+    
+    private void addWaypoint(GeoPosition wy_coord){
+        waypoints.add(new DefaultWaypoint(wy_coord));
+        track.add(wy_coord);
+        double lat = wy_coord.getLatitude();
+        double lon = wy_coord.getLongitude();
+        converted_coord = convertCoordinates(lon, lat);
+        magnaWaypoints.add(new double[]{converted_coord.x,converted_coord.y});
+        String coord = "E: "+df.format(converted_coord.x)+" m; N: "+df.format(converted_coord.y)+" m";
+        int size = track.size();
+        try {
+            appendString(size+": "+coord+'\n');
+        } catch (BadLocationException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void drawWaypointsAndRoute(){
+        routePainter = new RoutePainter(track);
+        // Create a waypoint painter that takes all the waypoints
+        waypointPainter = new WaypointPainter<>();
+        waypointPainter.setWaypoints(waypoints);
+
+        // Create a compound painter that uses both the route-painter and the waypoint-painter
+        painters = new ArrayList<>();
+        painters.add(routePainter);
+        painters.add(waypointPainter);
+
+        painter = new CompoundPainter<>(painters);
+        mapViewer.setOverlayPainter(painter);
+    }
+
+    public void appendString(String str) throws BadLocationException{
+        StyledDocument document = (StyledDocument) jTextPaneWaypoints.getDocument();
+        document.insertString(document.getLength(), str, null);
+                                                       // ^ or your style attribute  
+    }
+    
+    public ProjCoordinate convertCoordinates(double coord_x, double coord_y){
+        p_in.x = coord_x;
+        p_in.y = coord_y;
+
+        p_result = mProj4.TransformCoordinates(p_in, mProj4.crsWGS84, mProj4.crsMagnaSirgasWest);
+
+        return p_result;
+    }
+    
+    public ProjCoordinate convertToEllipCoordinates(double coord_x, double coord_y){
+        p_in.x = coord_x;
+        p_in.y = coord_y;
+
+        p_result = mProj4.TransformCoordinates(p_in, mProj4.crsMagnaSirgasWest, mProj4.crsWGS84);
+
+        return p_result;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,6 +204,11 @@ public class MissionGUI extends javax.swing.JFrame {
         bt_clearConsole = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPaneWaypoints = new javax.swing.JTextPane();
+        jLabel10 = new javax.swing.JLabel();
+        bt_updateWaypoints = new javax.swing.JButton();
+        bt_setWaypoints = new javax.swing.JButton();
         jPanelMap = new javax.swing.JPanel();
         jPanelIndicators = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -304,6 +423,7 @@ public class MissionGUI extends javax.swing.JFrame {
         tf_currentflightmode.setText("-");
 
         bt_clearConsole.setText("Clear");
+        bt_clearConsole.setFocusable(false);
         bt_clearConsole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_clearConsoleActionPerformed(evt);
@@ -321,7 +441,7 @@ public class MissionGUI extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
-                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(jTF_ip1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -330,17 +450,19 @@ public class MissionGUI extends javax.swing.JFrame {
                         .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelModes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tf_currentflightmode, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bt_clearConsole)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,9 +498,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,15 +508,60 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanel4.setMaximumSize(new java.awt.Dimension(266, 404));
         jPanel4.setMinimumSize(new java.awt.Dimension(266, 404));
 
+        jScrollPane2.setViewportView(jTextPaneWaypoints);
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Waypoints");
+        jLabel10.setMaximumSize(new java.awt.Dimension(69, 14));
+        jLabel10.setMinimumSize(new java.awt.Dimension(69, 14));
+        jLabel10.setPreferredSize(new java.awt.Dimension(69, 14));
+
+        bt_updateWaypoints.setText("Update");
+        bt_updateWaypoints.setFocusable(false);
+        bt_updateWaypoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_updateWaypointsActionPerformed(evt);
+            }
+        });
+
+        bt_setWaypoints.setText("Set");
+        bt_setWaypoints.setFocusable(false);
+        bt_setWaypoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_setWaypointsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(bt_updateWaypoints)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_setWaypoints, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_setWaypoints)
+                    .addComponent(bt_updateWaypoints))
+                .addContainerGap())
         );
 
         jPanelMap.setMinimumSize(new java.awt.Dimension(658, 404));
@@ -409,7 +574,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelIndicators.setLayout(jPanelIndicatorsLayout);
         jPanelIndicatorsLayout.setHorizontalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 222, Short.MAX_VALUE)
         );
         jPanelIndicatorsLayout.setVerticalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,7 +596,7 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanelMissionLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -711,7 +876,7 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanelCommLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabelTitleComm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -732,7 +897,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelTests.setLayout(jPanelTestsLayout);
         jPanelTestsLayout.setHorizontalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
+            .addGap(0, 1148, Short.MAX_VALUE)
         );
         jPanelTestsLayout.setVerticalGroup(
             jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,7 +914,7 @@ public class MissionGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
+            .addComponent(jTabbed1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelUVlogo)
@@ -782,6 +947,7 @@ public class MissionGUI extends javax.swing.JFrame {
         bt_LandMode.setEnabled(true);
         bt_stabilizeMode.setEnabled(true);
         bt_AutoMode.setEnabled(true);
+        jTextPaneWaypoints.setEnabled(true);
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
     private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
@@ -901,6 +1067,52 @@ public class MissionGUI extends javax.swing.JFrame {
         jTextAreaConsole.setText(null);
     }//GEN-LAST:event_bt_clearConsoleActionPerformed
 
+    private void bt_updateWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateWaypointsActionPerformed
+        try {
+            // TODO add your handling code here:
+            waypoints.clear();
+            magnaWaypoints.clear();
+            track.clear();
+            
+            String waypointsDoc = jTextPaneWaypoints.getDocument().getText(0, jTextPaneWaypoints.getDocument().getLength());
+            jTextPaneWaypoints.setText("");
+            String[] wps = waypointsDoc.split("\n");
+            for(int i=0; i<=wps.length-1; i++){
+                String[] parts = wps[i].split(" ");
+                double east_coord = Double.parseDouble(parts[2]);
+                double north_coord = Double.parseDouble(parts[5]);
+                magnaWaypoints.add(new double[]{east_coord,north_coord});
+                System.out.println("East: "+east_coord+"; North: "+north_coord);
+                converted_ellip = convertToEllipCoordinates(east_coord, north_coord);
+                GeoPosition gp = new GeoPosition(converted_ellip.y,converted_ellip.x);
+                System.out.println("x: "+converted_ellip.x+", y: "+converted_ellip.y);
+                addWaypoint(gp);
+                drawWaypointsAndRoute();
+            }
+            jTextAreaConsole.append("Waypoints updated\n");
+        } catch (BadLocationException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bt_updateWaypointsActionPerformed
+
+    private void bt_setWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_setWaypointsActionPerformed
+        // TODO add your handling code here:
+        if(!waypointsSet){
+            magnaWaypointsSet = magnaWaypoints;
+            jTextAreaConsole.append("Waypoints set\n");
+            waypointsSet = true;
+            bt_updateWaypoints.setEnabled(!waypointsSet);
+            jTextPaneWaypoints.setFocusable(!waypointsSet);
+            bt_setWaypoints.setText("Edit");
+        }
+        else {
+            waypointsSet = false;
+            bt_updateWaypoints.setEnabled(!waypointsSet);
+            jTextPaneWaypoints.setFocusable(!waypointsSet);
+            bt_setWaypoints.setText("Set");
+        }
+    }//GEN-LAST:event_bt_setWaypointsActionPerformed
+
     public void addControllerName(String controllerName){
         jComboBox_controllers.addItem(controllerName);
     }
@@ -921,9 +1133,11 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton bt_LoiterMode;
     public javax.swing.JButton bt_RTLmode;
     private javax.swing.JButton bt_clearConsole;
+    private javax.swing.JButton bt_setWaypoints;
     public javax.swing.JButton bt_stabilizeMode;
     public javax.swing.JButton bt_startConnection;
     public javax.swing.JButton bt_stopConnection;
+    private javax.swing.JButton bt_updateWaypoints;
     private javax.swing.JComboBox<String> cb_QuadList;
     public javax.swing.JButton jButtonControlA;
     public javax.swing.JButton jButtonControlB;
@@ -939,6 +1153,7 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton jButtonControlY;
     private javax.swing.JComboBox<String> jComboBox_controllers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -966,6 +1181,7 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JProgressBar jProgressBarZ;
     public javax.swing.JProgressBar jProgressBarZrot;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -976,6 +1192,7 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JTextField jTF_ip1;
     private javax.swing.JTabbedPane jTabbed1;
     public javax.swing.JTextArea jTextAreaConsole;
+    public javax.swing.JTextPane jTextPaneWaypoints;
     public javax.swing.JLabel tf_currentflightmode;
     // End of variables declaration//GEN-END:variables
 
