@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -29,6 +30,8 @@ public class Communication {
     TemporizerComm mainThread;
     double t;
     float Ts = (float) 0.01;
+    public double quad_east;
+    public double quad_north;
     
     Socket connectionSocket = null;
     BufferedReader inFromClient = null;
@@ -43,9 +46,7 @@ public class Communication {
     Thread decodeFrame;
     
     public Communication(){
-        //jTextAreaConsole = window.jTextAreaConsole;
-        jTextAreaConsole = window.jTextAreaConsole;
-        
+        jTextAreaConsole = window.jTextAreaConsole;        
     }
     
     public void startConnection(String id){
@@ -55,8 +56,7 @@ public class Communication {
             sendToServer(id+",0");
             receiveFromServer();
             System.out.println("Connection Set with IP: "+ip_1);
-            sendWaypoint("1", 1, 865125.540f, 1060712.219f, 971.418f, 0f);
-            requestQuadrotorState("1");
+            //requestQuadrotorState("1");
         } catch (IOException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Connection with "+ip_1+ " was not set");
@@ -70,9 +70,6 @@ public class Communication {
         outToServer = new DataOutputStream(clientSocket.getOutputStream());
         startTime = System.nanoTime();
         outToServer.writeBytes(sentence + '\n');
-        //jTextAreaConsole.append(sentence);
-        //jTextAreaConsole.setText("sssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaw");
-        //jTextAreaConsole.setText(null);
     }
     
     public void receiveFromServer(){
@@ -135,6 +132,18 @@ public class Communication {
     public void sendWaypoint(String id, int waypointnumber, float north, float east, float elevation, float yaw) throws IOException{
         sendToServer(id+",wy,"+waypointnumber+","+north+","+east+","+elevation+","+yaw);
         receiveFromServer();
+    }
+    
+    public void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
+        float north_coord, east_coord;
+        int id;
+        for(int i=0; i<=(Waypoints.size()-1); i++){
+            north_coord = 0;
+            east_coord = 0;
+            id = 0;
+            sendWaypoint("1", id, north_coord, east_coord, elev, yaw);
+        }
+        //sendWaypoint("1", 1, 865125.540f, 1060712.219f, 971.418f, 0f);
     }
     
     public void requestQuadrotorState(String id) throws IOException{

@@ -6,6 +6,8 @@
 package missioncontrolleruv1;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
@@ -19,6 +21,8 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
+import missioncontrolleruv1.map.FancyWaypointRenderer;
+import missioncontrolleruv1.map.MyWaypoint;
 import missioncontrolleruv1.map.Proj4;
 import missioncontrolleruv1.map.RoutePainter;
 
@@ -32,6 +36,7 @@ import org.jxmapviewer.viewer.DefaultWaypoint;
 import org.jxmapviewer.viewer.Waypoint;
 import org.jxmapviewer.painter.CompoundPainter;
 import org.jxmapviewer.painter.Painter;
+import org.jxmapviewer.viewer.WaypointRenderer;
 import org.osgeo.proj4j.ProjCoordinate;
 
 /**
@@ -52,15 +57,19 @@ public class MissionGUI extends javax.swing.JFrame {
     RoutePainter routePainter;
     Set<Waypoint> waypoints;
     WaypointPainter<Waypoint> waypointPainter;
+    WaypointPainter<MyWaypoint> quadPainter;
     List<Painter<JXMapViewer>> painters;
     CompoundPainter<JXMapViewer> painter;
     
     DecimalFormat df = new DecimalFormat("#.00"); 
     Proj4 mProj4 = null;
-    ProjCoordinate p_result, p_in, converted_coord, converted_ellip;
+    ProjCoordinate p_result, p_in, converted_coord, converted_ellip, ellip_quad;
     List<double[]> magnaWaypoints;
     public List<double[]> magnaWaypointsSet = new ArrayList(Arrays.asList());
     public boolean waypointsSet = false;
+    //Set<Waypoint> quadPosition;
+    Set<MyWaypoint> quadPosition;
+    double quad_east, quad_north;
     
     public MissionGUI() {
         initComponents();
@@ -108,10 +117,27 @@ public class MissionGUI extends javax.swing.JFrame {
                         new DefaultWaypoint(cancha1_CENTER),
                         new DefaultWaypoint(cancha1_NW)
                         ,new DefaultWaypoint(cancha1_SW)
-                        //,new DefaultWaypoint(cancha1_SE)
-                        //,new DefaultWaypoint(cancha1_NE)
         ));*/
         //drawWaypointsAndRoute();
+    }
+    
+    public void quadPositionMark(double quad_east, double quad_north){
+        ellip_quad = convertToEllipCoordinates(quad_east+10*Math.random(), quad_north+10*Math.random());
+        quadPosition = new HashSet<MyWaypoint>(Arrays.asList(
+				new MyWaypoint("F", Color.ORANGE, new GeoPosition(ellip_quad.y, ellip_quad.x))
+				));
+        //quadPosition = new HashSet<>(Arrays.asList(new DefaultWaypoint(new GeoPosition(ellip_quad.y, ellip_quad.x))));
+        quadPainter = new WaypointPainter<>();
+        quadPainter.setWaypoints(quadPosition);
+        quadPainter.setRenderer(new FancyWaypointRenderer());
+        
+        painters = new ArrayList<>();
+        painters.add(routePainter);
+        painters.add(waypointPainter);
+        painters.add(quadPainter);
+
+        painter = new CompoundPainter<>(painters);
+        mapViewer.setOverlayPainter(painter);
     }
     
     private void addWaypoint(GeoPosition wy_coord){
@@ -168,6 +194,10 @@ public class MissionGUI extends javax.swing.JFrame {
 
         return p_result;
     }
+    
+    private void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
+        missionControllerUV.sendWaypointList(Waypoints, elev, yaw);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,6 +239,10 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         bt_updateWaypoints = new javax.swing.JButton();
         bt_setWaypoints = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tf_missionAltitude = new javax.swing.JTextField();
+        tf_missionYaw = new javax.swing.JTextField();
         jPanelMap = new javax.swing.JPanel();
         jPanelIndicators = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -532,6 +566,14 @@ public class MissionGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setText("Altitude");
+
+        jLabel12.setText("Azimuth");
+
+        tf_missionAltitude.setText("15");
+
+        tf_missionYaw.setText("0");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -549,6 +591,16 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bt_setWaypoints, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tf_missionYaw)
+                    .addComponent(tf_missionAltitude, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,8 +608,16 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_missionAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_missionYaw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_setWaypoints)
                     .addComponent(bt_updateWaypoints))
@@ -1065,6 +1125,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private void bt_clearConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearConsoleActionPerformed
         // TODO add your handling code here:
         jTextAreaConsole.setText(null);
+        quadPositionMark(1060638.15,864634.91);
     }//GEN-LAST:event_bt_clearConsoleActionPerformed
 
     private void bt_updateWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateWaypointsActionPerformed
@@ -1104,11 +1165,23 @@ public class MissionGUI extends javax.swing.JFrame {
             bt_updateWaypoints.setEnabled(!waypointsSet);
             jTextPaneWaypoints.setFocusable(!waypointsSet);
             bt_setWaypoints.setText("Edit");
+            tf_missionAltitude.setEnabled(!waypointsSet);
+            tf_missionYaw.setEnabled(!waypointsSet);
+            float missionAltitude = Float.valueOf(tf_missionAltitude.getText());
+            float missionYaw = Float.valueOf(tf_missionYaw.getText());
+            /*
+            try {
+                sendWaypointList(magnaWaypointsSet, missionAltitude, missionYaw);
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
         }
         else {
             waypointsSet = false;
             bt_updateWaypoints.setEnabled(!waypointsSet);
             jTextPaneWaypoints.setFocusable(!waypointsSet);
+            tf_missionAltitude.setEnabled(!waypointsSet);
+            tf_missionYaw.setEnabled(!waypointsSet);
             bt_setWaypoints.setText("Set");
         }
     }//GEN-LAST:event_bt_setWaypointsActionPerformed
@@ -1154,6 +1227,8 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_controllers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1194,6 +1269,8 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JTextArea jTextAreaConsole;
     public javax.swing.JTextPane jTextPaneWaypoints;
     public javax.swing.JLabel tf_currentflightmode;
+    public javax.swing.JTextField tf_missionAltitude;
+    public javax.swing.JTextField tf_missionYaw;
     // End of variables declaration//GEN-END:variables
 
 }

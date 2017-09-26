@@ -6,6 +6,7 @@
 package missioncontrolleruv1;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import missioncontrolleruv1.Communication.Communication;
@@ -46,6 +47,10 @@ public class MissionControllerUV {
     
     public static void requestModeChange(String state) throws IOException{
         communication.requestModeChange("1",state);
+    }
+    
+    public void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
+        communication.sendWaypointList(Waypoints, elev, yaw);
     }
 
 }
