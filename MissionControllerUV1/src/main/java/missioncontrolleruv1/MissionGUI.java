@@ -24,6 +24,7 @@ import javax.swing.text.StyledDocument;
 import missioncontrolleruv1.map.FancyWaypointRenderer;
 import missioncontrolleruv1.map.MyWaypoint;
 import missioncontrolleruv1.map.Proj4;
+import missioncontrolleruv1.map.QuadPositionRenderer;
 import missioncontrolleruv1.map.RoutePainter;
 
 
@@ -123,13 +124,13 @@ public class MissionGUI extends javax.swing.JFrame {
     
     public void quadPositionMark(double quad_east, double quad_north){
         ellip_quad = convertToEllipCoordinates(quad_east+10*Math.random(), quad_north+10*Math.random());
-        quadPosition = new HashSet<MyWaypoint>(Arrays.asList(
-				new MyWaypoint("F", Color.ORANGE, new GeoPosition(ellip_quad.y, ellip_quad.x))
+        quadPosition = new HashSet<>(Arrays.asList(
+				new MyWaypoint("", Color.YELLOW, new GeoPosition(ellip_quad.y, ellip_quad.x))
 				));
         //quadPosition = new HashSet<>(Arrays.asList(new DefaultWaypoint(new GeoPosition(ellip_quad.y, ellip_quad.x))));
         quadPainter = new WaypointPainter<>();
         quadPainter.setWaypoints(quadPosition);
-        quadPainter.setRenderer(new FancyWaypointRenderer());
+        quadPainter.setRenderer(new QuadPositionRenderer());
         
         painters = new ArrayList<>();
         painters.add(routePainter);
@@ -166,7 +167,9 @@ public class MissionGUI extends javax.swing.JFrame {
         painters = new ArrayList<>();
         painters.add(routePainter);
         painters.add(waypointPainter);
-
+        if(quadPainter!=null){
+            painters.add(quadPainter);
+        }
         painter = new CompoundPainter<>(painters);
         mapViewer.setOverlayPainter(painter);
     }
