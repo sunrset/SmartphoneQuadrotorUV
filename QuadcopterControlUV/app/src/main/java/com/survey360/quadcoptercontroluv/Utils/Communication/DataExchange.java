@@ -5,6 +5,7 @@ package com.survey360.quadcoptercontroluv.Utils.Communication;
  */
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
@@ -13,6 +14,8 @@ import java.io.*;
 import java.net.*;
 
 public class DataExchange {
+
+    int timeout = 0;
 
     Thread tcpServer, decodeFrame;
 
@@ -24,6 +27,10 @@ public class DataExchange {
     Socket connectionSocket1 = null;
     Context ctx;
 
+    long lastreceivedtime = 0, newreceivedtime = 0, ellapsedreceivedtime = 0;
+    boolean isCommWorking = false;
+    boolean commFailed = false;
+
     String[] receivedData;
 
     public DataExchange(Context context) throws IOException {
@@ -31,6 +38,8 @@ public class DataExchange {
     }
 
     public void startTCPserver() {
+        lastreceivedtime = System.nanoTime();
+        commFailed = false;
         tcpServer = new Thread() {
             @Override
             public void run() {
@@ -45,23 +54,31 @@ public class DataExchange {
             }
         };
         tcpServer.start();
-        Toast.makeText(ctx, "TCP Server Started", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ctx, "TCP Server Started", Toast.LENGTH_SHORT).show();
     }
 
     public void stopTCPserver() {
         tcpServer.interrupt();
-        Toast.makeText(ctx, "TCP Server Stopped", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ctx, "TCP Server Stopped", Toast.LENGTH_SHORT).show();
     }
 
     private void TCPserver(){
         try{
             //connectionSocket = welcomeSocket.accept();
-            inFromClient =
-                    new BufferedReader(new InputStreamReader(connectionSocket1.getInputStream()));
+            inFromClient = new BufferedReader(new InputStreamReader(connectionSocket1.getInputStream()));
             outToClient = new DataOutputStream(connectionSocket1.getOutputStream());
             clientSentence = null;
-            while((clientSentence = inFromClient.readLine()) == null){ }
-            //clientSentence = inFromClient.readLine();
+            //timeout = 0;
+            commFailed = false;
+            while((clientSentence = inFromClient.readLine()) == null){}
+            /*timeout++;
+            ellapsedreceivedtime = (System.nanoTime() - lastreceivedtime)/1000000; // ms
+            Log.e("error","read: "+clientSentence);
+            Log.e("error", "Timeout: " + timeout);
+            Log.e("error", "Time since last communication: " + ellapsedreceivedtime/1000 + " s");
+            if(timeout>=100){ Log.e("error","timeout to high"); }
+            if(ellapsedreceivedtime>=5000){ communicationFailed(); }
+            lastreceivedtime = System.nanoTime();*/
             decodeReceived(clientSentence);
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,6 +100,12 @@ public class DataExchange {
                     }
                     else if(receivedData[1].equals("!0")){ // End connection query
                         stopTCPserver();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        startTCPserver();
                     }
                     else if(receivedData[1].equals("wy")){ // Waypoint received
                         decodeWaypoints(receivedData);
@@ -136,6 +159,7 @@ public class DataExchange {
     }
 
     private void changeFlightMode(String mode) throws IOException {
+        // http://ardupilot.org/copter/docs/flight-modes.html
         MissionActivity.changeFlightMode(mode);
         outToClient.writeBytes(receivedData[0]+",mode,"+receivedData[2]+'\n');
     }
@@ -150,6 +174,13 @@ public class DataExchange {
 
     private void decodeRCframe(String[] receivedFrame){
 
+    }
+
+    private void communicationFailed(){
+        if(!commFailed) {
+            commFailed = true;
+            Log.e("error", "Communication failed. Time since last communication: " + ellapsedreceivedtime/1000 + " s");
+        }
     }
 
 

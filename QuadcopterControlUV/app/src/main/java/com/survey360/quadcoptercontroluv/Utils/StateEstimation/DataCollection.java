@@ -48,7 +48,7 @@ public class DataCollection implements SensorEventListener {
     public float[] earthAccVals = new float[4];
     public float[] orientationValsRad = new float[3];
     public float[] orientationValsDeg = new float[3];
-    public float absoluteElevation, baroElevation, elevationZero;
+    public float absoluteElevation = 0, baroElevation, elevationZero;
     private static final float ALTITUDE_SMOOTHING = 0.95f;
     public float[] speed = new float[3];
     public float pressure, rawAltitudeUnsmoothed;
@@ -57,9 +57,13 @@ public class DataCollection implements SensorEventListener {
     public long time1; // [nanoseconds].
     public boolean running = false;
 
-    public static final boolean USE_GPS = true;
     public double gps_latitude, gps_longitude, gps_altitude, gps_bearing, gps_accuracy, gps_speed, gps_time;
     public double conv_x, conv_y;
+
+    private float[] eAcc_1 = new float[4];
+    private float[] eAcc_2 = new float[4];
+    private float[] eAcc_3 = new float[4];
+    private float[] eAcc_4 = new float[4];
 
     public DataCollection(Context context){
 
@@ -139,6 +143,15 @@ public class DataCollection implements SensorEventListener {
             earthAccVals[3] = 0;
             android.opengl.Matrix.invertM(invRotationMatrix, 0, mRotationMatrix, 0);
             android.opengl.Matrix.multiplyMV(earthAccVals, 0, invRotationMatrix, 0, earthAccVals, 0);
+
+            earthAccVals[0] = (eAcc_1[0]+eAcc_2[0]+eAcc_3[0]+eAcc_4[0])/4;
+            earthAccVals[1] = (eAcc_1[1]+eAcc_2[1]+eAcc_3[1]+eAcc_4[1])/4;
+            earthAccVals[2] = (eAcc_1[2]+eAcc_2[2]+eAcc_3[2]+eAcc_4[2])/4;
+
+            eAcc_4 = eAcc_3;
+            eAcc_3 = eAcc_2;
+            eAcc_2 = eAcc_1;
+            eAcc_1 = earthAccVals;
         }
 
         else if(event.sensor == GyroSensor){
@@ -148,9 +161,15 @@ public class DataCollection implements SensorEventListener {
         else if(event.sensor == PressureSensor){
             pressure = event.values[0];
             rawAltitudeUnsmoothed = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure);
-            absoluteElevation = (absoluteElevation*ALTITUDE_SMOOTHING) + (rawAltitudeUnsmoothed*(1.0f-ALTITUDE_SMOOTHING));
+            if(absoluteElevation == 0){
+                absoluteElevation = rawAltitudeUnsmoothed;
+            }
+            else {
+                absoluteElevation = (absoluteElevation * ALTITUDE_SMOOTHING) + (rawAltitudeUnsmoothed * (1.0f - ALTITUDE_SMOOTHING));
+            }
             //baroElevation = absoluteElevation - elevationZero;
             baroElevation = absoluteElevation;
+            //baroElevation = rawAltitudeUnsmoothed;
         }
         getGPSData();
     }

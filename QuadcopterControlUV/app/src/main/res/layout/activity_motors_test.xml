@@ -9,8 +9,8 @@
     <FrameLayout
         android:layout_width="395dp"
         android:layout_height="667dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,12 +20,12 @@
                 android:id="@+id/tv_TextBPerc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/tb_TCPserver"
+                android:layout_alignStart="@+id/tv_TextBVolt"
                 android:layout_marginBottom="99dp"
                 android:text="Battery Percentage:"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_above="@+id/tb_TCPserver"
-                android:layout_alignStart="@+id/tv_TextBVolt" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_BatVolt"
@@ -42,36 +42,36 @@
                 android:id="@+id/tv_BatPercent"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:text="B_Percent"
-                android:textSize="20sp"
                 android:layout_alignBaseline="@+id/tv_TextBPerc"
                 android:layout_alignBottom="@+id/tv_TextBPerc"
-                android:layout_alignStart="@+id/tv_BatVolt" />
+                android:layout_alignStart="@+id/tv_BatVolt"
+                android:text="B_Percent"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_TextBVolt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:text="Battery Voltage:"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 android:layout_above="@+id/tv_TextBPerc"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="23dp" />
+                android:layout_marginBottom="14dp"
+                android:layout_marginStart="23dp"
+                android:text="Battery Voltage:"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ToggleButton
                 android:id="@+id/tb_TCPserver"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/sb_Motor4"
                 android:layout_marginBottom="56dp"
+                android:layout_marginStart="41dp"
                 android:checked="false"
                 android:text="Arm/Disarm"
                 android:textOff="Disarmed"
-                android:textOn="Armed"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/sb_Motor4"
-                android:layout_marginStart="41dp" />
+                android:textOn="Armed" />
 
             <ProgressBar
                 android:id="@+id/pb_BatPercent"
@@ -127,9 +127,9 @@
                 android:id="@+id/sb_Motor1"
                 android:layout_width="230dp"
                 android:layout_height="25dp"
+                android:layout_alignParentTop="true"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="64dp"
-                android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/tv_Motor1" />
 
             <SeekBar

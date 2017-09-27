@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
@@ -36,10 +37,12 @@ public class TcpTest extends AppCompatActivity {
                     // The toggle is enabled
                     Log.w("Toggle", "ON");
                     mDataExchange.startTCPserver();
+                    Toast.makeText(TcpTest.this, "TCP Server Started", Toast.LENGTH_SHORT).show();
                 } else {
                     // The toggle is disabled
                     Log.w("Toggle", "OFF");
                     mDataExchange.stopTCPserver();
+                    Toast.makeText(TcpTest.this, "TCP Server Stopped", Toast.LENGTH_SHORT).show();
                 }
             }
         });
