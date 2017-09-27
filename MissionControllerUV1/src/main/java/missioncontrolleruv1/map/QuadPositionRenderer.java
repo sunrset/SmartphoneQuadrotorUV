@@ -21,7 +21,6 @@ import org.apache.commons.logging.LogFactory;
 import org.jxmapviewer.JXMapViewer;
 import org.jxmapviewer.viewer.WaypointRenderer;
 
-
 /**
  * A fancy waypoint painter
  * @author Martin Steiger
