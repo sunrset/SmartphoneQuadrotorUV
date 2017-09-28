@@ -34,7 +34,8 @@ public class MissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission);
 
-        mFlightController = new FlightController();
+        mFlightController = new FlightController(this);
+
         try {
             mDataExchange = new DataExchange(this);
         } catch (IOException e) {
@@ -47,6 +48,8 @@ public class MissionActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        //while(!mFlightController.mInitialConditions.ic_ready){}
         startMission();
     }
 
@@ -56,19 +59,17 @@ public class MissionActivity extends AppCompatActivity {
         }
         timer = new Timer();
         mainThread = new TemporizerControlSystem();
-        timer.schedule(mainThread, 10, 10);
+        timer.schedule(mainThread, 10, 9);
 
         t = 0; // inicia la simulación
     }
 
     Long t_pasado = System.nanoTime();
     private class TemporizerControlSystem extends TimerTask {
-
         long t_medido;
         float dt;
         @Override
         public void run() {
-
             t_medido = System.nanoTime();
             dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;

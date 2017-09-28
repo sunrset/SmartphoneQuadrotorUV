@@ -31,6 +31,9 @@ public class DataExchange {
     boolean isCommWorking = false;
     boolean commFailed = false;
 
+    public int rollJoystick, pitchJoystick, yawJoystick, throttleJoystick, dPad;
+    public boolean xButton, yButton, aButton, bButton, startButton, backButton, ltButton, rtButton, lbButton, rbButton, ljButton, rjButton;
+
     String[] receivedData;
 
     public DataExchange(Context context) throws IOException {
@@ -169,11 +172,28 @@ public class DataExchange {
     }
 
     private void sendState(String id) throws IOException {
-        outToClient.writeBytes(id+",state,843211.10,1062939.204,1930.204,0,85,74"+'\n');
+        outToClient.writeBytes(id+",state,843211.10,1062939.204,1930.204,0,1,2,85,74"+'\n');
     }
 
     private void decodeRCframe(String[] receivedFrame){
-
+        rollJoystick = Integer.parseInt(receivedFrame[2]);
+        pitchJoystick  = Integer.parseInt(receivedFrame[3]);
+        yawJoystick = Integer.parseInt(receivedFrame[4]);
+        throttleJoystick = Integer.parseInt(receivedFrame[5]);
+        dPad = Integer.parseInt(receivedFrame[6]);
+        xButton = Boolean.parseBoolean(receivedFrame[7]);
+        yButton = Boolean.parseBoolean(receivedFrame[8]);
+        aButton = Boolean.parseBoolean(receivedFrame[9]);
+        bButton = Boolean.parseBoolean(receivedFrame[10]);
+        startButton = Boolean.parseBoolean(receivedFrame[11]);
+        backButton = Boolean.parseBoolean(receivedFrame[12]);
+        ltButton = Boolean.parseBoolean(receivedFrame[13]);
+        rtButton = Boolean.parseBoolean(receivedFrame[14]);
+        lbButton = Boolean.parseBoolean(receivedFrame[15]);
+        rbButton = Boolean.parseBoolean(receivedFrame[16]);
+        ljButton = Boolean.parseBoolean(receivedFrame[17]);
+        rjButton = Boolean.parseBoolean(receivedFrame[18]);
+        Log.w("RC: ",rollJoystick+", "+pitchJoystick+", "+yawJoystick+", "+throttleJoystick+", "+dPad);
     }
 
     private void communicationFailed(){
