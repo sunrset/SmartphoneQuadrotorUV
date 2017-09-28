@@ -248,6 +248,19 @@ public class MissionGUI extends javax.swing.JFrame {
         tf_missionYaw = new javax.swing.JTextField();
         jPanelMap = new javax.swing.JPanel();
         jPanelIndicators = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        tv_northQuad = new javax.swing.JLabel();
+        tv_eastQuad = new javax.swing.JLabel();
+        tv_elevationQuad = new javax.swing.JLabel();
+        tv_rollQuad = new javax.swing.JLabel();
+        tv_pitchQuad = new javax.swing.JLabel();
+        tv_yawQuad = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jPanelComm = new javax.swing.JPanel();
@@ -478,7 +491,7 @@ public class MissionGUI extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
-                        .addComponent(jTF_ip1)
+                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -493,7 +506,7 @@ public class MissionGUI extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tf_currentflightmode, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bt_clearConsole)
@@ -620,7 +633,7 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(tf_missionYaw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_setWaypoints)
                     .addComponent(bt_updateWaypoints))
@@ -633,15 +646,92 @@ public class MissionGUI extends javax.swing.JFrame {
         jPanelIndicators.setMinimumSize(new java.awt.Dimension(201, 404));
         jPanelIndicators.setRequestFocusEnabled(false);
 
+        jLabel13.setText("Quadrotor State");
+
+        jLabel14.setText("North:");
+
+        jLabel15.setText("East:");
+
+        jLabel16.setText("Elevation:");
+
+        jLabel17.setText("Roll:");
+
+        jLabel18.setText("Pitch:");
+
+        jLabel19.setText("Yaw:");
+
+        tv_northQuad.setText("-");
+
+        tv_eastQuad.setText("-");
+
+        tv_elevationQuad.setText("-");
+
+        tv_rollQuad.setText("-");
+
+        tv_pitchQuad.setText("-");
+
+        tv_yawQuad.setText("-");
+
         javax.swing.GroupLayout jPanelIndicatorsLayout = new javax.swing.GroupLayout(jPanelIndicators);
         jPanelIndicators.setLayout(jPanelIndicatorsLayout);
         jPanelIndicatorsLayout.setHorizontalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 222, Short.MAX_VALUE)
+            .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tv_yawQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tv_pitchQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tv_rollQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tv_elevationQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tv_eastQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
+                                .addComponent(tv_northQuad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelIndicatorsLayout.setVerticalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(tv_northQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tv_eastQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(tv_elevationQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(tv_rollQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(tv_pitchQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(tv_yawQuad))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -1129,6 +1219,8 @@ public class MissionGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextAreaConsole.setText(null);
         quadPositionMark(1060638.15,864634.91);
+        //missionControllerUV.sendRCcommands("1");
+        
     }//GEN-LAST:event_bt_clearConsoleActionPerformed
 
     private void bt_updateWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateWaypointsActionPerformed
@@ -1232,6 +1324,13 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1274,6 +1373,12 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JLabel tf_currentflightmode;
     public javax.swing.JTextField tf_missionAltitude;
     public javax.swing.JTextField tf_missionYaw;
+    public javax.swing.JLabel tv_eastQuad;
+    public javax.swing.JLabel tv_elevationQuad;
+    public javax.swing.JLabel tv_northQuad;
+    public javax.swing.JLabel tv_pitchQuad;
+    public javax.swing.JLabel tv_rollQuad;
+    public javax.swing.JLabel tv_yawQuad;
     // End of variables declaration//GEN-END:variables
 
 }

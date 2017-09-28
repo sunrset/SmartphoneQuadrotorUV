@@ -52,5 +52,21 @@ public class MissionControllerUV {
     public void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
         communication.sendWaypointList(Waypoints, elev, yaw);
     }
+    
+    public void sendRCcommands(String id){
+        try {
+            communication.sendRCcommands(id);
+        } catch (IOException ex) {
+            Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void startSendingRC(){
+        try {
+            communication.startSendingRC();
+        } catch (IOException ex) {
+            Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }
