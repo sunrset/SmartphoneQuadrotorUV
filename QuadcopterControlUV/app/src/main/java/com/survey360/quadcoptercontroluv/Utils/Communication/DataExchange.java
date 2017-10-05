@@ -116,6 +116,18 @@ public class DataExchange {
                     else if(receivedData[1].equals("state")){ // Quadrotor state query
                         sendState(receivedData[0]);
                     }
+                    else if(receivedData[1].equals("arm")){ // Quadrotor state query
+                        if(receivedData[2].equals("true")){
+                            //Arm motors
+                            ArmMotors();
+                            outToClient.writeBytes(receivedData[1]+",arm,Armed"+'\n');
+                        }
+                        else if(receivedData[2].equals("false")){
+                            //Disarm motors
+                            DisarmMotors();
+                            outToClient.writeBytes(receivedData[1]+",arm,Disarmed"+'\n');
+                        }
+                    }
                     else if(receivedData[1].equals("mode")){ // Requested flight mode change
                         changeFlightMode(receivedData[2]);
                     }
@@ -194,6 +206,14 @@ public class DataExchange {
         ljButton = Boolean.parseBoolean(receivedFrame[17]);
         rjButton = Boolean.parseBoolean(receivedFrame[18]);
         Log.w("RC: ",rollJoystick+", "+pitchJoystick+", "+yawJoystick+", "+throttleJoystick+", "+dPad);
+    }
+
+    private void ArmMotors(){
+
+    }
+
+    private void DisarmMotors(){
+
     }
 
     private void communicationFailed(){

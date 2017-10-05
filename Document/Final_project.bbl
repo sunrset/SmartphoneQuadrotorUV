@@ -1,8 +1,22 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Castillo and Lozano(2004)]{modelamiento}
+P.~Castillo and R.~Lozano.
+\newblock Stabilization of a mini-rotorcraft having four rotors, 2004.
+
+\bibitem[Tamami et~al.(2014)Tamami, Pitowarno, and Astawa]{modelamientoPDAFC}
+N.~Tamami, E.~Pitowarno, and I.~Astawa.
+\newblock Proportional derivative active force control for “x”
+  configuration quadcopter, 2014.
+
+\bibitem[Voos(2007)]{modelamientoNCQ}
+H.~Voos.
+\newblock Nonlinear control of a quadrotor micro-uav using
+  feedback-linearization, 2007.
 
 \end{thebibliography}
