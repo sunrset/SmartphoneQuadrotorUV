@@ -90,7 +90,7 @@ public class MissionGUI extends javax.swing.JFrame {
 
     private void initializeMap(){
        
-        final GeoPosition eiee_gp = new GeoPosition(3.3744, -76.5331); 
+        final GeoPosition eiee_gp = new GeoPosition(3.3724, -76.5319); 
         mapkit = new JXMapKit();
         mapViewer = mapkit.getMainMap();
         
@@ -112,8 +112,6 @@ public class MissionGUI extends javax.swing.JFrame {
                 ){
                     @Override
                     public String getTileUrl(int x, int y, int zoom) {
-                        //System.out.println("Zoom: "+zoom);
-                        //return this.baseURL +"/"+zoom+"/"+x+"/"+y+".png";
                         return this.baseURL +"/"+(17-zoom)+"/"+x+"/"+y+".png";
                     }
                 };
@@ -122,7 +120,7 @@ public class MissionGUI extends javax.swing.JFrame {
         }
         
         mapkit.setCenterPosition(eiee_gp);
-        mapkit.setZoom(2);
+        mapkit.setZoom(0);
                
         jPanelMap.setLayout(new BorderLayout());
         jPanelMap.add(mapkit, BorderLayout.CENTER);

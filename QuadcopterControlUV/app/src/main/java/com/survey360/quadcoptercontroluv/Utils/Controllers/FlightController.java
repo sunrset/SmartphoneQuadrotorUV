@@ -21,4 +21,14 @@ public class FlightController {
         mInitialConditions = new InitialConditions(ctx);
         posKF = new PositionKalmanFilter(ctx);
     }
+
+    public class MotorsPowers
+    {
+        public int nw, ne, se, sw; // 0-1023 (10 bits values).
+
+        public int getMean()
+        {
+            return (nw+ne+se+sw) / 4;
+        }
+    }
 }

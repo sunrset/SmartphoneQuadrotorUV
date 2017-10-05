@@ -33,7 +33,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
         </activity>
+        <uses-library android:name="com.android.future.usb.accessory" />
         <activity
             android:name=".MenuActivities.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -53,10 +61,14 @@
         <activity
             android:name=".TestActivities.PositionKFTest"
             android:screenOrientation="portrait" />
-        <activity android:name=".TestActivities.MotorsTestActivity" />
-        <activity android:name=".TestActivities.CommunicationTest" />
-        <activity android:name=".TestActivities.TcpTest" />
-        <activity android:name=".MenuActivities.MissionActivity"></activity>
+        <activity android:name=".TestActivities.MotorsTestActivity"
+                android:screenOrientation="portrait"/>
+        <activity android:name=".TestActivities.CommunicationTest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TestActivities.TcpTest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MenuActivities.MissionActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
