@@ -127,38 +127,42 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="jTF_ip1" pref="166" max="32767" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="bt_stopConnection" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jTF_ip1" min="-2" pref="134" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="cb_QuadList" max="32767" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="bt_startConnection" min="-2" pref="77" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="cb_QuadList" min="-2" pref="205" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bt_startConnection" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="bt_stopConnection" min="-2" pref="77" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanelModes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tf_currentflightmode" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace pref="99" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="bt_clearConsole" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelArmed" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tf_currentflightmode" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="tf_armed" min="-2" pref="84" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="266" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -170,13 +174,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_currentflightmode" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="bt_startConnection" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
@@ -193,8 +190,20 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="bt_clearConsole" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_currentflightmode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabelArmed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_armed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="bt_clearConsole" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jPanel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                                       </Group>
@@ -542,6 +551,82 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_clearConsoleActionPerformed"/>
                       </Events>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="jLabelArmed">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Motors Armed/Disarmed:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="tf_armed">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="jPanel5">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="bt_arm" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="bt_disarm" min="-2" pref="65" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="bt_arm" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="bt_disarm" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="bt_arm">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Arm&lt;br /&gt;Motors&lt;/center&gt;&lt;/html&gt;"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                              <Insets value="[2, 2, 2, 2]"/>
+                            </Property>
+                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[65, 37]"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_armActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="bt_disarm">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Disarm&lt;br /&gt;Motors&lt;/center&gt;&lt;/html&gt;"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                              <Insets value="[2, 2, 2, 2]"/>
+                            </Property>
+                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[65, 37]"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_disarmActionPerformed"/>
+                          </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -748,7 +833,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

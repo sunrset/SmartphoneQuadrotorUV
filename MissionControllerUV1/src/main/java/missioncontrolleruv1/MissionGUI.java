@@ -37,6 +37,8 @@ import org.jxmapviewer.viewer.DefaultWaypoint;
 import org.jxmapviewer.viewer.Waypoint;
 import org.jxmapviewer.painter.CompoundPainter;
 import org.jxmapviewer.painter.Painter;
+import org.jxmapviewer.viewer.DefaultTileFactory;
+import org.jxmapviewer.viewer.TileFactoryInfo;
 import org.jxmapviewer.viewer.WaypointRenderer;
 import org.osgeo.proj4j.ProjCoordinate;
 
@@ -91,9 +93,36 @@ public class MissionGUI extends javax.swing.JFrame {
         final GeoPosition eiee_gp = new GeoPosition(3.3744, -76.5331); 
         mapkit = new JXMapKit();
         mapViewer = mapkit.getMainMap();
-        mapkit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps);
+        
+        int online = 1;
+        
+        switch (online){
+            case 0:
+                mapkit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps); //if online
+                break;
+            case 1:
+                TileFactoryInfo tileFactory = new TileFactoryInfo(
+                0, //int minimumZoomLevel ...0
+                5, //int maximumZoomLevel ..8
+                17, //int totalMapZoom ...10
+                256, //int tileSize
+                true, true, //int minimumZoomLevel, boolean yt2b ..  x/y orientation is normal
+                getClass().getResource("/MapTiles/Cali").toString(),  // java.lang.String baseURL "file:///C:/Users/Asus/Documents/MapTiles/CaliSur",
+                "x","y","z" // java.lang.String xparam, java.lang.String yparam, java.lang.String zparam .. url args for x, y &amp; z
+                ){
+                    @Override
+                    public String getTileUrl(int x, int y, int zoom) {
+                        //System.out.println("Zoom: "+zoom);
+                        //return this.baseURL +"/"+zoom+"/"+x+"/"+y+".png";
+                        return this.baseURL +"/"+(17-zoom)+"/"+x+"/"+y+".png";
+                    }
+                };
+                mapkit.setTileFactory(new DefaultTileFactory(tileFactory));
+                break;
+        }
+        
         mapkit.setCenterPosition(eiee_gp);
-        mapkit.setZoom(3);
+        mapkit.setZoom(2);
                
         jPanelMap.setLayout(new BorderLayout());
         jPanelMap.add(mapkit, BorderLayout.CENTER);
@@ -123,7 +152,9 @@ public class MissionGUI extends javax.swing.JFrame {
     }
     
     public void quadPositionMark(double quad_east, double quad_north){
+        
         ellip_quad = convertToEllipCoordinates(quad_east+10*Math.random(), quad_north+10*Math.random());
+        
         quadPosition = new HashSet<>(Arrays.asList(
 				new MyWaypoint("", Color.YELLOW, new GeoPosition(ellip_quad.y, ellip_quad.x))
 				));
@@ -235,6 +266,11 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         tf_currentflightmode = new javax.swing.JLabel();
         bt_clearConsole = new javax.swing.JButton();
+        jLabelArmed = new javax.swing.JLabel();
+        tf_armed = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        bt_arm = new javax.swing.JButton();
+        bt_disarm = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -480,37 +516,81 @@ public class MissionGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabelArmed.setText("Motors Armed/Disarmed:");
+
+        tf_armed.setText("-");
+
+        bt_arm.setText("<html><center>Arm<br />Motors</center></html>");
+        bt_arm.setEnabled(false);
+        bt_arm.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_arm.setMaximumSize(new java.awt.Dimension(65, 37));
+        bt_arm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_armActionPerformed(evt);
+            }
+        });
+
+        bt_disarm.setText("<html><center>Disarm<br />Motors</center></html>");
+        bt_disarm.setEnabled(false);
+        bt_disarm.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        bt_disarm.setMaximumSize(new java.awt.Dimension(65, 37));
+        bt_disarm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_disarmActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(bt_arm, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_disarm, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_arm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_disarm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
                         .addComponent(jLabel1)
-                        .addGap(2, 2, 2)
-                        .addComponent(jTF_ip1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(cb_QuadList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_ip1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_QuadList, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_stopConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelModes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_currentflightmode, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bt_clearConsole)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(bt_clearConsole))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelArmed)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_currentflightmode, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_armed, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -520,11 +600,6 @@ public class MissionGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(tf_currentflightmode))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bt_startConnection, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -538,8 +613,17 @@ public class MissionGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(bt_clearConsole))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(tf_currentflightmode))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelArmed)
+                                    .addComponent(tf_armed))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bt_clearConsole, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1))
                         .addContainerGap())))
         );
@@ -700,7 +784,7 @@ public class MissionGUI extends javax.swing.JFrame {
                             .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
                                 .addComponent(tv_northQuad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanelIndicatorsLayout.setVerticalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1101,6 +1185,7 @@ public class MissionGUI extends javax.swing.JFrame {
         bt_stabilizeMode.setEnabled(true);
         bt_AutoMode.setEnabled(true);
         jTextPaneWaypoints.setEnabled(true);
+        bt_arm.setEnabled(true);
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
     private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
@@ -1281,6 +1366,28 @@ public class MissionGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_setWaypointsActionPerformed
 
+    private void bt_armActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_armActionPerformed
+        try {
+            // TODO add your handling code here:
+            missionControllerUV.armMotors(true);
+            bt_disarm.setEnabled(true);
+            bt_arm.setEnabled(false);
+        } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bt_armActionPerformed
+
+    private void bt_disarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_disarmActionPerformed
+        try {
+            // TODO add your handling code here:
+            missionControllerUV.armMotors(false);
+            bt_arm.setEnabled(true);
+            bt_disarm.setEnabled(false);
+        } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bt_disarmActionPerformed
+
     public void addControllerName(String controllerName){
         jComboBox_controllers.addItem(controllerName);
     }
@@ -1300,7 +1407,9 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton bt_LandMode;
     public javax.swing.JButton bt_LoiterMode;
     public javax.swing.JButton bt_RTLmode;
+    public javax.swing.JButton bt_arm;
     private javax.swing.JButton bt_clearConsole;
+    public javax.swing.JButton bt_disarm;
     private javax.swing.JButton bt_setWaypoints;
     public javax.swing.JButton bt_stabilizeMode;
     public javax.swing.JButton bt_startConnection;
@@ -1339,6 +1448,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelArmed;
     public javax.swing.JLabel jLabelDPad;
     private javax.swing.JLabel jLabelTitleComm;
     private javax.swing.JLabel jLabelTitleController;
@@ -1347,6 +1457,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelComm;
     private javax.swing.JPanel jPanelIndicators;
     private javax.swing.JPanel jPanelMap;
@@ -1370,6 +1481,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbed1;
     public javax.swing.JTextArea jTextAreaConsole;
     public javax.swing.JTextPane jTextPaneWaypoints;
+    public javax.swing.JLabel tf_armed;
     public javax.swing.JLabel tf_currentflightmode;
     public javax.swing.JTextField tf_missionAltitude;
     public javax.swing.JTextField tf_missionYaw;

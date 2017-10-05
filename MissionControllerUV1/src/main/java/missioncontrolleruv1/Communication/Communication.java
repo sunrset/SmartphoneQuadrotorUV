@@ -48,6 +48,7 @@ public class Communication {
     Thread decodeFrame;
     
     public boolean connected = false;
+    public boolean freeBuffer = true;
     
     public Communication(){
         jTextAreaConsole = window.jTextAreaConsole;        
@@ -61,8 +62,9 @@ public class Communication {
             receiveFromServer();
             Thread.sleep(2000);
             if(connected){
-                System.out.println("Connection Set with IP: "+ip_1);
-                startSendingRC();
+                window.jTextAreaConsole.append("Connection Set with IP: "+ip_1);
+                //System.out.println("Connection Set with IP: "+ip_1);
+                
             }
             //requestQuadrotorState("1");
         } catch (IOException ex) {
@@ -118,6 +120,10 @@ public class Communication {
                         window.tf_currentflightmode.setText(receivedData[2]);
                         jTextAreaConsole.append("Quadrotor "+receivedData[0]+" mode changed to: "+receivedData[2]+'\n');
                     }
+                    else if(receivedData[1].equals("arm")){
+                        window.tf_armed.setText(receivedData[2]);
+                        jTextAreaConsole.append("Quadrotor "+receivedData[0]+" motors "+receivedData[2]+'\n');
+                    }
                 System.out.println("timeellapsed: "+estimatedTime+" ms");               
             }
         };
@@ -151,8 +157,28 @@ public class Communication {
     }
     
     public void requestModeChange(String id, String mode) throws IOException{
+        freeBuffer = false;
         sendToServer(id+",mode,"+mode);
         receiveFromServer();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        freeBuffer = true;
+    }
+    
+    public void armQuadrotor(String id, boolean arm) throws IOException{
+        freeBuffer = false;
+        sendToServer(id+",arm,"+arm);
+        receiveFromServer();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        startSendingRC();
+        freeBuffer = true;
     }
     
     public void sendWaypoint(String id, int waypointnumber, float north, float east, float elevation, float yaw) throws IOException{
@@ -161,38 +187,42 @@ public class Communication {
     }
     
     public void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
+        freeBuffer = false;
         float north_coord, east_coord;
         for(int i=0; i<=(Waypoints.size()-1); i++){
             north_coord = 0;
             east_coord = 0;
             sendWaypoint("1", i+1, north_coord, east_coord, elev, yaw);
         }
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        freeBuffer = true;
         //sendWaypoint("1", 1, 865125.540f, 1060712.219f, 971.418f, 0f);
     }
     
     public void requestQuadrotorState(String id) throws IOException{
+        freeBuffer = false;
         sendToServer(id+",state");
         receiveFromServer();
+        freeBuffer = true;
     }
     
-    public void sendRCcommands(String id) throws IOException{
-        
+    public void sendRCcommands(String id) throws IOException{  
+        freeBuffer = false;
         sendToServer(id+",rc,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
                 readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
                 readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
                 readController.getSTARTbutton()+","+readController.getBACKbutton()+","+readController.getLTbutton()+","+
                 readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
                 readController.getLJbutton()+","+readController.getRJbutton());
-        
-        /*System.out.println(id+",rc,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
-                readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
-                readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
-                readController.getSTARTbutton()+","+readController.getBACKbutton()+","+readController.getLTbutton()+","+
-                readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
-                readController.getLJbutton()+","+readController.getRJbutton());*/
+        freeBuffer = true;
     }
     
     public void sendRCwaitForState(String id) throws IOException{
+        freeBuffer = false;
         sendToServer(id+",rcstate,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
                 readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
                 readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
@@ -200,7 +230,26 @@ public class Communication {
                 readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
                 readController.getLJbutton()+","+readController.getRJbutton());
         receiveFromServer();
+        freeBuffer = true;
     }  
+    
+    public void sendAction(){
+        j++;
+        try {
+            if(freeBuffer){
+                if(j<=10){
+                    sendRCcommands("1");
+                }
+                else {
+                    sendRCwaitForState("1");
+                    j=0;
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        t = t + Ts;
+    }
     
     public void startSendingRC() throws IOException{
         if (timer != null) {
@@ -217,23 +266,7 @@ public class Communication {
     private class TemporizerComm extends TimerTask {
 
         public void run()  {
-            j++;
-            long t_medido = System.nanoTime();
-            float dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
-            t_pasado = t_medido;
-            try {
-                if(j<=10){
-                    sendRCcommands("1");
-                }
-                else {
-                    sendRCwaitForState("1");
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            //System.out.println("Tiempo de hilo = " + dt * 1000);
-            t = t + Ts;
+            sendAction();
         }
     }
     

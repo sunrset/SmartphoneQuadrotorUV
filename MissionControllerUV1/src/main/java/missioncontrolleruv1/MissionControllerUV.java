@@ -68,5 +68,9 @@ public class MissionControllerUV {
             Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void armMotors(boolean arm) throws IOException{
+        communication.armQuadrotor("1", arm);
+    }
 
 }
