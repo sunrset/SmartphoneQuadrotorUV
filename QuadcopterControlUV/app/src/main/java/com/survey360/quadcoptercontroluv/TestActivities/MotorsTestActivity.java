@@ -57,9 +57,9 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
             e.printStackTrace();
         }
 
-        tv_smartphoneBattery = (TextView)findViewById(R.id.tv_SmartBattery);
+        tv_smartphoneBattery = (TextView)findViewById(R.id.tv_smartbatt);
         tv_batteryvolt = (TextView)findViewById(R.id.tv_BatVolt);
-        tv_batterypercent = (TextView)findViewById(R.id.tv_BatPercent);
+        tv_batterypercent = (TextView)findViewById(R.id.tv_quadbatt);
         tv_m1 = (TextView)findViewById(R.id.tv_m1);
         tv_m2 = (TextView)findViewById(R.id.tv_m2);
         tv_m3 = (TextView)findViewById(R.id.tv_m3);

@@ -50,7 +50,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/tv_SmartBattery"
+                android:id="@+id/tv_smartbatt"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/tv_TextSmartBat"
@@ -60,7 +60,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/tv_BatPercent"
+                android:id="@+id/tv_quadbatt"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/tv_TextBPerc"
@@ -99,8 +99,8 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tv_BatPercent"
-                android:layout_below="@+id/tv_BatPercent"
+                android:layout_alignStart="@+id/tv_quadbatt"
+                android:layout_below="@+id/tv_quadbatt"
                 android:layout_marginTop="8dp"
                 android:max="100" />
 
@@ -201,11 +201,11 @@
                 android:id="@+id/tv_m3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="0 %"
+                android:textSize="16sp"
                 android:layout_alignBaseline="@+id/tv_Motor3"
                 android:layout_alignBottom="@+id/tv_Motor3"
-                android:layout_toEndOf="@+id/sb_Motor3"
-                android:text="0 %"
-                android:textSize="16sp" />
+                android:layout_toEndOf="@+id/sb_Motor3" />
 
             <TextView
                 android:id="@+id/tv_m4"

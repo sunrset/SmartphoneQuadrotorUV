@@ -1,16 +1,23 @@
 package com.survey360.quadcoptercontroluv.MenuActivities;
 
 import android.content.Intent;
-import android.os.BatteryManager;
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.survey360.quadcoptercontroluv.R;
-import com.survey360.quadcoptercontroluv.Utils.Communication.AdkCommunicator;
 import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
 import com.survey360.quadcoptercontroluv.Utils.Controllers.FlightController;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,18 +25,18 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MissionActivity extends AppCompatActivity implements AdkCommunicator.AdbListener{
+public class MissionActivity extends AppCompatActivity{
+
+    public static TextView tv_arm, tv_flightmode, tv_controller, tv_quadbatt, tv_smartbatt, tv_waypoints;
+    public static ProgressBar pb_motor1, pb_motor2, pb_motor3, pb_motor4;
+    public static Handler UIHandler = new Handler(Looper.getMainLooper());
 
     DataExchange mDataExchange = null;
     FlightController mFlightController = null;
-    AdkCommunicator adkCommunicator;
+
     FlightController.MotorsPowers motorsPowers;
 
-    BatteryManager bm;
-    private int smartphoneBatLevel;
-    private int batteryPercentage = 0;
-    private float batteryVoltage;
-    boolean armed = false;
+    public static boolean armed = false;
 
     Timer timer;
     TemporizerControlSystem mainThread;
@@ -43,41 +50,71 @@ public class MissionActivity extends AppCompatActivity implements AdkCommunicato
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        adkCommunicator = new AdkCommunicator(this, this);
-        mFlightController = new FlightController(this);
-        motorsPowers = new FlightController.MotorsPowers();
+        tv_arm = (TextView) findViewById(R.id.tv_arm);
+        tv_flightmode = (TextView) findViewById(R.id.tv_flightmode);
+        tv_controller = (TextView) findViewById(R.id.tv_controller);
+        tv_quadbatt = (TextView) findViewById(R.id.tv_quadbatt);
+        tv_smartbatt = (TextView) findViewById(R.id.tv_smartbatt);
+        tv_waypoints = (TextView) findViewById(R.id.tv_waypoints);
+        pb_motor1 = (ProgressBar) findViewById(R.id.pb_motor1);
+        pb_motor2 = (ProgressBar) findViewById(R.id.pb_motor2);
+        pb_motor3 = (ProgressBar) findViewById(R.id.pb_motor3);
+        pb_motor4 = (ProgressBar) findViewById(R.id.pb_motor4);
 
-        // Start the communication with the Arduino Mega ADK
-        try {
-            adkCommunicator.start(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //mFlightController = new FlightController(this);
+        //motorsPowers = new FlightController.MotorsPowers();
 
         // Start the sensor acquisition
         try {
             mDataExchange = new DataExchange(this);
+            Thread.sleep(500);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        bm = (BatteryManager)getSystemService(BATTERY_SERVICE);
-        smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-
-        mDataExchange.startTCPserver();
-        Toast.makeText(MissionActivity.this, "TCP Server Started", Toast.LENGTH_SHORT).show();
-        try {
-            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        while(!mFlightController.posKF.mInitialConditions.ic_ready){;}
+        mDataExchange.startTCPserver();
+        Toast.makeText(MissionActivity.this, "TCP Server Started", Toast.LENGTH_SHORT).show();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //while(!mFlightController.posKF.mInitialConditions.ic_ready){;}
         startMission();
     }
 
+    public static void armMotors(){
+        armed =  true;
+        UIHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                tv_arm.setText("Armed");
+                tv_arm.setTextColor(Color.GREEN);
+            }
+        });
+
+    }
+
+    public static void disarmMotors(){
+        armed = false;
+        UIHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                tv_arm.setText("Disarmed");
+                tv_arm.setTextColor(Color.RED);
+            }
+        });
+
+    }
+
     private void startMission(){
+        Log.w("Mission start","Mission start");
         if (timer != null) {
             timer.cancel();
         }
@@ -90,13 +127,6 @@ public class MissionActivity extends AppCompatActivity implements AdkCommunicato
 
     Long t_pasado = System.nanoTime();
 
-    @Override
-    public void onBatteryVoltageArrived(float batteryVoltage){ //It's executed when Android receives the Battery data from ADK
-        this.batteryVoltage = batteryVoltage;
-        this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
-        this.smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-    }
-
     private class TemporizerControlSystem extends TimerTask {
         long t_medido;
         float dt;
@@ -106,7 +136,7 @@ public class MissionActivity extends AppCompatActivity implements AdkCommunicato
             dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;
 
-            Log.w("Mission Thread", "Thread time = " + dt * 1000);
+            //Log.w("Mission Thread", "Thread time = " + dt * 1000);
             t = t + Ts;
         }
     }
@@ -114,6 +144,15 @@ public class MissionActivity extends AppCompatActivity implements AdkCommunicato
 
     public static void changeFlightMode(String mode){
         flightMode = mode;
+        UIHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                tv_flightmode.setText(flightMode);
+                tv_waypoints.setText(String.valueOf(waypointsList1.size()));
+                Log.w("Waypoints size: ","----> "+String.valueOf(waypointsList1.size()));
+            }
+        });
+
         if(flightMode.equals("Stabilize")){
 
         }

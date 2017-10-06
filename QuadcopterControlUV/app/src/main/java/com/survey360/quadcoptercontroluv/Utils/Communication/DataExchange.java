@@ -12,10 +12,12 @@ import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
 
 import java.io.*;
 import java.net.*;
+import java.text.DecimalFormat;
 
 public class DataExchange {
 
     int timeout = 0;
+    DecimalFormat df = new DecimalFormat("0.000");
 
     Thread tcpServer, decodeFrame;
 
@@ -113,6 +115,9 @@ public class DataExchange {
                     else if(receivedData[1].equals("wy")){ // Waypoint received
                         decodeWaypoints(receivedData);
                     }
+                    else if(receivedData[1].equals("rwp")){ // Reset waypoints requested
+                        resetWaypoints("1");
+                    }
                     else if(receivedData[1].equals("state")){ // Quadrotor state query
                         sendState(receivedData[0]);
                     }
@@ -155,8 +160,8 @@ public class DataExchange {
         float wp_elevation = Float.valueOf(receivedFrame[5]);
         float wp_yaw = Float.valueOf(receivedFrame[6]);
         System.out.println("Waypoint number: "+wp_id);
-        System.out.println("North: "+wp_north);
-        System.out.println("East: "+wp_east);
+        System.out.println("North: "+df.format(wp_north));
+        System.out.println("East: "+df.format(wp_east));
         System.out.println("Elevation: "+wp_elevation);
         System.out.println("Yaw: "+wp_yaw);
         if(MissionActivity.waypointsList1.size()<=wp_id) {
@@ -209,11 +214,11 @@ public class DataExchange {
     }
 
     private void ArmMotors(){
-
+        MissionActivity.armMotors();
     }
 
     private void DisarmMotors(){
-
+        MissionActivity.disarmMotors();
     }
 
     private void communicationFailed(){
