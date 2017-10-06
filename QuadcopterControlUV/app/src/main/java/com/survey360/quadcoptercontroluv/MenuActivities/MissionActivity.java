@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
@@ -27,9 +29,14 @@ import java.util.TimerTask;
 
 public class MissionActivity extends AppCompatActivity{
 
+    MissionActivity mMission = this;
+
+    public static ToggleButton tb_led;
     public static TextView tv_arm, tv_flightmode, tv_controller, tv_quadbatt, tv_smartbatt, tv_waypoints;
+    public static TextView tv_east, tv_north, tv_elevation, tv_roll, tv_pitch, tv_yaw, tv_dt;
     public static ProgressBar pb_motor1, pb_motor2, pb_motor3, pb_motor4;
     public static Handler UIHandler = new Handler(Looper.getMainLooper());
+    public static boolean ic_ready = false;
 
     DataExchange mDataExchange = null;
     FlightController mFlightController = null;
@@ -38,13 +45,11 @@ public class MissionActivity extends AppCompatActivity{
 
     public static boolean armed = false;
 
-    Timer timer;
-    TemporizerControlSystem mainThread;
-    double t;
-    float Ts = (float) 0.01;
 
     public static String flightMode = "AltHold";
     public static List<float[]> waypointsList1 = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +64,32 @@ public class MissionActivity extends AppCompatActivity{
         tv_quadbatt = (TextView) findViewById(R.id.tv_quadbatt);
         tv_smartbatt = (TextView) findViewById(R.id.tv_smartbatt);
         tv_waypoints = (TextView) findViewById(R.id.tv_waypoints);
+        tv_east = (TextView) findViewById(R.id.tv_east);
+        tv_north = (TextView) findViewById(R.id.tv_north);
+        tv_elevation = (TextView) findViewById(R.id.tv_elevation);
+        tv_roll = (TextView) findViewById(R.id.tv_roll);
+        tv_pitch = (TextView) findViewById(R.id.tv_pitch);
+        tv_yaw = (TextView) findViewById(R.id.tv_yaw);
+        tv_dt = (TextView) findViewById(R.id.tv_dt);
         pb_motor1 = (ProgressBar) findViewById(R.id.pb_motor1);
         pb_motor2 = (ProgressBar) findViewById(R.id.pb_motor2);
         pb_motor3 = (ProgressBar) findViewById(R.id.pb_motor3);
         pb_motor4 = (ProgressBar) findViewById(R.id.pb_motor4);
 
-        //mFlightController = new FlightController(this);
+        tb_led = (ToggleButton) findViewById(R.id.tb_led);
+        tb_led.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    turnLed(true);
+                } else {
+                    // The toggle is disabled
+                    turnLed(false);
+                }
+            }
+        });
+
+        mFlightController = new FlightController(this);
         //motorsPowers = new FlightController.MotorsPowers();
 
         // Start the sensor acquisition
@@ -85,8 +110,13 @@ public class MissionActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-        //while(!mFlightController.posKF.mInitialConditions.ic_ready){;}
-        startMission();
+        //while(!mFlightController.posKF.mInitialConditions.ic_ready){Log.w("Waiting for IC","Initial conditions not set");}
+        tv_flightmode.setText("Prepared for Take-off");
+        mFlightController.acquireData();
+    }
+
+    private void turnLed(boolean on){
+        mFlightController.turnLed(on);
     }
 
     public static void armMotors(){
@@ -98,6 +128,7 @@ public class MissionActivity extends AppCompatActivity{
                 tv_arm.setTextColor(Color.GREEN);
             }
         });
+
 
     }
 
@@ -113,32 +144,13 @@ public class MissionActivity extends AppCompatActivity{
 
     }
 
-    private void startMission(){
-        Log.w("Mission start","Mission start");
-        if (timer != null) {
-            timer.cancel();
-        }
-        timer = new Timer();
-        mainThread = new TemporizerControlSystem();
-        timer.schedule(mainThread, 10, 9);
-
-        t = 0; // inicia la simulación
-    }
-
-    Long t_pasado = System.nanoTime();
-
-    private class TemporizerControlSystem extends TimerTask {
-        long t_medido;
-        float dt;
-        @Override
-        public void run() {
-            t_medido = System.nanoTime();
-            dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
-            t_pasado = t_medido;
-
-            //Log.w("Mission Thread", "Thread time = " + dt * 1000);
-            t = t + Ts;
-        }
+    public static void waypointsUpdated(){
+        UIHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                tv_waypoints.setText(String.valueOf(waypointsList1.size()));
+            }
+        });
     }
 
 
@@ -148,8 +160,6 @@ public class MissionActivity extends AppCompatActivity{
             @Override
             public void run() {
                 tv_flightmode.setText(flightMode);
-                tv_waypoints.setText(String.valueOf(waypointsList1.size()));
-                Log.w("Waypoints size: ","----> "+String.valueOf(waypointsList1.size()));
             }
         });
 
@@ -175,12 +185,14 @@ public class MissionActivity extends AppCompatActivity{
 
     protected void onDestroy(){
         mDataExchange.stopTCPserver();
+        mFlightController.stopAcquiring();
         super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
         mDataExchange.stopTCPserver();
+        mFlightController.stopAcquiring();
         Intent intentMainMenu = new Intent(MissionActivity.this, MainActivity.class);
         startActivity(intentMainMenu);
         finish();

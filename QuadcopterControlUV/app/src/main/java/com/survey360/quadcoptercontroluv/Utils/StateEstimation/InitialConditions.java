@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
+
+import java.text.DecimalFormat;
+
 /**
  * Created by AAstudillo on 17/09/2017.
  */
@@ -14,6 +18,8 @@ public class InitialConditions {
     DataCollection mDataCollection = null;
     double x_ic, y_ic, z_ic = 0;
     public boolean ic_ready = false;
+
+    DecimalFormat df = new DecimalFormat("0.000");
 
 
     public InitialConditions(Context context){
@@ -48,6 +54,18 @@ public class InitialConditions {
 
                 showFinalToast();
 
+                if(MissionActivity.UIHandler != null) {
+                    MissionActivity.UIHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            MissionActivity.tv_east.setText(df.format(getx_ic()) + " m");
+                            MissionActivity.tv_north.setText(df.format(gety_ic()) + " m");
+                            MissionActivity.tv_elevation.setText(df.format(getz_ic()) + " m");
+                            MissionActivity.ic_ready = true;
+                        }
+                    });
+                }
+
             }
         }).start();
 
@@ -79,7 +97,6 @@ public class InitialConditions {
             }
         });
     }
-
 
     public double getx_ic(){
         return x_ic;

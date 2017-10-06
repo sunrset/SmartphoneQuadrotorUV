@@ -20,44 +20,120 @@
                 android:id="@+id/tv_TextSmartBat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="39dp"
+                android:layout_marginTop="9dp"
                 android:text="Smartphone Battery:"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_alignTop="@+id/tv_TextBPerc"
+                android:layout_below="@+id/tv_TextBPerc"
                 android:layout_alignStart="@+id/tv_TextBPerc" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tv_TextSmartBat"
-                android:layout_below="@+id/tv_TextSmartBat"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="11dp"
                 android:text="Waypoints received:"
                 android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/tv_TextSmartBat"
+                android:layout_alignStart="@+id/tv_TextSmartBat" />
+
+            <TextView
+                android:id="@+id/textVw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:text="X:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView13"
+                android:layout_toStartOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@+id/tv_east"
+                android:layout_alignBottom="@+id/tv_east"
+                android:layout_toEndOf="@+id/tv_TextSmartBat" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView16"
+                android:layout_below="@+id/textView16"
+                android:layout_marginTop="9dp"
+                android:text="Pitch:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView19"
+                android:layout_alignTop="@+id/tv_elevation"
+                android:text="Yaw:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView17"
+                android:layout_below="@+id/textView17"
+                android:layout_marginTop="9dp"
+                android:text="Z:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView18"
+                android:layout_below="@+id/textView18"
+                android:layout_marginTop="18dp"
+                android:text="dt:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textVw"
+                android:layout_below="@+id/textVw"
+                android:layout_marginTop="9dp"
+                android:text="Y:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_TextBPerc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView10"
-                android:layout_below="@+id/pb_motor4"
-                android:layout_marginTop="31dp"
                 android:text="Quadrotor Battery:"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="29dp"
+                android:layout_below="@+id/pb_motor4"
+                android:layout_alignStart="@+id/textView10" />
 
             <TextView
                 android:id="@+id/tv_smartbatt"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:text="B_Volt"
-                android:textSize="20sp"
                 android:layout_alignBaseline="@+id/tv_TextSmartBat"
                 android:layout_alignBottom="@+id/tv_TextSmartBat"
-                android:layout_alignStart="@+id/tv_quadbatt" />
+                android:layout_alignStart="@+id/tv_quadbatt"
+                android:text="B_Volt"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_waypoints"
@@ -70,26 +146,104 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tv_east"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:text="0"
+                android:textSize="18sp"
+                android:layout_alignBaseline="@+id/textVw"
+                android:layout_alignBottom="@+id/textVw"
+                android:layout_toStartOf="@+id/tv_controller" />
+
+            <TextView
+                android:id="@+id/tv_north"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView17"
+                android:layout_alignBottom="@+id/textView17"
+                android:layout_alignEnd="@+id/tv_east"
+                android:layout_alignStart="@+id/tv_east"
+                android:paddingLeft="2sp"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_elevation"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView18"
+                android:layout_alignBottom="@+id/textView18"
+                android:layout_alignEnd="@+id/tv_north"
+                android:layout_alignStart="@+id/tv_north"
+                android:layout_toStartOf="@+id/textView20"
+                android:paddingLeft="2sp"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_dt"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView14"
+                android:layout_alignBottom="@+id/textView14"
+                android:layout_alignStart="@+id/tv_elevation"
+                android:paddingLeft="2sp"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_roll"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_east"
+                android:layout_alignBottom="@+id/tv_east"
+                android:layout_alignStart="@+id/tv_pitch"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_pitch"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView19"
+                android:layout_alignBottom="@+id/textView19"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/textView19"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_yaw"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_elevation"
+                android:layout_alignBottom="@+id/tv_elevation"
+                android:layout_alignStart="@+id/tv_pitch"
+                android:text="0"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/tv_quadbatt"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:text="B_Percent"
-                android:textSize="20sp"
-                android:layout_marginStart="16dp"
                 android:layout_alignBaseline="@+id/tv_TextBPerc"
                 android:layout_alignBottom="@+id/tv_TextBPerc"
-                android:layout_toEndOf="@+id/tv_TextSmartBat" />
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/tv_TextSmartBat"
+                android:text="B_Percent"
+                android:textSize="20sp" />
 
             <ProgressBar
                 android:id="@+id/pb_motor2"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
-                android:max="100"
+                android:layout_alignBottom="@+id/textView5"
                 android:layout_alignTop="@+id/textView5"
-                android:layout_toEndOf="@+id/textView5"
                 android:layout_marginStart="19dp"
-                android:layout_alignBottom="@+id/textView5" />
+                android:layout_toEndOf="@+id/textView5"
+                android:max="100" />
 
             <ProgressBar
                 android:id="@+id/pb_motor1"
@@ -125,9 +279,9 @@
                 android:id="@+id/tv_arm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView2"
-                android:layout_alignBottom="@+id/textView2"
-                android:layout_toEndOf="@+id/tv_TextBPerc"
+                android:layout_above="@+id/textView11"
+                android:layout_marginStart="27dp"
+                android:layout_toEndOf="@+id/textView11"
                 android:text="Disarmed"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="20sp"
@@ -161,19 +315,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="28dp"
                 android:text="System:"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/textView"
-                android:layout_marginStart="39dp" />
+                android:layout_toStartOf="@+id/pb_motor1" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="11dp"
                 android:text="Flight Mode:"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -184,7 +337,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="11dp"
                 android:text="Controller:"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -195,13 +348,13 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="71dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView15"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="29dp"
                 android:text="Motor 1: "
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginStart="36dp"
-                android:layout_below="@+id/textView11"
-                android:layout_alignParentStart="true" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -211,19 +364,19 @@
                 android:layout_below="@+id/textView"
                 android:layout_marginTop="8dp"
                 android:text="Motor 2: "
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView5"
+                android:layout_below="@+id/textView5"
                 android:layout_marginTop="8dp"
                 android:text="Motor 3: "
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_below="@+id/textView5"
-                android:layout_alignStart="@+id/textView5" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -233,8 +386,19 @@
                 android:layout_below="@+id/textView7"
                 android:layout_marginTop="8dp"
                 android:text="Motor 4: "
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/tb_led"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_dt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp"
+                android:text="ToggleButton"
+                android:textOff="Led Off"
+                android:textOn="Led On" />
 
         </RelativeLayout>
     </FrameLayout>

@@ -170,6 +170,7 @@ public class DataExchange {
         else{
             MissionActivity.waypointsList1.set(wp_id,new float[]{wp_north, wp_east, wp_elevation, wp_yaw});
         }
+        MissionActivity.waypointsUpdated();
     }
 
     private void resetWaypoints(String id){
