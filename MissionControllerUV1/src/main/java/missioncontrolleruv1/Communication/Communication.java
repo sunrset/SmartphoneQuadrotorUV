@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,6 +51,8 @@ public class Communication {
     public boolean connected = false;
     public boolean freeBuffer = true;
     
+    DecimalFormat df = new DecimalFormat("0.000");
+    
     public Communication(){
         jTextAreaConsole = window.jTextAreaConsole;        
     }
@@ -62,7 +65,7 @@ public class Communication {
             receiveFromServer();
             Thread.sleep(2000);
             if(connected){
-                window.jTextAreaConsole.append("Connection Set with IP: "+ip_1);
+                window.jTextAreaConsole.append("Connection Set with IP: "+ip_1+"\n");
                 //System.out.println("Connection Set with IP: "+ip_1);
                 
             }
@@ -182,7 +185,7 @@ public class Communication {
     }
     
     public void sendWaypoint(String id, int waypointnumber, float north, float east, float elevation, float yaw) throws IOException{
-        sendToServer(id+",wy,"+waypointnumber+","+north+","+east+","+elevation+","+yaw);
+        sendToServer(id+",wy,"+waypointnumber+","+df.format(north)+","+df.format(east)+","+elevation+","+yaw);
         receiveFromServer();
     }
     
@@ -190,8 +193,8 @@ public class Communication {
         freeBuffer = false;
         float north_coord, east_coord;
         for(int i=0; i<=(Waypoints.size()-1); i++){
-            north_coord = 0;
-            east_coord = 0;
+            north_coord = (float) Waypoints.get(i)[1];
+            east_coord = (float) Waypoints.get(i)[0];
             sendWaypoint("1", i+1, north_coord, east_coord, elev, yaw);
         }
         try {
@@ -200,7 +203,17 @@ public class Communication {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
         freeBuffer = true;
-        //sendWaypoint("1", 1, 865125.540f, 1060712.219f, 971.418f, 0f);
+    }
+    
+    public void resetWaypointList() throws IOException{
+        freeBuffer = false;
+        sendToServer("1,rwp");
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        freeBuffer = true;
     }
     
     public void requestQuadrotorState(String id) throws IOException{

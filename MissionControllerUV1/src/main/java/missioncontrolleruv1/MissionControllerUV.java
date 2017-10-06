@@ -53,6 +53,10 @@ public class MissionControllerUV {
         communication.sendWaypointList(Waypoints, elev, yaw);
     }
     
+    public void resetWaypointList() throws IOException{
+        communication.resetWaypointList();
+    }
+    
     public void sendRCcommands(String id){
         try {
             communication.sendRCcommands(id);

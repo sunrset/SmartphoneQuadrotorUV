@@ -593,6 +593,7 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Arm&lt;br /&gt;Motors&lt;/center&gt;&lt;/html&gt;"/>
                             <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="focusable" type="boolean" value="false"/>
                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                               <Insets value="[2, 2, 2, 2]"/>
                             </Property>
@@ -611,6 +612,7 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Disarm&lt;br /&gt;Motors&lt;/center&gt;&lt;/html&gt;"/>
                             <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="focusable" type="boolean" value="false"/>
                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                               <Insets value="[2, 2, 2, 2]"/>
                             </Property>
@@ -737,6 +739,7 @@
                 <Component class="javax.swing.JButton" name="bt_updateWaypoints">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Update"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                   <Events>

@@ -70,7 +70,6 @@ public class MissionGUI extends javax.swing.JFrame {
     List<double[]> magnaWaypoints;
     public List<double[]> magnaWaypointsSet = new ArrayList(Arrays.asList());
     public boolean waypointsSet = false;
-    //Set<Waypoint> quadPosition;
     Set<MyWaypoint> quadPosition;
     double quad_east, quad_north;
     
@@ -229,6 +228,10 @@ public class MissionGUI extends javax.swing.JFrame {
     
     private void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
         missionControllerUV.sendWaypointList(Waypoints, elev, yaw);
+    }
+    
+    private void resetWaypointList()throws IOException{
+        missionControllerUV.resetWaypointList();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -520,6 +523,7 @@ public class MissionGUI extends javax.swing.JFrame {
 
         bt_arm.setText("<html><center>Arm<br />Motors</center></html>");
         bt_arm.setEnabled(false);
+        bt_arm.setFocusable(false);
         bt_arm.setMargin(new java.awt.Insets(2, 2, 2, 2));
         bt_arm.setMaximumSize(new java.awt.Dimension(65, 37));
         bt_arm.addActionListener(new java.awt.event.ActionListener() {
@@ -530,6 +534,7 @@ public class MissionGUI extends javax.swing.JFrame {
 
         bt_disarm.setText("<html><center>Disarm<br />Motors</center></html>");
         bt_disarm.setEnabled(false);
+        bt_disarm.setFocusable(false);
         bt_disarm.setMargin(new java.awt.Insets(2, 2, 2, 2));
         bt_disarm.setMaximumSize(new java.awt.Dimension(65, 37));
         bt_disarm.addActionListener(new java.awt.event.ActionListener() {
@@ -649,6 +654,7 @@ public class MissionGUI extends javax.swing.JFrame {
         jLabel10.setPreferredSize(new java.awt.Dimension(69, 14));
 
         bt_updateWaypoints.setText("Update");
+        bt_updateWaypoints.setEnabled(false);
         bt_updateWaypoints.setFocusable(false);
         bt_updateWaypoints.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1310,8 +1316,9 @@ public class MissionGUI extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             waypoints.clear();
+            magnaWaypointsSet.clear();
             magnaWaypoints.clear();
-            track.clear();
+            track.clear();          
             
             String waypointsDoc = jTextPaneWaypoints.getDocument().getText(0, jTextPaneWaypoints.getDocument().getLength());
             jTextPaneWaypoints.setText("");
@@ -1320,15 +1327,17 @@ public class MissionGUI extends javax.swing.JFrame {
                 String[] parts = wps[i].split(" ");
                 double east_coord = Double.parseDouble(parts[2]);
                 double north_coord = Double.parseDouble(parts[5]);
-                magnaWaypoints.add(new double[]{east_coord,north_coord});
                 System.out.println("East: "+east_coord+"; North: "+north_coord);
                 converted_ellip = convertToEllipCoordinates(east_coord, north_coord);
                 GeoPosition gp = new GeoPosition(converted_ellip.y,converted_ellip.x);
                 System.out.println("x: "+converted_ellip.x+", y: "+converted_ellip.y);
                 addWaypoint(gp);
+                jTextAreaConsole.append("Waypoints added\n");
                 drawWaypointsAndRoute();
+                jTextAreaConsole.append("Waypoints size: "+magnaWaypoints.size()+"\n");
             }
-            jTextAreaConsole.append("Waypoints updated\n");
+            jTextAreaConsole.append("Waypoints updated with "+magnaWaypoints.size()+" waypoints \n");
+            bt_setWaypoints.setEnabled(true);
         } catch (BadLocationException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1347,20 +1356,29 @@ public class MissionGUI extends javax.swing.JFrame {
             tf_missionYaw.setEnabled(!waypointsSet);
             float missionAltitude = Float.valueOf(tf_missionAltitude.getText());
             float missionYaw = Float.valueOf(tf_missionYaw.getText());
-            /*
+            
             try {
                 sendWaypointList(magnaWaypointsSet, missionAltitude, missionYaw);
             } catch (IOException ex) {
                 Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
         else {
             waypointsSet = false;
+            magnaWaypointsSet.clear();
+            magnaWaypoints.clear();
             bt_updateWaypoints.setEnabled(!waypointsSet);
             jTextPaneWaypoints.setFocusable(!waypointsSet);
             tf_missionAltitude.setEnabled(!waypointsSet);
             tf_missionYaw.setEnabled(!waypointsSet);
             bt_setWaypoints.setText("Set");
+            bt_setWaypoints.setEnabled(waypointsSet);
+            
+            try {
+                resetWaypointList();
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_bt_setWaypointsActionPerformed
 
@@ -1370,6 +1388,9 @@ public class MissionGUI extends javax.swing.JFrame {
             missionControllerUV.armMotors(true);
             bt_disarm.setEnabled(true);
             bt_arm.setEnabled(false);
+            
+            bt_setWaypoints.setEnabled(false);
+            bt_updateWaypoints.setEnabled(false);
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1381,6 +1402,9 @@ public class MissionGUI extends javax.swing.JFrame {
             missionControllerUV.armMotors(false);
             bt_arm.setEnabled(true);
             bt_disarm.setEnabled(false);
+            
+            bt_setWaypoints.setEnabled(true);
+            //bt_updateWaypoints.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
