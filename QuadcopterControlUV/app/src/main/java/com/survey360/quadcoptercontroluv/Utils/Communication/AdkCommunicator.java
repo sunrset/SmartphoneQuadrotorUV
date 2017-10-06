@@ -27,6 +27,8 @@ public class AdkCommunicator implements Runnable
     public static final float ADC_TO_VOLTAGE = 0.0208f; // R1=0.98kO, R2=3.2kO?, V = ADC/(2^12)*5V/(R1/(R1+R2)).
     private static final String ACTION_USB_PERMISSION = "com.google.android.DemoKit.action.USB_PERMISSION";
 
+    public float batteryLevel;
+
     public AdkCommunicator(AdbListener adbListener, Context context)
     {
         this.adbListener = adbListener;
@@ -192,7 +194,7 @@ public class AdkCommunicator implements Runnable
                     int adcVal = ((rxBuffer[i+1]&0xff) << 8) | (rxBuffer[i+0]&0xff);
                     i += 2;
 
-                    float batteryLevel = ADC_TO_VOLTAGE * (float)adcVal;
+                    batteryLevel = ((float)adcVal*0.0015f)+11.1f;
 
                     //Log.i("AndroCopter", "Battery voltage: " + batteryLevel);
 
@@ -205,10 +207,10 @@ public class AdkCommunicator implements Runnable
 
     public void setPowers(MotorsPowers powers) {
         // Prepare the data to send.
-        txBuffer[0] = (byte) powers.nw;
-        txBuffer[1] = (byte) powers.ne;
-        txBuffer[2] = (byte) powers.se;
-        txBuffer[3] = (byte) powers.sw;
+        txBuffer[0] = (byte) powers.m1;
+        txBuffer[1] = (byte) powers.m2;
+        txBuffer[2] = (byte) powers.m3;
+        txBuffer[3] = (byte) powers.m4;
 
         // Send to the ADK.
         if (outputStream != null)
@@ -230,7 +232,7 @@ public class AdkCommunicator implements Runnable
         void onBatteryVoltageArrived(float batteryVoltage);
     }
 
-    public void pruebaUSB(int dato0, int dato1, int dato2, int dato3) {
+    public void commTest(int dato0, int dato1, int dato2, int dato3) {
         // Prepare the data to send.
         txBuffer[0] = (byte) dato0;
         txBuffer[1] = (byte) dato1;

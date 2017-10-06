@@ -16,11 +16,11 @@
 #include <SPI.h>
 
 USB Usb;
-ADK acc(&Usb, "Romain Baud", // Manufacturer Name
-              "AndroCopterADK", // Model Name
-              "AndroCopter ADK board", // Description (user-visible string)
+ADK acc(&Usb, "Alejandro Astudillo", // Manufacturer Name
+              "SmartphoneQuadrotorUV", // Model Name
+              "SmartphoneQuadrotorUV ADK board", // Description (user-visible string)
               "1.0", // Version
-              "randroprog.blogspot.com", // URL (web page to visit if no installed apps support the accessory)
+              "https://github.com/alejandroastudillo/SmartphoneQuadrotorUV", // URL (web page to visit if no installed apps support the accessory)
               "0000000012345678"); // Serial Number (optional)
 
 uint32_t timer;
@@ -106,13 +106,12 @@ void loop()
     rcode = acc.RcvData(&len, rxBuffer);
 
     Serial.println(rxBuffer[0]);
-    //Serial.print(rxBuffer[1]+"\n");
 
     if(len == 4)
     {
       // Update the motor signals.
       // The received powers for the motors (data[]) are between 0 and 255, so
-	  // a transformation to the ESC range (1000-2000 us) is performed.
+    // a transformation to the ESC range (1000-2000 us) is performed.
       nwPower = map(rxBuffer[0], 0, 255, PULSE_MIN, PULSE_MAX);
       nePower = map(rxBuffer[1], 0, 255, PULSE_MIN, PULSE_MAX);
       sePower = map(rxBuffer[2], 0, 255, PULSE_MIN, PULSE_MAX);
@@ -122,12 +121,14 @@ void loop()
 
       if((rxBuffer[0]==1)&(rxBuffer[1]==0)&(rxBuffer[2]==0)&(rxBuffer[3]==0))
       {
-          digitalWrite(LED_PIN,LOW);
-      }else{
-          digitalWrite(LED_PIN,HIGH);  
+        digitalWrite(LED_PIN,HIGH);
+      }else if((rxBuffer[0]==0)&(rxBuffer[1]==0)&(rxBuffer[2]==0)&(rxBuffer[3]==0))
+      {
+        digitalWrite(LED_PIN,LOW);  
+      }else
+      {
+        analogWrite(LED_PIN, rxBuffer[0]);
       }
-
-            
     }
   }
   else // Phone disconnected: emergency stop!
@@ -161,7 +162,6 @@ void loop()
   {
     lastTxTimeMs = currentTimeMs;
     uint16_t batteryLevel = analogRead(BATTERY_LEVEL_PIN);
-    //acc.write((uint8_t*)&batteryLevel, 2);
     acc.SndData(sizeof(batteryLevel), (uint8_t*)&batteryLevel);
   }
   

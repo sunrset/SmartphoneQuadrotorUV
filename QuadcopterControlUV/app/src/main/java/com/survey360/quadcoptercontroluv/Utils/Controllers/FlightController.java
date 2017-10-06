@@ -22,13 +22,14 @@ public class FlightController {
         posKF = new PositionKalmanFilter(ctx);
     }
 
-    public class MotorsPowers
+    public static class MotorsPowers
     {
-        public int nw, ne, se, sw; // 0-1023 (10 bits values).
+        //public int nw, ne, se, sw; // 0-1023 (10 bits values).
+        public int m1, m2, m3, m4;
 
         public int getMean()
         {
-            return (nw+ne+se+sw) / 4;
+            return (m1+m2+m3+m4) / 4;
         }
     }
 }
