@@ -1,12 +1,14 @@
 package com.survey360.quadcoptercontroluv.MenuActivities;
 
 import android.content.Intent;
+import android.os.BatteryManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.survey360.quadcoptercontroluv.R;
+import com.survey360.quadcoptercontroluv.Utils.Communication.AdkCommunicator;
 import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
 import com.survey360.quadcoptercontroluv.Utils.Controllers.FlightController;
 
@@ -16,10 +18,18 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MissionActivity extends AppCompatActivity {
+public class MissionActivity extends AppCompatActivity implements AdkCommunicator.AdbListener{
 
     DataExchange mDataExchange = null;
     FlightController mFlightController = null;
+    AdkCommunicator adkCommunicator;
+    FlightController.MotorsPowers motorsPowers;
+
+    BatteryManager bm;
+    private int smartphoneBatLevel;
+    private int batteryPercentage = 0;
+    private float batteryVoltage;
+    boolean armed = false;
 
     Timer timer;
     TemporizerControlSystem mainThread;
@@ -34,13 +44,27 @@ public class MissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission);
 
+        adkCommunicator = new AdkCommunicator(this, this);
         mFlightController = new FlightController(this);
+        motorsPowers = new FlightController.MotorsPowers();
 
+        // Start the communication with the Arduino Mega ADK
+        try {
+            adkCommunicator.start(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Start the sensor acquisition
         try {
             mDataExchange = new DataExchange(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        bm = (BatteryManager)getSystemService(BATTERY_SERVICE);
+        smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+
         mDataExchange.startTCPserver();
         Toast.makeText(MissionActivity.this, "TCP Server Started", Toast.LENGTH_SHORT).show();
         try {
@@ -49,7 +73,7 @@ public class MissionActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //while(!mFlightController.mInitialConditions.ic_ready){}
+        while(!mFlightController.posKF.mInitialConditions.ic_ready){;}
         startMission();
     }
 
@@ -65,6 +89,14 @@ public class MissionActivity extends AppCompatActivity {
     }
 
     Long t_pasado = System.nanoTime();
+
+    @Override
+    public void onBatteryVoltageArrived(float batteryVoltage){ //It's executed when Android receives the Battery data from ADK
+        this.batteryVoltage = batteryVoltage;
+        this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
+        this.smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+    }
+
     private class TemporizerControlSystem extends TimerTask {
         long t_medido;
         float dt;

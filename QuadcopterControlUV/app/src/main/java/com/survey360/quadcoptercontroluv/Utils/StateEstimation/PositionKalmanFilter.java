@@ -10,7 +10,7 @@ import org.ejml.data.DMatrixRMaj;
 
 public class PositionKalmanFilter {
 
-    InitialConditions mInitialConditions = null;
+    public InitialConditions mInitialConditions = null;
 
     private static final double dt = 0.01; //Our sample time
     private static final double Q_val = 0.005;
@@ -24,7 +24,6 @@ public class PositionKalmanFilter {
     public PositionKalmanFilter(Context context) {
         mInitialConditions = new InitialConditions(context);
         mInitialConditions.acquireIC();
-
     }
 
     public void initPositionKF(){

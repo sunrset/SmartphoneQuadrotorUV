@@ -194,9 +194,13 @@ public class AdkCommunicator implements Runnable
                     int adcVal = ((rxBuffer[i+1]&0xff) << 8) | (rxBuffer[i+0]&0xff);
                     i += 2;
 
-                    batteryLevel = ((float)adcVal*0.0015f)+11.1f;
+                    batteryLevel = ((float)adcVal*0.00146627f)+11.1f;
+                    if(batteryLevel >= 12.599f){
+                        batteryLevel = 12.6f;
+                    } else if(batteryLevel <= 11.1f) {
+                        batteryLevel = 11.1f;
+                    }
 
-                    //Log.i("AndroCopter", "Battery voltage: " + batteryLevel);
 
                     if(adbListener != null)
                         adbListener.onBatteryVoltageArrived(batteryLevel);

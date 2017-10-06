@@ -2,6 +2,7 @@ package com.survey360.quadcoptercontroluv.TestActivities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.BatteryManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,13 +16,16 @@ import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.Utils.Communication.AdkCommunicator;
 import com.survey360.quadcoptercontroluv.Utils.Controllers.FlightController;
 
+import java.text.DecimalFormat;
+
 public class MotorsTestActivity extends AppCompatActivity implements AdkCommunicator.AdbListener {
 
-    private AdkCommunicator transmitter;
+    private AdkCommunicator adkCommunicator;
     private FlightController.MotorsPowers motorsPowers;
     Thread motorController;
+    DecimalFormat dfmm = new DecimalFormat("0.00");
 
-    private TextView tv_batteryvolt, tv_batterypercent, tv_m1, tv_m2, tv_m3, tv_m4;
+    private TextView tv_batteryvolt, tv_batterypercent, tv_smartphoneBattery, tv_m1, tv_m2, tv_m3, tv_m4;
     private SeekBar sb_motor1, sb_motor2, sb_motor3, sb_motor4;
     private ProgressBar pb_batteryperc;
     private ToggleButton tb_arm;
@@ -30,6 +34,9 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
     private float batteryVoltage;
     boolean armed = false;
 
+    BatteryManager bm;
+    int smartphoneBatLevel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +44,20 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
         setContentView(R.layout.activity_motors_test);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        transmitter = new AdkCommunicator(this, this);
+        adkCommunicator = new AdkCommunicator(this, this);
         motorsPowers = new FlightController.MotorsPowers();
+
+        bm = (BatteryManager)getSystemService(BATTERY_SERVICE);
+        smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
         // Start the USB transmitter.
         try {
-            transmitter.start(false);
+            adkCommunicator.start(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        tv_smartphoneBattery = (TextView)findViewById(R.id.tv_SmartBattery);
         tv_batteryvolt = (TextView)findViewById(R.id.tv_BatVolt);
         tv_batterypercent = (TextView)findViewById(R.id.tv_BatPercent);
         tv_m1 = (TextView)findViewById(R.id.tv_m1);
@@ -136,7 +147,7 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
                     armed = true;
                     //Button is ON
                     // Do Something
-                    transmitter.commTest(1,0,0,0);
+                    adkCommunicator.commTest(1,0,0,0);
 
                     motorController = new Thread() {
                         public void run() {
@@ -147,13 +158,15 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
                                     e.printStackTrace();
                                 }
                                 // Do something
-                                transmitter.setPowers(motorsPowers);
+                                adkCommunicator.setPowers(motorsPowers);
 
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                    tv_batteryvolt.setText(String.valueOf(batteryVoltage));
-                                    tv_batterypercent.setText(String.valueOf(batteryPercentage));
+                                    tv_batteryvolt.setText(dfmm.format(batteryVoltage) + " V");
+                                    tv_batterypercent.setText(String.valueOf(batteryPercentage) + " %");
+                                    pb_batteryperc.setProgress(batteryPercentage);
+                                    tv_smartphoneBattery.setText(String.valueOf(smartphoneBatLevel) + " %");
                                     }
                                 });
 
@@ -170,14 +183,11 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
                     sb_motor4.setProgress(0);
                     //Button is OFF
                     // Do Something
-                    transmitter.commTest(0,0,0,0);
+                    adkCommunicator.commTest(0,0,0,0);
                 }
             }
         });
-    }
-
-    void getBatteryData(){
-        pb_batteryperc.setProgress(progresssbMotor1);
+        tv_smartphoneBattery.setText(String.valueOf(smartphoneBatLevel) + " %");
     }
 
     public void onBackPressed() {
@@ -190,7 +200,8 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
     @Override
     public void onBatteryVoltageArrived(float batteryVoltage){
         this.batteryVoltage = batteryVoltage;
-        this.batteryPercentage = (int)(batteryVoltage*66.6666 - 740); //12.6 V full -- 11.1 V empty
+        this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
+        this.smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
     }
 
 }
