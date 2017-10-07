@@ -298,6 +298,10 @@ public class MissionGUI extends javax.swing.JFrame {
         tv_rollQuad = new javax.swing.JLabel();
         tv_pitchQuad = new javax.swing.JLabel();
         tv_yawQuad = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        tv_quadBatt = new javax.swing.JLabel();
+        tv_phoneBatt = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jPanelComm = new javax.swing.JPanel();
@@ -760,6 +764,14 @@ public class MissionGUI extends javax.swing.JFrame {
 
         tv_yawQuad.setText("-");
 
+        jLabel20.setText("Quad. Batt:");
+
+        tv_quadBatt.setText("-");
+
+        tv_phoneBatt.setText("-");
+
+        jLabel22.setText("Phone. Batt:");
+
         javax.swing.GroupLayout jPanelIndicatorsLayout = new javax.swing.GroupLayout(jPanelIndicators);
         jPanelIndicators.setLayout(jPanelIndicatorsLayout);
         jPanelIndicatorsLayout.setHorizontalGroup(
@@ -777,8 +789,10 @@ public class MissionGUI extends javax.swing.JFrame {
                             .addComponent(jLabel16)
                             .addComponent(jLabel17)
                             .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addGap(34, 34, 34)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel22))
+                        .addGap(22, 22, 22)
                         .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tv_yawQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tv_pitchQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -787,8 +801,10 @@ public class MissionGUI extends javax.swing.JFrame {
                             .addComponent(tv_eastQuad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelIndicatorsLayout.createSequentialGroup()
                                 .addComponent(tv_northQuad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(tv_quadBatt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tv_phoneBatt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelIndicatorsLayout.setVerticalGroup(
             jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -819,6 +835,14 @@ public class MissionGUI extends javax.swing.JFrame {
                 .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(tv_yawQuad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(tv_quadBatt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelIndicatorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tv_phoneBatt)
+                    .addComponent(jLabel22))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1180,33 +1204,23 @@ public class MissionGUI extends javax.swing.JFrame {
     private void bt_startConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_startConnectionActionPerformed
         // TODO add your handling code here:
         MissionControllerUV.startConnection();
-        bt_startConnection.setEnabled(false);
-        bt_stopConnection.setEnabled(true);
-        bt_LoiterMode.setEnabled(true);
-        bt_RTLmode.setEnabled(true);
-        bt_AltHoldMode.setEnabled(true);
-        bt_LandMode.setEnabled(true);
-        bt_stabilizeMode.setEnabled(true);
-        bt_AutoMode.setEnabled(true);
-        jTextPaneWaypoints.setEnabled(true);
-        bt_arm.setEnabled(true);
     }//GEN-LAST:event_bt_startConnectionActionPerformed
 
     private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
-        try {
-            // TODO add your handling code here:
-            MissionControllerUV.stopConnection();
-            bt_startConnection.setEnabled(true);
-            bt_stopConnection.setEnabled(false);
-            bt_LoiterMode.setEnabled(false);
-            bt_RTLmode.setEnabled(false);
-            bt_AltHoldMode.setEnabled(false);
-            bt_LandMode.setEnabled(false);
-            bt_stabilizeMode.setEnabled(false);
-            bt_AutoMode.setEnabled(false);
-        } catch (IOException ex) {
-            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        int selectedOption = JOptionPane.showConfirmDialog(null, 
+                                  "Do you want to stop the connection with the Quadrotor?", 
+                                  "Choose", 
+                                  JOptionPane.YES_NO_OPTION); 
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                missionControllerUV.armMotors(false);
+                Thread.sleep(500);
+                MissionControllerUV.stopConnection();
+            } catch (IOException | InterruptedException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_bt_stopConnectionActionPerformed
 
     private void bt_stabilizeModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stabilizeModeActionPerformed
@@ -1386,11 +1400,6 @@ public class MissionGUI extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             missionControllerUV.armMotors(true);
-            bt_disarm.setEnabled(true);
-            bt_arm.setEnabled(false);
-            
-            bt_setWaypoints.setEnabled(false);
-            bt_updateWaypoints.setEnabled(false);
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1400,16 +1409,20 @@ public class MissionGUI extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             missionControllerUV.armMotors(false);
-            bt_arm.setEnabled(true);
-            bt_disarm.setEnabled(false);
-            
-            bt_setWaypoints.setEnabled(true);
-            //bt_updateWaypoints.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bt_disarmActionPerformed
-
+    
+    public void armMotorsFromRC(){
+        try {
+            // TODO add your handling code here:
+            missionControllerUV.armMotors(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void addControllerName(String controllerName){
         jComboBox_controllers.addItem(controllerName);
     }
@@ -1432,11 +1445,11 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JButton bt_arm;
     private javax.swing.JButton bt_clearConsole;
     public javax.swing.JButton bt_disarm;
-    private javax.swing.JButton bt_setWaypoints;
+    public javax.swing.JButton bt_setWaypoints;
     public javax.swing.JButton bt_stabilizeMode;
     public javax.swing.JButton bt_startConnection;
     public javax.swing.JButton bt_stopConnection;
-    private javax.swing.JButton bt_updateWaypoints;
+    public javax.swing.JButton bt_updateWaypoints;
     private javax.swing.JComboBox<String> cb_QuadList;
     public javax.swing.JButton jButtonControlA;
     public javax.swing.JButton jButtonControlB;
@@ -1463,6 +1476,8 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1510,7 +1525,9 @@ public class MissionGUI extends javax.swing.JFrame {
     public javax.swing.JLabel tv_eastQuad;
     public javax.swing.JLabel tv_elevationQuad;
     public javax.swing.JLabel tv_northQuad;
+    public javax.swing.JLabel tv_phoneBatt;
     public javax.swing.JLabel tv_pitchQuad;
+    public javax.swing.JLabel tv_quadBatt;
     public javax.swing.JLabel tv_rollQuad;
     public javax.swing.JLabel tv_yawQuad;
     // End of variables declaration//GEN-END:variables

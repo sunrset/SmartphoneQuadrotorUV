@@ -8,6 +8,7 @@ package missioncontrolleruv1;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import missioncontrolleruv1.Communication.Communication;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
@@ -37,9 +38,11 @@ public class ReadController {
                 }
                 startAcquiringControllerData();
                 showControllerInWindow();
+                sendRCactions();
             }
         }
     };
+    
     
     public Thread ControllerThread = new Thread(){
         @Override
@@ -53,9 +56,16 @@ public class ReadController {
                     break;
                 }
                 startAcquiringControllerData();
+                sendRCactions();
             }
         }
     };
+
+    public void sendRCactions(){
+        if(startIsPressed && backIsPressed && ltIsPressed && rtIsPressed && !Communication.RCthreadRunning){
+            window.armMotorsFromRC();
+        }
+    }
         
     private int xAxisPercentage = 0, yAxisPercentage = 0, zUDPercentage = 0, zLRPercentage = 0, zAxis = 0, hatSwitchPosition = 0;
     private boolean xIsPressed = false, yIsPressed = false, bIsPressed = false, aIsPressed = false;

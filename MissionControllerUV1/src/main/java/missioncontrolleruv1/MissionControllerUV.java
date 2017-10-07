@@ -56,15 +56,7 @@ public class MissionControllerUV {
     public void resetWaypointList() throws IOException{
         communication.resetWaypointList();
     }
-    
-    public void sendRCcommands(String id){
-        try {
-            communication.sendRCcommands(id);
-        } catch (IOException ex) {
-            Logger.getLogger(MissionControllerUV.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+        
     public void startSendingRC(){
         try {
             communication.startSendingRC();

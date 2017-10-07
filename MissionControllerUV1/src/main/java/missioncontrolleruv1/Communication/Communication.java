@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.net.SocketException;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Timer;
@@ -33,8 +34,7 @@ public class Communication {
     TemporizerComm mainThread;
     double t;
     float Ts = (float) 0.01;
-    public double quad_east, quad_north, quad_elevation, quad_roll, quad_pitch, quad_yaw;
-    public int quad_battery, quad_smartphoneBat;
+    public double quad_east, quad_north, quad_elevation, quad_roll, quad_pitch, quad_yaw, quad_battery, quad_smartphoneBat;
     
     Socket connectionSocket = null;
     BufferedReader inFromClient = null;
@@ -50,6 +50,8 @@ public class Communication {
     
     public boolean connected = false;
     public boolean freeBuffer = true;
+    public boolean armed = false;
+    public static boolean RCthreadRunning = false;
     
     DecimalFormat df = new DecimalFormat("0.000");
     
@@ -61,13 +63,25 @@ public class Communication {
         ip_1 = window.jTF_ip1.getText();
         try {
             clientSocket = new Socket(ip_1, 6789); //192.168.0.18
+            //clientSocket.setSoTimeout(100);
             sendToServer(id+",0");
             receiveFromServer();
             Thread.sleep(2000);
             if(connected){
                 window.jTextAreaConsole.append("Connection Set with IP: "+ip_1+"\n");
-                //System.out.println("Connection Set with IP: "+ip_1);
-                
+                                        
+                window.bt_startConnection.setEnabled(false);
+                window.bt_stopConnection.setEnabled(true);
+                window.bt_LoiterMode.setEnabled(true);
+                window.bt_RTLmode.setEnabled(true);
+                window.bt_AltHoldMode.setEnabled(true);
+                window.bt_LandMode.setEnabled(true);
+                window.bt_stabilizeMode.setEnabled(true);
+                window.bt_AutoMode.setEnabled(true);
+                window.jTextPaneWaypoints.setEnabled(true);
+                window.bt_arm.setEnabled(true);
+                window.bt_setWaypoints.setEnabled(true);
+                //startSendingRC();
             }
             //requestQuadrotorState("1");
         } catch (IOException ex) {
@@ -98,8 +112,7 @@ public class Communication {
     
     public void closeCommunication(String id) throws IOException{
         sendToServer(id+",!0");
-        clientSocket.close();
-        connected = false;
+        receiveFromServer();
     }
         
     public void decodeReceived(final String received){
@@ -114,7 +127,36 @@ public class Communication {
                     }
                     else if(receivedData[1].equals("0")){
                         System.out.println("Connection Set with Quadrotor "+receivedData[0]);
-                        connected = true;
+                        connected = true;                       
+                    }
+                    else if(receivedData[1].equals("!0")){
+                        window.jTextAreaConsole.append("Connection Ended with Quadrotor "+receivedData[0]+"\n");
+                        connected = false;   
+                        timer.cancel();
+                        RCthreadRunning = false;
+                        try {
+                            clientSocket.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        window.bt_startConnection.setEnabled(true);
+                        window.bt_stopConnection.setEnabled(false);
+                        window.bt_arm.setEnabled(false);
+                        window.bt_LoiterMode.setEnabled(false);
+                        window.bt_RTLmode.setEnabled(false);
+                        window.bt_AltHoldMode.setEnabled(false);
+                        window.bt_LandMode.setEnabled(false);
+                        window.bt_stabilizeMode.setEnabled(false);
+                        window.bt_AutoMode.setEnabled(false);
+                        window.bt_setWaypoints.setEnabled(false);
+                        window.tv_eastQuad.setText("-");
+                        window.tv_northQuad.setText("-");
+                        window.tv_elevationQuad.setText("-");
+                        window.tv_rollQuad.setText("-");
+                        window.tv_pitchQuad.setText("-");
+                        window.tv_yawQuad.setText("-");
+                        window.tv_quadBatt.setText("-");
+                        window.tv_phoneBatt.setText("-");
                     }
                     else if(receivedData[1].equals("wys")){
                         System.out.println("Waypoint Set for Quadrotor "+receivedData[0]);
@@ -124,6 +166,22 @@ public class Communication {
                         jTextAreaConsole.append("Quadrotor "+receivedData[0]+" mode changed to: "+receivedData[2]+'\n');
                     }
                     else if(receivedData[1].equals("arm")){
+                        if(receivedData[2].equals("Disarmed")){
+                            window.bt_arm.setEnabled(true);
+                            window.bt_disarm.setEnabled(false);
+                            window.bt_setWaypoints.setEnabled(true);
+                        }
+                        else if(receivedData[2].equals("Armed")){
+                            window.bt_disarm.setEnabled(true);
+                            window.bt_arm.setEnabled(false);
+                            window.bt_setWaypoints.setEnabled(false);
+                            window.bt_updateWaypoints.setEnabled(false);
+                            try {
+                                startSendingRC();
+                            } catch (IOException ex) {
+                                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                         window.tf_armed.setText(receivedData[2]);
                         jTextAreaConsole.append("Quadrotor "+receivedData[0]+" motors "+receivedData[2]+'\n');
                     }
@@ -140,27 +198,21 @@ public class Communication {
         quad_roll = Double.parseDouble(receivedFrame[5]);
         quad_pitch = Double.parseDouble(receivedFrame[6]);
         quad_yaw = Double.parseDouble(receivedFrame[7]);
-        quad_battery = Integer.parseInt(receivedFrame[8]);
-        quad_smartphoneBat = Integer.parseInt(receivedFrame[9]);
-        System.out.println("Id: "+receivedFrame[0]);
-        System.out.println("North: "+quad_north);
-        System.out.println("East: "+quad_east);
-        System.out.println("Elevation: "+quad_elevation);
-        System.out.println("Roll: "+quad_roll);
-        System.out.println("Pitch: "+quad_pitch);
-        System.out.println("Yaw: "+quad_yaw);
-        System.out.println("QuadBattery: "+quad_battery);
-        System.out.println("SmartphoneBattery: "+quad_smartphoneBat);
-        window.tv_northQuad.setText(String.valueOf(quad_north));
-        window.tv_eastQuad.setText(String.valueOf(quad_east));
-        window.tv_elevationQuad.setText(String.valueOf(quad_elevation));
-        window.tv_rollQuad.setText(String.valueOf(quad_roll));
-        window.tv_pitchQuad.setText(String.valueOf(quad_pitch));
-        window.tv_yawQuad.setText(String.valueOf(quad_yaw));
+        quad_battery = Double.parseDouble(receivedFrame[8]);
+        quad_smartphoneBat = Double.parseDouble(receivedFrame[9]);
+        window.tv_northQuad.setText(String.valueOf(quad_north)+" m");
+        window.tv_eastQuad.setText(String.valueOf(quad_east)+" m");
+        window.tv_elevationQuad.setText(String.valueOf(quad_elevation)+" m");
+        window.tv_rollQuad.setText(String.valueOf(quad_roll)+" °");
+        window.tv_pitchQuad.setText(String.valueOf(quad_pitch)+" °");
+        window.tv_yawQuad.setText(String.valueOf(quad_yaw)+" °");
+        window.tv_quadBatt.setText(String.valueOf((int)quad_battery)+" %");
+        window.tv_phoneBatt.setText(String.valueOf((int)quad_smartphoneBat)+" %");
     }
     
     public void requestModeChange(String id, String mode) throws IOException{
         freeBuffer = false;
+        clientSocket.setSoTimeout(2000);
         sendToServer(id+",mode,"+mode);
         receiveFromServer();
         try {
@@ -168,19 +220,22 @@ public class Communication {
         } catch (InterruptedException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
+        clientSocket.setSoTimeout(100);
         freeBuffer = true;
     }
     
     public void armQuadrotor(String id, boolean arm) throws IOException{
         freeBuffer = false;
+        clientSocket.setSoTimeout(2000);
         sendToServer(id+",arm,"+arm);
         receiveFromServer();
+        armed = arm;
         try {
             Thread.sleep(100);
         } catch (InterruptedException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
-        startSendingRC();
+        clientSocket.setSoTimeout(100);
         freeBuffer = true;
     }
     
@@ -191,6 +246,7 @@ public class Communication {
     
     public void sendWaypointList(List<double[]> Waypoints, float elev, float yaw) throws IOException{
         freeBuffer = false;
+        clientSocket.setSoTimeout(1000);
         float north_coord, east_coord;
         for(int i=0; i<=(Waypoints.size()-1); i++){
             north_coord = (float) Waypoints.get(i)[1];
@@ -202,17 +258,20 @@ public class Communication {
         } catch (InterruptedException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
+        clientSocket.setSoTimeout(100);
         freeBuffer = true;
     }
     
     public void resetWaypointList() throws IOException{
         freeBuffer = false;
+        clientSocket.setSoTimeout(1000);
         sendToServer("1,rwp");
         try {
             Thread.sleep(100);
         } catch (InterruptedException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
+        clientSocket.setSoTimeout(100);
         freeBuffer = true;
     }
     
@@ -223,40 +282,42 @@ public class Communication {
         freeBuffer = true;
     }
     
-    public void sendRCcommands(String id) throws IOException{  
-        freeBuffer = false;
-        sendToServer(id+",rc,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
-                readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
-                readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
-                readController.getSTARTbutton()+","+readController.getBACKbutton()+","+readController.getLTbutton()+","+
-                readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
-                readController.getLJbutton()+","+readController.getRJbutton());
-        freeBuffer = true;
-    }
-    
     public void sendRCwaitForState(String id) throws IOException{
-        freeBuffer = false;
-        sendToServer(id+",rcstate,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
-                readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
-                readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
-                readController.getSTARTbutton()+","+readController.getBACKbutton()+","+readController.getLTbutton()+","+
-                readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
-                readController.getLJbutton()+","+readController.getRJbutton());
-        receiveFromServer();
-        freeBuffer = true;
+        
+        if(readController.getBACKbutton() && readController.getSTARTbutton() && readController.getLTbutton() && readController.getRTbutton()){          
+            // Pressing BACK+START+LT+RT, arm/disarm the motors
+            if(armed){ armQuadrotor("1",false);}
+            else{ armQuadrotor("1",true);}
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(readController.getBACKbutton() && readController.getBbutton()){    
+            // If armed, pressing BACK + B, set RTL mode
+            if(armed){ requestModeChange("1","RTL");}
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            sendToServer(id+",rcstate,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
+                    readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
+                    readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
+                    readController.getSTARTbutton()+","+readController.getBACKbutton()+","+readController.getLTbutton()+","+
+                    readController.getRTbutton()+","+readController.getLBbutton()+","+readController.getRBbutton()+","+
+                    readController.getLJbutton()+","+readController.getRJbutton());
+            receiveFromServer();
+        }
     }  
     
     public void sendAction(){
-        j++;
         try {
             if(freeBuffer){
-                if(j<=10){
-                    sendRCcommands("1");
-                }
-                else {
-                    sendRCwaitForState("1");
-                    j=0;
-                }
+                sendRCwaitForState("1");
             }
         } catch (IOException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
@@ -271,18 +332,19 @@ public class Communication {
         timer = new Timer();
         mainThread = new TemporizerComm();
         timer.schedule(mainThread, 10, 100);
-
+        RCthreadRunning = true;
         t = 0; // inicia la simulación
     }
-    int j = 0;
+    
     Long t_pasado = System.nanoTime();
+    
     private class TemporizerComm extends TimerTask {
 
         public void run()  {
             sendAction();
         }
     }
-    
+     
     
 
     
