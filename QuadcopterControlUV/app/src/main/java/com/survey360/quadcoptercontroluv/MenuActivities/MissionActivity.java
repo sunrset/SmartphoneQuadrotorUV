@@ -39,7 +39,7 @@ public class MissionActivity extends AppCompatActivity{
     public static boolean ic_ready = false;
 
     public static DataExchange mDataExchange = null;
-    FlightController mFlightController = null;
+    public static FlightController mFlightController = null;
 
     FlightController.MotorsPowers motorsPowers;
 
@@ -117,7 +117,7 @@ public class MissionActivity extends AppCompatActivity{
         }
 
         tv_flightmode.setText("Prepared for Take-off");
-        mFlightController.acquireData();
+
     }
 
     private void turnLed(boolean on){
@@ -125,6 +125,7 @@ public class MissionActivity extends AppCompatActivity{
     }
 
     public static void armMotors(){
+        mFlightController.acquireData();
         armed =  true;
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {
@@ -139,6 +140,7 @@ public class MissionActivity extends AppCompatActivity{
     }
 
     public static void disarmMotors(){
+        mFlightController.stopAcquiring();
         armed = false;
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {

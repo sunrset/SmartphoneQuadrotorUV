@@ -121,6 +121,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
             delta_time = ((float) (measured_time - last_time)) / 1000000.0f; // [ms].;
             last_time = measured_time;
 
+            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+
             setQuadrotorState();
             editGUI();
 
@@ -146,6 +148,11 @@ public class FlightController implements AdkCommunicator.AdbListener {
             MissionActivity.UIHandler.post(new Runnable() {
                 @Override
                 public void run() {
+                    if(MissionActivity.armed){
+                        MissionActivity.tv_east.setText(df.format(MissionActivity.quadrotorState[0]));
+                        MissionActivity.tv_north.setText(df.format(MissionActivity.quadrotorState[1]));
+                        MissionActivity.tv_elevation.setText(df.format(MissionActivity.quadrotorState[2]));
+                    }
                     MissionActivity.tv_roll.setText(df.format(mDataCollection.orientationValsDeg[2]) + " °");
                     MissionActivity.tv_pitch.setText(df.format(mDataCollection.orientationValsDeg[1]) + " °");
                     MissionActivity.tv_yaw.setText(df.format(mDataCollection.orientationValsDeg[0]) + " °");

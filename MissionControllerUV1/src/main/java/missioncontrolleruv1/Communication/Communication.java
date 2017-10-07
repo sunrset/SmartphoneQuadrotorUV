@@ -34,7 +34,8 @@ public class Communication {
     TemporizerComm mainThread;
     double t;
     float Ts = (float) 0.01;
-    public double quad_east, quad_north, quad_elevation, quad_roll, quad_pitch, quad_yaw, quad_battery, quad_smartphoneBat;
+    public static double quad_east, quad_north, quad_elevation, quad_roll, quad_pitch, quad_yaw, quad_battery, quad_smartphoneBat;
+    Thread updateQuadMark;
     
     Socket connectionSocket = null;
     BufferedReader inFromClient = null;
@@ -47,10 +48,11 @@ public class Communication {
     DataOutputStream outToServer;
     long startTime, estimatedTime;
     Thread decodeFrame;
+    int j = 0;
     
     public boolean connected = false;
     public boolean freeBuffer = true;
-    public boolean armed = false;
+    public static boolean armed = false;
     public static boolean RCthreadRunning = false;
     
     DecimalFormat df = new DecimalFormat("0.000");
@@ -192,8 +194,8 @@ public class Communication {
     }
     
     private void decodeState(String[] receivedFrame){
-        quad_north = Double.parseDouble(receivedFrame[2]);
-        quad_east = Double.parseDouble(receivedFrame[3]);
+        quad_east = Double.parseDouble(receivedFrame[2]);
+        quad_north = Double.parseDouble(receivedFrame[3]);
         quad_elevation = Double.parseDouble(receivedFrame[4]);
         quad_roll = Double.parseDouble(receivedFrame[5]);
         quad_pitch = Double.parseDouble(receivedFrame[6]);
@@ -208,6 +210,18 @@ public class Communication {
         window.tv_yawQuad.setText(String.valueOf(quad_yaw)+" °");
         window.tv_quadBatt.setText(String.valueOf((int)quad_battery)+" %");
         window.tv_phoneBatt.setText(String.valueOf((int)quad_smartphoneBat)+" %");
+        j++;
+        //  if(quad_north>=857882 && quad_north<=880255 && quad_east>=1055890 && ((int)quad_east)<=1068032 && j>2){ // ((int)quad_north)>=10 && 
+        if(((int)quad_north)>=863290 && ((int)quad_north)<=866090 && ((int)quad_east)>=1059800 && ((int)quad_east)<=1062391){ // ((int)quad_north)>=10 && j>2
+            updateQuadMark = new Thread() {
+                @Override
+                public void run() {
+                    window.quadPositionMark(quad_east,quad_north); 
+                    j = 0;
+                }
+            };
+            updateQuadMark.start();
+        }
     }
     
     public void requestModeChange(String id, String mode) throws IOException{

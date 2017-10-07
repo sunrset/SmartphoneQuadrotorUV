@@ -65,6 +65,9 @@ public class ReadController {
         if(startIsPressed && backIsPressed && ltIsPressed && rtIsPressed && !Communication.RCthreadRunning){
             window.armMotorsFromRC();
         }
+        if(startIsPressed && xIsPressed && !Communication.RCthreadRunning){
+            window.establishConnectionFromRC();
+        }
     }
         
     private int xAxisPercentage = 0, yAxisPercentage = 0, zUDPercentage = 0, zLRPercentage = 0, zAxis = 0, hatSwitchPosition = 0;

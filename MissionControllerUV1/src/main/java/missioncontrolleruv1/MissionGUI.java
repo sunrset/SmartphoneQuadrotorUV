@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
+import missioncontrolleruv1.Communication.Communication;
 import missioncontrolleruv1.map.FancyWaypointRenderer;
 import missioncontrolleruv1.map.MyWaypoint;
 import missioncontrolleruv1.map.Proj4;
@@ -150,7 +151,7 @@ public class MissionGUI extends javax.swing.JFrame {
     
     public void quadPositionMark(double quad_east, double quad_north){
         
-        ellip_quad = convertToEllipCoordinates(quad_east+10*Math.random(), quad_north+10*Math.random());
+        ellip_quad = convertToEllipCoordinates(quad_east, quad_north);
         
         quadPosition = new HashSet<>(Arrays.asList(
 				new MyWaypoint("", Color.YELLOW, new GeoPosition(ellip_quad.y, ellip_quad.x))
@@ -1213,8 +1214,10 @@ public class MissionGUI extends javax.swing.JFrame {
                                   JOptionPane.YES_NO_OPTION); 
         if (selectedOption == JOptionPane.YES_OPTION) {
             try {
-                missionControllerUV.armMotors(false);
-                Thread.sleep(500);
+                if(Communication.armed){
+                    missionControllerUV.armMotors(false);
+                    Thread.sleep(500);
+                }
                 MissionControllerUV.stopConnection();
             } catch (IOException | InterruptedException ex) {
                 Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -1321,9 +1324,6 @@ public class MissionGUI extends javax.swing.JFrame {
     private void bt_clearConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearConsoleActionPerformed
         // TODO add your handling code here:
         jTextAreaConsole.setText(null);
-        quadPositionMark(1060638.15,864634.91);
-        //missionControllerUV.sendRCcommands("1");
-        
     }//GEN-LAST:event_bt_clearConsoleActionPerformed
 
     private void bt_updateWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateWaypointsActionPerformed
@@ -1421,6 +1421,10 @@ public class MissionGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void establishConnectionFromRC(){
+        MissionControllerUV.startConnection();
     }
     
     public void addControllerName(String controllerName){
