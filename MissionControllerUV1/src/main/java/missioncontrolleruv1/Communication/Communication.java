@@ -36,6 +36,7 @@ public class Communication {
     float Ts = (float) 0.01;
     public static double quad_east, quad_north, quad_elevation, quad_roll, quad_pitch, quad_yaw, quad_battery, quad_smartphoneBat;
     Thread updateQuadMark;
+    public static boolean centerMapOnQuad = false;
     
     Socket connectionSocket = null;
     BufferedReader inFromClient = null;
@@ -84,6 +85,7 @@ public class Communication {
                 window.bt_arm.setEnabled(true);
                 window.bt_setWaypoints.setEnabled(true);
                 //startSendingRC();
+                
             }
             //requestQuadrotorState("1");
         } catch (IOException ex) {
@@ -210,18 +212,9 @@ public class Communication {
         window.tv_yawQuad.setText(String.valueOf(quad_yaw)+" °");
         window.tv_quadBatt.setText(String.valueOf((int)quad_battery)+" %");
         window.tv_phoneBatt.setText(String.valueOf((int)quad_smartphoneBat)+" %");
-        j++;
-        //  if(quad_north>=857882 && quad_north<=880255 && quad_east>=1055890 && ((int)quad_east)<=1068032 && j>2){ // ((int)quad_north)>=10 && 
-        if(((int)quad_north)>=863290 && ((int)quad_north)<=866090 && ((int)quad_east)>=1059800 && ((int)quad_east)<=1062391){ // ((int)quad_north)>=10 && j>2
-            updateQuadMark = new Thread() {
-                @Override
-                public void run() {
-                    window.quadPositionMark(quad_east,quad_north); 
-                    j = 0;
-                }
-            };
-            updateQuadMark.start();
-        }
+        
+        window.quadPositionMark(quad_east,quad_north);
+
     }
     
     public void requestModeChange(String id, String mode) throws IOException{

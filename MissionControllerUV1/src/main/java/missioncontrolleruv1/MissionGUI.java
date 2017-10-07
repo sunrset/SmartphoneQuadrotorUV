@@ -22,6 +22,7 @@ import java.util.Set;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import missioncontrolleruv1.Communication.Communication;
+import static missioncontrolleruv1.Communication.Communication.window;
 import missioncontrolleruv1.map.FancyWaypointRenderer;
 import missioncontrolleruv1.map.MyWaypoint;
 import missioncontrolleruv1.map.Proj4;
@@ -64,6 +65,7 @@ public class MissionGUI extends javax.swing.JFrame {
     WaypointPainter<MyWaypoint> quadPainter;
     List<Painter<JXMapViewer>> painters;
     CompoundPainter<JXMapViewer> painter;
+    GeoPosition quadPos;
     
     DecimalFormat df = new DecimalFormat("#.00"); 
     Proj4 mProj4 = null;
@@ -77,15 +79,15 @@ public class MissionGUI extends javax.swing.JFrame {
     public MissionGUI() {
         initComponents();
         
+        mProj4 = new Proj4();
+        p_in = new ProjCoordinate();
+        p_result = new ProjCoordinate();
+        
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         
-        initializeMap();
-        
-        mProj4 = new Proj4();
-        p_in = new ProjCoordinate();
-        p_result = new ProjCoordinate();                       
+        initializeMap();               
     }
 
     private void initializeMap(){
@@ -150,24 +152,28 @@ public class MissionGUI extends javax.swing.JFrame {
     }
     
     public void quadPositionMark(double quad_east, double quad_north){
-        
-        ellip_quad = convertToEllipCoordinates(quad_east, quad_north);
-        
-        quadPosition = new HashSet<>(Arrays.asList(
-				new MyWaypoint("", Color.YELLOW, new GeoPosition(ellip_quad.y, ellip_quad.x))
-				));
-        //quadPosition = new HashSet<>(Arrays.asList(new DefaultWaypoint(new GeoPosition(ellip_quad.y, ellip_quad.x))));
-        quadPainter = new WaypointPainter<>();
-        quadPainter.setWaypoints(quadPosition);
-        quadPainter.setRenderer(new QuadPositionRenderer());
-        
-        painters = new ArrayList<>();
-        painters.add(routePainter);
-        painters.add(waypointPainter);
-        painters.add(quadPainter);
+            ellip_quad = convertToEllipCoordinates(quad_east, quad_north);
+            quadPos = new GeoPosition(ellip_quad.y, ellip_quad.x);
+            if(Communication.centerMapOnQuad){
+                mapkit.setCenterPosition(quadPos);
+            }
+            quadPosition = new HashSet<>(Arrays.asList(
+                                    new MyWaypoint("", Color.YELLOW, quadPos)
+                                    ));
+            //quadPosition = new HashSet<>(Arrays.asList(new DefaultWaypoint(new GeoPosition(ellip_quad.y, ellip_quad.x))));
+            quadPainter = new WaypointPainter<>();
+            quadPainter.setWaypoints(quadPosition);
+            quadPainter.setRenderer(new QuadPositionRenderer());
 
-        painter = new CompoundPainter<>(painters);
-        mapViewer.setOverlayPainter(painter);
+            painters = new ArrayList<>();
+            if(routePainter != null && waypointPainter != null){
+                painters.add(routePainter);
+                painters.add(waypointPainter);
+            }
+            painters.add(quadPainter);
+
+            painter = new CompoundPainter<>(painters);
+            mapViewer.setOverlayPainter(painter);
     }
     
     private void addWaypoint(GeoPosition wy_coord){
