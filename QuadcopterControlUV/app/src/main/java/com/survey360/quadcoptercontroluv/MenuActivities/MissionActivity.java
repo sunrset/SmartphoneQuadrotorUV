@@ -34,11 +34,11 @@ public class MissionActivity extends AppCompatActivity{
     public static ToggleButton tb_led;
     public static TextView tv_arm, tv_flightmode, tv_controller, tv_quadbatt, tv_smartbatt, tv_waypoints;
     public static TextView tv_east, tv_north, tv_elevation, tv_roll, tv_pitch, tv_yaw, tv_dt;
-    public static ProgressBar pb_motor1, pb_motor2, pb_motor3, pb_motor4;
-    public static Handler UIHandler = new Handler(Looper.getMainLooper());
+    public static ProgressBar pb_motor1, pb_motor2, pb_motor3, pb_motor4, pb_rolljoystick, pb_pitchjoystick, pb_yawjoystick, pb_throttlejoystick;
+    public static Handler UIHandler = null;
     public static boolean ic_ready = false;
 
-    DataExchange mDataExchange = null;
+    public static DataExchange mDataExchange = null;
     FlightController mFlightController = null;
 
     FlightController.MotorsPowers motorsPowers;
@@ -48,6 +48,7 @@ public class MissionActivity extends AppCompatActivity{
 
     public static String flightMode = "AltHold";
     public static List<float[]> waypointsList1 = new ArrayList<>();
+    public static float[] quadrotorState = new float[8]; // north ,east, elevation, roll, pitch, yaw, quad_bat, smart_bat
 
 
 
@@ -57,6 +58,8 @@ public class MissionActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mission);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        UIHandler = new Handler(Looper.getMainLooper());
 
         tv_arm = (TextView) findViewById(R.id.tv_arm);
         tv_flightmode = (TextView) findViewById(R.id.tv_flightmode);
@@ -75,6 +78,10 @@ public class MissionActivity extends AppCompatActivity{
         pb_motor2 = (ProgressBar) findViewById(R.id.pb_motor2);
         pb_motor3 = (ProgressBar) findViewById(R.id.pb_motor3);
         pb_motor4 = (ProgressBar) findViewById(R.id.pb_motor4);
+        pb_rolljoystick = (ProgressBar) findViewById(R.id.pb_rolljoystick);
+        pb_pitchjoystick = (ProgressBar) findViewById(R.id.pb_pitchjoystick);
+        pb_yawjoystick = (ProgressBar) findViewById(R.id.pb_yawjoystick);
+        pb_throttlejoystick= (ProgressBar) findViewById(R.id.pb_throttlejoystick);
 
         tb_led = (ToggleButton) findViewById(R.id.tb_led);
         tb_led.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -90,7 +97,6 @@ public class MissionActivity extends AppCompatActivity{
         });
 
         mFlightController = new FlightController(this);
-        //motorsPowers = new FlightController.MotorsPowers();
 
         // Start the sensor acquisition
         try {
@@ -110,7 +116,6 @@ public class MissionActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-        //while(!mFlightController.posKF.mInitialConditions.ic_ready){Log.w("Waiting for IC","Initial conditions not set");}
         tv_flightmode.setText("Prepared for Take-off");
         mFlightController.acquireData();
     }
@@ -121,48 +126,54 @@ public class MissionActivity extends AppCompatActivity{
 
     public static void armMotors(){
         armed =  true;
-        UIHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                tv_arm.setText("Armed");
-                tv_arm.setTextColor(Color.GREEN);
-            }
-        });
-
+        if(UIHandler!=null) {
+            UIHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tv_arm.setText("Armed");
+                    tv_arm.setTextColor(Color.GREEN);
+                }
+            });
+        }
 
     }
 
     public static void disarmMotors(){
         armed = false;
-        UIHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                tv_arm.setText("Disarmed");
-                tv_arm.setTextColor(Color.RED);
-            }
-        });
+        if(UIHandler!=null) {
+            UIHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tv_arm.setText("Disarmed");
+                    tv_arm.setTextColor(Color.RED);
+                }
+            });
+        }
 
     }
 
     public static void waypointsUpdated(){
-        UIHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                tv_waypoints.setText(String.valueOf(waypointsList1.size()));
-            }
-        });
+        if(UIHandler!=null) {
+            UIHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tv_waypoints.setText(String.valueOf(waypointsList1.size()));
+                }
+            });
+        }
     }
 
 
     public static void changeFlightMode(String mode){
         flightMode = mode;
-        UIHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                tv_flightmode.setText(flightMode);
-            }
-        });
-
+        if(UIHandler!=null) {
+            UIHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tv_flightmode.setText(flightMode);
+                }
+            });
+        }
         if(flightMode.equals("Stabilize")){
 
         }

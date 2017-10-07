@@ -37,6 +37,7 @@ public class DataExchange {
     public boolean xButton, yButton, aButton, bButton, startButton, backButton, ltButton, rtButton, lbButton, rbButton, ljButton, rjButton;
 
     String[] receivedData;
+    public float[] quadrotorState = new float[8]; // north ,east, elevation, roll, pitch, yaw, quad_bat, smart_bat
 
     public DataExchange(Context context) throws IOException {
         ctx = context;
@@ -104,9 +105,10 @@ public class DataExchange {
                         verifyConnectionStarted(receivedData[0]);
                     }
                     else if(receivedData[1].equals("!0")){ // End connection query
+                        verifyConnectionFinished(receivedData[0]);
                         stopTCPserver();
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -125,12 +127,12 @@ public class DataExchange {
                         if(receivedData[2].equals("true")){
                             //Arm motors
                             ArmMotors();
-                            outToClient.writeBytes(receivedData[1]+",arm,Armed"+'\n');
+                            outToClient.writeBytes(receivedData[0]+",arm,Armed"+'\n');
                         }
                         else if(receivedData[2].equals("false")){
                             //Disarm motors
                             DisarmMotors();
-                            outToClient.writeBytes(receivedData[1]+",arm,Disarmed"+'\n');
+                            outToClient.writeBytes(receivedData[0]+",arm,Disarmed"+'\n');
                         }
                     }
                     else if(receivedData[1].equals("mode")){ // Requested flight mode change
@@ -189,8 +191,14 @@ public class DataExchange {
         outToClient.writeBytes(id+",0"+'\n');
     }
 
+    private void verifyConnectionFinished(String id) throws IOException {
+        outToClient.writeBytes(id+",!0"+'\n');
+    }
+
     private void sendState(String id) throws IOException {
-        outToClient.writeBytes(id+",state,843211.10,1062939.204,1930.204,0,1,2,85,74"+'\n');
+        quadrotorState = MissionActivity.quadrotorState;
+        //outToClient.writeBytes(id+",state,843211.10,1062939.204,1930.204,0,1,2,85,74"+'\n');
+        outToClient.writeBytes(id+",state,"+quadrotorState[0]+","+quadrotorState[1]+","+quadrotorState[2]+","+df.format(quadrotorState[3]*180/3.14159265)+","+df.format(quadrotorState[4]*180/3.14159265)+","+df.format(quadrotorState[5]*180/3.14159265)+","+quadrotorState[6]+","+quadrotorState[7]+'\n');
     }
 
     private void decodeRCframe(String[] receivedFrame){
@@ -215,11 +223,15 @@ public class DataExchange {
     }
 
     private void ArmMotors(){
-        MissionActivity.armMotors();
+        if(MissionActivity.UIHandler!=null) {
+            MissionActivity.armMotors();
+        }
     }
 
     private void DisarmMotors(){
-        MissionActivity.disarmMotors();
+        if(MissionActivity.UIHandler!=null) {
+            MissionActivity.disarmMotors();
+        }
     }
 
     private void communicationFailed(){

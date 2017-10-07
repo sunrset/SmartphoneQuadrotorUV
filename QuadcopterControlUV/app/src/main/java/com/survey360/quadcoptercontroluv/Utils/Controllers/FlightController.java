@@ -22,30 +22,32 @@ import static android.content.Context.BATTERY_SERVICE;
 
 public class FlightController implements AdkCommunicator.AdbListener {
 
-    public DataCollection mDataCollection = null;
-    //public InitialConditions mInitialConditions = null;
-    public PositionKalmanFilter posKF = null;
-
+    public DataCollection mDataCollection;
+    public PositionKalmanFilter posKF;
     public AdkCommunicator adkCommunicator;
+    public MotorsPowers motorsPowers;
 
     DecimalFormat df = new DecimalFormat("0.000");
 
     BatteryManager bm;
     private int smartphoneBatLevel;
     private int batteryPercentage = 0;
-    private float batteryVoltage;
 
-    Timer timer;
-    TemporizerControlSystem mainThread;
+    Timer controllerScheduler;
+    ControllerThread controllerThread;
     double t;
-    float Ts = (float) 0.01;
+    long measured_time, last_time;
+    float delta_time;
+    private boolean controlExecuting = false;
+
+    public float[] controlSignals = new float[4];
+
 
     public FlightController(Context ctx){
         mDataCollection = new DataCollection(ctx);          // Sensor data acquisition
-        //mInitialConditions = new InitialConditions(ctx);    // Initial conditions of position
-        posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and sensor data acquisition
-
+        posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
+        motorsPowers = new MotorsPowers();                  // Class that contains the signals sent to the motors
 
         try {
             adkCommunicator.start(false);                   // Start the communication with the Arduino Mega ADK
@@ -55,24 +57,45 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
         bm = (BatteryManager)ctx.getSystemService(BATTERY_SERVICE);
         smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-
     }
 
     public void acquireData(){
-        posKF.initPositionKF();
-        mDataCollection.register();
-        startMission();
+        posKF.initPositionKF();                             // Initialize the Position Kalman Filter matrices
+        mDataCollection.register();                         // Begins to acquire sensor data
+
+        Log.w("Mission thread: ","Thread start");
+        if (controllerScheduler != null) {                  // Check that the controllerThread is not running through the scheduler
+            controllerScheduler.cancel();
+        }
+        last_time = System.nanoTime();
+        controllerScheduler = new Timer();
+        controllerThread = new ControllerThread();
+        controllerScheduler.schedule(controllerThread, 0, 10);  // The controllerThread is executed each 10 ms
+        t = 0;
     }
 
     public void stopAcquiring(){
         mDataCollection.unregister();
     }
 
+    private void ControllerExecution(){
+        if(MissionActivity.armed){                          // The control outputs are only set, if the motors are armed
+            setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
+        }
+    }
 
+    private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
+        // L*cos(pi/4) = 0.25*(2^0.5)/2 = 0.17677669529
+        motorsPowers.m1 = 0;
+        motorsPowers.m2 = 0;
+        motorsPowers.m3 = 0;
+        motorsPowers.m4 = 0;
+
+        adkCommunicator.setPowers(motorsPowers);
+    }
 
     @Override
     public void onBatteryVoltageArrived(float batteryVoltage){ //It's executed when Android receives the Battery data from ADK
-        this.batteryVoltage = batteryVoltage;
         this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
         this.smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         MissionActivity.UIHandler.post(new Runnable() {
@@ -82,68 +105,64 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 MissionActivity.tv_smartbatt.setText(smartphoneBatLevel + " %");
             }
         });
-
     }
 
     public void turnLed(boolean on){
-        if(on){
-            adkCommunicator.commTest(1,0,0,0);
-        }
-        else{
-            adkCommunicator.commTest(0,0,0,0);
-        }
+        if(on){adkCommunicator.commTest(1,0,0,0);}
+        else{adkCommunicator.commTest(0,0,0,0);}
     }
 
-    private void setControlOutputs(){
-        if(MissionActivity.armed){
-            ;
-        }
-    }
 
-    private void startMission(){
-        Log.w("Mission start","Mission start");
-        if (timer != null) {
-            timer.cancel();
-        }
-        timer = new Timer();
-        mainThread = new TemporizerControlSystem();
-        timer.schedule(mainThread, 10, 10);
 
-        t = 0; // inicia la simulación
-    }
-
-    Long t_pasado = System.nanoTime();
-
-    private class TemporizerControlSystem extends TimerTask {
-        long t_medido;
-        float dt;
-
+    private class ControllerThread extends TimerTask {
         @Override
         public void run() {
-            t_medido = System.nanoTime();
-            dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
-            t_pasado = t_medido;
+            measured_time = System.nanoTime();
+            delta_time = ((float) (measured_time - last_time)) / 1000000.0f; // [ms].;
+            last_time = measured_time;
 
-            //Log.w("Mission Thread", "Thread time = " + dt * 1000);
+            setQuadrotorState();
+            editGUI();
+
+            if(controlExecuting) {
+                ControllerExecution();
+            }
+
+            t = t + delta_time; //[ms];
+        }
+
+        private void setQuadrotorState(){
+            MissionActivity.quadrotorState[0] = (float)posKF.getEstimatedState()[0];    // x [m]
+            MissionActivity.quadrotorState[1] = (float)posKF.getEstimatedState()[1];    // y [m]
+            MissionActivity.quadrotorState[2] = (float)posKF.getEstimatedState()[2];    // z [m]
+            MissionActivity.quadrotorState[3] = mDataCollection.orientationValsRad[2];  // roll [rad]
+            MissionActivity.quadrotorState[4] = mDataCollection.orientationValsRad[1];  // pitch [rad]
+            MissionActivity.quadrotorState[5] = mDataCollection.orientationValsRad[0];  // yaw [rad]
+            MissionActivity.quadrotorState[6] = batteryPercentage;                      // quadrotor battery [%]
+            MissionActivity.quadrotorState[7] = smartphoneBatLevel;                     // smartphone battery [%]
+        }
+
+        private void editGUI(){
             MissionActivity.UIHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     MissionActivity.tv_roll.setText(df.format(mDataCollection.orientationValsDeg[2]) + " °");
                     MissionActivity.tv_pitch.setText(df.format(mDataCollection.orientationValsDeg[1]) + " °");
                     MissionActivity.tv_yaw.setText(df.format(mDataCollection.orientationValsDeg[0]) + " °");
-                    MissionActivity.tv_dt.setText(df.format(dt*1000)+" ms");
+                    MissionActivity.tv_dt.setText(df.format(delta_time)+" ms");
+                    MissionActivity.pb_rolljoystick.setProgress(MissionActivity.mDataExchange.rollJoystick);
+                    MissionActivity.pb_pitchjoystick.setProgress(MissionActivity.mDataExchange.pitchJoystick);
+                    MissionActivity.pb_yawjoystick.setProgress(MissionActivity.mDataExchange.yawJoystick);
+                    MissionActivity.pb_throttlejoystick.setProgress(MissionActivity.mDataExchange.throttleJoystick);
                 }
             });
-
-            t = t + Ts;
         }
     }
 
 
     public static class MotorsPowers
     {
-        //public int nw, ne, se, sw; // 0-1023 (10 bits values).
-        public int m1, m2, m3, m4;
+        public int m1, m2, m3, m4;  // 0-1023 (10 bits values).
 
         public int getMean()
         {
