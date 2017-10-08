@@ -14,3 +14,6 @@ Available: http://ieeexplore.ieee.org/document/7991400/
 ## Links:
 * Industrial Control Research Group (GICI): http://gici.univalle.edu.co/
 * Postgraduate Program in Electrical and Electronic Engineering (PPIEE): http://ppiee.univalle.edu.co/
+
+
+<p align="center"><img width="61" height="90" src="http://www.univalle.edu.co/images/Univalle/70_Rojo.jpg"/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="110" height="83" src="http://gici.univalle.edu.co/imagenes/logoGici.jpg"/> </p>
