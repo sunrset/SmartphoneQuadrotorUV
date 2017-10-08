@@ -4,7 +4,7 @@ Design and Implementation of Flight Dynamics Control Strategies for a Quadrotor 
 
 # Developed By
 
-* __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__
+* __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__ <br />
 e-mail: <alejandro.astudillo@correounivalle.edu.co>
 
 # Publications: 
