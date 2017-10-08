@@ -1,10 +1,11 @@
 # Smartphone Quadrotor UV
-Master thesis development:
+Master thesis development: <br />
 Design and Implementation of Flight Dynamics Control Strategies for a Quadrotor Based on a Smartphone
 
 # Developed By
 
-* __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__ - <alejandro.astudillo@correounivalle.edu.co>
+* __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__
+e-mail: <alejandro.astudillo@correounivalle.edu.co>
 
 # Publications: 
 - A. Astudillo, P. Muñoz, F. Alvarez and E. Rosero, “Altitude and attitude cascade controller for a smartphone-based quadcopter,” in 2017 International Conference on Unmanned Aircraft Systems (ICUAS). IEEE, jun 2017, pp. 1447–1454. [Online].
