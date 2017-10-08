@@ -321,17 +321,6 @@ public class Communication {
         }
     }  
     
-    public void sendAction(){
-        try {
-            if(freeBuffer){
-                sendRCwaitForState("1");
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        t = t + Ts;
-    }
-    
     public void startSendingRC() throws IOException{
         if (timer != null) {
             timer.cancel();
@@ -346,10 +335,16 @@ public class Communication {
     Long t_pasado = System.nanoTime();
     
     private class TemporizerComm extends TimerTask {
-
         public void run()  {
-            sendAction();
-        }
+            try {
+                if(freeBuffer){
+                    sendRCwaitForState("1");
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            t = t + Ts;
+            }
     }
      
     
