@@ -199,6 +199,7 @@ public class MissionActivity extends AppCompatActivity{
     protected void onDestroy(){
         mDataExchange.stopTCPserver();
         mFlightController.stopAcquiring();
+
         super.onDestroy();
     }
 
