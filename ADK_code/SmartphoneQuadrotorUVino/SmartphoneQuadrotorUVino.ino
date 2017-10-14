@@ -29,10 +29,10 @@ bool connected;
 #define  LED_PIN  13
 
 const int BATTERY_LEVEL_PIN = A0;
-const int SE_PWM_PIN = 8;   //S1 in ESC, Motor 2 in Model  4
-const int NE_PWM_PIN = 9;   //S2 in ESC, Motor 1 in Model  5
-const int NW_PWM_PIN = 10;   //S3 in ESC, Motor 4 in Model  6
-const int SW_PWM_PIN = 11;   //S4 in ESC, Motor 3 in Model  7
+const int SE_PWM_PIN = 11;   //S1 in ESC, Motor 2 in Model  (pin 11, CCW)
+const int NE_PWM_PIN = 8;   //S2 in ESC, Motor 1 in Model  (pin 8, CW)
+const int NW_PWM_PIN = 9;   //S3 in ESC, Motor 4 in Model  (pin 9, CCW)
+const int SW_PWM_PIN = 10;   //S4 in ESC, Motor 3 in Model  (pin 10, CW)
 
 const int PULSE_MIN = 1000; // Min time of a pulse sent to an ESC [us].
 const int PULSE_MAX = 2000; // Max time of a pulse sent to an ESC[us].
@@ -82,11 +82,13 @@ void setup()
     seMotor.attach(SE_PWM_PIN);
     swMotor.attach(SW_PWM_PIN);
   
-    // Set the GND pins for each ESC.
-    //pinMode(NW_GND_PIN, OUTPUT); digitalWrite(NW_GND_PIN, LOW);
-    //pinMode(NE_GND_PIN, OUTPUT); digitalWrite(NE_GND_PIN, LOW);
-    //pinMode(SE_GND_PIN, OUTPUT); digitalWrite(SE_GND_PIN, LOW);
-    //pinMode(SW_GND_PIN, OUTPUT); digitalWrite(SW_GND_PIN, LOW);
+    // Send a pulse to each ESC.
+    nwMotor.writeMicroseconds(nwPower);
+    neMotor.writeMicroseconds(nePower);
+    seMotor.writeMicroseconds(sePower);
+    swMotor.writeMicroseconds(swPower);
+
+    //delay(100);
 }
 
 void loop()
