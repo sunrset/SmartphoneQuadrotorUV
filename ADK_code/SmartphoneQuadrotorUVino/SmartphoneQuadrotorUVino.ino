@@ -29,14 +29,10 @@ bool connected;
 #define  LED_PIN  13
 
 const int BATTERY_LEVEL_PIN = A0;
-const int NW_PWM_PIN = 4;
-//const int NW_GND_PIN = 4;
-const int NE_PWM_PIN = 5;   
-//const int NE_GND_PIN = 7;
-const int SE_PWM_PIN = 6;
-//const int SE_GND_PIN = 9;
-const int SW_PWM_PIN = 7;
-//const int SW_GND_PIN = 12;
+const int SE_PWM_PIN = 13;   //S1 in ESC, Motor 2 in Model  4
+const int NE_PWM_PIN = 13;   //S2 in ESC, Motor 1 in Model  5
+const int NW_PWM_PIN = 13;   //S3 in ESC, Motor 4 in Model  6
+const int SW_PWM_PIN = 13;   //S4 in ESC, Motor 3 in Model  7
 
 const int PULSE_MIN = 1000; // Min time of a pulse sent to an ESC [us].
 const int PULSE_MAX = 2000; // Max time of a pulse sent to an ESC[us].

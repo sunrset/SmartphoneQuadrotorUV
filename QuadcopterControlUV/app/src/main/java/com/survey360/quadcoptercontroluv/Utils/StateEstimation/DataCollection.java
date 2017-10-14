@@ -248,8 +248,9 @@ class GetLocation {
     }
 
     public boolean checkLocation() {
-        if (!isLocationEnabled())
-            showAlert();
+        if (!isLocationEnabled()){
+                showAlert();
+            }
         return isLocationEnabled();
     }
 

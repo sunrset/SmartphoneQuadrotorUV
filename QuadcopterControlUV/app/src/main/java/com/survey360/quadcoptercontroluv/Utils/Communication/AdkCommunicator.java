@@ -194,8 +194,9 @@ public class AdkCommunicator implements Runnable
                     int adcVal = ((rxBuffer[i+1]&0xff) << 8) | (rxBuffer[i+0]&0xff);
                     i += 2;
 
-                    batteryLevel = ((float)adcVal*0.00146627f)+11.1f;
-                    if(batteryLevel >= 12.599f){
+                    //batteryLevel = ((float)adcVal*0.00146627f)+11.1f;
+                    batteryLevel = (float)adcVal*0.02453793f;
+                    if(batteryLevel >= 12.59f){
                         batteryLevel = 12.6f;
                     } else if(batteryLevel <= 11.1f) {
                         batteryLevel = 11.1f;

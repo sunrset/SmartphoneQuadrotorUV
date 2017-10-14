@@ -75,6 +75,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     public void stopAcquiring(){
+        //adkCommunicator.stop();
         mDataCollection.unregister();
     }
 
