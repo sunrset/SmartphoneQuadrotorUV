@@ -6,11 +6,14 @@ import android.util.Log;
 
 import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
 import com.survey360.quadcoptercontroluv.Utils.Communication.AdkCommunicator;
+import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
+import com.survey360.quadcoptercontroluv.Utils.SaveFile;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,6 +30,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public AdkCommunicator adkCommunicator;
     public MotorsPowers motorsPowers;
 
+
     DecimalFormat df = new DecimalFormat("0.000");
 
     BatteryManager bm;
@@ -40,14 +44,17 @@ public class FlightController implements AdkCommunicator.AdbListener {
     float delta_time;
     private boolean controlExecuting = false;
 
+
     public float[] controlSignals = new float[4];
 
 
     public FlightController(Context ctx){
+
         mDataCollection = new DataCollection(ctx);          // Sensor data acquisition
         posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
         motorsPowers = new MotorsPowers();                  // Class that contains the signals sent to the motors
+
 
         try {
             adkCommunicator.start(false);                   // Start the communication with the Arduino Mega ADK
@@ -126,6 +133,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             setQuadrotorState();
             editGUI();
+
+
 
             if(controlExecuting) {
                 ControllerExecution();

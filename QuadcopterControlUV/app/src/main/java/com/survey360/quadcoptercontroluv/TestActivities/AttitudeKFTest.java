@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
+import com.survey360.quadcoptercontroluv.Utils.SaveFile;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
@@ -58,9 +60,15 @@ public class AttitudeKFTest extends AppCompatActivity {
     String spinnerSelection1, spinnerSelection2;
     List<String> listSpinner1, listSpinner2;
 
+    public SaveFile mSaveFile;
+    private ArrayList<String> dataList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PermissionsRequest.verifyStoragePermissions(this); // Permission for data saving
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attitude_kftest);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -113,6 +121,8 @@ public class AttitudeKFTest extends AppCompatActivity {
 
         InitializeSpinnersAKF();
 
+        mSaveFile = new SaveFile();                         // Data logging class
+        dataList = new ArrayList<>();
     }
 
     public void InitializeSpinnersAKF() {
@@ -188,6 +198,7 @@ public class AttitudeKFTest extends AppCompatActivity {
             timer.cancel();
             timer = null;
         }
+        mSaveFile.saveArrayList(dataList, "dataAttAcc");
         mDataCollection.unregister();
     }
 
@@ -261,6 +272,8 @@ public class AttitudeKFTest extends AppCompatActivity {
 
             updateTextViews();
             t = t + dt/1000;
+            dataList.add(t + ";" + dt + ";" + mDataCollection.orientationValsDeg[2] + ";" + mDataCollection.orientationValsDeg[1] + ";" + mDataCollection.orientationValsDeg[0] + ";" + mDataCollection.earthAccVals[0] + ";" + mDataCollection.earthAccVals[1] + ";" + mDataCollection.earthAccVals[2]);
+
         }
     }
 

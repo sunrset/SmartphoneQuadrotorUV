@@ -18,6 +18,7 @@ import android.widget.ToggleButton;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
 import com.survey360.quadcoptercontroluv.Utils.Controllers.FlightController;
+import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
 
 import org.w3c.dom.Text;
 
@@ -58,6 +59,8 @@ public class MissionActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mission);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        PermissionsRequest.verifyStoragePermissions(this); // Permission for data saving
 
         UIHandler = new Handler(Looper.getMainLooper());
 
