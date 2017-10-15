@@ -66,8 +66,6 @@ public class AttitudeKFTest extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        PermissionsRequest.verifyStoragePermissions(this); // Permission for data saving
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attitude_kftest);
@@ -121,7 +119,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
         InitializeSpinnersAKF();
 
-        mSaveFile = new SaveFile();                         // Data logging class
+        mSaveFile = new SaveFile(this);                         // Data logging class
         dataList = new ArrayList<>();
     }
 
@@ -272,7 +270,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
             updateTextViews();
             t = t + dt/1000;
-            dataList.add(t + ";" + dt + ";" + mDataCollection.orientationValsDeg[2] + ";" + mDataCollection.orientationValsDeg[1] + ";" + mDataCollection.orientationValsDeg[0] + ";" + mDataCollection.earthAccVals[0] + ";" + mDataCollection.earthAccVals[1] + ";" + mDataCollection.earthAccVals[2]);
+            dataList.add(System.lineSeparator() + t + ";" + dt + ";" + mDataCollection.orientationValsDeg[2] + ";" + mDataCollection.orientationValsDeg[1] + ";" + mDataCollection.orientationValsDeg[0] + ";" + mDataCollection.earthAccVals[0] + ";" + mDataCollection.earthAccVals[1] + ";" + mDataCollection.earthAccVals[2]);
 
         }
     }

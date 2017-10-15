@@ -79,8 +79,8 @@ public class PermissionsRequest {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
-    }
 
+    }
 
     public void LocationPermission(){
         if (ContextCompat.checkSelfPermission(this.ctx, android.Manifest.permission.ACCESS_FINE_LOCATION) ==

@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         mPermissions = new PermissionsRequest(this, this);
         mPermissions.LocationPermission();
+        mPermissions.verifyStoragePermissions(this); // Permission for data saving
 
         getOverflowMenu();
 
