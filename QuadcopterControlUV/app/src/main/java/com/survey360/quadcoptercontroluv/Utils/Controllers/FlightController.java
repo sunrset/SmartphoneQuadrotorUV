@@ -44,8 +44,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
     float delta_time;
     private boolean controlExecuting = false;
 
-
     public float[] controlSignals = new float[4];
+
+    public SaveFile mSaveFile;
+    private ArrayList<String> dataList;
 
 
     public FlightController(Context ctx){
@@ -64,6 +66,9 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
         bm = (BatteryManager)ctx.getSystemService(BATTERY_SERVICE);
         smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+
+        mSaveFile = new SaveFile(ctx);                         // Data logging class
+        dataList = new ArrayList<>();
     }
 
     public void acquireData(){
@@ -84,6 +89,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public void stopAcquiring(){
         //adkCommunicator.stop();
         mDataCollection.unregister();
+        mSaveFile.saveArrayList(dataList, "dataFlightController");
     }
 
     private void ControllerExecution(){
@@ -94,7 +100,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
         // L*cos(pi/4) = 0.25*(2^0.5)/2 = 0.17677669529
-        motorsPowers.m1 = 0;
+
+        motorsPowers.m1 = 0; // [0, 255]
         motorsPowers.m2 = 0;
         motorsPowers.m3 = 0;
         motorsPowers.m4 = 0;
@@ -128,19 +135,28 @@ public class FlightController implements AdkCommunicator.AdbListener {
             measured_time = System.nanoTime();
             delta_time = ((float) (measured_time - last_time)) / 1000000.0f; // [ms].;
             last_time = measured_time;
+            t = t + delta_time;     // [ms];
 
             posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
 
             setQuadrotorState();
             editGUI();
 
-
-
             if(controlExecuting) {
+
                 ControllerExecution();
+
+                dataList.add(System.lineSeparator() + t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
+                        "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
+                        "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
+                        "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
+                        "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
+                        "," + motorsPowers.m3 + "," + motorsPowers.m4 +
+                        "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + " ");
+
             }
 
-            t = t + delta_time; //[ms];
+
         }
 
         private void setQuadrotorState(){

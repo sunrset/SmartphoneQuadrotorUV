@@ -33,11 +33,6 @@ public class AttitudeKFTest extends AppCompatActivity {
 
     DataCollection mDataCollection = null;
 
-    private static final int INITIAL_REQUEST=1337;
-    private static final int CAMERA_REQUEST=INITIAL_REQUEST+1;
-    private static final int CONTACTS_REQUEST=INITIAL_REQUEST+2;
-    private static final int LOCATION_REQUEST=INITIAL_REQUEST+3;
-
     long t_medido;
     float dt;
 
@@ -270,7 +265,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
             updateTextViews();
             t = t + dt/1000;
-            dataList.add(System.lineSeparator() + t + ";" + dt + ";" + mDataCollection.orientationValsDeg[2] + ";" + mDataCollection.orientationValsDeg[1] + ";" + mDataCollection.orientationValsDeg[0] + ";" + mDataCollection.earthAccVals[0] + ";" + mDataCollection.earthAccVals[1] + ";" + mDataCollection.earthAccVals[2]);
+            dataList.add(System.lineSeparator() + t + "," + dt + "," + mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," + mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + " ");
 
         }
     }
