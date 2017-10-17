@@ -2,6 +2,8 @@
 %   
 %  Universidad del Valle - Research Group of Industrial Control
 %  Alejandro Astudillo Vigoya, 08.12.2016
+%
+%  updated: 17.10.2017
 
 
 %% Quad-rotor Model
@@ -9,12 +11,12 @@
 function G = Quadrotor_model4()
 
             % Gravity constant
-              g = 9.81;
+              g = 9.807;
 
               m = 1.192;
-              Ixx=0.014927;
-              Iyy = 0.014927;
-              Izz= 0.025345;
+              Ixx = 0.0135;
+              Iyy = 0.0124;
+              Izz = 0.0336;
 
             % Number of states:
             nx = 12;
@@ -79,7 +81,7 @@ function G = Quadrotor_model4()
         % Linearized Model
 
             A = [  0  1  0  0  0  0  0  0  0  0  0  0   ;
-                   0  0  0  0  0  0  0  0 -g  0  0  0   ;
+                   0  0  0  0  0  0  0  0  g  0  0  0   ;
                    0  0  0  1  0  0  0  0  0  0  0  0   ;
                    0  0  0  0  0  0  0  0  0  0  g  0   ;
                    0  0  0  0  0  1  0  0  0  0  0  0   ;

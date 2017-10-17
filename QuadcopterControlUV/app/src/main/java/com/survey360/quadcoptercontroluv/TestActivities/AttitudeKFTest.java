@@ -181,9 +181,11 @@ public class AttitudeKFTest extends AppCompatActivity {
         }
         timer = new Timer();
         mainThread = new Temporizer();
+        dataList = new ArrayList<>();
         timer.schedule(mainThread, 10, 10);
 
         t = 0; // inicia la simulación
+
     }
 
     public void stopAcquiring(){
@@ -193,6 +195,7 @@ public class AttitudeKFTest extends AppCompatActivity {
         }
         mSaveFile.saveArrayList(dataList, "dataAttAcc");
         mDataCollection.unregister();
+        //dataList.clear();
     }
 
     public void updateTextViews(){
@@ -265,7 +268,10 @@ public class AttitudeKFTest extends AppCompatActivity {
 
             updateTextViews();
             t = t + dt/1000;
-            dataList.add(System.lineSeparator() + t + "," + dt + "," + mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," + mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + " ");
+            dataList.add(System.lineSeparator() + t + "," + dt + "," +
+                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
+                    mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
+                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + " ");
 
         }
     }

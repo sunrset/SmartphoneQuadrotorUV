@@ -82,6 +82,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         last_time = System.nanoTime();
         controllerScheduler = new Timer();
         controllerThread = new ControllerThread();
+        dataList = new ArrayList<>();
         controllerScheduler.schedule(controllerThread, 0, 10);  // The controllerThread is executed each 10 ms
         t = 0;
     }
@@ -90,6 +91,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         //adkCommunicator.stop();
         mDataCollection.unregister();
         mSaveFile.saveArrayList(dataList, "dataFlightController");
+        //dataList.clear();
     }
 
     private void ControllerExecution(){
