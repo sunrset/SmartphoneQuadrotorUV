@@ -1,4 +1,4 @@
-# Design and Implementation of Flight Dynamics Control Strategies for a Quadrotor Based on a Smartphone
+# Design and Implementation of Flight Dynamics Control Strategies for a Smartphone-based Quadrotor
 Master thesis development.
 
 ## Developed By
@@ -16,4 +16,4 @@ Available: http://ieeexplore.ieee.org/document/7991400/
 * Postgraduate Program in Electrical and Electronic Engineering (PPIEE): http://ppiee.univalle.edu.co/
 
 
-<p align="center"><img width="61" height="90" src="http://www.univalle.edu.co/images/Univalle/70_Rojo.jpg"/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="110" height="83" src="http://gici.univalle.edu.co/imagenes/logoGici.jpg"/> </p>
+<p align="center"><img width="61" height="90" src="http://www.univalle.edu.co/images/Univalle/70_Rojo.jpg"/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="110" height="83" src="http://gici.univalle.edu.co/images/logoGici.jpg"/> </p>
