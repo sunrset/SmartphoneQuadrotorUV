@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.7.23)  29 DEC 2016 01:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  22 OCT 2017 22:41
 entering extended mode
 **./OwnTitle.tex
 (OwnTitle.tex
-LaTeX2e <2016/03/31> patch level 1
+LaTeX2e <2017/01/01> patch level 1
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 
 ! LaTeX Error: Environment titlepage undefined.
@@ -134,6 +134,16 @@ Overfull \hbox (5.59023pt too wide) in paragraph at lines 3--3
  []
 
 
+Overfull \hbox (64.79132pt too wide) in paragraph at lines 3--3
+ \OT1/cmr/bx/n/10 Smartphone- 
+ []
+
+
+Overfull \hbox (28.17482pt too wide) in paragraph at lines 3--3
+ \OT1/cmr/bx/n/10 based 
+ []
+
+
 Overfull \hbox (41.32616pt too wide) in paragraph at lines 3--3
  \OT1/cmr/bx/n/10 Quadro- 
  []
@@ -141,31 +151,6 @@ Overfull \hbox (41.32616pt too wide) in paragraph at lines 3--3
 
 Overfull \hbox (14.95827pt too wide) in paragraph at lines 3--3
  \OT1/cmr/bx/n/10 tor 
- []
-
-
-Overfull \hbox (29.96648pt too wide) in paragraph at lines 3--3
- \OT1/cmr/bx/n/10 Based 
- []
-
-
-Overfull \hbox (15.0277pt too wide) in paragraph at lines 3--3
- \OT1/cmr/bx/n/10 On 
- []
-
-
-Overfull \hbox (5.59023pt too wide) in paragraph at lines 3--3
- \OT1/cmr/bx/n/10 a 
- []
-
-
-Overfull \hbox (34.60397pt too wide) in paragraph at lines 3--3
- \OT1/cmr/bx/n/10 Smart- 
- []
-
-
-Overfull \hbox (30.18735pt too wide) in paragraph at lines 3--3
- \OT1/cmr/bx/n/10 phone 
  []
 
 Missing character: There is no T in font nullfont!
@@ -510,11 +495,11 @@ or  <return>  to continue without it.
 
  
 Here is how much of TeX's memory you used:
- 14 strings out of 493335
- 165 string characters out of 3139260
- 55225 words of memory out of 3000000
- 3641 multiletter control sequences out of 15000+200000
+ 14 strings out of 493333
+ 165 string characters out of 3139198
+ 54255 words of memory out of 3000000
+ 3642 multiletter control sequences out of 15000+200000
  4249 words of font info for 16 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 13i,1n,10p,155b,114s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 13i,1n,10p,150b,114s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!
