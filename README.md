@@ -1,4 +1,4 @@
-# Design and Implementation of Flight Dynamics Control Strategies for a Quadrotor Based on a Smartphone
+# Design and Implementation of Flight Dynamics Control Strategies for a Smartphone-based Quadrotor
 Master thesis development.
 
 ## Developed By
