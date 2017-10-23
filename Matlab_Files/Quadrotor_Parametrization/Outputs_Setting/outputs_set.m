@@ -15,3 +15,5 @@ M = [1    1   1    1;
 % F = M_inv*U;
 M_inv = inv(M);
      
+
+% Thrust to PWM [0, 255] conversion: y = -1.983x^{2} + 47.84x + 3.835

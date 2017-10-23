@@ -43,7 +43,7 @@
         y_dot_Init     =  0           ;
         z_Init         =  2           ;
         z_dot_Init     =  0           ;
-        psi_Init       =  45 * pi/180 ;
+        psi_Init       =  0 * pi/180 ;
         psi_dot_Init   =  0           ;
         theta_Init     =  0 * pi/180 ;
         theta_dot_Init =  0           ;
@@ -155,7 +155,7 @@
                     
                     
                     %% Discretize the H-inf Controller
-                    Ts = 0.02;
+                    Ts = 0.01;
                     K1d = c2d(K1,Ts,'zoh');
                     
                     %% Sensitivities Test
@@ -197,7 +197,7 @@
                 % 2 --> LQG controller design
                 % 3 --> Both H-inf and LQG controller design
             
-             path = 2;
+             path = 4;
                 % 1 --> XY circle path with Z up and down
                 % 2 --> X-mas Tree
                 % 3 --> Mapping Mission

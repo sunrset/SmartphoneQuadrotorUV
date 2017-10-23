@@ -13,7 +13,7 @@ function G = Quadrotor_model4()
             % Gravity constant
               g = 9.807;
 
-              m = 1.192;
+              m = 1.5680;
               Ixx = 0.0135;
               Iyy = 0.0124;
               Izz = 0.0336;
@@ -64,7 +64,7 @@ function G = Quadrotor_model4()
             U = [0,0,0,0];
 
             dX = States(2);
-            ddX = ((-U(1)/m)*sin(States(9))) - g*sin(States(9));
+            ddX = ((U(1)/m)*sin(States(9))) + g*sin(States(9));
             dY = States(4);
             ddY = ((U(1)/m)*cos(States(9))*sin(States(11))) + g*cos(States(9))*sin(States(11));
             dZ = States(6);
