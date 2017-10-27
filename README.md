@@ -3,7 +3,7 @@ Master thesis development.
 
 ## Developed By
 
-* __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__ <br />
+* __Alejandro Astudillo V., Research Group in Industrial Control (GICI) - Universidad del Valle__ <br />
 <alejandro.astudillo@correounivalle.edu.co>
 
 ## Publications: 
@@ -12,7 +12,7 @@ Available: http://ieeexplore.ieee.org/document/7991400/
 - A. Astudillo, B. Bacca and E. Rosero, “Optimal and robust controllers design for a smartphone-based quadrotor,” in 2017 IEEE 3rd Colombian Conference on Automatic Control (CCAC).
 
 ## Links:
-* Industrial Control Research Group (GICI): http://gici.univalle.edu.co/
+* Research Group in Industrial Control (GICI): http://gici.univalle.edu.co/
 * Postgraduate Program in Electrical and Electronic Engineering (PPIEE): http://ppiee.univalle.edu.co/
 
 
