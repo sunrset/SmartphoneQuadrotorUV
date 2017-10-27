@@ -46,7 +46,7 @@
 %    latex={-interaction=nonstopmode},
 %    crop=off,runs=2
 %  ]{auto-pst-pdf}
-
+%\usepackage[document]{ragged2e}
 
 \input{macros}
 \newcolumntype{d}{D{.}{.}{2.5}}
@@ -75,7 +75,10 @@
 
 %\input{tex/titlepage}
 %\input{tex/Titulopropio}
+{\let\cleardoublepage\clearpage 
 \input{tex/OwnTitle}
+}
+%\input{tex/OwnTitle}
 \pagenumbering{arabic}
 \setcounter{page}{3} 
 
