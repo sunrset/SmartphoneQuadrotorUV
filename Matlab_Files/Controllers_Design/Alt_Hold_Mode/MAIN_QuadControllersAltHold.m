@@ -180,16 +180,20 @@
 
                 %% LQE Observer Design
 
-                    Qe = B*B';
-                    Re = 0.9*eye(4);
-                    [Pe, eigenvaluese, ~] = care(A',C',Qe,Re);
-                    Fe = -Pe*C'/Re;  
-                    Qn = eye(4);
+                    %Qe = B*B';
+                    %Re = 0.9*eye(4);
+                    %[Pe, eigenvaluese, ~] = care(A',C',Qe,Re);
+                    %Fe = -Pe*C'/Re;  
+                    %Qn = eye(4);
                     %[kest,Lk,Pk,Mk,Zk] = kalmd(Gss,Qn,Re,Ts);
                     %kest = estim(Gss,-Fe,[1,2,3,4],[1,2,3,4]);
+                    Qe = Gss_d.B*Gss_d.B';
+                    Re = 0.9*eye(4);
+                    [Pe, eigenvaluese, ~] = care(Gss_d.A',Gss_d.C',Qe,Re);
+                    Fe = -Pe*C'/Re;  
 
      %% Simulation 
-            controller = 1;
+            controller = 2;
                 % 1 --> H-inf controller desing
                 % 2 --> LQG controller design
                 % 3 --> Both H-inf and LQG controller design
