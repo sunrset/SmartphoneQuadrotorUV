@@ -185,7 +185,8 @@
                     [Pe, eigenvaluese, ~] = care(A',C',Qe,Re);
                     Fe = -Pe*C'/Re;  
                     Qn = eye(4);
-                    [kest,Lk,Pk,Mk,Zk] = kalmd(Gss,Qn,Re,Ts);
+                    %[kest,Lk,Pk,Mk,Zk] = kalmd(Gss,Qn,Re,Ts);
+                    %kest = estim(Gss,-Fe,[1,2,3,4],[1,2,3,4]);
 
      %% Simulation 
             controller = 1;

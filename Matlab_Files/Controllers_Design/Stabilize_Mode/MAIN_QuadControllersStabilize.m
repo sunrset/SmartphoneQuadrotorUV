@@ -169,8 +169,8 @@
                     F = -R\B'*P;
                     %F = -lqr(A,B,Q,R); 
                     %%% The command lqr does the 'care' command internally
-                    %Gss_d = c2d(Gss,Ts,'zoh');
-                    %F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
+                    Gss_d = c2d(Gss,Ts,'zoh');
+                    F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
 
                 %% LQE Observer Design
 
