@@ -65,6 +65,13 @@ public class DataCollection implements SensorEventListener {
     private float[] eAcc_3 = new float[4];
     private float[] eAcc_4 = new float[4];
 
+    private float[] gyro_1 = new float[3];
+    private float[] gyro_2 = new float[3];
+    private float[] gyro_3 = new float[3];
+    private float[] gyro_4 = new float[3];
+
+    public float psi, psi_dot, theta, theta_dot, phi, phi_dot, X, X_dot, Y, Y_dot, Z, Z_dot;
+
     public DataCollection(Context context){
 
         mGetLocation = new GetLocation(context);
@@ -121,6 +128,10 @@ public class DataCollection implements SensorEventListener {
             //SensorManager.remapCoordinateSystem(mRotationMatrix, SensorManager.AXIS_X, SensorManager.AXIS_Z, mRotationMatrix);
             SensorManager.getOrientation(mRotationMatrix, orientationValsRad);
 
+            psi = orientationValsRad[0];
+            phi = orientationValsRad[1];
+            theta = orientationValsRad[2];
+
             // Optionally convert the result from radians to degrees
             orientationValsDeg[0] = (float) Math.toDegrees(orientationValsRad[0]); //Yaw
             orientationValsDeg[1] = (float) Math.toDegrees(orientationValsRad[1]); //Pitch
@@ -156,6 +167,21 @@ public class DataCollection implements SensorEventListener {
 
         else if(event.sensor == GyroSensor){
             gyroVals = event.values;
+            gyroVals[0] = -gyroVals[0];
+            gyroVals[2] = -gyroVals[2];
+
+            gyroVals[0] = (gyro_1[0]+gyro_2[0]+gyro_3[0]+gyro_4[0])/4;
+            gyroVals[1] = (gyro_1[1]+gyro_2[1]+gyro_3[1]+gyro_4[1])/4;
+            gyroVals[2] = (gyro_1[2]+gyro_2[2]+gyro_3[2]+gyro_4[2])/4;
+
+            gyro_4 = gyro_3;
+            gyro_3 = gyro_2;
+            gyro_2 = gyro_1;
+            gyro_1 = gyroVals;
+
+            phi_dot = gyroVals[0];
+            theta_dot = gyroVals[1];
+            psi_dot = gyroVals[2];
         }
 
         else if(event.sensor == PressureSensor){

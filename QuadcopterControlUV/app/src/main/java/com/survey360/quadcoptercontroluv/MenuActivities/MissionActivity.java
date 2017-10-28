@@ -1,8 +1,14 @@
 package com.survey360.quadcoptercontroluv.MenuActivities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +51,8 @@ public class MissionActivity extends AppCompatActivity{
     FlightController.MotorsPowers motorsPowers;
 
     public static boolean armed = false;
-
+    public static MediaPlayer mp;
+    private static Context ctx;
 
     public static String flightMode = "AltHold";
     public static List<float[]> waypointsList1 = new ArrayList<>();
@@ -59,6 +66,9 @@ public class MissionActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mission);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        mp = new MediaPlayer();
+        ctx = this;
 
         PermissionsRequest.verifyStoragePermissions(this); // Permission for data saving
 
@@ -121,6 +131,28 @@ public class MissionActivity extends AppCompatActivity{
 
         tv_flightmode.setText("Prepared for Take-off");
 
+
+        playSound("waitingmission");
+
+    }
+
+    private static void playSound(String sound){
+
+        if(mp.isPlaying()) {
+            mp.stop();
+        }
+        try {
+            mp.reset();
+            AssetFileDescriptor afd;
+            afd = ctx.getAssets().openFd(sound+".mp3");
+            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            mp.prepare();
+            mp.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void turnLed(boolean on){
@@ -130,6 +162,7 @@ public class MissionActivity extends AppCompatActivity{
     public static void armMotors(){
         mFlightController.acquireData();
         armed =  true;
+        playSound("armed");
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {
                 @Override
@@ -145,6 +178,7 @@ public class MissionActivity extends AppCompatActivity{
     public static void disarmMotors(){
         mFlightController.stopAcquiring();
         armed = false;
+        playSound("disarmed");
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {
                 @Override
@@ -180,22 +214,23 @@ public class MissionActivity extends AppCompatActivity{
             });
         }
         if(flightMode.equals("Stabilize")){
+            playSound("stabilize");
 
         }
         else if(flightMode.equals("AltHold")){
-
+            playSound("althold");
         }
         else if(flightMode.equals("Loiter")){
-
+            playSound("loiter");
         }
         else if(flightMode.equals("RTL")){
-
+            playSound("rth");
         }
         else if(flightMode.equals("Auto")){
-
+            playSound("auto");
         }
         else if(flightMode.equals("Land")){
-
+            playSound("land");
         }
     }
 

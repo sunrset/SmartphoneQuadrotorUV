@@ -129,6 +129,9 @@ public class AttitudeKFTest extends AppCompatActivity {
         listSpinner1.add("Lin. Acc X");
         listSpinner1.add("Lin. Acc Y");
         listSpinner1.add("Lin. Acc Z");
+        listSpinner1.add("Gyro X");
+        listSpinner1.add("Gyro Y");
+        listSpinner1.add("Gyro Z");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listSpinner1);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -220,13 +223,13 @@ public class AttitudeKFTest extends AppCompatActivity {
                     seriesAKF.appendData(new DataPoint(graphAKFLastXValue, 0), true, 500);
                 }
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(1))){
-                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[2]), true, 500);
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.theta)), true, 500);
                 }
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(2))){
-                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[1]), true, 500);
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.phi)), true, 500);
                 }
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(3))){
-                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[0]), true, 500);
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.psi)), true, 500);
                 }
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(4))){
                     seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.earthAccVals[0]), true, 500);
@@ -237,18 +240,27 @@ public class AttitudeKFTest extends AppCompatActivity {
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(6))){
                     seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.earthAccVals[2]), true, 500);
                 }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(7))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.phi_dot), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(8))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.theta_dot), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(9))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.psi_dot), true, 500);
+                }
 
                 if(spinnerSelection2.contentEquals(listSpinner2.get(0))){
                     seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, 0), true, 500);
                 }
                 else if(spinnerSelection2.contentEquals(listSpinner2.get(1))){
-                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[2]), true, 500);
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue,(float)Math.toDegrees(mDataCollection.theta)), true, 500);
                 }
                 else if(spinnerSelection2.contentEquals(listSpinner2.get(2))){
-                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[1]), true, 500);
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.phi)), true, 500);
                 }
                 else if(spinnerSelection2.contentEquals(listSpinner2.get(3))){
-                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.orientationValsDeg[0]), true, 500);
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.psi)), true, 500);
                 }
 
             }
