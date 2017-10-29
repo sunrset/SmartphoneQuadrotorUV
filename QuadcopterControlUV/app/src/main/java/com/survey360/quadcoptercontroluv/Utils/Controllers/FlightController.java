@@ -12,12 +12,17 @@ import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
 
+import org.ejml.data.DMatrixRMaj;
+import org.ejml.dense.row.factory.LinearSolverFactory_DDRM;
+import org.ejml.interfaces.linsol.LinearSolver;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.content.Context.BATTERY_SERVICE;
+import static org.ejml.dense.row.CommonOps_DDRM.mult;
 
 /**
  * Created by AAstudillo on 21/09/2017.
@@ -29,7 +34,6 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public PositionKalmanFilter posKF;
     public AdkCommunicator adkCommunicator;
     public MotorsPowers motorsPowers;
-
 
     DecimalFormat df = new DecimalFormat("0.000");
 
@@ -49,6 +53,15 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public SaveFile mSaveFile;
     private ArrayList<String> dataList;
 
+    public final float QUAD_MASS = 1.568f; // [kg]
+    public final float GRAVITY = 9.807f; // [m/s^2]
+    public final float L = 0.244f; // [m]
+    public final float TORQUE_DISTANCE = L*((float)Math.cos(Math.toRadians(45))); // [m]
+    public final float K_T = 0.0210f;
+
+    private LinearSolver<DMatrixRMaj> solver = LinearSolverFactory_DDRM.symmPosDef(4);
+
+    public float[] Motor_Forces = new float[4];
 
     public FlightController(Context ctx){
 
@@ -56,7 +69,6 @@ public class FlightController implements AdkCommunicator.AdbListener {
         posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
         motorsPowers = new MotorsPowers();                  // Class that contains the signals sent to the motors
-
 
         try {
             adkCommunicator.start(false);                   // Start the communication with the Arduino Mega ADK
@@ -101,12 +113,27 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
-        // L*cos(pi/4) = 0.25*(2^0.5)/2 = 0.17677669529
 
-        motorsPowers.m1 = 0; // [0, 255]
-        motorsPowers.m2 = 0;
-        motorsPowers.m3 = 0;
-        motorsPowers.m4 = 0;
+        u = u + QUAD_MASS*GRAVITY; // m*g is the necessary thrust to overcome the gravity [N]
+
+        Motor_Forces[0] = 0.2500f*u + 11.9048f*tau_psi - 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
+        Motor_Forces[1] = 0.2500f*u - 11.9048f*tau_psi - 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
+        Motor_Forces[2] = 0.2500f*u + 11.9048f*tau_psi + 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
+        Motor_Forces[3] = 0.2500f*u - 11.9048f*tau_psi + 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
+
+        motorsPowers.m1 = (int)(-1.983f*Math.pow(Motor_Forces[0],2) + 47.84f*Motor_Forces[0] + 3.835f); // [0, 255]
+        motorsPowers.m2 = (int)(-1.983f*Math.pow(Motor_Forces[1],2) + 47.84f*Motor_Forces[1] + 3.835f); // [0, 255]
+        motorsPowers.m3 = (int)(-1.983f*Math.pow(Motor_Forces[2],2) + 47.84f*Motor_Forces[2] + 3.835f); // [0, 255]
+        motorsPowers.m4 = (int)(-1.983f*Math.pow(Motor_Forces[3],2) + 47.84f*Motor_Forces[3] + 3.835f); // [0, 255]
+
+        if(motorsPowers.m1 > 255){motorsPowers.m1 = 255;}
+        if(motorsPowers.m1 < 0){motorsPowers.m1 = 0;}
+        if(motorsPowers.m2 > 255){motorsPowers.m2 = 255;}
+        if(motorsPowers.m2 < 0){motorsPowers.m2 = 0;}
+        if(motorsPowers.m3 > 255){motorsPowers.m3 = 255;}
+        if(motorsPowers.m3 < 0){motorsPowers.m3 = 0;}
+        if(motorsPowers.m4 > 255){motorsPowers.m4 = 255;}
+        if(motorsPowers.m4 < 0){motorsPowers.m4 = 0;}
 
         adkCommunicator.setPowers(motorsPowers);
     }
@@ -129,6 +156,26 @@ public class FlightController implements AdkCommunicator.AdbListener {
         else{adkCommunicator.commTest(0,0,0,0);}
     }
 
+    public void changeFlightMode(String flightMode){
+        if(flightMode.equals("Stabilize")){
+
+        }
+        else if(flightMode.equals("AltHold")){
+
+        }
+        else if(flightMode.equals("Loiter")){
+
+        }
+        else if(flightMode.equals("RTL")){
+
+        }
+        else if(flightMode.equals("Auto")){
+
+        }
+        else if(flightMode.equals("Land")){
+
+        }
+    }
 
 
     private class ControllerThread extends TimerTask {

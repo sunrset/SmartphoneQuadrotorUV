@@ -215,22 +215,27 @@ public class MissionActivity extends AppCompatActivity{
         }
         if(flightMode.equals("Stabilize")){
             playSound("stabilize");
-
+            mFlightController.changeFlightMode("Stabilize");
         }
         else if(flightMode.equals("AltHold")){
             playSound("althold");
+            mFlightController.changeFlightMode("AltHold");
         }
         else if(flightMode.equals("Loiter")){
             playSound("loiter");
+            mFlightController.changeFlightMode("Loiter");
         }
         else if(flightMode.equals("RTL")){
             playSound("rth");
+            mFlightController.changeFlightMode("RTL");
         }
         else if(flightMode.equals("Auto")){
             playSound("auto");
+            mFlightController.changeFlightMode("Auto");
         }
         else if(flightMode.equals("Land")){
             playSound("land");
+            mFlightController.changeFlightMode("Land");
         }
     }
 
