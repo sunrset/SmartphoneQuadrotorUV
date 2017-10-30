@@ -5,15 +5,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
@@ -26,13 +22,10 @@ import com.survey360.quadcoptercontroluv.Utils.Communication.DataExchange;
 import com.survey360.quadcoptercontroluv.Utils.Controllers.FlightController;
 import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
 
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MissionActivity extends AppCompatActivity{
 
@@ -176,8 +169,8 @@ public class MissionActivity extends AppCompatActivity{
     }
 
     public static void disarmMotors(){
-        mFlightController.stopAcquiring();
         armed = false;
+        mFlightController.stopAcquiring();
         playSound("disarmed");
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {

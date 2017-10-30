@@ -46,7 +46,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     double t;
     long measured_time, last_time;
     float delta_time;
-    private boolean controlExecuting = false;
+    private boolean controlExecuting = true;
 
     public float[] controlSignals = new float[4];
 
@@ -59,7 +59,22 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public final float TORQUE_DISTANCE = L*((float)Math.cos(Math.toRadians(45))); // [m]
     public final float K_T = 0.0210f;
 
-    private LinearSolver<DMatrixRMaj> solver = LinearSolverFactory_DDRM.symmPosDef(4);
+    public float X_ref = 0f;
+    public float Xdot_ref = 0f;
+    public float Y_ref = 0f;
+    public float Ydot_ref = 0f;
+    public float Z_ref = 0f;
+    public float Zdot_ref = 0f;
+    public float Psi_ref = 0f;
+    public float Psidot_ref = 0f;
+    public float Theta_ref = -0.1f;
+    public float Thetadot_ref = 0f;
+    public float Phi_ref = -0.1f;
+    public float Phidot_ref = 0f;
+
+    public float Throttle = 0f;
+
+    private String FlightMode = "Stabilize";
 
     public float[] Motor_Forces = new float[4];
 
@@ -108,13 +123,55 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     private void ControllerExecution(){
         if(MissionActivity.armed){                          // The control outputs are only set, if the motors are armed
+
+            if(FlightMode.equals("Stabilize")) {
+
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(1/50); // [N] [-1, 1]
+                Psi_ref = ((MissionActivity.mDataExchange.yawJoystick)-50f)*((10*3.1416f/180)/50);  // [N] [-1, 1]
+                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((15*3.1416f/180)/50);
+                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((15*3.1416f/180)/50);
+
+                // LQR controller ---------------------
+                controlSignals[0] = 0f;
+                controlSignals[1] = -1.0986f*(mDataCollection.psi-Psi_ref) - 0.2717f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
+                // ------------------------------------
+
+                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + Throttle;
+                    // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
+            }
+            /*
+            else if(FlightMode.equals("AltHold")){
+
+            }
+            else if(FlightMode.equals("Loiter")){
+
+            }
+            else if(FlightMode.equals("RTL")){
+
+            }
+            else if(FlightMode.equals("Auto")){
+
+            }
+            else if(FlightMode.equals("Land")){
+
+            }
+            */
+
             setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
+        }
+        else{
+            motorsPowers.m1 = 0;
+            motorsPowers.m2 = 0;
+            motorsPowers.m3 = 0;
+            motorsPowers.m4 = 0;
+
+            adkCommunicator.setPowers(motorsPowers);
         }
     }
 
     private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
-
-        u = u + QUAD_MASS*GRAVITY; // m*g is the necessary thrust to overcome the gravity [N]
 
         Motor_Forces[0] = 0.2500f*u + 11.9048f*tau_psi - 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
         Motor_Forces[1] = 0.2500f*u - 11.9048f*tau_psi - 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
@@ -126,7 +183,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         motorsPowers.m3 = (int)(-1.983f*Math.pow(Motor_Forces[2],2) + 47.84f*Motor_Forces[2] + 3.835f); // [0, 255]
         motorsPowers.m4 = (int)(-1.983f*Math.pow(Motor_Forces[3],2) + 47.84f*Motor_Forces[3] + 3.835f); // [0, 255]
 
-        if(motorsPowers.m1 > 255){motorsPowers.m1 = 255;}
+        if(motorsPowers.m1 > 255){motorsPowers.m1 = 255;} // Motors saturation
         if(motorsPowers.m1 < 0){motorsPowers.m1 = 0;}
         if(motorsPowers.m2 > 255){motorsPowers.m2 = 255;}
         if(motorsPowers.m2 < 0){motorsPowers.m2 = 0;}
@@ -136,6 +193,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         if(motorsPowers.m4 < 0){motorsPowers.m4 = 0;}
 
         adkCommunicator.setPowers(motorsPowers);
+
     }
 
     @Override
@@ -157,6 +215,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     public void changeFlightMode(String flightMode){
+        FlightMode = flightMode;
         if(flightMode.equals("Stabilize")){
 
         }
@@ -236,6 +295,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
                     MissionActivity.pb_pitchjoystick.setProgress(MissionActivity.mDataExchange.pitchJoystick);
                     MissionActivity.pb_yawjoystick.setProgress(MissionActivity.mDataExchange.yawJoystick);
                     MissionActivity.pb_throttlejoystick.setProgress(MissionActivity.mDataExchange.throttleJoystick);
+                    MissionActivity.pb_motor1.setProgress(motorsPowers.m1*100/255);
+                    MissionActivity.pb_motor2.setProgress(motorsPowers.m2*100/255);
+                    MissionActivity.pb_motor3.setProgress(motorsPowers.m3*100/255);
+                    MissionActivity.pb_motor4.setProgress(motorsPowers.m4*100/255);
                 }
             });
         }

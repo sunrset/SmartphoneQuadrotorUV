@@ -96,8 +96,7 @@ public class DataExchange {
             @Override
             public void run() {
                 receivedData = received.split(",");
-                System.out.println("Received: " + received);
-
+                //System.out.println("Received: " + received);
                 responseSentence = received + '\n';
 
                 try {
