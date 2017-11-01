@@ -1,21 +1,23 @@
 package com.survey360.quadcoptercontroluv.Utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
-import android.media.MediaScannerConnection;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Environment;
 
-import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by AAstudillo on 15/10/2017.
@@ -23,23 +25,27 @@ import java.io.ObjectOutputStream;
 
 public class SaveFile implements Serializable {
 
-    private final Context ctx;
+    private static Context ctx;
+    private final Activity act;
     private File file, path;
     private int hour, minutes, seconds, year, month, day;
 
-    //private final ArrayList<String> list;
     private String file_name;
     private CharSequence app_name;
 
-    public SaveFile (Context context){
+    public boolean saving = false;
+    public static MediaPlayer mp = new MediaPlayer();
+
+    public SaveFile (Context context, Activity activity){
         this.ctx = context;
-        //list = new ArrayList<>();
+        this.act= activity;
         file_name = "";
     }
 
     public void saveArrayList(ArrayList<String> arrayList, String filename) {
         file_name = filename;
-        final ArrayList<String> list = arrayList;
+
+        final List<String> list = Collections.synchronizedList(arrayList);
 
         Resources appR = ctx.getResources();
         app_name = appR.getText(appR.getIdentifier("app_name",
@@ -63,13 +69,22 @@ public class SaveFile implements Serializable {
                     FileOutputStream fileOutputStream = new FileOutputStream(file, true);
 
                     DataOutputStream out = new DataOutputStream(fileOutputStream);
-                    out.writeBytes(list.toString());
+                    synchronized(list) {
+                        out.writeBytes(list.toString());
+                    }
+
                     out.close();
                     fileOutputStream.close();
 
                     file.setReadable(true);
                     file.setWritable(true);
-                    MediaScannerConnection.scanFile(ctx, new String[] {file.toString()}, null, null);
+
+                    Uri contentUri = Uri.fromFile(file);
+                    Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    mediaScanIntent.setData(contentUri);
+                    act.sendBroadcast(mediaScanIntent);
+
+                    playSound("donesaving");
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -77,6 +92,25 @@ public class SaveFile implements Serializable {
             }
         };
         save.start();
+    }
+
+    private static void playSound(String sound){
+
+        if(mp.isPlaying()) {
+            mp.stop();
+        }
+        try {
+            mp.reset();
+            AssetFileDescriptor afd;
+            afd = ctx.getAssets().openFd(sound+".mp3");
+            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            mp.prepare();
+            mp.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

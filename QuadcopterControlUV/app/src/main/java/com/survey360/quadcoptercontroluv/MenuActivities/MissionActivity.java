@@ -102,7 +102,7 @@ public class MissionActivity extends AppCompatActivity{
             }
         });
 
-        mFlightController = new FlightController(this);
+        mFlightController = new FlightController(this, this);
 
         // Start the sensor acquisition
         try {
@@ -235,7 +235,7 @@ public class MissionActivity extends AppCompatActivity{
     protected void onDestroy(){
         mDataExchange.stopTCPserver();
         mFlightController.stopAcquiring();
-
+        //mFlightController.mDataCollection.unregister();
         super.onDestroy();
     }
 
@@ -243,6 +243,7 @@ public class MissionActivity extends AppCompatActivity{
     public void onBackPressed() {
         mDataExchange.stopTCPserver();
         mFlightController.stopAcquiring();
+        //mFlightController.mDataCollection.unregister();
         Intent intentMainMenu = new Intent(MissionActivity.this, MainActivity.class);
         startActivity(intentMainMenu);
         finish();

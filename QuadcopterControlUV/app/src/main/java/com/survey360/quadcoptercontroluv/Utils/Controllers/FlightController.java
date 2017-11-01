@@ -1,5 +1,6 @@
 package com.survey360.quadcoptercontroluv.Utils.Controllers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.BatteryManager;
 import android.util.Log;
@@ -78,7 +79,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     public float[] Motor_Forces = new float[4];
 
-    public FlightController(Context ctx){
+    public FlightController(Context ctx, Activity act){
 
         mDataCollection = new DataCollection(ctx);          // Sensor data acquisition
         posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
@@ -94,7 +95,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         bm = (BatteryManager)ctx.getSystemService(BATTERY_SERVICE);
         smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-        mSaveFile = new SaveFile(ctx);                         // Data logging class
+        mSaveFile = new SaveFile(ctx, act);                         // Data logging class
         dataList = new ArrayList<>();
     }
 
@@ -126,7 +127,6 @@ public class FlightController implements AdkCommunicator.AdbListener {
         adkCommunicator.stop();
         //mDataCollection.unregister();
         mSaveFile.saveArrayList(dataList, "dataFlightController");
-        //dataList.clear();
     }
 
     private void ControllerExecution(){
@@ -145,8 +145,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
                 controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
-                //controlSignals[0] = controlSignals[0] + 5 + (Throttle);
-                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
+                controlSignals[0] = controlSignals[0] + 5 + (Throttle);
+                controlSignals[1] = 0;
+
+                //controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
                     // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
             }
             /*

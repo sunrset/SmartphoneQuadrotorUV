@@ -114,7 +114,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
         InitializeSpinnersAKF();
 
-        mSaveFile = new SaveFile(this);                         // Data logging class
+        mSaveFile = new SaveFile(this, this);                         // Data logging class
         dataList = new ArrayList<>();
     }
 
