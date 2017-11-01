@@ -5,36 +5,41 @@ import android.content.res.Resources;
 import android.media.MediaScannerConnection;
 import android.os.Environment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by AAstudillo on 15/10/2017.
  */
 
-public class SaveFile {
+public class SaveFile implements Serializable {
 
     private final Context ctx;
     private File file, path;
     private int hour, minutes, seconds, year, month, day;
 
-    private ArrayList<String> list;
+    //private final ArrayList<String> list;
     private String file_name;
     private CharSequence app_name;
 
     public SaveFile (Context context){
         this.ctx = context;
-        list = new ArrayList<>();
+        //list = new ArrayList<>();
         file_name = "";
     }
 
     public void saveArrayList(ArrayList<String> arrayList, String filename) {
         file_name = filename;
-        list = arrayList;
+        final ArrayList<String> list = arrayList;
 
         Resources appR = ctx.getResources();
         app_name = appR.getText(appR.getIdentifier("app_name",

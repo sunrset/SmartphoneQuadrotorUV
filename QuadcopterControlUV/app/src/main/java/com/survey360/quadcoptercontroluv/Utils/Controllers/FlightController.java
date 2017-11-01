@@ -67,14 +67,14 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public float Zdot_ref = 0f;
     public float Psi_ref = 0f;
     public float Psidot_ref = 0f;
-    public float Theta_ref = -0.1f;
+    public float Theta_ref = 0f;
     public float Thetadot_ref = 0f;
-    public float Phi_ref = -0.1f;
+    public float Phi_ref = 0f;
     public float Phidot_ref = 0f;
 
     public float Throttle = 0f;
 
-    private String FlightMode = "Stabilize";
+    private String FlightMode = "nothing";
 
     public float[] Motor_Forces = new float[4];
 
@@ -99,6 +99,14 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     public void acquireData(){
+        if(!adkCommunicator.accessoryStarted) {
+            try {
+                adkCommunicator.start(false);                   // Start the communication with the Arduino Mega ADK
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         posKF.initPositionKF();                             // Initialize the Position Kalman Filter matrices
         mDataCollection.register();                         // Begins to acquire sensor data
 
@@ -115,8 +123,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     public void stopAcquiring(){
-        //adkCommunicator.stop();
-        mDataCollection.unregister();
+        adkCommunicator.stop();
+        //mDataCollection.unregister();
         mSaveFile.saveArrayList(dataList, "dataFlightController");
         //dataList.clear();
     }
@@ -126,10 +134,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             if(FlightMode.equals("Stabilize")) {
 
-                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(1/50); // [N] [-1, 1]
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.1f; // [N] [-1, 1]
                 Psi_ref = ((MissionActivity.mDataExchange.yawJoystick)-50f)*((10*3.1416f/180)/50);  // [N] [-1, 1]
-                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((15*3.1416f/180)/50);
-                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((15*3.1416f/180)/50);
+                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
+                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((10*3.1416f/180)/50);
 
                 // LQR controller ---------------------
                 controlSignals[0] = 0f;
@@ -137,8 +145,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
                 controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
-
-                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + Throttle;
+                //controlSignals[0] = controlSignals[0] + 5 + (Throttle);
+                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
                     // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
             }
             /*
@@ -158,6 +166,14 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             }
             */
+            else { // If armed without any flight mode
+                if (controlSignals[0] < QUAD_MASS*GRAVITY*0.7f){
+                    controlSignals[0] = controlSignals[0]+0.02f;
+                    controlSignals[1] = 0;
+                    controlSignals[2] = 0;
+                    controlSignals[3] = 0;
+                }
+            }
 
             setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
         }
@@ -260,7 +276,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
                         "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
                         "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
                         "," + motorsPowers.m3 + "," + motorsPowers.m4 +
-                        "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + " ");
+                        "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
+                        "," + Psi_ref + "," + Theta_ref + "," + Phi_ref );
 
             }
 

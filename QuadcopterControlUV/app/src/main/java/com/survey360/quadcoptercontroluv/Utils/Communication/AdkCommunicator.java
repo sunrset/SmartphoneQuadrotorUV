@@ -28,6 +28,7 @@ public class AdkCommunicator implements Runnable
     private static final String ACTION_USB_PERMISSION = "com.google.android.DemoKit.action.USB_PERMISSION";
 
     public float batteryLevel;
+    public boolean accessoryStarted = false;
 
     public AdkCommunicator(AdbListener adbListener, Context context)
     {
@@ -69,6 +70,7 @@ public class AdkCommunicator implements Runnable
                     }
                 }
             }
+            accessoryStarted = true;
         }
         else
         {
@@ -78,8 +80,15 @@ public class AdkCommunicator implements Runnable
 
     public void stop()
     {
+        accessoryStarted = false;
         closeAccessory();
-        context.unregisterReceiver(usbReceiver);
+        try {
+            if (usbReceiver != null) {
+                context.unregisterReceiver(usbReceiver);
+            }
+        } catch (Exception e) {
+        }
+
     }
 
 
