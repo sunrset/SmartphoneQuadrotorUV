@@ -36,6 +36,9 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public AdkCommunicator adkCommunicator;
     public MotorsPowers motorsPowers;
 
+    Context ctx;
+    Activity act;
+
     DecimalFormat df = new DecimalFormat("0.000");
 
     BatteryManager bm;
@@ -52,7 +55,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public float[] controlSignals = new float[4];
 
     public SaveFile mSaveFile;
-    private ArrayList<String> dataList;
+    private ArrayList<String> dataList, listToSave;
 
     public final float QUAD_MASS = 1.568f; // [kg]
     public final float GRAVITY = 9.807f; // [m/s^2]
@@ -81,6 +84,9 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     public FlightController(Context ctx, Activity act){
 
+        this.ctx = ctx;
+        this.act = act;
+
         mDataCollection = new DataCollection(ctx);          // Sensor data acquisition
         posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
@@ -97,6 +103,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
         mSaveFile = new SaveFile(ctx, act);                         // Data logging class
         dataList = new ArrayList<>();
+        listToSave = new ArrayList<>();
     }
 
     public void acquireData(){
@@ -119,14 +126,18 @@ public class FlightController implements AdkCommunicator.AdbListener {
         controllerScheduler = new Timer();
         controllerThread = new ControllerThread();
         dataList = new ArrayList<>();
+        listToSave = new ArrayList<>();
         controllerScheduler.schedule(controllerThread, 0, 10);  // The controllerThread is executed each 10 ms
         t = 0;
     }
 
     public void stopAcquiring(){
         adkCommunicator.stop();
+        listToSave = dataList;
+        dataList = new ArrayList<>();
         //mDataCollection.unregister();
-        mSaveFile.saveArrayList(dataList, "dataFlightController");
+        mSaveFile.saveArrayList(listToSave, "dataFlightController");
+        listToSave = new ArrayList<>();
     }
 
     private void ControllerExecution(){
@@ -145,10 +156,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
                 controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
-                controlSignals[0] = controlSignals[0] + 5 + (Throttle);
+                //controlSignals[0] = controlSignals[0] + 5 + (Throttle);
                 controlSignals[1] = 0;
 
-                //controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
+                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
                     // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
             }
             /*
@@ -168,24 +179,23 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             }
             */
-            else { // If armed without any flight mode
-                if (controlSignals[0] < QUAD_MASS*GRAVITY*0.7f){
-                    controlSignals[0] = controlSignals[0]+0.02f;
+            else { // If armed without any flight mode, just turn on the motors
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.00125f; // [N] [-1, 1]
+                if (controlSignals[0] <= QUAD_MASS*GRAVITY*0.9f){
+                    controlSignals[0] = controlSignals[0]+Throttle;
                     controlSignals[1] = 0;
                     controlSignals[2] = 0;
                     controlSignals[3] = 0;
+                }
+                if(controlSignals[0] > QUAD_MASS*GRAVITY*0.9f){
+                    controlSignals[0] = QUAD_MASS*GRAVITY*0.9f;
                 }
             }
 
             setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
         }
         else{
-            motorsPowers.m1 = 0;
-            motorsPowers.m2 = 0;
-            motorsPowers.m3 = 0;
-            motorsPowers.m4 = 0;
-
-            adkCommunicator.setPowers(motorsPowers);
+            turnOffMotors();
         }
     }
 
@@ -214,6 +224,20 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     }
 
+    private void turnOffMotors(){
+        controlSignals[0] = 0;
+        controlSignals[1] = 0;
+        controlSignals[2] = 0;
+        controlSignals[3] = 0;
+
+        motorsPowers.m1 = 0;
+        motorsPowers.m2 = 0;
+        motorsPowers.m3 = 0;
+        motorsPowers.m4 = 0;
+
+        adkCommunicator.setPowers(motorsPowers);
+    }
+
     @Override
     public void onBatteryVoltageArrived(float batteryVoltage){ //It's executed when Android receives the Battery data from ADK
         this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
@@ -234,7 +258,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     public void changeFlightMode(String flightMode){
         FlightMode = flightMode;
-        if(flightMode.equals("Stabilize")){
+        if(flightMode.equals("")){
+
+        }
+        else if(flightMode.equals("Stabilize")){
 
         }
         else if(flightMode.equals("AltHold")){
@@ -272,17 +299,16 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
                 ControllerExecution();
 
-                dataList.add(System.lineSeparator() + t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
+                dataList.add(t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
                         "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
                         "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
                         "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
                         "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
                         "," + motorsPowers.m3 + "," + motorsPowers.m4 +
                         "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
-                        "," + Psi_ref + "," + Theta_ref + "," + Phi_ref );
+                        "," + Psi_ref + "," + Theta_ref + "," + Phi_ref + System.lineSeparator());
 
             }
-
 
         }
 

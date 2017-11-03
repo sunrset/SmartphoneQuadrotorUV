@@ -100,10 +100,10 @@ public class DataExchange {
                 responseSentence = received + '\n';
 
                 try {
-                    if(receivedData[1].equals("0")){ // Started Connection
+                    if(receivedData[1].equals("0") && receivedData.length>=1){ // Started Connection
                         verifyConnectionStarted(receivedData[0]);
                     }
-                    else if(receivedData[1].equals("!0")){ // End connection query
+                    else if(receivedData[1].equals("!c")){ // End connection query
                         verifyConnectionFinished(receivedData[0]);
                         stopTCPserver();
                         try {
@@ -191,7 +191,7 @@ public class DataExchange {
     }
 
     private void verifyConnectionFinished(String id) throws IOException {
-        outToClient.writeBytes(id+",!0"+'\n');
+        outToClient.writeBytes(id+",!c"+'\n');
     }
 
     private void sendState(String id) throws IOException {

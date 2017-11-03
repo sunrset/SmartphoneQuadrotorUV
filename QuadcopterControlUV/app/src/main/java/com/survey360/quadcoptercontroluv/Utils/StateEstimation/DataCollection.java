@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Looper;
 import android.util.Log;
 
 import android.content.DialogInterface;
@@ -321,7 +322,7 @@ class GetLocation {
                     ContextCompat.checkSelfPermission( this.ctx, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return ;
             }
-            locationManager.requestLocationUpdates(provider, MIN_GPS_UPDATE_TIME, MIN_GPS_UPDATE_DISTANCE, locationListenerBest);
+            locationManager.requestLocationUpdates(provider, MIN_GPS_UPDATE_TIME, MIN_GPS_UPDATE_DISTANCE, locationListenerBest, Looper.getMainLooper());
         }
     }
     public void LocationOFF() {

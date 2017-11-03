@@ -1,5 +1,6 @@
 package com.survey360.quadcoptercontroluv.MenuActivities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -37,6 +38,7 @@ public class MissionActivity extends AppCompatActivity{
     public static ProgressBar pb_motor1, pb_motor2, pb_motor3, pb_motor4, pb_rolljoystick, pb_pitchjoystick, pb_yawjoystick, pb_throttlejoystick;
     public static Handler UIHandler = null;
     public static boolean ic_ready = false;
+    private boolean backPressed = false;
 
     public static DataExchange mDataExchange = null;
     public static FlightController mFlightController = null;
@@ -46,6 +48,7 @@ public class MissionActivity extends AppCompatActivity{
     public static boolean armed = false;
     public static MediaPlayer mp;
     private static Context ctx;
+    private static Activity act;
 
     public static String flightMode = "AltHold";
     public static List<float[]> waypointsList1 = new ArrayList<>();
@@ -62,6 +65,7 @@ public class MissionActivity extends AppCompatActivity{
 
         mp = new MediaPlayer();
         ctx = this;
+        act = this;
 
         PermissionsRequest.verifyStoragePermissions(this); // Permission for data saving
 
@@ -171,7 +175,8 @@ public class MissionActivity extends AppCompatActivity{
     public static void disarmMotors(){
         armed = false;
         mFlightController.stopAcquiring();
-        playSound("disarmed");
+        //playSound("disarmed");
+        changeFlightMode("");
         if(UIHandler!=null) {
             UIHandler.post(new Runnable() {
                 @Override
@@ -181,6 +186,7 @@ public class MissionActivity extends AppCompatActivity{
                 }
             });
         }
+        //mFlightController = new FlightController(ctx, act);
 
     }
 
@@ -205,6 +211,10 @@ public class MissionActivity extends AppCompatActivity{
                     tv_flightmode.setText(flightMode);
                 }
             });
+        }
+        if(flightMode.equals("")){
+            playSound("disarmed");
+            mFlightController.changeFlightMode("");
         }
         if(flightMode.equals("Stabilize")){
             playSound("stabilize");
@@ -233,19 +243,27 @@ public class MissionActivity extends AppCompatActivity{
     }
 
     protected void onDestroy(){
-        mDataExchange.stopTCPserver();
-        mFlightController.stopAcquiring();
-        //mFlightController.mDataCollection.unregister();
+        if(!backPressed) {
+            mDataExchange.stopTCPserver();
+            mFlightController.stopAcquiring();
+            //mFlightController.mDataCollection.unregister();
+            backPressed = false;
+        }
         super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
-        mDataExchange.stopTCPserver();
-        mFlightController.stopAcquiring();
-        //mFlightController.mDataCollection.unregister();
-        Intent intentMainMenu = new Intent(MissionActivity.this, MainActivity.class);
-        startActivity(intentMainMenu);
-        finish();
+        if(!armed) {
+            backPressed = true;
+            mDataExchange.stopTCPserver();
+            mFlightController.adkCommunicator.stop();
+            //mFlightController.mDataCollection.unregister();
+            finish();
+            Intent intentMainMenu = new Intent(MissionActivity.this, MainActivity.class);
+            startActivity(intentMainMenu);
+
+            return;
+        }
     }
 }

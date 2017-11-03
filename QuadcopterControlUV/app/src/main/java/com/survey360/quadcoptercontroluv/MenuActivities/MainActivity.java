@@ -170,12 +170,14 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
-                            // Do something for lollipop and above versions
-                                finishAndRemoveTask();
-                            } else{
-                            // do something for phones running an SDK before lollipop
-                                finish();
-                            }
+                        // Do something for lollipop and above versions
+                            finishAndRemoveTask();
+                            return;
+                        } else{
+                        // do something for phones running an SDK before lollipop
+                            finish();
+                            return;
+                        }
                     }
                 })
                 .setNegativeButton("No", null)
