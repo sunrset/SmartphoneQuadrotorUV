@@ -115,7 +115,7 @@ public class Communication {
     }
     
     public void closeCommunication(String id) throws IOException{
-        sendToServer(id+",!0");
+        sendToServer(id+",!c");
         receiveFromServer();
     }
         
@@ -133,7 +133,7 @@ public class Communication {
                         System.out.println("Connection Set with Quadrotor "+receivedData[0]);
                         connected = true;                       
                     }
-                    else if(receivedData[1].equals("!0")){
+                    else if(receivedData[1].equals("!c")){
                         window.jTextAreaConsole.append("Connection Ended with Quadrotor "+receivedData[0]+"\n");
                         connected = false;   
                         timer.cancel();
@@ -174,6 +174,7 @@ public class Communication {
                             window.bt_arm.setEnabled(true);
                             window.bt_disarm.setEnabled(false);
                             window.bt_setWaypoints.setEnabled(true);
+                            window.tf_currentflightmode.setText("-");
                         }
                         else if(receivedData[2].equals("Armed")){
                             window.bt_disarm.setEnabled(true);
@@ -310,6 +311,28 @@ public class Communication {
                 Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if(readController.getBACKbutton() && readController.getYbutton()){    
+            // If armed, pressing BACK + Y, set Stabilize mode
+            if(armed){ requestModeChange("1","Stabilize");}
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(readController.getSTARTbutton() && readController.getBbutton()){    
+            // If connected, pressing START + B, disconnect from server
+            if(RCthreadRunning){
+                if(armed){ armQuadrotor("1",false);}
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                closeCommunication("1");
+            }
+        }
+        
         else{
             sendToServer(id+",rcstate,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
                     readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+

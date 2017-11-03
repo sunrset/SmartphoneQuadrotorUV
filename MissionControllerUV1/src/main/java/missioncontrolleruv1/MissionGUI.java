@@ -240,6 +240,18 @@ public class MissionGUI extends javax.swing.JFrame {
     private void resetWaypointList()throws IOException{
         missionControllerUV.resetWaypointList();
     }
+    
+    public void stopConnectionWithServer(){
+        try {
+            if(Communication.armed){
+                missionControllerUV.armMotors(false);
+                Thread.sleep(500);
+            }
+            MissionControllerUV.stopConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1219,15 +1231,7 @@ public class MissionGUI extends javax.swing.JFrame {
                                   "Choose", 
                                   JOptionPane.YES_NO_OPTION); 
         if (selectedOption == JOptionPane.YES_OPTION) {
-            try {
-                if(Communication.armed){
-                    missionControllerUV.armMotors(false);
-                    Thread.sleep(500);
-                }
-                MissionControllerUV.stopConnection();
-            } catch (IOException | InterruptedException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            stopConnectionWithServer();
         }
         
     }//GEN-LAST:event_bt_stopConnectionActionPerformed
@@ -1415,7 +1419,10 @@ public class MissionGUI extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             missionControllerUV.armMotors(false);
+            Thread.sleep(100);
         } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bt_disarmActionPerformed
