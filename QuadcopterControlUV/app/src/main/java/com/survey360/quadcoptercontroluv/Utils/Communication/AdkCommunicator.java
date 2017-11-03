@@ -74,7 +74,7 @@ public class AdkCommunicator implements Runnable
         }
         else
         {
-            Log.d("AndroCopter", "No accessory, please connect one.");
+            Log.d("AndroQuadUV", "No accessory, please connect one.");
         }
     }
 
