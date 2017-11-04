@@ -320,6 +320,24 @@ public class Communication {
                 Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if(readController.getBACKbutton() && readController.getXbutton()){    
+            // If armed, pressing BACK + X, set Loiter mode
+            if(armed){ requestModeChange("1","Loiter");}
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(readController.getBACKbutton() && readController.getAbutton()){    
+            // If armed, pressing BACK + A, set AltHold mode
+            if(armed){ requestModeChange("1","AltHold");}
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         else if(readController.getSTARTbutton() && readController.getBbutton()){    
             // If connected, pressing START + B, disconnect from server
             if(RCthreadRunning){
@@ -332,8 +350,7 @@ public class Communication {
                 closeCommunication("1");
             }
         }
-        
-        else{
+        else{ // This way, the GameController is prioritized over any other action in the GUI
             sendToServer(id+",rcstate,"+readController.getRollJoystick()+","+readController.getPitchJoystick()+","+readController.getYawJoystick()+","+
                     readController.getThrottleJoystick()+","+readController.getDPadPosition()+","+readController.getXbutton()+","+
                     readController.getYbutton()+","+readController.getAbutton()+","+readController.getBbutton()+","+
