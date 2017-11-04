@@ -14,4 +14,12 @@
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
+        <action>
+            <actionName>CUSTOM-Generate jar</actionName>
+            <displayName>Generate jar</displayName>
+            <preAction>build-with-dependencies</preAction>
+            <goals>
+                <goal>source:jar</goal>
+            </goals>
+        </action>
     </actions>
