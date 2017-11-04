@@ -306,8 +306,9 @@ public class AttitudeKFTest extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        finish();
         Intent intentTest = new Intent(AttitudeKFTest.this, TestsActivity.class);
         startActivity(intentTest);
-        finish();
+        return;
     }
 }

@@ -85,6 +85,12 @@ public class SaveFile implements Serializable {
                 @Override
                 public void run() {
                     try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    playSound("waittosave");
+                    try {
                         StringBuilder sb = new StringBuilder();
 
                         synchronized (list) {
@@ -113,6 +119,7 @@ public class SaveFile implements Serializable {
                     }
                 }
             };
+
             save.start();
         }
     }

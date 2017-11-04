@@ -9,6 +9,7 @@ import com.survey360.quadcoptercontroluv.MenuActivities.MissionActivity;
 import com.survey360.quadcoptercontroluv.Utils.Communication.AdkCommunicator;
 import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
 import com.survey360.quadcoptercontroluv.Utils.SaveFile;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.AltHoldKalmanFilter;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
@@ -35,6 +36,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public PositionKalmanFilter posKF;
     public AdkCommunicator adkCommunicator;
     public MotorsPowers motorsPowers;
+    public AltHoldKalmanFilter altHoldKF;
 
     Context ctx;
     Activity act;
@@ -48,9 +50,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
     Timer controllerScheduler;
     ControllerThread controllerThread;
     double t;
-    long measured_time, last_time;
-    float delta_time;
-    private boolean controlExecuting = true;
+    long measured_time, last_time, last_time_kf;
+    float delta_time, delta_time_kf;
 
     public float[] controlSignals = new float[4];
 
@@ -59,6 +60,9 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     public final float QUAD_MASS = 1.568f; // [kg]
     public final float GRAVITY = 9.807f; // [m/s^2]
+    private final float I_XX = 0.0135f;
+    private final float I_YY = 0.0124f;
+    private final float I_ZZ = 0.0336f;
     public final float L = 0.244f; // [m]
     public final float TORQUE_DISTANCE = L*((float)Math.cos(Math.toRadians(45))); // [m]
     public final float K_T = 0.0210f;
@@ -78,6 +82,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     public float Throttle = 0f;
 
+    private double this_x, this_y, this_z, this_xdot, this_ydot, this_zdot;
+
     private String FlightMode = "nothing";
 
     public float[] Motor_Forces = new float[4];
@@ -91,6 +97,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
         posKF = new PositionKalmanFilter(ctx);              // Position Kalman filter and Initial position acquisition
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
         motorsPowers = new MotorsPowers();                  // Class that contains the signals sent to the motors
+        altHoldKF = new AltHoldKalmanFilter(ctx);
+
 
         try {
             adkCommunicator.start(false);                   // Start the communication with the Arduino Mega ADK
@@ -115,6 +123,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
             }
         }
 
+        altHoldKF.initAltHoldKF(QUAD_MASS, I_XX, I_YY, I_ZZ);
         posKF.initPositionKF();                             // Initialize the Position Kalman Filter matrices
         mDataCollection.register();                         // Begins to acquire sensor data
 
@@ -123,6 +132,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
             controllerScheduler.cancel();
         }
         last_time = System.nanoTime();
+        last_time_kf = last_time;
         controllerScheduler = new Timer();
         controllerThread = new ControllerThread();
         dataList = new ArrayList<>();
@@ -145,8 +155,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             if(FlightMode.equals("Stabilize")) {
 
-                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.1f; // [N] [-1, 1]
-                Psi_ref = ((MissionActivity.mDataExchange.yawJoystick)-50f)*((10*3.1416f/180)/50);  // [N] [-1, 1]
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.05f; // [N] [-1, 1]
+                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
+                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
                 Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
                 Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((10*3.1416f/180)/50);
 
@@ -156,19 +168,53 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
                 controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
-                //controlSignals[0] = controlSignals[0] + 5 + (Throttle);
-                controlSignals[1] = 0;
 
                 controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
-                    // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
+                    // QUAD_MASS*GRAVITY is the necessary thrust to overcome gravity [N]
             }
-            /*
-            else if(FlightMode.equals("AltHold")){
 
+            else if(FlightMode.equals("AltHold")){
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
+                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
+                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
+                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((10*3.1416f/180)/50);
+                Z_ref = Z_ref + Throttle;
+                Log.w("Z_ref ##############","############## Z_REF: "+Z_ref+" ##############");
+
+                // LQR controller ---------------------
+                controlSignals[0] = -1.1879f*(((float)this_z)-Z_ref) - 1.9301f*(((float)this_zdot)-Zdot_ref);
+                controlSignals[1] = -1.1459f*(mDataCollection.psi-Psi_ref) - 0.2775f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.1151f*(mDataCollection.theta-Theta_ref) - 0.1663f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.1183f*(mDataCollection.phi-Phi_ref) - 0.1738f*(mDataCollection.phi_dot-Phidot_ref);
+                // ------------------------------------
+
+                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY;
+                // QUAD_MASS*GRAVITY is the necessary thrust to overcome gravity [N]
             }
             else if(FlightMode.equals("Loiter")){
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
+                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
+                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+                Theta_ref = 0;
+                Phi_ref = 0;
+                X_ref = X_ref + (((MissionActivity.mDataExchange.rollJoystick)-50f)*0.0001f); // [m]
+                Y_ref = Y_ref + (((MissionActivity.mDataExchange.pitchJoystick)-50f)*0.0001f); // [m]
+                Z_ref = Z_ref + Throttle;
 
+                // LQR controller ---------------------
+                controlSignals[0] = -1.1933f*(((float)this_z)-Z_ref) - 1.9329f*(((float)this_zdot)-Zdot_ref);
+                controlSignals[1] = -1.1949f*(mDataCollection.psi-Psi_ref) - 0.2833f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.1947f*(((float)this_x)-X_ref) - 0.5630f*(((float)this_xdot)-Xdot_ref) - 1.3011f*(mDataCollection.theta-Theta_ref) - 0.1796f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.1947f*(((float)this_y)-Y_ref) - 0.5751f*(((float)this_ydot)-Ydot_ref) - 1.3576f*(mDataCollection.phi-Phi_ref) - 0.1914f*(mDataCollection.phi_dot-Phidot_ref);
+                // ------------------------------------
+
+                controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY;
+                // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
             }
+            /*
             else if(FlightMode.equals("RTL")){
 
             }
@@ -191,7 +237,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
                     controlSignals[0] = QUAD_MASS*GRAVITY*0.9f;
                 }
             }
-
+            //controlSignals[1] = 0;
             setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
         }
         else{
@@ -200,7 +246,6 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
-
         Motor_Forces[0] = 0.2500f*u + 11.9048f*tau_psi - 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
         Motor_Forces[1] = 0.2500f*u - 11.9048f*tau_psi - 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
         Motor_Forces[2] = 0.2500f*u + 11.9048f*tau_psi + 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
@@ -262,22 +307,26 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
         }
         else if(flightMode.equals("Stabilize")){
-
+            Psi_ref = mDataCollection.psi;
         }
         else if(flightMode.equals("AltHold")){
-
+            Z_ref = (float)this_z;
+            Psi_ref = mDataCollection.psi;
         }
         else if(flightMode.equals("Loiter")){
-
+            X_ref = (float)this_x;
+            Y_ref = (float)this_y;
+            Z_ref = (float)this_z;
+            Psi_ref = 0;
         }
         else if(flightMode.equals("RTL")){
-
+            Psi_ref = 0;
         }
         else if(flightMode.equals("Auto")){
-
+            Psi_ref = 0;
         }
         else if(flightMode.equals("Land")){
-
+            Psi_ref = 0;
         }
     }
 
@@ -289,33 +338,67 @@ public class FlightController implements AdkCommunicator.AdbListener {
             delta_time = ((float) (measured_time - last_time)) / 1000000.0f; // [ms].;
             last_time = measured_time;
             t = t + delta_time;     // [ms];
+            delta_time_kf = (measured_time - last_time_kf) / 1000000000; // [s].;
 
-            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+            estimateQuadrotorStates();
 
-            setQuadrotorState();
+            ControllerExecution();
+
+            /*dataList.add(t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
+                    "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
+                    "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
+                    "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
+                    "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
+                    "," + motorsPowers.m3 + "," + motorsPowers.m4 +
+                    "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
+                    "," + X_ref + "," + Y_ref + "," + Z_ref + "," + Psi_ref + "," + Theta_ref + "," + Phi_ref + System.lineSeparator());
+            */
+            dataList.add(t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
+                    "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
+                    "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
+                    "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
+                    "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
+                    "," + motorsPowers.m3 + "," + motorsPowers.m4 +
+                    "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
+                    "," + X_ref + "," + Y_ref + "," + Z_ref + "," + Psi_ref + "," + Theta_ref + "," + Phi_ref +
+                    "," + altHoldKF.getEstimatedState()[0] + "," + altHoldKF.getEstimatedState()[1] +
+                    "," + altHoldKF.getEstimatedState()[2] + "," + altHoldKF.getEstimatedState()[3] +
+                    "," + altHoldKF.getEstimatedState()[4] + "," + altHoldKF.getEstimatedState()[5] +
+                    "," + altHoldKF.getEstimatedState()[6] + "," + altHoldKF.getEstimatedState()[7] + System.lineSeparator());
             editGUI();
+        }
 
-            if(controlExecuting) {
+        private void estimateQuadrotorStates(){
+            if(delta_time_kf >= 0.49){
+                posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                this_x = posKF.getEstimatedState()[0];
+                this_y = posKF.getEstimatedState()[1];
+                this_z = posKF.getEstimatedState()[2];
+                this_xdot = posKF.getEstimatedState()[3];
+                this_ydot = posKF.getEstimatedState()[4];
+                this_zdot = posKF.getEstimatedState()[5];
 
-                ControllerExecution();
-
-                dataList.add(t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
-                        "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
-                        "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
-                        "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
-                        "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
-                        "," + motorsPowers.m3 + "," + motorsPowers.m4 +
-                        "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
-                        "," + Psi_ref + "," + Theta_ref + "," + Phi_ref + System.lineSeparator());
-
+                last_time_kf = measured_time;
+            }
+            else{
+                posKF.executePositionKF_woGPS(mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                this_x = posKF.getEstimatedState_woGPS()[0];
+                this_y = posKF.getEstimatedState_woGPS()[1];
+                this_z = posKF.getEstimatedState_woGPS()[2];
+                this_xdot = posKF.getEstimatedState_woGPS()[3];
+                this_ydot = posKF.getEstimatedState_woGPS()[4];
+                this_zdot = posKF.getEstimatedState_woGPS()[5];
             }
 
+            altHoldKF.executeAltHoldKF(mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,controlSignals);
+
+            setQuadrotorState();
         }
 
         private void setQuadrotorState(){
-            MissionActivity.quadrotorState[0] = (float)posKF.getEstimatedState()[0];    // x [m]
-            MissionActivity.quadrotorState[1] = (float)posKF.getEstimatedState()[1];    // y [m]
-            MissionActivity.quadrotorState[2] = (float)posKF.getEstimatedState()[2];    // z [m]
+            MissionActivity.quadrotorState[0] = (float)this_x;     // x [m]
+            MissionActivity.quadrotorState[1] = (float)this_y;     // y [m]
+            MissionActivity.quadrotorState[2] = (float)this_z;     // z [m]
             MissionActivity.quadrotorState[3] = mDataCollection.orientationValsRad[2];  // roll [rad]
             MissionActivity.quadrotorState[4] = mDataCollection.orientationValsRad[1];  // pitch [rad]
             MissionActivity.quadrotorState[5] = mDataCollection.orientationValsRad[0];  // yaw [rad]

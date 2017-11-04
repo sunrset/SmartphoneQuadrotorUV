@@ -88,7 +88,6 @@ public class AdkCommunicator implements Runnable
             }
         } catch (Exception e) {
         }
-
     }
 
 

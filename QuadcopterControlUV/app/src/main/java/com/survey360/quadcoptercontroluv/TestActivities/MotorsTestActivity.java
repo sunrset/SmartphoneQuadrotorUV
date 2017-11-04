@@ -191,9 +191,10 @@ public class MotorsTestActivity extends AppCompatActivity implements AdkCommunic
     }
 
     public void onBackPressed() {
+        finish();
         Intent intentTest = new Intent(MotorsTestActivity.this, TestsActivity.class);
         startActivity(intentTest);
-        finish();
+        return;
     }
 
 

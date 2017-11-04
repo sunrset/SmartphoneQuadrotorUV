@@ -37,6 +37,9 @@ public class PositionKFTest extends AppCompatActivity {
     private TextView tv_pitch, tv_roll, tv_yaw, tv_GPS_latitude, tv_GPS_longitude, tv_GPS_altitude, tv_GPS_bearing, tv_GPS_accuracy, tv_GPS_speed, tv_GPS_time;
     private TextView tv_x, tv_y, tv_z, tv_roll2, tv_pitch2, tv_yaw2, tv_baroalt;
 
+    private double last_x, last_y, last_z;
+    private double this_x, this_y, this_z;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,14 +130,15 @@ public class PositionKFTest extends AppCompatActivity {
                 tv_yaw2.setText(String.valueOf(mDataCollection.orientationValsRad[0]));
                 tv_pitch2.setText(String.valueOf(mDataCollection.orientationValsRad[1]));
                 tv_roll2.setText(String.valueOf(mDataCollection.orientationValsRad[2]));
-                tv_x.setText(dfmm.format(posKF.getEstimatedState()[0])+" m");
-                tv_y.setText(dfmm.format(posKF.getEstimatedState()[1])+" m");
-                tv_z.setText(String.valueOf(posKF.getEstimatedState()[2])+" m");
+                tv_x.setText(dfmm.format(this_x)+" m");
+                tv_y.setText(dfmm.format(this_y)+" m");
+                tv_z.setText(String.valueOf(this_z)+" m");
             }
         });
     }
 
     Long t_pasado = System.nanoTime();
+    Long t_pasado_kf = t_pasado;
     private class TemporizerPKF extends TimerTask {
 
         @Override
@@ -143,8 +147,24 @@ public class PositionKFTest extends AppCompatActivity {
             long t_medido = System.nanoTime();
             float dt = ((float) (t_medido - t_pasado)) / 1000000000.0f; // [s].;
             t_pasado = t_medido;
+            double dt_kf = (t_medido - t_pasado_kf) / 1000000000; // [s].;
 
-            posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+            if(dt_kf >= 0.99){
+                posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                this_x = posKF.getEstimatedState()[0];
+                this_y = posKF.getEstimatedState()[1];
+                this_z = posKF.getEstimatedState()[2];
+
+                t_pasado_kf = t_medido;
+            }
+            else{
+                posKF.executePositionKF_woGPS(mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                this_x = posKF.getEstimatedState_woGPS()[0];
+                this_y = posKF.getEstimatedState_woGPS()[1];
+                this_z = posKF.getEstimatedState_woGPS()[2];
+            }
+
+
 
             Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
             updateTextViews();
@@ -171,8 +191,9 @@ public class PositionKFTest extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intentTest = new Intent(PositionKFTest.this, TestsActivity.class);
         startActivity(intentTest);
-        finish();
+        return;
     }
 }

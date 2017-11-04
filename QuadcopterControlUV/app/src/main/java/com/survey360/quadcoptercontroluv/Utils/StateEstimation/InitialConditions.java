@@ -16,7 +16,7 @@ public class InitialConditions {
 
     private static Context ctx;
     DataCollection mDataCollection = null;
-    double x_ic, y_ic, z_ic = 0;
+    double x_ic, y_ic, z_ic, psi_ic, theta_ic, phi_ic = 0;
     public boolean ic_ready = false;
 
     DecimalFormat df = new DecimalFormat("0.000");
@@ -38,6 +38,9 @@ public class InitialConditions {
                     x_ic = mDataCollection.conv_x;
                     y_ic = mDataCollection.conv_y;
                     z_ic = mDataCollection.baroElevation;
+                    psi_ic = mDataCollection.psi;
+                    theta_ic = mDataCollection.theta;
+                    phi_ic = mDataCollection.phi;
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -108,6 +111,18 @@ public class InitialConditions {
 
     public double getz_ic(){
         return z_ic;
+    }
+
+    public double getpsi_ic(){
+        return psi_ic;
+    }
+
+    public double gettheta_ic(){
+        return theta_ic;
+    }
+
+    public double getphi_ic(){
+        return phi_ic;
     }
 }
 

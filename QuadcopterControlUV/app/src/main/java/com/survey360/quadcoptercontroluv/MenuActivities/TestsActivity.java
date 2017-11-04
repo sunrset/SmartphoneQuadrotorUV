@@ -78,8 +78,9 @@ public class TestsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intentMainMenu = new Intent(TestsActivity.this, MainActivity.class);
         startActivity(intentMainMenu);
-        finish();
+        return;
     }
 }

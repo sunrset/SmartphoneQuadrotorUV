@@ -70,8 +70,9 @@ public class CommunicationTest extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intentTest = new Intent(CommunicationTest.this, TestsActivity.class);
         startActivity(intentTest);
-        finish();
+        return;
     }
 }

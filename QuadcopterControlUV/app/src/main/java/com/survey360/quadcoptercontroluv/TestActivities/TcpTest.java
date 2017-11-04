@@ -95,8 +95,9 @@ public class TcpTest extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intentTest = new Intent(TcpTest.this, TestsActivity.class);
         startActivity(intentTest);
-        finish();
+        return;
     }
 }

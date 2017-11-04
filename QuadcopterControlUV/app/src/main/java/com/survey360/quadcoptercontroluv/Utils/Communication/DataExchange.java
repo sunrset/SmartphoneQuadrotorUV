@@ -105,6 +105,11 @@ public class DataExchange {
                     }
                     else if(receivedData[1].equals("!c")){ // End connection query
                         verifyConnectionFinished(receivedData[0]);
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         stopTCPserver();
                         try {
                             Thread.sleep(1000);
@@ -192,6 +197,7 @@ public class DataExchange {
 
     private void verifyConnectionFinished(String id) throws IOException {
         outToClient.writeBytes(id+",!c"+'\n');
+
     }
 
     private void sendState(String id) throws IOException {

@@ -50,7 +50,7 @@ public class DataCollection implements SensorEventListener {
     public float[] orientationValsRad = new float[3];
     public float[] orientationValsDeg = new float[3];
     public float absoluteElevation = 0, baroElevation, elevationZero;
-    private static final float ALTITUDE_SMOOTHING = 0.95f;
+    private static final float ALTITUDE_SMOOTHING = 0.0f; // 0.95f
     public float[] speed = new float[3];
     public float pressure, rawAltitudeUnsmoothed;
     float[] invRotationMatrix = new float[16];
@@ -113,14 +113,23 @@ public class DataCollection implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){
-        // TODO
+        if (sensor == MagSensor){
+            /*
+            SENSOR_STATUS_ACCURACY_HIGH = 3
+            SENSOR_STATUS_ACCURACY_MEDIUM = 2
+            SENSOR_STATUS_ACCURACY_LOW = 1
+            SENSOR_STATUS_UNRELIABLE = 0
+             */
+            if(accuracy < 1){
+                //Please calibrate the smartphone's compass
+
+            }
+        }
 
     }
 
     @Override
     public void onSensorChanged(SensorEvent event){
-        // TODO
-
         if (event.sensor == RotationSensor) {
             time1 = event.timestamp;
             // Convert the rotation-vector to a 4x4 matrix.
