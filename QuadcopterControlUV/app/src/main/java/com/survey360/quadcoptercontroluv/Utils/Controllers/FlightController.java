@@ -157,16 +157,16 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
                 Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.05f; // [N] [-1, 1]
                 Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
-                if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
-                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+                if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
+                if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
                 Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
                 Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((10*3.1416f/180)/50);
 
                 // LQR controller ---------------------
                 controlSignals[0] = 0f;
-                controlSignals[1] = -1.0986f*(mDataCollection.psi-Psi_ref) - 0.2717f*(mDataCollection.psi_dot-Psidot_ref);
-                controlSignals[2] = -1.0404f*(mDataCollection.theta-Theta_ref) - 0.1606f*(mDataCollection.theta_dot-Thetadot_ref);
-                controlSignals[3] = -1.0464f*(mDataCollection.phi-Phi_ref) - 0.1681f*(mDataCollection.phi_dot-Phidot_ref);
+                controlSignals[1] = -0.7415f*(mDataCollection.psi-Psi_ref) - 0.6707f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.3772f*(mDataCollection.theta-Theta_ref) - 1.2456f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.4991f*(mDataCollection.phi-Phi_ref) - 1.3559f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
 
                 controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
@@ -238,6 +238,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 }
             }
             //controlSignals[1] = 0;
+
             setControlOutputs(controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
         }
         else{
@@ -308,25 +309,46 @@ public class FlightController implements AdkCommunicator.AdbListener {
         }
         else if(flightMode.equals("Stabilize")){
             Psi_ref = mDataCollection.psi;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
         else if(flightMode.equals("AltHold")){
             Z_ref = (float)this_z;
             Psi_ref = mDataCollection.psi;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
         else if(flightMode.equals("Loiter")){
             X_ref = (float)this_x;
             Y_ref = (float)this_y;
             Z_ref = (float)this_z;
             Psi_ref = 0;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
         else if(flightMode.equals("RTL")){
+            X_ref = (float)this_x;
+            Y_ref = (float)this_y;
+            Z_ref = (float)this_z;
             Psi_ref = 0;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
         else if(flightMode.equals("Auto")){
+            X_ref = (float)this_x;
+            Y_ref = (float)this_y;
+            Z_ref = (float)this_z;
             Psi_ref = 0;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
         else if(flightMode.equals("Land")){
+            X_ref = (float)this_x;
+            Y_ref = (float)this_y;
+            Z_ref = (float)this_z;
             Psi_ref = 0;
+            Theta_ref = 0;
+            Phi_ref = 0;
         }
     }
 

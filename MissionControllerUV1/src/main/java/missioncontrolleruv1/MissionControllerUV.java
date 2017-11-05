@@ -26,6 +26,7 @@ public class MissionControllerUV {
     public static void main(String[] args) {
         // TODO code application logic here
         MissionControllerUV missionControllerUV = new MissionControllerUV();
+         
     }
     
     public static MissionGUI window = new MissionGUI();
@@ -34,7 +35,6 @@ public class MissionControllerUV {
    
     public MissionControllerUV () {      
         //constructor
-        //window.tf_currentflightmode.setText("");
     }
     
     public static void startConnection(){

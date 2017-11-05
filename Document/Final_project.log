@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  27 OCT 2017 23:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  1 NOV 2017 19:00
 entering extended mode
 **./Final_project.tex
 (Final_project.tex
@@ -1051,6 +1051,13 @@ This warning occurred on input line 137.
 runsystem(cd ""& copy "Final_project.aux" "Final_project.oldaux" )...quotation 
 error in system command.
 
+) (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\tocbibind\tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
 ) (macros.tex
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\eqparbox\eqparbox.sty
 Package: eqparbox 2017/09/03 v4.1 Create equal-widthed boxes
@@ -1192,20 +1199,20 @@ Writing nomenclature file Final_project.nlo
 (tex/conclusions.aux) (tex/publications.aux))
 \openout1 = `Final_project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
 
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1273,7 +1280,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: hypcap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box56
-Package hyperref Info: Link coloring ON on input line 67.
+Package hyperref Info: Link coloring ON on input line 68.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1282,16 +1289,16 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count334
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
-LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 68.
+LaTeX Info: Redefining \pageref on input line 68.
+LaTeX Info: Redefining \nameref on input line 68.
 
 (Final_project.out) (Final_project.out)
 \@outlinefile=\write7
 \openout7 = `Final_project.out'.
 
  (tex/OwnTitle.tex
-<./figures/univallelogo.pdf, id=162, 481.8pt x 361.35pt>
+<./figures/univallelogo.pdf, id=202, 481.8pt x 361.35pt>
 File: ./figures/univallelogo.pdf Graphic file (type pdf)
 
 <use ./figures/univallelogo.pdf>
@@ -1374,7 +1381,7 @@ Chapter 1.
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.117 \include{tex/1Introduction}
+l.118 \include{tex/1Introduction}
                                   [1
 
 
@@ -1398,7 +1405,7 @@ Package epstopdf Info: Source file: <./figures/quadcopter1.eps>
 onverted-to.pdf ./figures/quadcopter1.eps>
 (epstopdf)             \includegraphics on input line 11.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/quadcopter1-eps-converted-to.pdf, id=274, 353.32pt x 181.67876pt>
+<./figures/quadcopter1-eps-converted-to.pdf, id=321, 353.32pt x 181.67876pt>
 File: ./figures/quadcopter1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/quadcopter1-eps-converted-to.pdf>
@@ -1461,23 +1468,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--128
 Package natbib Warning: Citation `Bouabdallah2007' on page 5 undefined on input
  line 141.
 
-[5]) [6]
+[5]) [6] [7]
 \openout2 = `tex/3SmartphoneBasedQuadrotorPrototype.aux'.
 
- (tex/3SmartphoneBasedQuadrotorPrototype.tex
-Chapter 3.
-) [7
+ (tex/3SmartphoneBasedQuadrotorPrototype.tex [8
 
 
 
 ]
+Chapter 3.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+Overfull \vbox (32.25462pt too high) has occurred while \output is active []
+
+
+[10]
 \openout2 = `tex/4ControlStrategiesAndEstimation.aux'.
 
- (tex/4ControlStrategiesAndEstimation.tex [8
-
-
-
-]
+ (tex/4ControlStrategiesAndEstimation.tex
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1495,10 +1505,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
-) [9]
+) [11
+
+
+
+]
 \openout2 = `tex/5Implementation.aux'.
 
- (tex/5Implementation.tex [10
+ (tex/5Implementation.tex [12
 
 
 
@@ -1540,32 +1554,26 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 18.
 
-) [11]
+) [13]
 \openout2 = `tex/conclusions.aux'.
 
- (tex/conclusions.tex [12
+ (tex/conclusions.tex [14
 
 
 
-]) [13]
-No file Final_project.ind.
-[14
+]) [15] [16
 
-
-] (Final_project.bbl) [15
-
-] [16
 
 ]
 \openout2 = `tex/publications.aux'.
 
  (tex/publications.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 3--152
+Underfull \hbox (badness 10000) in paragraph at lines 3--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--152
+Underfull \hbox (badness 10000) in paragraph at lines 3--129
 
  []
 
@@ -1573,33 +1581,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--152
 
 
 ]
+No file Final_project.ind.
+[18
+
+
+] (Final_project.bbl)
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 157.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
-(Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 158.
+[19
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 158.
+ (Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
 (tex/2QuadcopterModel.aux) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
 (tex/4ControlStrategiesAndEstimation.aux) (tex/5Implementation.aux)
 (tex/conclusions.aux) (tex/publications.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 158.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 158.
 Package rerunfilecheck Info: File `Final_project.out' has not changed.
-(rerunfilecheck)             Checksum: 700937ED22EF5D228DF5903D7A6EBD66;2792.
+(rerunfilecheck)             Checksum: 9B1778F1BE3AFB3C889134304187A57D;3371.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
  ) 
 Here is how much of TeX's memory you used:
- 24979 strings out of 493333
- 438345 string characters out of 3139198
- 532649 words of memory out of 3000000
- 27983 multiletter control sequences out of 15000+200000
+ 25075 strings out of 493333
+ 439716 string characters out of 3139198
+ 533677 words of memory out of 3000000
+ 28066 multiletter control sequences out of 15000+200000
  548936 words of font info for 94 fonts, out of 3000000 for 9000
  1148 hyphenation exceptions out of 8191
- 53i,16n,92p,10332b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,16n,92p,10354b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
@@ -1612,9 +1628,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Final_project.pdf (27 pages, 357885 bytes).
+Output written on Final_project.pdf (29 pages, 366747 bytes).
 PDF statistics:
- 450 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 331 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 507 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 411 words of extra memory for PDF output out of 10000 (max. 10000000)
 

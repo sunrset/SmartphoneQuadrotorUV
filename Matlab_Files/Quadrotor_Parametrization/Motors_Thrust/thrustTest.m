@@ -60,7 +60,8 @@ hold on;
 % Trendline:
 % Thrust [PWM 0..255] = -1.983(X^2) + 47.84X + 3.835,  with X -> Thrust [N]
 thrust = linspace(0,8);
-pwm = -1.983.*(thrust.*thrust) + 47.84.*thrust + 3.835;
+%pwm = -1.983.*(thrust.*thrust) + 47.84.*thrust + 3.835;
+pwm = -1.783.*(thrust.*thrust) + 47.84.*thrust + 0;
 line(thrust,pwm,'Color','black','LineWidth',2);
 text(0.7,200, '$$y = -1.983x^{2} + 47.84x + 3.835$$','Interpreter','latex');
 xlabel('Thrust [N]');

@@ -6,7 +6,7 @@
 
 %% Quad-rotor Model
             close all;
-            clear all;
+            clear;
             clc;
             
             G = Quadrotor_modelAngles();
@@ -16,6 +16,8 @@
             D = G.d;
             [nmeas, ncont] = size(D);      % number of measured and control signals
             
+            g = 9.807;
+            m = 1.5680;
            
 %% Controllability and Observability
 
@@ -57,8 +59,10 @@
 
                     s = zpk('s'); % Laplace variable s
 
-                    ws = 1e-4; Ms = 1e-4; 
-                    wk = 2e1;  Mk = 2e1;   c = 1e3;
+                    % ws = 10e-4; Ms = 1e-4; 
+                    % wk = 5e1;  Mk = 2e1;   c = 1e3;
+                    ws = 22e-7; Ms = 1e-4; % simulation working with: ws = 22e-7; Ms = 1e-4; 
+                    wk = 5e1;  Mk = 2e1;   c = 1e3; % simulation working with: wk = 5e1;  Mk = 2e1;   c = 1e3;
 
                     Ws = (ws/Ms)/(s + ws);
 
@@ -117,7 +121,7 @@
                                 % This three commands can be reduced to
                                 % just the command 'balancmr'
 
-                                [K1, hsvinfo] = balancmr(K1,10);
+                                %[K1, hsvinfo] = balancmr(K1,10);
                                 %K1 = balancmr(K1);        %If the desired order isn't included, the HSV will be plot and you will be asked to enter the desired order in the command window
                                 
                                 % The command 'balancmr' do all about
@@ -142,7 +146,7 @@
                     
                     
                     %% Discretize the H-inf Controller
-                    Ts = 0.02;
+                    Ts = 0.01;
                     K1d = c2d(K1,Ts,'zoh');
                     
                     %% Sensitivities Test
@@ -159,11 +163,44 @@
                     
         %% LQG Controller Design
                 %% LQR Controller Design
-
-                    Q = 1*(C'*C);
-                    rho = 0.7;       %rho small --> large control effort, good performance
-                                     %rho large --> small control effort, poor performance
-                    R = rho*eye(4);
+                    
+                    % Limits on states
+                    pos_max = 1;
+                    att_max = 0.25;
+                    dpos_max = 1;
+                    datt_max = 1;
+                    
+                    % Limit on control input
+                    motor_max = 255;
+                    
+                    % Cost weights on states
+                    z_wght = 0.5/3;
+                    zdot_wght = 0.175/3;
+                    psi_wght = 0.175/3;
+                    psidot_wght = 0.4/3;
+                    theta_wght = 0.175/3;
+                    thetadot_wght = 0.4/3;
+                    phi_wght = 0.175/3;
+                    phidot_wght = 0.4/3;
+                    
+                    weights = [psi_wght psidot_wght theta_wght thetadot_wght phi_wght phidot_wght];
+                    maxs = [att_max datt_max att_max datt_max att_max datt_max];
+                    
+                    rho = 0.04;
+                    
+                    Q = diag(weights./maxs)/sum(weights);
+                    R = rho*diag(1./[motor_max motor_max motor_max motor_max]);
+                    %Q = 1*(C'*C);
+%                     Q = [1 0 0 0 0 0;
+%                          0 1 0 0 0 0;
+%                          0 0 10 0 0 0;
+%                          0 0 0 1 0 0;
+%                          0 0 0 0 10 0;
+%                          0 0 0 0 0 1];
+%                     Q = 
+%                     rho = 0.5;       %rho small --> large control effort, good performance
+%                                      %rho large --> small control effort, poor performance
+%                     R = rho*eye(4);
 
                     [P, eigenvalues, ~] = care(A,B,Q,R);
                     F = -R\B'*P;
@@ -171,7 +208,9 @@
                     %%% The command lqr does the 'care' command internally
                     Gss_d = c2d(Gss,Ts,'zoh');
                     F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
-
+                    
+                    %F(2,:) = F(2,:).*0.2
+                    
                 %% LQE Observer Design
 
                     Qe = B*B';
@@ -179,7 +218,6 @@
                     [Pe, eigenvaluese, ~] = care(A',C',Qe,Re);
                     Fe = -Pe*C'/Re;  
          
-
      %% Simulation 
             controller = 2;
                 % 1 --> H-inf controller desing
@@ -265,3 +303,5 @@
                     legend('Actual', 'Desired');
                     title('Pitch comparative');
             end;
+            
+            

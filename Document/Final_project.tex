@@ -41,6 +41,7 @@
 \usepackage{arydshln}
 \usepackage{afterpage}
 \usepackage{pstool}
+\usepackage{tocbibind}
 %\usepackage{epstopdf}
 %\usepackage[
 %    latex={-interaction=nonstopmode},
@@ -123,6 +124,9 @@
 \addcontentsline{toc}{chapter}{Conclusions and Outlook}
 \include{tex/conclusions}
 
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Publications}
+\include{tex/publications}
 
 \appendix
 
@@ -134,10 +138,10 @@
 
 
 %%% Back matter %%% 
-
+{
 \backmatter
 
-\addcontentsline{toc}{chapter}{\bibname}
+%\addcontentsline{toc}{chapter}{\bibname}
 
 %\bibliographystyle{IEEEtran}	% (uses file "plain.bst")
 %\bibliography{references_biblio_mas}		% expects file "myrefs.bib"
@@ -146,10 +150,7 @@
 \bibliographystyle{unsrtnat}
 \bibliography{bib/er_bibliog, bib/Quadcopter-SIUAS2017, bib/Quadcopter-ICUAS2017Robust, bib/Quadcopter-ICUAS2017Smartphone}
 %\bibliography{{./references/dokbiblio.bib/}}
-
-\cleardoublepage
-\addcontentsline{toc}{chapter}{Publications}
-\include{tex/publications}
+}
 
 
 

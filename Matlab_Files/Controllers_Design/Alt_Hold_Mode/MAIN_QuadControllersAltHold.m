@@ -147,7 +147,7 @@
                     
                     
                     %% Discretize the H-inf Controller
-                    Ts = 0.02;
+                    Ts = 0.01;
                     K1d = c2d(K1,Ts,'zoh');
                     
                     %% Sensitivities Test

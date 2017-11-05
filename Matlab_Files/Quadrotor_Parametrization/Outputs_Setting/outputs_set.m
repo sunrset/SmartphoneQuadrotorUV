@@ -1,6 +1,6 @@
 
-Kd = 0.001;
-L = 0.24; % [m]
+Kd = 0.0210;
+L = 0.244; % [m]
 d = L*cos(pi/4);
 
 % U = [u, tau_psi, tau_theta, tau_phi]';

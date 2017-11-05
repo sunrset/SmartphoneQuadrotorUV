@@ -76,6 +76,7 @@ function G = Quadrotor_modelAltHold()
                  0 0 1 0 0 0 0 0;
                  0 0 0 0 1 0 0 0;
                  0 0 0 0 0 0 1 0];
+            
 
             DD = zeros(ny,nu);
 
