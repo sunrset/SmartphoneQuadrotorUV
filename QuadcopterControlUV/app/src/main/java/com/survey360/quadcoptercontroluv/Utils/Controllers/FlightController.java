@@ -58,7 +58,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public SaveFile mSaveFile;
     private ArrayList<String> dataList, listToSave;
 
-    public final float QUAD_MASS = 1.568f; // [kg]
+    public final float QUAD_MASS = 1.680f; // 1.568 [kg]
     public final float GRAVITY = 9.807f; // [m/s^2]
     private final float I_XX = 0.0135f;
     private final float I_YY = 0.0124f;
@@ -156,17 +156,19 @@ public class FlightController implements AdkCommunicator.AdbListener {
             if(FlightMode.equals("Stabilize")) {
 
                 Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.05f; // [N] [-1, 1]
-                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.2f*3.1416f/180)/50);
                 if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
                 if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
-                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
-                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((10*3.1416f/180)/50);
+                Log.w("PSI_REF: ","##########PSI_REF: "+(Psi_ref*180/3.1416f)+" ##############");
+                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((15*3.1416f/180)/50);
+                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((15*3.1416f/180)/50);
 
                 // LQR controller ---------------------
                 controlSignals[0] = 0f;
-                controlSignals[1] = -0.7415f*(mDataCollection.psi-Psi_ref) - 0.6707f*(mDataCollection.psi_dot-Psidot_ref);
-                controlSignals[2] = -1.3772f*(mDataCollection.theta-Theta_ref) - 1.2456f*(mDataCollection.theta_dot-Thetadot_ref);
-                controlSignals[3] = -1.4991f*(mDataCollection.phi-Phi_ref) - 1.3559f*(mDataCollection.phi_dot-Phidot_ref);
+                // TODO: TEST THIS LQR CONFIGURATION
+                controlSignals[1] = -1.2844f*(mDataCollection.psi-Psi_ref) - 0.4986f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.6279f*(mDataCollection.theta-Theta_ref) - 1.2469f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.7720f*(mDataCollection.phi-Phi_ref) - 1.3572f*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------
 
                 controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
@@ -226,7 +228,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
             }
             */
             else { // If armed without any flight mode, just turn on the motors
-                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.00125f; // [N] [-1, 1]
+                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.001f; // [N] [-1, 1]
                 if (controlSignals[0] <= QUAD_MASS*GRAVITY*0.9f){
                     controlSignals[0] = controlSignals[0]+Throttle;
                     controlSignals[1] = 0;
@@ -247,16 +249,16 @@ public class FlightController implements AdkCommunicator.AdbListener {
     }
 
     private void setControlOutputs(float u, float tau_psi, float tau_theta, float tau_phi){
-        Motor_Forces[0] = 0.2500f*u + 11.9048f*tau_psi - 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
-        Motor_Forces[1] = 0.2500f*u - 11.9048f*tau_psi - 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
-        Motor_Forces[2] = 0.2500f*u + 11.9048f*tau_psi + 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
-        Motor_Forces[3] = 0.2500f*u - 11.9048f*tau_psi + 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
+
+        Motor_Forces[0] = 0.2500f*u + 1.19048f*tau_psi - 1.4490f*tau_theta - 1.4490f*tau_phi; // [N] 11.9048*tau_psi
+        Motor_Forces[1] = 0.2500f*u - 1.19048f*tau_psi - 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
+        Motor_Forces[2] = 0.2500f*u + 1.19048f*tau_psi + 1.4490f*tau_theta + 1.4490f*tau_phi; // [N]
+        Motor_Forces[3] = 0.2500f*u - 1.19048f*tau_psi + 1.4490f*tau_theta - 1.4490f*tau_phi; // [N]
 
         motorsPowers.m1 = (int)(-1.983f*Math.pow(Motor_Forces[0],2) + 47.84f*Motor_Forces[0] + 3.835f); // [0, 255]
         motorsPowers.m2 = (int)(-1.983f*Math.pow(Motor_Forces[1],2) + 47.84f*Motor_Forces[1] + 3.835f); // [0, 255]
         motorsPowers.m3 = (int)(-1.983f*Math.pow(Motor_Forces[2],2) + 47.84f*Motor_Forces[2] + 3.835f); // [0, 255]
         motorsPowers.m4 = (int)(-1.983f*Math.pow(Motor_Forces[3],2) + 47.84f*Motor_Forces[3] + 3.835f); // [0, 255]
-
         if(motorsPowers.m1 > 255){motorsPowers.m1 = 255;} // Motors saturation
         if(motorsPowers.m1 < 0){motorsPowers.m1 = 0;}
         if(motorsPowers.m2 > 255){motorsPowers.m2 = 255;}
@@ -418,14 +420,14 @@ public class FlightController implements AdkCommunicator.AdbListener {
         }
 
         private void setQuadrotorState(){
-            MissionActivity.quadrotorState[0] = (float)this_x;     // x [m]
-            MissionActivity.quadrotorState[1] = (float)this_y;     // y [m]
-            MissionActivity.quadrotorState[2] = (float)this_z;     // z [m]
-            MissionActivity.quadrotorState[3] = mDataCollection.orientationValsRad[2];  // roll [rad]
-            MissionActivity.quadrotorState[4] = mDataCollection.orientationValsRad[1];  // pitch [rad]
-            MissionActivity.quadrotorState[5] = mDataCollection.orientationValsRad[0];  // yaw [rad]
-            MissionActivity.quadrotorState[6] = batteryPercentage;                      // quadrotor battery [%]
-            MissionActivity.quadrotorState[7] = smartphoneBatLevel;                     // smartphone battery [%]
+            MissionActivity.quadrotorState[0] = (float)this_x;          // x [m]
+            MissionActivity.quadrotorState[1] = (float)this_y;          // y [m]
+            MissionActivity.quadrotorState[2] = (float)this_z;          // z [m]
+            MissionActivity.quadrotorState[3] = mDataCollection.theta;  // roll [rad]
+            MissionActivity.quadrotorState[4] = mDataCollection.phi;    // pitch [rad]
+            MissionActivity.quadrotorState[5] = mDataCollection.psi;    // yaw [rad]
+            MissionActivity.quadrotorState[6] = batteryPercentage;      // quadrotor battery [%]
+            MissionActivity.quadrotorState[7] = smartphoneBatLevel;     // smartphone battery [%]
         }
 
         private void editGUI(){
