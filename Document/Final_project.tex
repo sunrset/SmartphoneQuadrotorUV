@@ -74,33 +74,28 @@
 
 \graphicspath{{./figures/}} 
 
-%\input{tex/titlepage}
-%\input{tex/Titulopropio}
-{\let\cleardoublepage\clearpage 
+
+{ \let\cleardoublepage\clearpage 
+\pagenumbering{roman}
 \input{tex/OwnTitle}
 }
-%\input{tex/OwnTitle}
-\pagenumbering{arabic}
-\setcounter{page}{3} 
 
-
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 %%% Front matter %%%
 
 \frontmatter
-
 %\include{dedication}
-\cleardoublepage
-%\newpage
-\addcontentsline{toc}{chapter}{Abstract}
+\setcounter{page}{5} 
 \include{tex/abstract}
-%\include{tex/resumen}
-%\cleardoublepage
+
 %\addcontentsline{toc}{chapter}{Acknowledgments}
 %\include{acknowledgements}
 %\include{symbols}
 
-\printnomenclature
+%\printnomenclature
 
 \tableofcontents
 \listoffigures
@@ -114,19 +109,16 @@
 %%% Main matter %%%
 
 \mainmatter
-
+\pagenumbering{arabic}
 \include{tex/1Introduction}
 \include{tex/2QuadcopterModel}
 \include{tex/3SmartphoneBasedQuadrotorPrototype}
 \include{tex/4ControlStrategiesAndEstimation}
 \include{tex/5Implementation}
 
-\addcontentsline{toc}{chapter}{Conclusions and Outlook}
 \include{tex/conclusions}
-
-\cleardoublepage
-\addcontentsline{toc}{chapter}{Publications}
 \include{tex/publications}
+\include{tex/supplementary}
 
 \appendix
 
@@ -141,15 +133,10 @@
 {
 \backmatter
 
-%\addcontentsline{toc}{chapter}{\bibname}
-
-%\bibliographystyle{IEEEtran}	% (uses file "plain.bst")
-%\bibliography{references_biblio_mas}		% expects file "myrefs.bib"
 %\bibliographystyle{plainnat}
 %\bibliographystyle{abbrvnat}
 \bibliographystyle{unsrtnat}
 \bibliography{bib/er_bibliog, bib/Quadcopter-SIUAS2017, bib/Quadcopter-ICUAS2017Robust, bib/Quadcopter-ICUAS2017Smartphone}
-%\bibliography{{./references/dokbiblio.bib/}}
 }
 
 

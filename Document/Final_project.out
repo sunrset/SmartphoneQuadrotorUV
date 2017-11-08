@@ -1,4 +1,4 @@
-\BOOKMARK [0][-]{Doc-Start}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 1
 \BOOKMARK [0][-]{chapter*.2}{Contents}{}% 2
 \BOOKMARK [0][-]{chapter*.3}{List of Figures}{}% 3
 \BOOKMARK [0][-]{chapter*.4}{List of Tables}{}% 4
@@ -10,41 +10,53 @@
 \BOOKMARK [2][-]{subsection.1.4.1}{Quadrotors}{section.1.4}% 10
 \BOOKMARK [2][-]{subsection.1.4.2}{Smartphones as Controllers}{section.1.4}% 11
 \BOOKMARK [2][-]{subsection.1.4.3}{Smartphone-based Quadrotors}{section.1.4}% 12
-\BOOKMARK [1][-]{section.1.5}{Outline}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 14
-\BOOKMARK [1][-]{section.2.1}{Non-linear Model}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.2}{Linearized Model}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.3}{Conclusions}{chapter.2}% 17
-\BOOKMARK [0][-]{chapter.3}{Smartphone-based Quadrotor Prototype}{}% 18
-\BOOKMARK [1][-]{section.3.1}{Description of the Components}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.1.1}{Smartphone}{section.3.1}% 20
-\BOOKMARK [2][-]{subsection.3.1.2}{Frame}{section.3.1}% 21
-\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers \(ESC\)}{section.3.1}% 22
-\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-ESC Gateway}{section.3.1}% 23
-\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 24
-\BOOKMARK [2][-]{subsection.3.1.6}{Assembled Smartphone-based Quadrotor}{section.3.1}% 25
-\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 26
-\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 27
-\BOOKMARK [2][-]{subsection.3.2.2}{Inertial Momentum}{section.3.2}% 28
-\BOOKMARK [2][-]{subsection.3.2.3}{Motors Thrust}{section.3.2}% 29
-\BOOKMARK [2][-]{subsection.3.2.4}{Motors Torque}{section.3.2}% 30
-\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 31
-\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 32
-\BOOKMARK [1][-]{section.4.1}{Linear Quadratic Regulator}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.2}{H Controller}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.3}{State Estimation Through Kalman Filter}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.3.1}{Particle Model}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.2}{Quadrotor Model}{section.4.3}% 37
-\BOOKMARK [1][-]{section.4.4}{Conclusions}{chapter.4}% 38
-\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 39
-\BOOKMARK [1][-]{section.5.1}{Kalman Filter for State Estimation}{chapter.5}% 40
-\BOOKMARK [1][-]{section.5.2}{Linear Quadratic Regulator Results}{chapter.5}% 41
-\BOOKMARK [2][-]{subsection.5.2.1}{Simple Translational Movements \(LQR\)}{section.5.2}% 42
-\BOOKMARK [2][-]{subsection.5.2.2}{Trajectory Tracking \(LQR\)}{section.5.2}% 43
-\BOOKMARK [1][-]{section.5.3}{H Regulator Results}{chapter.5}% 44
-\BOOKMARK [2][-]{subsection.5.3.1}{Simple Translational Movements \(H\)}{section.5.3}% 45
-\BOOKMARK [2][-]{subsection.5.3.2}{Trajectory Tracking \(H\)}{section.5.3}% 46
-\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 47
-\BOOKMARK [0][-]{section.5.4}{Conclusions and Outlook}{}% 48
-\BOOKMARK [0][-]{chapter*.6}{Publications}{}% 49
-\BOOKMARK [0][-]{appendix*.8}{Bibliography}{}% 50
+\BOOKMARK [2][-]{subsection.1.4.4}{Quadrotor Flight Modes}{section.1.4}% 13
+\BOOKMARK [1][-]{section.1.5}{Outline}{chapter.1}% 14
+\BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 15
+\BOOKMARK [1][-]{section.2.1}{Quadrotors' Configuration}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.1.1}{'+' Configuration}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.2}{'X' Configuration}{section.2.1}% 18
+\BOOKMARK [1][-]{section.2.2}{Non-linear Model}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Linearized Model}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.4}{Conclusions}{chapter.2}% 21
+\BOOKMARK [0][-]{chapter.3}{Smartphone-based Quadrotor Prototype}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Description of the Components}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.1.1}{Smartphone}{section.3.1}% 24
+\BOOKMARK [2][-]{subsection.3.1.2}{Frame}{section.3.1}% 25
+\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers \(ESC\)}{section.3.1}% 26
+\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-ESC Gateway}{section.3.1}% 27
+\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 28
+\BOOKMARK [2][-]{subsection.3.1.6}{Assembled Smartphone-based Quadrotor}{section.3.1}% 29
+\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 31
+\BOOKMARK [2][-]{subsection.3.2.2}{Inertial Momentum}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.3}{Motors Thrust}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.4}{Motors Torque}{section.3.2}% 34
+\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 35
+\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 36
+\BOOKMARK [1][-]{section.4.1}{Control Strategies}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.1.1}{Linear Quadratic Regulator}{section.4.1}% 38
+\BOOKMARK [2][-]{subsection.4.1.2}{H Controller}{section.4.1}% 39
+\BOOKMARK [1][-]{section.4.2}{Controllers Design}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{Stabilize Mode}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.2}{Altitude Hold Mode}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.3}{Loiter Mode}{section.4.2}% 43
+\BOOKMARK [2][-]{subsection.4.2.4}{Return-To-Launch Mode}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.5}{Auto Mode}{section.4.2}% 45
+\BOOKMARK [1][-]{section.4.3}{State Estimation Through Kalman Filter}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.3.1}{Particle Model}{section.4.3}% 47
+\BOOKMARK [2][-]{subsection.4.3.2}{Quadrotor Model}{section.4.3}% 48
+\BOOKMARK [1][-]{section.4.4}{Conclusions}{chapter.4}% 49
+\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 50
+\BOOKMARK [1][-]{section.5.1}{Kalman Filter for State Estimation}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.2}{Linear Quadratic Regulator Results}{chapter.5}% 52
+\BOOKMARK [2][-]{subsection.5.2.1}{Simple Translational Movements \(LQR\)}{section.5.2}% 53
+\BOOKMARK [2][-]{subsection.5.2.2}{Trajectory Tracking \(LQR\)}{section.5.2}% 54
+\BOOKMARK [1][-]{section.5.3}{H Regulator Results}{chapter.5}% 55
+\BOOKMARK [2][-]{subsection.5.3.1}{Simple Translational Movements \(H\)}{section.5.3}% 56
+\BOOKMARK [2][-]{subsection.5.3.2}{Trajectory Tracking \(H\)}{section.5.3}% 57
+\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 58
+\BOOKMARK [0][-]{chapter*.26}{Conclusions and Outlook}{}% 59
+\BOOKMARK [0][-]{chapter*.27}{Publications}{}% 60
+\BOOKMARK [0][-]{chapter*.28}{Supplementary Material}{}% 61
+\BOOKMARK [0][-]{appendix*.29}{Bibliography}{}% 62

@@ -6,7 +6,7 @@
 
 %% Quad-rotor Model
             close all;
-            clear all;
+            clear;
             clc;
             
             G = Quadrotor_model4();
@@ -16,7 +16,8 @@
             D = G.d;
             [nmeas, ncont] = size(D);      % number of measured and control signals
             
-           
+            m = 1.568;
+            g = 9.807;
 %% Controllability and Observability
 
             Wc = gram(G,'c');
@@ -70,7 +71,10 @@
                     s = zpk('s'); % Laplace variable s
 
                     ws = 1e-4; Ms = 1e-4; 
-                    wk = 2e1;  Mk = 2e1;   c = 1e3;
+                    %wk = 2e1;  Mk = 2e1;   c = 1e3;
+                    %ws = 22e-7; Ms = 1e-4; % simulation working with: ws = 22e-7; Ms = 1e-4; 
+                    wk = 3e1;  Mk = 2e1;   c = 1e4; % simulation working with: wk = 5e1;  Mk = 2e1;   c = 1e3;
+
 
                     Ws = (ws/Ms)/(s + ws);
 
@@ -96,7 +100,7 @@
                     disp(hinf);
                     iteraciones = 0;
 
-                    while hinf > 1.0000 || hinf < 0.8
+                    while hinf > 1.0001 || hinf < 0.8
                         P=augw(G,WS/(hinf),WK/(hinf),[]);
                         [K1,CL,hinf]=hinfsyn(P);
 
@@ -192,7 +196,7 @@
          
 
      %% Simulation 
-            controller = 2;
+            controller = 1;
                 % 1 --> H-inf controller desing
                 % 2 --> LQG controller design
                 % 3 --> Both H-inf and LQG controller design

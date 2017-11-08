@@ -87,7 +87,7 @@
                     disp(hinf);
                     iteraciones = 0;
 
-                    while hinf > 1.0000 || hinf < 0.8
+                    while hinf > 1.0000 || hinf < 0.85
                         P=augw(G,WS/(hinf),WK/(hinf),[]);
                         [K1,CL,hinf]=hinfsyn(P);
 
@@ -171,13 +171,13 @@
                     datt_max = 1;
                     
                     % Limit on control input
-                    motor_max = 255;
+                    motor_max = 255; % 255
                     
                     % Cost weights on states
                     z_wght = 0.5/3;
                     zdot_wght = 0.175/3;
                     psi_wght = 0.175/3;
-                    psidot_wght = 0.4/3;
+                    psidot_wght = 0.1/3; % 0.4/3
                     theta_wght = 0.175/3;
                     thetadot_wght = 0.4/3;
                     phi_wght = 0.175/3;
@@ -190,14 +190,7 @@
                     
                     Q = diag(weights./maxs)/sum(weights);
                     R = rho*diag(1./[motor_max motor_max motor_max motor_max]);
-                    %Q = 1*(C'*C);
-%                     Q = [1 0 0 0 0 0;
-%                          0 1 0 0 0 0;
-%                          0 0 10 0 0 0;
-%                          0 0 0 1 0 0;
-%                          0 0 0 0 10 0;
-%                          0 0 0 0 0 1];
-%                     Q = 
+%                     Q = 1*(C'*C);
 %                     rho = 0.5;       %rho small --> large control effort, good performance
 %                                      %rho large --> small control effort, poor performance
 %                     R = rho*eye(4);
@@ -209,7 +202,8 @@
                     Gss_d = c2d(Gss,Ts,'zoh');
                     F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
                     
-                    %F(2,:) = F(2,:).*0.2
+                    F(2,:) = F(2,:).*0.15;
+                    %F(2,2) = -0.2392;
                     
                 %% LQE Observer Design
 
