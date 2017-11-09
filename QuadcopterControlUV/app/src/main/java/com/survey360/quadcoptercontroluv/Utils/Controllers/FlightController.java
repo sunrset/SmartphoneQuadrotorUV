@@ -131,23 +131,27 @@ public class FlightController implements AdkCommunicator.AdbListener {
         if (controllerScheduler != null) {                  // Check that the controllerThread is not running through the scheduler
             controllerScheduler.cancel();
         }
+
+        dataList = new ArrayList<>();
+        listToSave = new ArrayList<>();
+        mSaveFile.createFile("dataFlightController");
+
         last_time = System.nanoTime();
         last_time_kf = last_time;
         controllerScheduler = new Timer();
         controllerThread = new ControllerThread();
-        dataList = new ArrayList<>();
-        listToSave = new ArrayList<>();
         controllerScheduler.schedule(controllerThread, 0, 10);  // The controllerThread is executed each 10 ms
         t = 0;
     }
 
     public void stopAcquiring(){
         adkCommunicator.stop();
-        listToSave = dataList;
-        dataList = new ArrayList<>();
-        //mDataCollection.unregister();
-        mSaveFile.saveArrayList(listToSave, "dataFlightController");
-        listToSave = new ArrayList<>();
+        //listToSave = dataList;
+        //dataList = new ArrayList<>();
+        ////mDataCollection.unregister();
+        mSaveFile.closeFile();
+        //mSaveFile.saveArrayList(listToSave, "dataFlightController");
+        //listToSave = new ArrayList<>();
     }
 
     float joystick_gain = 1;
@@ -170,13 +174,12 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 joystick_gain2 = joystick_gain2 + ((MissionActivity.mDataExchange.rollJoystick)-50f)*((0.005f)/50);
                 if(joystick_gain2 <= 0){joystick_gain2 = 0;}*/
 
-                //Log.w("PSI GAINS: ","### PSI_GAIN: "+psi_gain+" , PSIDOT_GAIN: "+ psidot_gain + " #########");
                 Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((5*3.1416f/180)/50);
                 Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((5*3.1416f/180)/50);
 
                 // LQR controller ---------------------
                 controlSignals[0] = 0f;
-                controlSignals[1] = -1.7045f*(mDataCollection.psi-Psi_ref) - 0.21785f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[1] = -(1.7045f)*(mDataCollection.psi-Psi_ref) - (0.21785f)*(mDataCollection.psi_dot-Psidot_ref);
                 controlSignals[2] = -(1.1448f)*(mDataCollection.theta-Theta_ref) - (0.3107f)*(mDataCollection.theta_dot-Thetadot_ref);
                 controlSignals[3] = -(1.2461f)*(mDataCollection.phi-Phi_ref) - (0.3381f)*(mDataCollection.phi_dot-Phidot_ref);
                 // ------------------------------------ 0.7444011,0.7050997
@@ -398,12 +401,24 @@ public class FlightController implements AdkCommunicator.AdbListener {
                     "," + altHoldKF.getEstimatedState()[2] + "," + altHoldKF.getEstimatedState()[3] +
                     "," + altHoldKF.getEstimatedState()[4] + "," + altHoldKF.getEstimatedState()[5] +
                     "," + altHoldKF.getEstimatedState()[6] + "," + altHoldKF.getEstimatedState()[7] + System.lineSeparator());*/
-            dataList.add(t + "," + delta_time +
+            /*dataList.add(t + "," + delta_time +
                     "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
                     "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
                     "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
                     "," + motorsPowers.m3 + "," + motorsPowers.m4 + "," + Psi_ref + "," + Theta_ref + "," + Phi_ref +
-                    "," + Throttle + "," + joystick_gain + "," + joystick_gain2 + System.lineSeparator());
+                    "," + Throttle + "," + joystick_gain + "," + joystick_gain2 + System.lineSeparator());*/
+            mSaveFile.writeDatainFile(t + "," + delta_time + "," + MissionActivity.quadrotorState[0] +
+                    "," + MissionActivity.quadrotorState[1] + "," + MissionActivity.quadrotorState[2] +
+                    "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] +
+                    "," + MissionActivity.quadrotorState[5] + "," + controlSignals[0] + "," + controlSignals[1] +
+                    "," + controlSignals[2] + "," + controlSignals[3] + "," + motorsPowers.m1 + "," + motorsPowers.m2 +
+                    "," + motorsPowers.m3 + "," + motorsPowers.m4 +
+                    "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
+                    "," + X_ref + "," + Y_ref + "," + Z_ref + "," + Psi_ref + "," + Theta_ref + "," + Phi_ref + "," + Throttle +
+                    "," + altHoldKF.getEstimatedState()[0] + "," + altHoldKF.getEstimatedState()[1] +
+                    "," + altHoldKF.getEstimatedState()[2] + "," + altHoldKF.getEstimatedState()[3] +
+                    "," + altHoldKF.getEstimatedState()[4] + "," + altHoldKF.getEstimatedState()[5] +
+                    "," + altHoldKF.getEstimatedState()[6] + "," + altHoldKF.getEstimatedState()[7] + System.lineSeparator());
             editGUI();
         }
 

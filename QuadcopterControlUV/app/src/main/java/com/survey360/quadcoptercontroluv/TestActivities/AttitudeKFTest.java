@@ -57,6 +57,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
     public SaveFile mSaveFile;
     private ArrayList<String> dataList;
+    private StringBuilder dataBuilder;
 
 
     @Override
@@ -116,6 +117,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
         mSaveFile = new SaveFile(this, this);                         // Data logging class
         dataList = new ArrayList<>();
+        dataBuilder = new StringBuilder();
     }
 
     public void InitializeSpinnersAKF() {
@@ -178,6 +180,8 @@ public class AttitudeKFTest extends AppCompatActivity {
 
 
     public void acquireData(){
+        mSaveFile.createFile("dataAttAcc");
+
         mDataCollection.register();
         if (timer != null) {
             timer.cancel();
@@ -185,6 +189,7 @@ public class AttitudeKFTest extends AppCompatActivity {
         timer = new Timer();
         mainThread = new Temporizer();
         dataList = new ArrayList<>();
+        dataBuilder = new StringBuilder();
         timer.schedule(mainThread, 10, 10);
 
         t = 0; // inicia la simulación
@@ -196,7 +201,9 @@ public class AttitudeKFTest extends AppCompatActivity {
             timer.cancel();
             timer = null;
         }
-        mSaveFile.saveArrayList(dataList, "dataAttAcc");
+        //mSaveFile.saveArrayList(dataList, "dataAttAcc");
+        //mSaveFile.saveStringBuilder(dataBuilder, "dataAttAcc");
+        mSaveFile.closeFile();
         mDataCollection.unregister();
         //dataList.clear();
     }
@@ -280,10 +287,20 @@ public class AttitudeKFTest extends AppCompatActivity {
 
             updateTextViews();
             t = t + dt/1000;
-            dataList.add(System.lineSeparator() + t + "," + dt + "," +
+            /*dataList.add(t + "," + dt + "," +
                     mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
                     mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
-                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + " ");
+                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());
+            */
+            /*dataBuilder.append(t + "," + dt + "," +
+                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
+                    mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
+                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());*/
+
+            mSaveFile.writeDatainFile(t + "," + dt + "," +
+                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
+                    mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
+                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());
 
         }
     }

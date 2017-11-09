@@ -134,17 +134,18 @@ public class DataCollection implements SensorEventListener {
             time1 = event.timestamp;
             // Convert the rotation-vector to a 4x4 matrix.
             quaternionVals = event.values;
-            /*SensorManager.getRotationMatrixFromVector(mRotationMatrix,quaternionVals);
+            SensorManager.getRotationMatrixFromVector(mRotationMatrix,quaternionVals);
             //SensorManager.remapCoordinateSystem(mRotationMatrix, SensorManager.AXIS_X, SensorManager.AXIS_Z, mRotationMatrix);
             SensorManager.getOrientation(mRotationMatrix, orientationValsRad);
             psi = orientationValsRad[0];
             phi = orientationValsRad[1];
             theta = orientationValsRad[2];
-            */
+
+            /*
             psi = -1*(float) Math.atan2( 2.*(quaternionVals[3]*quaternionVals[2] - quaternionVals[0]*quaternionVals[1]) , 1 - 2.*(quaternionVals[1]*quaternionVals[1] + quaternionVals[2]*quaternionVals[2]));
             theta = (float) Math.asin( 2.*(quaternionVals[3]*quaternionVals[1] - quaternionVals[2]*quaternionVals[0]));
             phi = -1*(float)Math.atan2( 2.*(quaternionVals[3]*quaternionVals[0] + quaternionVals[1]*quaternionVals[2]) , 1 - 2.*(quaternionVals[0]*quaternionVals[0] + quaternionVals[1]*quaternionVals[1]));
-
+            */
             // Optionally convert the result from radians to degrees
             orientationValsDeg[0] = (float) Math.toDegrees(psi); //Yaw
             orientationValsDeg[1] = (float) Math.toDegrees(phi); //Pitch
@@ -233,10 +234,10 @@ public class DataCollection implements SensorEventListener {
 
     public void register(){
         mSensorManager.registerListener(this, PressureSensor, SensorManager.SENSOR_DELAY_FASTEST);
-        mSensorManager.registerListener(this, LinearAccSensor, 5000);
-        mSensorManager.registerListener(this, GyroSensor, 5000);
-        mSensorManager.registerListener(this, AccSensor, 5000);
-        mSensorManager.registerListener(this, RotationSensor, 5000);
+        mSensorManager.registerListener(this, LinearAccSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        mSensorManager.registerListener(this, GyroSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        mSensorManager.registerListener(this, AccSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        mSensorManager.registerListener(this, RotationSensor, SensorManager.SENSOR_DELAY_FASTEST);
         mSensorManager.registerListener(this, MagSensor, SensorManager.SENSOR_DELAY_FASTEST);
         mGetLocation.LocationON();
         running = true;
