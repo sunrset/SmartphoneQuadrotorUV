@@ -3,6 +3,7 @@ package com.survey360.quadcoptercontroluv.Utils.StateEstimation;
 import android.content.Context;
 
 import org.ejml.data.DMatrixRMaj;
+import org.ejml.dense.row.CommonOps_DDRM;
 
 /**
  * Created by Alejandro Astudillo on 17/09/2017.
@@ -36,8 +37,8 @@ public class PositionKalmanFilter {
 
         ic = new double[]{x_ic, y_ic, z_ic , 0 , 0 , 0 , 0 , 0 , 0 };
         xhat_k_1 = new DMatrixRMaj(9, 1, true, ic);
-        //P_k_1 = CommonOps_DDRM.identity(9);
-        P_k_1 = new DMatrixRMaj(9,9); //9x9 matrix of zeros
+        P_k_1 = CommonOps_DDRM.identity(9);
+        //P_k_1 = new DMatrixRMaj(9,9); //9x9 matrix of zeros
 
         A = createA(dt);
         Q = createQ(dt*Q_val);
@@ -64,7 +65,7 @@ public class PositionKalmanFilter {
     }
 
     public void executePositionKF_woGPS(double accx, double accy, double accz){
-        z_woGPS.setData(new double[]{accx/2,accy/2,accz/2});
+        z_woGPS.setData(new double[]{accx,accy,accz});
         f_woGPS.predict();
         f_woGPS.update(z_woGPS,Ro_woGPS);
         f.setState(f_woGPS.getState(), f_woGPS.getCovariance());
@@ -125,10 +126,10 @@ public class PositionKalmanFilter {
         double []r = new double[]{
                 var, 0 , 0 , 0 , 0 , 0 ,
                 0, var , 0 , 0 , 0 , 0 ,
-                0, 0 , var , 0 , 0 , 0 ,
+                0, 0 , var*0.6 , 0 , 0 , 0 ,
                 0, 0 , 0 , var , 0 , 0 ,
                 0, 0 , 0 , 0 , var , 0 ,
-                0, 0 , 0 , 0 , 0 , var};
+                0, 0 , 0 , 0 , 0 , var*2};
         return new DMatrixRMaj(6,6, true, r);
     }
 
@@ -138,15 +139,13 @@ public class PositionKalmanFilter {
                 0, 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
                 0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 };
         return new DMatrixRMaj(3,9, true, h);
-
     }
 
     public static DMatrixRMaj createR_woGPS(double var) {
         double []r = new double[]{
                 var , 0 , 0 ,
                 0 , var , 0 ,
-                0 , 0 , var};
+                0 , 0 , var*2};
         return new DMatrixRMaj(3,3, true, r);
     }
 }
-

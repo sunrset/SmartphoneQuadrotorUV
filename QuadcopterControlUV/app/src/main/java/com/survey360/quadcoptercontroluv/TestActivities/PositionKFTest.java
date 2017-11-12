@@ -164,8 +164,6 @@ public class PositionKFTest extends AppCompatActivity {
                 this_z = posKF.getEstimatedState_woGPS()[2];
             }
 
-
-
             Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
             updateTextViews();
             t = t + Ts;

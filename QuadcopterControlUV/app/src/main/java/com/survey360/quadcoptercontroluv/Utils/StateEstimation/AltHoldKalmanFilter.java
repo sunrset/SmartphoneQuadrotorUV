@@ -13,7 +13,7 @@ public class AltHoldKalmanFilter {
 
     private static final double dt = 0.01; //Our sample time
     private static final double Q_val = 0.05;
-    private static final double R_val = 1000;
+    private static final double R_val = 1;
     public double x_ic, y_ic, z_ic, psi_ic, theta_ic, phi_ic = 0;
 
     double[] ic, x_hat;
@@ -52,12 +52,12 @@ public class AltHoldKalmanFilter {
         f.configure(A,B,Q,H);
         f.setState(xhat_k_1, P_k_1);
 
-        QUAD_MASS = mass;
+        QUAD_MASS = mass*1.2f;
     }
 
     public void executeAltHoldKF(float posz, float psi, float psi_dot, float theta, float theta_dot, float phi, float phi_dot, float[] u){
         z.setData(new double[]{posz,psi,psi_dot,theta,theta_dot,phi,phi_dot});
-        U = new DMatrixRMaj(4,1, true, new double[]{(u[0]-QUAD_MASS*GRAVITY),u[1],u[2],u[3]});
+        U = new DMatrixRMaj(4,1, true, new double[]{(u[0]-17.438f),u[1],u[2],u[3]});
         f.predict(U);
         f.update(z,Ro);
     }
@@ -82,10 +82,10 @@ public class AltHoldKalmanFilter {
 
     public static DMatrixRMaj createB(double m, double i_xx, double i_yy, double i_zz ) {
         double []b = new double[]{
+                0,     0 ,       0 ,       0 ,
                 (1/m), 0 ,       0 ,       0,
                 0,     0 ,       0 ,       0 ,
                 0,     (1/i_zz), 0 ,       0 ,
-                0,     0 ,       0 ,       0 ,
                 0,     0 ,       0 ,       0 ,
                 0,     0 ,       (1/i_yy), 0 ,
                 0,     0 ,       0 ,       0 ,

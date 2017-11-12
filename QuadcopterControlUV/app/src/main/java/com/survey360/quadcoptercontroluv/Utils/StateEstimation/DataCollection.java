@@ -50,12 +50,12 @@ public class DataCollection implements SensorEventListener {
     public float[] orientationValsRad = new float[3];
     public float[] orientationValsDeg = new float[3];
     public float absoluteElevation = 0, baroElevation, elevationZero;
-    private static final float ALTITUDE_SMOOTHING = 0.0f; // 0.95f
+    private static final float ALTITUDE_SMOOTHING = 0.05f; // 0.95f
     public float[] speed = new float[3];
     public float pressure, rawAltitudeUnsmoothed;
     float[] invRotationMatrix = new float[16];
 
-    public long time1; // [nanoseconds].
+    public long time1;// [nanoseconds].
     public boolean running = false;
 
     public double gps_latitude, gps_longitude, gps_altitude, gps_bearing, gps_accuracy, gps_speed, gps_time;
@@ -70,6 +70,9 @@ public class DataCollection implements SensorEventListener {
     private float[] gyro_2 = new float[3];
     private float[] gyro_3 = new float[3];
     private float[] gyro_4 = new float[3];
+
+    private float baro_alt_1, baro_alt_2, baro_alt_3;
+    public float baro_velocity, baro_vel_1, baro_vel_2, baro_vel_3;
 
     public float psi, psi_dot, theta, theta_dot, phi, phi_dot, X, X_dot, Y, Y_dot, Z, Z_dot;
 
@@ -140,12 +143,6 @@ public class DataCollection implements SensorEventListener {
             psi = orientationValsRad[0];
             phi = orientationValsRad[1];
             theta = orientationValsRad[2];
-
-            /*
-            psi = -1*(float) Math.atan2( 2.*(quaternionVals[3]*quaternionVals[2] - quaternionVals[0]*quaternionVals[1]) , 1 - 2.*(quaternionVals[1]*quaternionVals[1] + quaternionVals[2]*quaternionVals[2]));
-            theta = (float) Math.asin( 2.*(quaternionVals[3]*quaternionVals[1] - quaternionVals[2]*quaternionVals[0]));
-            phi = -1*(float)Math.atan2( 2.*(quaternionVals[3]*quaternionVals[0] + quaternionVals[1]*quaternionVals[2]) , 1 - 2.*(quaternionVals[0]*quaternionVals[0] + quaternionVals[1]*quaternionVals[1]));
-            */
             // Optionally convert the result from radians to degrees
             orientationValsDeg[0] = (float) Math.toDegrees(psi); //Yaw
             orientationValsDeg[1] = (float) Math.toDegrees(phi); //Pitch
@@ -169,9 +166,9 @@ public class DataCollection implements SensorEventListener {
             android.opengl.Matrix.invertM(invRotationMatrix, 0, mRotationMatrix, 0);
             android.opengl.Matrix.multiplyMV(earthAccVals, 0, invRotationMatrix, 0, earthAccVals, 0);
 
-            earthAccVals[0] = (eAcc_1[0]+eAcc_2[0]+eAcc_3[0]+eAcc_4[0])/4;
-            earthAccVals[1] = (eAcc_1[1]+eAcc_2[1]+eAcc_3[1]+eAcc_4[1])/4;
-            earthAccVals[2] = (eAcc_1[2]+eAcc_2[2]+eAcc_3[2]+eAcc_4[2])/4;
+            earthAccVals[0] = (earthAccVals[0]+eAcc_1[0]+eAcc_2[0]+eAcc_3[0]+eAcc_4[0])/5;
+            earthAccVals[1] = (earthAccVals[1]+eAcc_1[1]+eAcc_2[1]+eAcc_3[1]+eAcc_4[1])/5;
+            earthAccVals[2] = (earthAccVals[2]+eAcc_1[2]+eAcc_2[2]+eAcc_3[2]+eAcc_4[2])/5;
 
             eAcc_4 = eAcc_3;
             eAcc_3 = eAcc_2;
@@ -184,9 +181,9 @@ public class DataCollection implements SensorEventListener {
             gyroVals[0] = -gyroVals[0];
             gyroVals[2] = -gyroVals[2];
 
-            gyroVals[0] = (gyro_1[0]+gyro_2[0]+gyro_3[0]+gyro_4[0])/4;
-            gyroVals[1] = (gyro_1[1]+gyro_2[1]+gyro_3[1]+gyro_4[1])/4;
-            gyroVals[2] = (gyro_1[2]+gyro_2[2]+gyro_3[2]+gyro_4[2])/4;
+            gyroVals[0] = (gyroVals[0]+gyro_1[0]+gyro_2[0]+gyro_3[0])/4;
+            gyroVals[1] = (gyroVals[1]+gyro_1[1]+gyro_2[1]+gyro_3[1])/4;
+            gyroVals[2] = (gyroVals[2]+gyro_1[2]+gyro_2[2]+gyro_3[2])/4;
 
             gyro_4 = gyro_3;
             gyro_3 = gyro_2;
@@ -203,15 +200,28 @@ public class DataCollection implements SensorEventListener {
             rawAltitudeUnsmoothed = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure);
             if(absoluteElevation == 0){
                 absoluteElevation = rawAltitudeUnsmoothed;
+                elevationZero = absoluteElevation;
             }
             else {
                 absoluteElevation = (absoluteElevation * ALTITUDE_SMOOTHING) + (rawAltitudeUnsmoothed * (1.0f - ALTITUDE_SMOOTHING));
             }
-            //baroElevation = absoluteElevation - elevationZero;
-            baroElevation = absoluteElevation;
-            //baroElevation = rawAltitudeUnsmoothed;
+            baroElevation = absoluteElevation - elevationZero;
+            //baroElevation = absoluteElevation;
+            baroElevation = (baroElevation + baro_alt_1 + baro_alt_2 + baro_alt_3)/4;
+
+            baro_velocity = (baroElevation - baro_alt_1)/(0.099f);
+            baro_velocity = (baro_velocity + baro_vel_1 + baro_vel_2 + baro_vel_3)/4;
+
+            baro_alt_3 = baro_alt_2;
+            baro_alt_2 = baro_alt_1;
+            baro_alt_1 = baroElevation;
+
+            baro_vel_3 = baro_vel_2;
+            baro_vel_2 = baro_vel_1;
+            baro_vel_1 = baro_velocity;
+
+            getGPSData();
         }
-        getGPSData();
     }
 
 

@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,8 @@ import com.survey360.quadcoptercontroluv.Utils.SaveFile;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
 import com.survey360.quadcoptercontroluv.R;
 import com.survey360.quadcoptercontroluv.MenuActivities.TestsActivity;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -33,10 +36,17 @@ public class AttitudeKFTest extends AppCompatActivity {
 
     DataCollection mDataCollection = null;
 
+    // ------ POSITION KF ----------------------
+    InitialConditions mInitialConditions = null;
+    PositionKalmanFilter posKF = null;
+    double[] posKFestimation;
+    double this_x_1, this_y_1, this_xdot_1, this_ydot_1;
+    // -----------------------------------------
+
     long t_medido;
     float dt;
 
-    Timer timer, timer2;
+    Timer timer;
     Temporizer mainThread;
     double t;
     float Ts = (float) 0.01;
@@ -56,8 +66,6 @@ public class AttitudeKFTest extends AppCompatActivity {
     List<String> listSpinner1, listSpinner2;
 
     public SaveFile mSaveFile;
-    private ArrayList<String> dataList;
-    private StringBuilder dataBuilder;
 
 
     @Override
@@ -68,6 +76,11 @@ public class AttitudeKFTest extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mDataCollection = new DataCollection(this);
+
+        // ------ POSITION KF ----------------------
+        mInitialConditions = new InitialConditions(AttitudeKFTest.this);
+        posKF = new PositionKalmanFilter(this);
+        // -----------------------------------------
 
         bt_start = (Button) findViewById(R.id.bt_startAKF);
         bt_stop = (Button) findViewById(R.id.bt_stopAKF);
@@ -116,8 +129,6 @@ public class AttitudeKFTest extends AppCompatActivity {
         InitializeSpinnersAKF();
 
         mSaveFile = new SaveFile(this, this);                         // Data logging class
-        dataList = new ArrayList<>();
-        dataBuilder = new StringBuilder();
     }
 
     public void InitializeSpinnersAKF() {
@@ -134,6 +145,15 @@ public class AttitudeKFTest extends AppCompatActivity {
         listSpinner1.add("Gyro X");
         listSpinner1.add("Gyro Y");
         listSpinner1.add("Gyro Z");
+        listSpinner1.add("PosKF X");
+        listSpinner1.add("PosKF Y");
+        listSpinner1.add("PosKF Z");
+        listSpinner1.add("PosKF dX");
+        listSpinner1.add("PosKF dY");
+        listSpinner1.add("PosKF dZ");
+        listSpinner1.add("PosKF ddX");
+        listSpinner1.add("PosKF ddY");
+        listSpinner1.add("PosKF ddZ");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listSpinner1);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -158,6 +178,12 @@ public class AttitudeKFTest extends AppCompatActivity {
         listSpinner2.add("Roll (KF)");
         listSpinner2.add("Pitch (KF)");
         listSpinner2.add("Yaw (KF)");
+        listSpinner2.add("Baro Z");
+        listSpinner2.add("Baro dZ");
+        listSpinner2.add("PosKF X");
+        listSpinner2.add("PosKF Y");
+        listSpinner2.add("PosKF dX");
+        listSpinner2.add("PosKF dY");
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listSpinner2);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -180,16 +206,15 @@ public class AttitudeKFTest extends AppCompatActivity {
 
 
     public void acquireData(){
-        mSaveFile.createFile("dataAttAcc");
-
+        posKF.initPositionKF();
         mDataCollection.register();
         if (timer != null) {
             timer.cancel();
         }
         timer = new Timer();
         mainThread = new Temporizer();
-        dataList = new ArrayList<>();
-        dataBuilder = new StringBuilder();
+        mSaveFile.createFile("dataAttAcc");
+
         timer.schedule(mainThread, 10, 10);
 
         t = 0; // inicia la simulación
@@ -201,11 +226,8 @@ public class AttitudeKFTest extends AppCompatActivity {
             timer.cancel();
             timer = null;
         }
-        //mSaveFile.saveArrayList(dataList, "dataAttAcc");
-        //mSaveFile.saveStringBuilder(dataBuilder, "dataAttAcc");
         mSaveFile.closeFile();
         mDataCollection.unregister();
-        //dataList.clear();
     }
 
     public void updateTextViews(){
@@ -217,7 +239,7 @@ public class AttitudeKFTest extends AppCompatActivity {
                 tv_roll.setText(dfmm.format(mDataCollection.orientationValsDeg[2])+" °");
                 tv_GPS_latitude.setText(String.valueOf(mDataCollection.gps_latitude));
                 tv_GPS_longitude.setText(String.valueOf(mDataCollection.gps_longitude));
-                tv_GPS_altitude.setText(String.valueOf(mDataCollection.gps_altitude));
+                tv_GPS_altitude.setText(String.valueOf(mDataCollection.baroElevation));
                 tv_GPS_accuracy.setText(String.valueOf(mDataCollection.gps_accuracy));
                 tv_GPS_bearing.setText(String.valueOf(mDataCollection.gps_bearing));
                 tv_GPS_speed.setText(String.valueOf(mDataCollection.gps_speed));
@@ -256,6 +278,33 @@ public class AttitudeKFTest extends AppCompatActivity {
                 else if(spinnerSelection1.contentEquals(listSpinner1.get(9))){
                     seriesAKF.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.psi_dot), true, 500);
                 }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(10))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[0]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(11))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[1]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(12))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[2]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(13))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[3]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(14))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[4]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(15))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[5]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(16))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[6]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(17))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[7]), true, 500);
+                }
+                else if(spinnerSelection1.contentEquals(listSpinner1.get(18))){
+                    seriesAKF.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[8]), true, 500);
+                }
 
                 if(spinnerSelection2.contentEquals(listSpinner2.get(0))){
                     seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, 0), true, 500);
@@ -269,39 +318,88 @@ public class AttitudeKFTest extends AppCompatActivity {
                 else if(spinnerSelection2.contentEquals(listSpinner2.get(3))){
                     seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, (float)Math.toDegrees(mDataCollection.psi)), true, 500);
                 }
-
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(4))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.baroElevation), true, 500);
+                }
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(5))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, mDataCollection.baro_velocity), true, 500);
+                }
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(6))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[0]), true, 500);
+                }
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(7))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[1]), true, 500);
+                }
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(8))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[3]), true, 500);
+                }
+                else if(spinnerSelection2.contentEquals(listSpinner2.get(9))){
+                    seriesAKF2.appendData(new DataPoint(graphAKFLastXValue, posKFestimation[4]), true, 500);
+                }
             }
         });
     }
 
     Long t_pasado = System.nanoTime();
+    // ------ POSITION KF ----------------------
+    Long t_pasado_kf = t_pasado;
+    Long t_pasado_kf_wogps = t_pasado;
+    // -----------------------------------------
+
     private class Temporizer extends TimerTask {
 
         @Override
         public void run() {
 
             t_medido = System.nanoTime();
-            dt = ((float) (t_medido - t_pasado)) / 1000000.0f; // [s].;
+            dt = ((float) (t_medido - t_pasado)) / 1000000.0f; // [ms].;
             t_pasado = t_medido;
-            //Log.w("Hilo 10 ms mainControl", "Tiempo de hilo = " + dt * 1000);
+            // ------ POSITION KF ----------------------
+            float dt_kf = ((float) (t_medido - t_pasado_kf)) / 1000000000.0f;// [s].;
+            float dt_kf_wogps = ((float) (t_medido - t_pasado_kf_wogps)) / 1000000000.0f;// [s].;
 
+            if(dt_kf >= 0.02){
+                posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                t_pasado_kf = t_medido;
+                posKFestimation = posKF.getEstimatedState();
+
+                posKFestimation[3] = this_xdot_1;
+                posKFestimation[4] = this_ydot_1;
+
+                t_pasado_kf = t_medido;
+                this_x_1 = posKFestimation[0];
+                this_y_1 = posKFestimation[1];
+            }
+            else{
+                posKF.executePositionKF_woGPS(mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
+                posKFestimation = posKF.getEstimatedState_woGPS();
+
+                //------------
+                /*posKFestimation[3] = (posKFestimation[0] - this_x_1)/dt_kf_wogps;
+                posKFestimation[4] = (posKFestimation[1] - this_y_1)/dt_kf_wogps;
+                */
+                //------------
+                if(Math.abs((posKFestimation[0] - this_x_1)/dt_kf_wogps) < 0.02){
+                    posKFestimation[3] = 0;
+                }
+                if(Math.abs((posKFestimation[1] - this_y_1)/dt_kf_wogps) < 0.02){
+                    posKFestimation[4] = 0;
+                }
+                //------------
+
+                t_pasado_kf_wogps = t_medido;
+                this_x_1 = posKFestimation[0];
+                this_y_1 = posKFestimation[1];
+                this_xdot_1 = posKFestimation[3];
+                this_ydot_1 = posKFestimation[4];
+            }
+            // ------------------------------------------
             updateTextViews();
             t = t + dt/1000;
-            /*dataList.add(t + "," + dt + "," +
-                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
-                    mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
-                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());
-            */
-            /*dataBuilder.append(t + "," + dt + "," +
-                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
-                    mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
-                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());*/
-
             mSaveFile.writeDatainFile(t + "," + dt + "," +
                     mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
                     mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
                     mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());
-
         }
     }
 
