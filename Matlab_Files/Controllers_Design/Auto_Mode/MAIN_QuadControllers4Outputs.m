@@ -176,11 +176,42 @@
                     
         %% LQG Controller Design
                 %% LQR Controller Design
+                
+                    % Limits on states
+                    pos_max = 0.25;
+                    att_max = 0.25;
+                    dpos_max = 1;
+                    datt_max = 1;
+                    
+                    % Limit on control input
+                    motor_max = 255; % 255
+                    
+                    % Cost weights on states
+                    x_wght = 0.001/3;
+                    xdot_wght = 0.03/3;
+                    y_wght = 0.001/3;
+                    ydot_wght = 0.03/3;
+                    z_wght = 0.001/3;
+                    zdot_wght = 0.03/3;
+                    psi_wght = 0.175/3;
+                    psidot_wght = 0.03/3; % 0.4/3
+                    theta_wght = 0.175/3;
+                    thetadot_wght = 0.03/3;
+                    phi_wght = 0.175/3;
+                    phidot_wght = 0.03/3; %0.4/3
+                    
+                    weights = [x_wght xdot_wght y_wght ydot_wght z_wght zdot_wght psi_wght psidot_wght theta_wght thetadot_wght phi_wght phidot_wght];
+                    maxs = [pos_max dpos_max pos_max dpos_max pos_max dpos_max att_max datt_max att_max datt_max att_max datt_max];
+                    
+                    rho = 0.4;
+                    
+                    Q = diag(weights./maxs)/sum(weights);
+                    R = rho*diag(1./[motor_max motor_max motor_max motor_max]);
 
-                    Q = 1*(C'*C);
-                    rho = 0.7;       %rho small --> large control effort, good performance
+                    %Q = 1*(C'*C);
+                    %rho = 0.7;       %rho small --> large control effort, good performance
                                      %rho large --> small control effort, poor performance
-                    R = rho*eye(4);
+                    %R = rho*eye(4);
 
                     [P, eigenvalues, ~] = care(A,B,Q,R);
                     F = -R\B'*P;

@@ -164,11 +164,38 @@
                     
         %% LQG Controller Design
                 %% LQR Controller Design
+                
+                    % Limits on states
+                    pos_max = 0.25;
+                    att_max = 0.25;
+                    dpos_max = 1;
+                    datt_max = 1;
+                    
+                    % Limit on control input
+                    motor_max = 255; % 255
+                    
+                    % Cost weights on states
+                    z_wght = 0.001/3;
+                    zdot_wght = 0.03/3;
+                    psi_wght = 0.175/3;
+                    psidot_wght = 0.03/3; % 0.4/3
+                    theta_wght = 0.175/3;
+                    thetadot_wght = 0.03/3;
+                    phi_wght = 0.175/3;
+                    phidot_wght = 0.03/3; %0.4/3
+                    
+                    weights = [z_wght zdot_wght psi_wght psidot_wght theta_wght thetadot_wght phi_wght phidot_wght];
+                    maxs = [pos_max dpos_max att_max datt_max att_max datt_max att_max datt_max];
+                    
+                    rho = 0.4;
+                    
+                    Q = diag(weights./maxs)/sum(weights);
+                    R = rho*diag(1./[motor_max motor_max motor_max motor_max]);
 
-                    Q = 1*(C'*C);
-                    rho = 0.7;       %rho small --> large control effort, good performance
+                    %Q = 1*(C'*C);
+                    %rho = 0.7;       %rho small --> large control effort, good performance
                                      %rho large --> small control effort, poor performance
-                    R = rho*eye(4);
+                    %R = rho*eye(4);
 
                     [P, eigenvalues, ~] = care(A,B,Q,R);
                     %F = -R\B'*P;
@@ -177,7 +204,17 @@
                     
                     Gss_d = c2d(Gss,Ts,'zoh');
                     F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
-
+                    
+                    F(1,1) = -1.5680;
+                    F(1,2) = -0.6301;
+                    F(2,3) = -1.7045;
+                    F(2,4) = -0.21785;
+                    F(3,5) = -1.1448;
+                    F(3,6) = -0.3107;
+                    F(4,7) = -1.2461;
+                    F(4,8) = -0.3381;
+                   
+                    F
                 %% LQE Observer Design
 
                     %Qe = B*B';

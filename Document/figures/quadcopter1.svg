@@ -12,8 +12,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="123.9738mm"
-   height="63.271969mm"
-   viewBox="0 0 439.27725 224.19201"
+   height="63.267834mm"
+   viewBox="0 0 439.27725 224.17736"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.1 r15371"
@@ -333,9 +333,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70000001"
-     inkscape:cx="-41.8455"
-     inkscape:cy="187.89494"
+     inkscape:zoom="0.7"
+     inkscape:cx="128.36403"
+     inkscape:cy="221.14756"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -356,7 +356,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -413,8 +413,8 @@
          id="tspan4232"
          x="291.37494"
          y="145.8093"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '">Z<tspan
-   style="font-size:7.5px"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">Z<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'"
    id="tspan4621">b</tspan></tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -495,7 +495,7 @@
          id="tspan4232-7"
          x="98.293915"
          y="223.22147"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '">L</tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">L</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.0000001, 1.00000005, 0.50000002, 1.00000005;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        d="m 222.58216,312.08452 -33.33503,14.14214"
@@ -522,11 +522,9 @@
          id="tspan4232-5"
          x="275.43158"
          y="270.38174"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.99999994px"><tspan
-           style="font-size:7.49999952px;stroke-width:0.99999994px"
-           id="tspan4621-1"><tspan
-   style="font-size:13.75px"
-   id="tspan4644">X</tspan>b</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px">X<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.49999952px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px"
+   id="tspan4621-1">b</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -537,11 +535,9 @@
          id="tspan4232-5-2"
          x="402.35376"
          y="206.87735"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.99999988px"><tspan
-           style="font-size:7.49999905px;stroke-width:0.99999988px"
-           id="tspan4621-1-9"><tspan
-   style="font-size:13.75px;stroke-width:0.99999988px"
-   id="tspan4644-3">Y</tspan>b</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999988px">Y<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.49999905px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999988px"
+   id="tspan4621-1-9">b</tspan></tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00031245;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.000625, 1.0003125, 0.50015625, 1.0003125;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker4724-6)"
        d="m 306.41071,202.76848 -0.3788,-60.81501"
@@ -570,11 +566,9 @@
          id="tspan4232-5-21"
          x="176.15469"
          y="333.24722"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.99999994px"><tspan
-           style="font-size:7.49999952px;stroke-width:0.99999994px"
-           id="tspan4621-1-2"><tspan
-   style="font-size:13.75px;stroke-width:0.99999994px"
-   id="tspan4644-31">X</tspan>w</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px">X<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.49999952px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px"
+   id="tspan4621-1-2">w</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -585,11 +579,9 @@
          id="tspan4232-5-21-1"
          x="215.0022"
          y="268.69049"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.99999994px"><tspan
-           style="font-size:7.49999952px;stroke-width:0.99999994px"
-           id="tspan4621-1-2-5"><tspan
-   style="font-size:13.75px;stroke-width:0.99999994px"
-   id="tspan4644-31-9">Z</tspan>w</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px">Z<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.49999952px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px"
+   id="tspan4621-1-2-5">w</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -600,11 +592,9 @@
          id="tspan4232-5-21-4"
          x="263.0134"
          y="316.44116"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.99999994px"><tspan
-           style="font-size:7.49999952px;stroke-width:0.99999994px"
-           id="tspan4621-1-2-7"><tspan
-   style="font-size:13.75px;stroke-width:0.99999994px"
-   id="tspan4644-31-2">Y</tspan>w</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px">Y<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.49999952px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.99999994px"
+   id="tspan4621-1-2-7">w</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -615,22 +605,24 @@
          id="tspan4232-6"
          x="451.06454"
          y="134.65114"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">F<tspan
-   style="font-size:7.5px;stroke-width:1px"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px">F<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
    id="tspan4621-2">4</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="480.073"
-       y="141.89204"
+       x="475.33792"
+       y="139.998"
        id="text4230-9-1"><tspan
          sodipodi:role="line"
          id="tspan4232-6-2"
-         x="480.073"
-         y="141.89204"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">T<tspan
-   style="font-size:7.5px;stroke-width:1px"
-   id="tspan4621-2-1">4</tspan></tspan></text>
+         x="475.33792"
+         y="139.998"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
+           id="tspan4621-2-1"><tspan
+   style="font-size:20px"
+   id="tspan4733">ω</tspan>4</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -641,8 +633,8 @@
          id="tspan4232-6-0"
          x="381.22015"
          y="224.69081"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">F<tspan
-   style="font-size:7.5px;stroke-width:1px"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px">F<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
    id="tspan4621-2-9">1</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -654,8 +646,8 @@
          id="tspan4232-6-0-3"
          x="175.74393"
          y="205.54102"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">F<tspan
-   style="font-size:7.5px;stroke-width:1px"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px">F<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
    id="tspan4621-2-9-7">2</tspan></tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99999994, 1.9999999;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker4724-6-3-8-7)"
@@ -666,15 +658,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="239.45485"
-       y="118.26176"
+       x="239.21809"
+       y="119.68228"
        id="text4230-9-5-2"><tspan
          sodipodi:role="line"
          id="tspan4232-6-0-7"
-         x="239.45485"
-         y="118.26176"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">F<tspan
-   style="font-size:7.5px;stroke-width:1px"
+         x="239.21809"
+         y="119.68228"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px">F<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
    id="tspan4621-2-9-4">3</tspan></tspan></text>
     <path
        inkscape:connector-curvature="0"
@@ -691,9 +683,11 @@
          id="tspan4232-6-2-7"
          x="404.90244"
          y="278.5838"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">T<tspan
-   style="font-size:7.5px;stroke-width:1px"
-   id="tspan4621-2-1-9">1</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
+           id="tspan4621-2-1-9"><tspan
+   style="font-size:19.99999937px"
+   id="tspan4736">ω</tspan>1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -704,9 +698,11 @@
          id="tspan4232-6-2-3"
          x="156.55685"
          y="268.83624"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">T<tspan
-   style="font-size:7.5px;stroke-width:1px"
-   id="tspan4621-2-1-0">2</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
+           id="tspan4621-2-1-0"><tspan
+   style="font-size:19.99999937px"
+   id="tspan4727">ω</tspan>2</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -717,9 +713,11 @@
          id="tspan4232-6-2-77"
          x="186.37965"
          y="130.31514"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1px">T<tspan
-   style="font-size:7.5px;stroke-width:1px"
-   id="tspan4621-2-1-5">3</tspan></tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"><tspan
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:1px"
+           id="tspan4621-2-1-5"><tspan
+   style="font-size:19.99999937px"
+   id="tspan4731">ω</tspan>3</tspan></tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99999994, 1.9999999;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker4724-6-3-8-7-2)"
        d="m 172.75358,235.3562 -0.3788,-34.09659"
@@ -759,25 +757,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
-       x="297.63425"
-       y="235.35971"
+       x="298.02652"
+       y="242.77338"
        id="text7963"><tspan
          sodipodi:role="line"
          id="tspan7961"
-         x="297.63425"
-         y="235.35971"
-         style="font-size:13.75px;stroke-width:0.9375">Φ</tspan></text>
+         x="298.02652"
+         y="242.77338"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.9375">Φ</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
-       x="352.59088"
-       y="214.46878"
+       x="353.06439"
+       y="218.49361"
        id="text8063"><tspan
          sodipodi:role="line"
          id="tspan8061"
-         x="352.59088"
-         y="214.46878"
-         style="stroke-width:0.9375">θ</tspan></text>
+         x="353.06439"
+         y="218.49361"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.9375">θ</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
@@ -788,7 +786,7 @@
          id="tspan8065"
          x="315.16086"
          y="173.77724"
-         style="stroke-width:0.9375">Ѱ</tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Italic';stroke-width:0.9375">ψ</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.00000011, 3.00000011;stroke-dashoffset:0;stroke-opacity:1"
        d="m 130.91535,246.64583 c 14.81711,-3.97024 14.89975,-3.66181 14.89975,-3.66181"
@@ -804,7 +802,7 @@
          id="tspan4735"
          x="250.21582"
          y="240.73454"
-         style="stroke-width:0.70247692">/4</tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';stroke-width:0.70247692">/4</tspan></text>
     <image
        y="233.77386"
        x="243.59402"

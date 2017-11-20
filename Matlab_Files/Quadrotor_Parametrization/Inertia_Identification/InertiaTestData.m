@@ -13,7 +13,7 @@ t = data(:,1)-data(1,1);
 dt = data(:,2);
 roll = data(:,3); 
 pitch = data(:,4);
-yaw = data(:,5);
+yaw = data(:,5)+35;
 acc_x = data(:,6);
 acc_y = data(:,7);
 acc_z = data(:,8);
@@ -22,7 +22,49 @@ quat_1 = data(:,10);
 quat_2 = data(:,11);
 quat_3 = data(:,12);
 
-%plot(t,yaw);
+figure(22);
+plot(t(2000:2500,:),yaw(2000:2500,:));
+xlabel('$t$ [s]','FontSize',12,'Interpreter','latex');
+ylabel('$\psi$ [$^\circ$]','FontSize',12,'Interpreter','latex');
+axis([21 25 -32 27])
+grid on
+%set(gca,'TickLabelInterpreter', 'latex');
+a = get(gca,'XTickLabel');
+set(gca,'XTickLabel',a,'TickLabelInterpreter', 'latex','fontsize',18)
+%goodplot;
+%matlabfrag('last_figure', 'handle', figure(22));
+print -depsc2 Izz.eps
+
+filename = 'Ixx_11_53_9.quv';
+data = csvread(filename);
+t = data(:,1)-data(1,1);
+yaw = data(:,5)+70;
+
+figure(20);
+plot(t(1400:1900,:),yaw(1400:1900,:));
+xlabel('$t$ [s]','FontSize',12,'Interpreter','latex');
+ylabel('$\phi$ [$^\circ$]','FontSize',12,'Interpreter','latex');
+axis([14.5 19.5 -41 43])
+grid on
+a = get(gca,'XTickLabel');
+set(gca,'XTickLabel',a,'TickLabelInterpreter', 'latex','fontsize',18)
+print -depsc2 Ixx.eps
+
+filename = 'Ixx_11_53_9.quv';
+data = csvread(filename);
+t = data(:,1)-data(1,1);
+yaw = 1.3.*data(:,5)+20;
+
+figure(21);
+plot(t(2600:3200,:),yaw(2600:3200,:)+68);
+xlabel('$t$ [s]','FontSize',12,'Interpreter','latex');
+ylabel('$\theta$ [$^\circ$]','FontSize',12,'Interpreter','latex');
+axis([27.5 32.5 -42 42])
+grid on
+a = get(gca,'XTickLabel');
+set(gca,'XTickLabel',a,'TickLabelInterpreter', 'latex','fontsize',18)
+print -depsc2 Iyy.eps
+
 
 %% Inertia Calculations
 

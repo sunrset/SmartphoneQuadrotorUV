@@ -105,13 +105,16 @@
                     
                     
                     %% Order Reduction
-                    reduction_technique = 1;
+                    reduction_technique = 0;
+                        % 0 --> No reduction
                         % 1 --> Balanced truncation
                         % 2 --> Balanced residualization
                         % 3 --> Optimal Hankel norm approximation
                         % 4 --> Balanced model truncation via Schur method
                         
                     switch reduction_technique
+                        case 0  % No reduction
+                            
                         case 1  % Controller Order Reduction (Balanced Truncation)
 
                                 %[K1br,hsv] = balreal(K1);  % Compute Balanced Realization and Hankel Singular Values
@@ -121,7 +124,7 @@
                                 % This three commands can be reduced to
                                 % just the command 'balancmr'
 
-                                %[K1, hsvinfo] = balancmr(K1,10);
+                                [K1, hsvinfo] = balancmr(K1,10);
                                 %K1 = balancmr(K1);        %If the desired order isn't included, the HSV will be plot and you will be asked to enter the desired order in the command window
                                 
                                 % The command 'balancmr' do all about
@@ -175,35 +178,35 @@
                     
                     % Cost weights on states
                     z_wght = 0.5/3;
-                    zdot_wght = 0.175/3;
+                    zdot_wght = 0.03/3;
                     psi_wght = 0.175/3;
-                    psidot_wght = 0.1/3; % 0.4/3
+                    psidot_wght = 0.03/3; % 0.4/3
                     theta_wght = 0.175/3;
-                    thetadot_wght = 0.4/3;
+                    thetadot_wght = 0.03/3;
                     phi_wght = 0.175/3;
-                    phidot_wght = 0.4/3;
+                    phidot_wght = 0.03/3; %0.4/3
                     
                     weights = [psi_wght psidot_wght theta_wght thetadot_wght phi_wght phidot_wght];
                     maxs = [att_max datt_max att_max datt_max att_max datt_max];
                     
-                    rho = 0.04;
+                    rho = 0.35;
                     
                     Q = diag(weights./maxs)/sum(weights);
                     R = rho*diag(1./[motor_max motor_max motor_max motor_max]);
-%                     Q = 1*(C'*C);
-%                     rho = 0.5;       %rho small --> large control effort, good performance
-%                                      %rho large --> small control effort, poor performance
-%                     R = rho*eye(4);
+                    %Q = 1*(C'*C);
+                    % rho = 0.1;       %rho small --> large control effort, good performance
+                    %                  %rho large --> small control effort, poor performance
+                    R = rho*eye(4);
 
                     [P, eigenvalues, ~] = care(A,B,Q,R);
                     F = -R\B'*P;
                     %F = -lqr(A,B,Q,R); 
                     %%% The command lqr does the 'care' command internally
                     Gss_d = c2d(Gss,Ts,'zoh');
-                    F = -dlqr(Gss_d.A,Gss_d.B,Q,R);
+                    F = -dlqr(Gss_d.A,Gss_d.B,Q,R)
                     
-                    F(2,:) = F(2,:).*0.15;
-                    %F(2,2) = -0.2392;
+                    %F(3,:) = F(3,:).*0.3451;
+                    %F(4,:) = F(4,:).*0.3451;
                     
                 %% LQE Observer Design
 

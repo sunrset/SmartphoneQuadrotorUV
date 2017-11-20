@@ -8,7 +8,7 @@ d = L*cos(pi/4);
 % U = M*F;
 
 M = [1    1   1    1;
-     Kd  -Kd  Kd  -Kd;
+     -Kd  Kd  -Kd  Kd;
      -d  -d   d    d;
      -d   d   d   -d];
  

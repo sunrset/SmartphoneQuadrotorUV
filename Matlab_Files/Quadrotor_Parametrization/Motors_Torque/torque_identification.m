@@ -58,10 +58,14 @@ hold on;
 plot(motor1_test7(:,4), motor1_test7(:,3).*g*0.244/1000);
 hold on;
 thrust = linspace(0,5.8);
-%drag = 8.7804.*thrust;
 drag = 0.0210.*thrust;
 line(thrust,drag,'Color','black','LineWidth',1);
-text(1,0.1, 'Drag Force [Nm] $$= 0.0210*$$Thrust','Interpreter','latex');
-xlabel('Thrust [N]');
-ylabel('Drag Force [Nm]');
+%text(1,0.1, 'Drag Force [Nm] $$= 0.0210*$$Thrust','Interpreter','latex');
+xlabel('$F_{M_i}$ $[N]$','FontSize',12,'Interpreter','latex');
+ylabel('$\tau_{M}$ $[Nm]$','FontSize',12,'Interpreter','latex');
+grid on
+axis([0 5.5 0 0.1158])
+a = get(gca,'XTickLabel');
+set(gca,'TickLabelInterpreter', 'latex','fontsize',14)
+print -depsc2 torque_id.eps
 

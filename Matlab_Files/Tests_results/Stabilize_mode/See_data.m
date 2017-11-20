@@ -1,7 +1,7 @@
 %% Set data
     clear;
     clc;
-    filename = 'test1FlightController-2017-11-5-0-45-4.quv';
+    filename = 'Tests-10-nov/dataFlightController-2017-11-10-113839.quv';
     data = csvread(filename);
 
     t = (data(:,1)-data(1,1))./1000;
@@ -9,9 +9,9 @@
     x = data(:,3); 
     y = data(:,4);
     z = data(:,5);
-    theta = data(:,6); 
-    phi = data(:,7);
-    psi = data(:,8);
+    theta = data(:,6).*180/pi; 
+    phi = data(:,7).*180/pi;
+    psi = data(:,8).*180/pi;
     u = data(:,9);
     tau_psi = data(:,10);
     tau_theta = data(:,11);
@@ -26,18 +26,23 @@
     x_ref = data(:,20);
     y_ref = data(:,21);
     z_ref = data(:,22);
-    psi_ref = data(:,23);
-    theta_ref = data(:,24);
-    phi_ref = data(:,25);
-
-    altHkf_z = data(:,26);
-    altHkf_zdot = data(:,27);
-    altHkf_psi = data(:,28);
-    altHkf_psidot = data(:,29);
-    altHkf_theta = data(:,30);
-    altHkf_thetadot = data(:,31);
-    altHkf_phi = data(:,32);
-    altHkf_phidot = data(:,33);
+    psi_ref = data(:,23).*180/pi;
+    theta_ref = data(:,24).*180/pi;
+    phi_ref = data(:,25).*180/pi;
+    xdot = data(:,26);
+    ydot = data(:,27);
+    zdot = data(:,28);
+    acc_x = data(:,29);
+    acc_y = data(:,30);
+    acc_z = data(:,31);
+    altHkf_z = data(:,32);
+    altHkf_zdot = data(:,33);
+    altHkf_psi = data(:,34);
+    altHkf_psidot = data(:,35);
+    altHkf_theta = data(:,36);
+    altHkf_thetadot = data(:,37);
+    altHkf_phi = data(:,38);
+    altHkf_phidot = data(:,39);
 
 %% Plot data
     figure(2);
@@ -56,7 +61,7 @@
     leg1 = legend('$\psi$','$\psi_{ref}$');
     set(leg1,'Interpreter','latex');
     title('Yaw ($\psi$) control','Interpreter','latex')
-    
+    %%
     figure(3);
     subplot(2,2,1);
     plot(t,pwm_m1);
@@ -75,17 +80,17 @@
 
     figure(300);
     subplot(1,3,1);
-    plot(t,phi,'g',t,altHkf_phi.*(-pi/180),'r');
+    plot(t,phi,'g',t,altHkf_phi,'r');
     leg1 = legend('$\phi$','$\phi_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Pitch ($\phi$) comparison','Interpreter','latex')
     subplot(1,3,2);
-    plot(t,theta,'g',t,altHkf_theta.*(-pi/180),'r');
+    plot(t,theta,'g',t,altHkf_theta,'r');
     leg1 = legend('$\theta$','$\theta_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Roll ($\theta$) comparison','Interpreter','latex')
     subplot(1,3,3);
-    plot(t,psi,'g',t,altHkf_psi.*(-pi/180),'r');
+    plot(t,psi-65,'g',t,-1.*altHkf_psi,'r');
     leg1 = legend('$\psi$','$\psi_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Yaw ($\psi$) comparison','Interpreter','latex')

@@ -1,22 +1,314 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Castillo and Lozano(2004)]{modelamiento}
-P.~Castillo and R.~Lozano.
-\newblock Stabilization of a mini-rotorcraft having four rotors, 2004.
+\bibitem[Liu and Wang(2015)]{Liu2015}
+Hao Liu and Xiafu Wang.
+\newblock {Quaternion-based robust attitude control for quadrotors}.
+\newblock In \emph{2015 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 920--925. IEEE, jun 2015.
+\newblock ISBN 978-1-4799-6010-1.
+\newblock \doi{10.1109/ICUAS.2015.7152379}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7152379/}.
 
-\bibitem[Tamami et~al.(2014)Tamami, Pitowarno, and Astawa]{modelamientoPDAFC}
-N.~Tamami, E.~Pitowarno, and I.~Astawa.
-\newblock Proportional derivative active force control for “x”
-  configuration quadcopter, 2014.
+\bibitem[Lopez et~al.(2015)Lopez, Gonzalez-Hernandez, Salazar, Rodriguez,
+  Ordaz, and Osorio]{Lopez2015}
+R~Lopez, I.~Gonzalez-Hernandez, S.~Salazar, A.~E. Rodriguez, J.~J. Ordaz, and
+  A.~Osorio.
+\newblock {Disturbance rejection for a Quadrotor aircraft through a robust
+  control}.
+\newblock In \emph{2015 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 409--415. IEEE, jun 2015.
+\newblock ISBN 978-1-4799-6010-1.
+\newblock \doi{10.1109/ICUAS.2015.7152317}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7152317/}.
 
-\bibitem[Voos(2007)]{modelamientoNCQ}
-H.~Voos.
-\newblock Nonlinear control of a quadrotor micro-uav using
-  feedback-linearization, 2007.
+\bibitem[Jung et~al.(2014)Jung, Jung, You, and Shim]{Jung2014}
+Jiwon Jung, Yeunduk Jung, Dongil You, and David~Hyunchul Shim.
+\newblock {A flight control system design for highly unstable unmanned combat
+  aerial vehicles}.
+\newblock In \emph{2014 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1117--1125. IEEE, may 2014.
+\newblock ISBN 978-1-4799-2376-2.
+\newblock \doi{10.1109/ICUAS.2014.6842365}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/6842365/}.
+
+\bibitem[Kohno and Uchiyama(2014)]{Kohno2014}
+Satoshi Kohno and Kenji Uchiyama.
+\newblock {Design of robust controller of fixed-wing UAV for transition
+  flight}.
+\newblock In \emph{2014 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1111--1116. IEEE, may 2014.
+\newblock ISBN 978-1-4799-2376-2.
+\newblock \doi{10.1109/ICUAS.2014.6842364}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/6842364/}.
+
+\bibitem[Shang et~al.(2016)Shang, Liu, Zhao, and Chen]{Shang2016}
+Bo~Shang, Jianxin Liu, Tiebiao Zhao, and Yangquan Chen.
+\newblock {Fractional order robust visual servoing control of a quadrotor UAV
+  with larger sampling period}.
+\newblock In \emph{2016 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, volume~1, pages 1228--1234. IEEE, jun 2016.
+\newblock ISBN 978-1-4673-9334-8.
+\newblock \doi{10.1109/ICUAS.2016.7502645}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7502645/}.
+
+\bibitem[Salazar et~al.(2014)Salazar, Gonzalez-Hernandez, Lopez, and
+  Lozano]{Salazar2014}
+Sergio Salazar, Ivan Gonzalez-Hernandez, Ricardo Lopez, and Rogelio Lozano.
+\newblock {Simulation and robust trajectory-tracking for a Quadrotor UAV}.
+\newblock In \emph{2014 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1167--1174. IEEE, may 2014.
+\newblock ISBN 978-1-4799-2376-2.
+\newblock \doi{10.1109/ICUAS.2014.6842371}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/6842371/}.
+
+\bibitem[Pearce et~al.(2014)Pearce, Guckenberg, Holden, Leach, Hughes, Xie,
+  Hassett, Adderley, Barnes, Sherriff, and Lewin]{Pearce2014a}
+Carolyn Pearce, Margaret Guckenberg, Bobby Holden, Andrew Leach, Ryan Hughes,
+  Connie Xie, Meredith Hassett, Andrew Adderley, Laura~E. Barnes, Mark
+  Sherriff, and Gregory~C. Lewin.
+\newblock {Designing a spatially aware, automated quadcopter using an Android
+  control system}.
+\newblock In \emph{2014 Systems and Information Engineering Design Symposium
+  (SIEDS)}, volume~00, pages 23--28. IEEE, apr 2014.
+\newblock ISBN 978-1-4799-4836-9.
+\newblock \doi{10.1109/SIEDS.2014.6829921}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/6829921/}.
+
+\bibitem[Bj{\"{a}}lemark and Bergkvist(2014)]{ALEMARK2014a}
+August Bj{\"{a}}lemark and Hannes Bergkvist.
+\newblock {Quadcopter control using Android based sensing}.
+\newblock \emph{Advances in Electrical and Computer Engineering}, pages 15--21,
+  2014.
+
+\bibitem[Loianno et~al.(2015{\natexlab{a}})Loianno, Cross, Qu, Mulgaonkar,
+  Hesch, and Kumar]{Loianno2015}
+Giuseppe Loianno, Gareth Cross, Chao Qu, Yash Mulgaonkar, Joel~A Hesch, and
+  Vijay Kumar.
+\newblock {Flying Smartphones: Automated flight enabled by consumer
+  electronics}.
+\newblock \emph{IEEE Robotics Automation Magazine}, Vol. 22:\penalty0 pages 24
+  -- 32, 2015{\natexlab{a}}.
+
+\bibitem[Drumea(2013)]{Drumea2013a}
+Andrei Drumea.
+\newblock {Control of Industrial Systems Using Android-Based Devices}.
+\newblock \emph{36th Int. Spring Seminar on Electronics Technology}, pages
+  405--408, 2013.
+
+\bibitem[Lin et~al.(2014)Lin, Wu, and Lin]{Lin2014a}
+Kun-wei Lin, Zong-han Wu, and Yuan-li Lin.
+\newblock {Applications of Temperature Control Based on Android Platform}.
+\newblock \emph{Proceedings of the International MultiConference of Engineers
+  and Computer Scientists}, II, 2014.
+\newblock ISSN 20780958.
+
+\bibitem[Truong and Vu(2012)]{Truong2012a}
+Nguyen-Vu Truong and Duc-Lung Vu.
+\newblock {Remote monitoring and control of industrial process via wireless
+  network and Android platform}.
+\newblock \emph{2012 International Conference on Control, Automation and
+  Information Sciences (ICCAIS)}, \penalty0 (1):\penalty0 340--343, 2012.
+\newblock \doi{10.1109/ICCAIS.2012.6466614}.
+
+\bibitem[Aristizabal et~al.(2014)Aristizabal, Almario, and
+  Lopez]{Aristizabal2014a}
+Leandro~Florez Aristizabal, Diego~F. Almario, and Jesus~A. Lopez.
+\newblock {Development of an Android App as a learning tool of dynamic systems
+  and automatic control}.
+\newblock In \emph{2014 III International Congress of Engineering Mechatronics
+  and Automation (CIIMA)}, pages 1--5. IEEE, oct 2014.
+\newblock ISBN 978-1-4799-7932-5.
+\newblock \doi{10.1109/CIIMA.2014.6983438}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/6983438/}.
+
+\bibitem[{Wu Wu}(2013)]{WuWu2013a}
+Steven {Wu Wu}.
+\newblock \emph{{Sintonizaci{\'{o}}n de controladores PI/PID mediante el
+  desarrollo de una aplicaci{\'{o}}n en Android}}.
+\newblock PhD thesis, Universidad de Costa Rica, 2013.
+
+\bibitem[{Garc{\'{i}}a T{\'{e}}llez} and {Ochoa
+  Calamb{\'{a}}s}(2015)]{GarciaTellez2015}
+Jonathan {Garc{\'{i}}a T{\'{e}}llez} and Diego~Fernando {Ochoa Calamb{\'{a}}s}.
+\newblock \emph{{Desarrollo de una plataforma de monitorizaci{\'{o}}n, control
+  y comunicaci{\'{o}}n con tel{\'{e}}fonos inteligentes, para laboratorios
+  port{\'{a}}tiles de soporte al {\'{a}}rea de se{\~{n}}ales y sistemas}}.
+\newblock Universidad del Valle, Cali, 2015.
+
+\bibitem[Loianno et~al.(2015{\natexlab{b}})Loianno, Mulgaonkar, Brunner, Ahuja,
+  Ramanandan, Chari, Diaz, and Kumar]{Loianno2015a}
+Giuseppe Loianno, Yash Mulgaonkar, Chris Brunner, Dheeraj Ahuja, Arvind
+  Ramanandan, Murali Chari, Serafin Diaz, and Vijay Kumar.
+\newblock {Smartphones power flying robots}.
+\newblock In \emph{2015 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, pages 1256--1263. IEEE, sep 2015{\natexlab{b}}.
+\newblock ISBN 978-1-4799-9994-1.
+\newblock \doi{10.1109/IROS.2015.7353530}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7353530/}.
+
+\bibitem[Aldrovandi et~al.(2015)Aldrovandi, Hayajneh, Melega, Furci, Naldi, and
+  Marconi]{Aldrovandi2015}
+Lorenzo Aldrovandi, Mohammad Hayajneh, Marco Melega, Michele Furci, Roberto
+  Naldi, and Lorenzo Marconi.
+\newblock {A smartphone based quadrotor: Attitude and position estimation}.
+\newblock In \emph{2015 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1251--1259. IEEE, jun 2015.
+\newblock ISBN 978-1-4799-6010-1.
+\newblock \doi{10.1109/ICUAS.2015.7152418}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7152418/}.
+
+\bibitem[Bryant et~al.(2015)Bryant, Gradwell, and Claveau]{Bryant2015}
+Phillip Bryant, Greg Gradwell, and David Claveau.
+\newblock {Autonomous UAS controlled by onboard smartphone}.
+\newblock In \emph{2015 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 451--454. IEEE, jun 2015.
+\newblock ISBN 978-1-4799-6010-1.
+\newblock \doi{10.1109/ICUAS.2015.7152322}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7152322/}.
+
+\bibitem[{ArduPilot Dev Team}(2016)]{Ardupilot2016}
+{ArduPilot Dev Team}.
+\newblock {Copter - Flight Modes}, 2016.
+\newblock URL \url{http://ardupilot.org/copter/docs/flight-modes.html}.
+
+\bibitem[Emam and Fakharian(2016)]{Emam2016}
+M~Emam and A~Fakharian.
+\newblock {Attitude tracking of quadrotor UAV via mixed H2/H{$\infty$}
+  controller: An LMI based approach}.
+\newblock In \emph{2016 24th Mediterranean Conference on Control and Automation
+  (MED)}, pages 390--395. IEEE, jun 2016.
+\newblock ISBN 978-1-4673-8345-5.
+\newblock \doi{10.1109/MED.2016.7535919}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7535919/}.
+
+\bibitem[Badr et~al.(2016)Badr, Mehrez, and Kabeel]{Badr2016}
+Sherif Badr, Omar Mehrez, and A.~E. Kabeel.
+\newblock {A novel modification for a quadrotor design}.
+\newblock In \emph{2016 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 702--710. IEEE, jun 2016.
+\newblock ISBN 978-1-4673-9334-8.
+\newblock \doi{10.1109/ICUAS.2016.7502536}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7502536/}.
+
+\bibitem[Bouabdallah(2007)]{Bouabdallah2007}
+Samir Bouabdallah.
+\newblock {Design and Control of Quadrotors With Application To Autonomous
+  Flying}.
+\newblock \emph{{\'{E}}cole Polytechnique F{\'{e}}d{\'{e}}rale De Lausanne,
+  {\`{A}} La Facult{\'{e}} Des Sciences Et Techniques De L'Ing{\'{e}}nieur},
+  3727\penalty0 (3727):\penalty0 61, 2007.
+\newblock ISSN 0921-0296.
+\newblock \doi{10.5075/epfl-thesis-3727}.
+
+\bibitem[Sabatino(2015)]{Sabatino2015}
+Francesco Sabatino.
+\newblock \emph{{Quadrotor control : modeling, nonlinear control design, and
+  simulation}}.
+\newblock Number June. KTH Royal Institute of Technology in Stockholm,
+  Stockholm, Sweden, 2015.
+
+\bibitem[Faessler et~al.(2016)Faessler, Falanga, and Scaramuzza]{Faessler2016}
+Matthias Faessler, Davide Falanga, and Davide Scaramuzza.
+\newblock {Thrust Mixing, Saturation, and Body-Rate Control for Accurate
+  Aggressive Quadrotor Flight}.
+\newblock \emph{IEEE Robotics and Automation Letters}, PP\penalty0
+  (99):\penalty0 1--7, 2016.
+\newblock ISSN 2377-3766.
+\newblock \doi{10.1109/LRA.2016.2640362}.
+\newblock URL
+  \url{http://rpg.ifi.uzh.ch/docs/RAL16{\_}Faessler.pdf{\%}0Ahttp://ieeexplore.ieee.org/document/7784809/}.
+
+\bibitem[Lee et~al.(2011)Lee, Yun, Chang, Park, and Choi]{Lee2011}
+Keun~Uk Lee, Young~Hun Yun, Wook Chang, Jin~Bae Park, and Yoon~Ho Choi.
+\newblock {Modeling and Altitude Control of Quad-rotor UAV}.
+\newblock In \emph{Proceedings of International Conference on Control,
+  Automation and Systems}, pages 1897--1902, 2011.
+\newblock ISBN 9788993215038.
+
+\bibitem[Khodja et~al.(2017)Khodja, Tadjine, Boucherit, and
+  Benzaoui]{Khodja2017}
+Mohammed~Abdallah Khodja, Mohamed Tadjine, Mohamed~Seghir Boucherit, and Moussa
+  Benzaoui.
+\newblock {Experimental dynamics identification and control of a quadcopter}.
+\newblock In \emph{2017 6th International Conference on Systems and Control
+  (ICSC)}, pages 498--502. IEEE, may 2017.
+\newblock ISBN 978-1-5090-3960-9.
+\newblock \doi{10.1109/ICoSC.2017.7958668}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7958668/}.
+
+\bibitem[Jiřinec(2011)]{Tomas2011}
+Tom{\'{a}}{\v{s}} Jiřinec.
+\newblock \emph{{Stabilization and control of unmanned quadcopter}}.
+\newblock Czech Technical University in Prague, Prague, Czech Republic, 2011.
+\newblock URL
+  \url{https://support.dce.felk.cvut.cz/mediawiki/images/d/d4/Dp{\_}2011{\_}jirinec{\_}tomas.pdf}.
+
+\bibitem[Garcia et~al.(2017)Garcia, Kim, Jackson, Kashmiri, and
+  Shukla]{Garcia2017}
+Gonzalo~A Garcia, A~Ram Kim, Ethan Jackson, Shawn~S. Kashmiri, and Daksh
+  Shukla.
+\newblock {Modeling and flight control of a commercial nano quadrotor}.
+\newblock In \emph{2017 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 524--532. IEEE, jun 2017.
+\newblock ISBN 978-1-5090-4495-5.
+\newblock \doi{10.1109/ICUAS.2017.7991439}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7991439/}.
+
+\bibitem[Mustapa et~al.(2016)Mustapa, Saat, Darsono, and Yusof]{Mustapa2016}
+Zaki Mustapa, Shakir Saat, A~M Darsono, and H~H Yusof.
+\newblock {Experimental Validation of an Altitude Control for Quadcopter}.
+\newblock \emph{ARPN Journal of Engineering and Applied Sciences}, 11\penalty0
+  (6):\penalty0 3789--3795, 2016.
+
+\bibitem[{Costa De Oliveira}(2011)]{Oliveira2012}
+Marcelo De~Lellis {Costa De Oliveira}.
+\newblock \emph{{Modeling, Identification and Control of a Quadrotor
+  Aircraft}}.
+\newblock Czech Technical University in Prague, jun 2011.
+
+\bibitem[Werner(2012)]{Werner2012}
+Herbert Werner.
+\newblock \emph{{Lecture Notes - Control Systems Theory and Design}}.
+\newblock Hamburg University of Technology, Hamburg, 2012.
+
+\bibitem[Werner(2013)]{RobustWerner2013}
+Herbert Werner.
+\newblock \emph{{Lecture Notes - Optimal and Robust Control}}.
+\newblock Hamburg University of Technology, Hamburg, 2013.
+
+\bibitem[Skogestad and Postlethwaite(2001)]{Skogestad2005}
+S.~Skogestad and I.~Postlethwaite.
+\newblock \emph{{Multivariable Feedback Control: Analysis and Design}},
+  volume~2.
+\newblock John Wiley and Sons, 2001.
+\newblock ISBN 978-0470011683.
+\newblock \doi{978-0-470-01167-6}.
+
+\bibitem[Astudillo et~al.(2017)Astudillo, Munoz, Alvarez, and
+  Rosero]{Astudillo2017}
+Alejandro Astudillo, Pedro Munoz, Fredy Alvarez, and Esteban Rosero.
+\newblock {Altitude and attitude cascade controller for a smartphone-based
+  quadcopter}.
+\newblock In \emph{2017 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}, pages 1447--1454. IEEE, jun 2017.
+\newblock ISBN 978-1-5090-4495-5.
+\newblock \doi{10.1109/ICUAS.2017.7991400}.
+\newblock URL \url{http://ieeexplore.ieee.org/document/7991400/}.
+
+\bibitem[{Android Developer}(2015)]{AndSensor}
+{Android Developer}.
+\newblock {SensorEvent}, 2015.
+\newblock URL \url{https://developer.android.com/}.
+
+\bibitem[Lauszus(2015)]{Lauszus2015}
+Kristian~Sloth Lauszus.
+\newblock \emph{{Flight Controller for Quad Rotor Helicopter in
+  X-configuration}}.
+\newblock PhD thesis, Kongens Lyngby, Denmark, 2015.
 
 \end{thebibliography}

@@ -12,13 +12,14 @@
 %\usepackage{slashbox}
 \usepackage[chapter]{algorithm}
 \usepackage{algorithmic}
-%\usepackage{float}		  % force position of figures. Usage: \begin{figure}[H]
+\usepackage{float}		  % force position of figures. Usage: \begin{figure}[H]
 \usepackage{pstricks}
 \usepackage[authoryear,numbers,sort&compress]{natbib}
 %\usepackage[Lenny]{fncychap}     % extended page layout formating
 \usepackage{amsmath}      % special mathematical functions ,amsthm
 \usepackage{amssymb,amsthm}      % special mathematical functions
 \usepackage{psfrag, epsfig}
+\usepackage[update]{epstopdf}
 \usepackage{latexsym}     % symbols package
 %\usepackage{times}
 %\usepackage{geometry}
@@ -35,19 +36,29 @@
 
 %%%%%%Esteban
 %\usepackage{hyperref}
-%\usepackage[hyphenbreaks]{breakurl}
+\usepackage[hyphenbreaks]{breakurl}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{arydshln}
 \usepackage{afterpage}
 \usepackage{pstool}
-\usepackage{tocbibind}
+%\usepackage{tocbibind}
+\usepackage[nottoc]{tocbibind}
 %\usepackage{epstopdf}
 %\usepackage[
 %    latex={-interaction=nonstopmode},
 %    crop=off,runs=2
 %  ]{auto-pst-pdf}
 %\usepackage[document]{ragged2e}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{esvect}
+\usepackage{nccmath}
+    \newenvironment{mpmatrix}{\begin{medsize}\begin{pmatrix}}%
+    {\end{pmatrix}\end{medsize}}%
+\usepackage{afterpage}
+\usepackage[bottom]{footmisc}
+\usepackage{nameref}
 
 \input{macros}
 \newcolumntype{d}{D{.}{.}{2.5}}
@@ -57,7 +68,7 @@
 
 \makeindex
 %\input{./acronimos.tex}
-%\input{./glosar.tex}
+%\input{tex/abbreviations.tex}
 
 \makenomenclature
 
@@ -70,9 +81,12 @@
 %\maketitle
  
 \hyphenation{
-	si-mi-lar-ly en-vi-ron-ment en-han-ced subs-tan-tial di-ffe-rent co-mmu-ni-ca-tion accom-phish }
+	si-mi-lar-ly en-vi-ron-ment en-han-ced subs-tan-tial di-ffe-rent co-mmu-ni-ca-tion accom-plish exe-cu-te acce-le-ro-meter gyro-scope mag-ne-to-meter ba-ro-meter cons-te-llations smart-phone assem-bled instru-men-ta-tion speci-fied me-mo-ry using cu-rrent ma-nu-factu-rer brush-less gene-ra-ted acce-so-ry smart-phone odo-me-try ex-pe-ri-ment un-ba-lan-ce smart-phone-based me-thods}
 
 \graphicspath{{./figures/}} 
+
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1}: \nameref*{#1}}}
+
 
 
 { \let\cleardoublepage\clearpage 
@@ -88,7 +102,6 @@
 
 \frontmatter
 %\include{dedication}
-\setcounter{page}{5} 
 \include{tex/abstract}
 
 %\addcontentsline{toc}{chapter}{Acknowledgments}
@@ -136,7 +149,9 @@
 %\bibliographystyle{plainnat}
 %\bibliographystyle{abbrvnat}
 \bibliographystyle{unsrtnat}
-\bibliography{bib/er_bibliog, bib/Quadcopter-SIUAS2017, bib/Quadcopter-ICUAS2017Robust, bib/Quadcopter-ICUAS2017Smartphone}
+%\bibliographystyle{IEEEtran}
+%\bibliography{bib/er_bibliog, bib/Quadcopter-SIUAS2017, bib/Quadcopter-ICUAS2017Robust, bib/Quadcopter-ICUAS2017Smartphone, bib/Quadcopter}
+\bibliography{bib/Quadcopter}
 }
 
 

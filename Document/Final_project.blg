@@ -7,20 +7,15 @@ A level-1 auxiliary file: tex/4ControlStrategiesAndEstimation.aux
 A level-1 auxiliary file: tex/5Implementation.aux
 A level-1 auxiliary file: tex/conclusions.aux
 A level-1 auxiliary file: tex/publications.aux
+A level-1 auxiliary file: tex/supplementary.aux
 The style file: unsrtnat.bst
-White space in argument---line 43 of file Final_project.aux
- : \bibdata{bib/er_bibliog,
- :                          bib/Quadcopter-SIUAS2017, bib/Quadcopter-ICUAS2017Robust, bib/Quadcopter-ICUAS2017Smartphone}
-I'm skipping whatever remains of this command
-Database file #1: bib/er_bibliog.bib
-Warning--entry type for "modelamiento" isn't style-file defined
---line 328 of file bib/er_bibliog.bib
-Warning--entry type for "modelamientoPDAFC" isn't style-file defined
---line 335 of file bib/er_bibliog.bib
-Warning--entry type for "modelamientoNCQ" isn't style-file defined
---line 343 of file bib/er_bibliog.bib
-Warning--I didn't find a database entry for "Faessler2016"
-Warning--I didn't find a database entry for "Emam2016"
-Warning--I didn't find a database entry for "Badr2016"
-Warning--I didn't find a database entry for "Bouabdallah2007"
-(There was 1 error message)
+Database file #1: bib/Quadcopter.bib
+Warning--I didn't find a database entry for "modelamiento"
+Warning--I didn't find a database entry for "modelamientoPDAFC"
+Warning--I didn't find a database entry for "modelamientoNCQ"
+Warning--can't use both volume and number fields in Shang2016
+Warning--can't use both volume and number fields in Pearce2014a
+Warning--there's a number but no volume in Truong2012a
+Warning--there's a number but no series in Sabatino2015
+Warning--empty school in Lauszus2015
+(There were 8 warnings)

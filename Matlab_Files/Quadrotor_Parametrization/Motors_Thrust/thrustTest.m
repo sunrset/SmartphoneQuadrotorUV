@@ -31,9 +31,14 @@ hold on;
 pwm = linspace(0,255);
 thrust = 5.441e-5.*(pwm.*pwm) + 0.01586.*pwm + 0.014808;
 line(pwm,thrust,'Color','black','LineWidth',2);
-text(30,6, '$$y = 5.441\times10^{-5}x^{2} + 0.01586x + 0.014808$$','Interpreter','latex');
-xlabel('PWM [0, 255]');
-ylabel('Thrust [N]');
+%text(30,6, '$$y = 5.441\times10^{-5}x^{2} + 0.01586x + 0.014808$$','Interpreter','latex');
+xlabel('$PWM$ $[0, 255]$','FontSize',12,'Interpreter','latex');
+ylabel('$F_{M_i}$ $[N]$','FontSize',12,'Interpreter','latex');
+grid on
+axis([0 255 0 8])
+a = get(gca,'XTickLabel');
+set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
+print -depsc2 motorNvsPWM.eps
 
 %% Plot  PWM [0, 255] vs Thrust [N]
 figure(2);
@@ -63,9 +68,14 @@ thrust = linspace(0,8);
 %pwm = -1.983.*(thrust.*thrust) + 47.84.*thrust + 3.835;
 pwm = -1.783.*(thrust.*thrust) + 47.84.*thrust + 0;
 line(thrust,pwm,'Color','black','LineWidth',2);
-text(0.7,200, '$$y = -1.983x^{2} + 47.84x + 3.835$$','Interpreter','latex');
-xlabel('Thrust [N]');
-ylabel('PWM [0, 255]');
+%text(0.7,200, '$$y = -1.983x^{2} + 47.84x + 3.835$$','Interpreter','latex');
+xlabel('$F_{M_i}$ $[N]$','FontSize',12,'Interpreter','latex');
+ylabel('$PWM$ $[0, 255]$','FontSize',12,'Interpreter','latex');
+grid on
+axis([0 8 0 255])
+a = get(gca,'XTickLabel');
+set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
+print -depsc2 motorPWMvsN.eps
 
 
 %% Trendline

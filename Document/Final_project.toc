@@ -1,84 +1,94 @@
 \select@language {english}
 \select@language {english}
 \contentsline {chapter}{Abstract}{v}{chapter*.1}
-\contentsline {chapter}{Contents}{vii}{chapter*.2}
-\contentsline {chapter}{List of Figures}{ix}{chapter*.3}
-\contentsline {chapter}{List of Tables}{xi}{chapter*.4}
+\contentsline {chapter}{Resumen}{vii}{chapter*.2}
+\contentsline {chapter}{List of Figures}{xiii}{chapter*.4}
+\contentsline {chapter}{List of Tables}{xv}{chapter*.5}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Research Problem}{1}{section.1.2}
-\contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}
-\contentsline {section}{\numberline {1.4}State of Art}{1}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Quadrotors}{1}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Smartphones as Controllers}{2}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Smartphone-based Quadrotors}{2}{subsection.1.4.3}
-\contentsline {subsection}{\numberline {1.4.4}Quadrotor Flight Modes}{2}{subsection.1.4.4}
-\contentsline {subsubsection}{Stabilize Mode}{2}{section*.5}
-\contentsline {subsubsection}{Altitude Hold Mode}{2}{section*.6}
-\contentsline {subsubsection}{Loiter Mode}{2}{section*.7}
-\contentsline {subsubsection}{Return-To-Launch Mode}{2}{section*.8}
-\contentsline {subsubsection}{Auto Mode}{2}{section*.9}
-\contentsline {section}{\numberline {1.5}Outline}{2}{section.1.5}
-\contentsline {chapter}{\numberline {2}Dynamic Model of the Quadrotor }{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Quadrotors' Configuration}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}'+' Configuration}{3}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}'X' Configuration}{3}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Non-linear Model}{3}{section.2.2}
-\contentsline {section}{\numberline {2.3}Linearized Model}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Conclusions}{7}{section.2.4}
-\contentsline {chapter}{\numberline {3}Smartphone-based Quadrotor Prototype}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Description of the Components}{9}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Smartphone}{9}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Frame}{9}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Motors and Electronic Speed Controllers (ESC)}{9}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Smartphone-ESC Gateway}{9}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Battery}{10}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}Assembled Smartphone-based Quadrotor}{10}{subsection.3.1.6}
-\contentsline {section}{\numberline {3.2}Quadrotor Parameters}{10}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Mass}{10}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Inertial Momentum}{10}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Motors Thrust}{10}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Motors Torque}{10}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Conclusions}{10}{section.3.3}
-\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Control Strategies}{11}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Linear Quadratic Regulator}{11}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}$H_\infty $ Controller}{11}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Controllers Design}{11}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Stabilize Mode}{11}{subsection.4.2.1}
-\contentsline {subsubsection}{Dynamic Model}{12}{section*.11}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{12}{section*.12}
-\contentsline {subsubsection}{$H_\infty $ Controller}{12}{section*.13}
-\contentsline {subsection}{\numberline {4.2.2}Altitude Hold Mode}{12}{subsection.4.2.2}
-\contentsline {subsubsection}{Dynamic Model}{12}{section*.14}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{12}{section*.15}
-\contentsline {subsubsection}{$H_\infty $ Controller}{12}{section*.16}
-\contentsline {subsection}{\numberline {4.2.3}Loiter Mode}{12}{subsection.4.2.3}
-\contentsline {subsubsection}{Dynamic Model}{12}{section*.17}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{12}{section*.18}
-\contentsline {subsubsection}{$H_\infty $ Controller}{12}{section*.19}
-\contentsline {subsection}{\numberline {4.2.4}Return-To-Launch Mode}{13}{subsection.4.2.4}
-\contentsline {subsubsection}{Dynamic Model}{13}{section*.20}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{13}{section*.21}
-\contentsline {subsubsection}{$H_\infty $ Controller}{13}{section*.22}
-\contentsline {subsection}{\numberline {4.2.5}Auto Mode}{13}{subsection.4.2.5}
-\contentsline {subsubsection}{Dynamic Model}{13}{section*.23}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{13}{section*.24}
-\contentsline {subsubsection}{$H_\infty $ Controller}{13}{section*.25}
-\contentsline {section}{\numberline {4.3}State Estimation Through Kalman Filter}{13}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Particle Model}{13}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Quadrotor Model}{14}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Conclusions}{14}{section.4.4}
-\contentsline {chapter}{\numberline {5}Implementation and Results}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Kalman Filter for State Estimation}{15}{section.5.1}
-\contentsline {section}{\numberline {5.2}Linear Quadratic Regulator Results}{15}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Simple Translational Movements (LQR)}{15}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Trajectory Tracking (LQR)}{15}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}H$\infty $ Regulator Results}{15}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Simple Translational Movements (H$\infty $)}{16}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Trajectory Tracking (H$\infty $)}{16}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Conclusions}{16}{section.5.4}
-\contentsline {chapter}{Conclusions and Outlook}{17}{chapter*.26}
-\contentsline {chapter}{Publications}{19}{chapter*.27}
-\contentsline {chapter}{Supplementary Material}{21}{chapter*.28}
-\contentsline {chapter}{Bibliography}{23}{appendix*.29}
+\contentsline {section}{\numberline {1.1}Motivation}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Research Problem}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objectives}{4}{section.1.3}
+\contentsline {subsubsection}{Objetivo General}{4}{section*.7}
+\contentsline {subsubsection}{Objetivos Espec\IeC {\'\i }ficos}{4}{section*.8}
+\contentsline {section}{\numberline {1.4}Literature Review}{5}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Quadrotors}{5}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Quadrotor Flight Modes}{5}{subsection.1.4.2}
+\contentsline {subsubsection}{Stabilize Mode}{5}{section*.9}
+\contentsline {subsubsection}{Altitude Hold Mode}{5}{section*.10}
+\contentsline {subsubsection}{Loiter Mode}{6}{section*.11}
+\contentsline {subsubsection}{Return-To-Launch Mode}{6}{section*.12}
+\contentsline {subsubsection}{Auto Mode}{7}{section*.13}
+\contentsline {subsection}{\numberline {1.4.3}Smartphones as Controllers}{7}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Smartphone-based Quadrotors}{7}{subsection.1.4.4}
+\contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{7}{section*.14}
+\contentsline {section}{\numberline {1.5}Outline}{8}{section.1.5}
+\contentsline {chapter}{\numberline {2}Dynamic Model of the Quadrotor }{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Quadrotors' Configurations}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}'+' Configuration}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}'X' Configuration}{9}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Nonlinear Model}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Euler-Lagrange Approach}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Newton-Euler Approach}{12}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Linearized Model}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Quadrotor's Inputs Setting}{15}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Inputs in '+' Configuration}{15}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Inputs in 'X' Configuration}{15}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Thrust Compensation}{15}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Conclusions}{16}{section.2.5}
+\contentsline {chapter}{\numberline {3}Smartphone-based Quadrotor Prototype}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Quadrotor Components}{18}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Frame}{18}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Smartphone}{19}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Motors and Electronic Speed Controllers}{20}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Smartphone-to-ESC Gateway}{21}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Battery}{22}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}3D-printed Parts}{23}{subsection.3.1.6}
+\contentsline {subsubsection}{Smartphone Support}{23}{section*.25}
+\contentsline {subsubsection}{Arduino Mega ADK and ESC supports}{23}{section*.27}
+\contentsline {subsubsection}{Dome}{24}{section*.29}
+\contentsline {subsection}{\numberline {3.1.7}Assembled Smartphone-based Quadrotor}{25}{subsection.3.1.7}
+\contentsline {section}{\numberline {3.2}Quadrotor Parameters}{26}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Mass}{26}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Moments of Inertia}{27}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Motors Thrust}{30}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Motors Torque}{31}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Conclusions}{33}{section.3.3}
+\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Controllability and Observability}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Control Strategies}{35}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Regulator}{36}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{37}{subsection.4.2.2}
+\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{38}{section*.44}
+\contentsline {section}{\numberline {4.3}Controllers Design}{38}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{38}{subsection.4.3.1}
+\contentsline {subsubsection}{Dynamic Model}{39}{section*.46}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{39}{section*.47}
+\contentsline {subsubsection}{$H_\infty $ Controller}{39}{section*.48}
+\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{39}{subsection.4.3.2}
+\contentsline {subsubsection}{Dynamic Model}{39}{section*.49}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{39}{section*.50}
+\contentsline {subsubsection}{$H_\infty $ Controller}{40}{section*.51}
+\contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{40}{subsection.4.3.3}
+\contentsline {subsubsection}{Dynamic Model}{40}{section*.52}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{40}{section*.53}
+\contentsline {subsubsection}{$H_\infty $ Controller}{40}{section*.54}
+\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{40}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{40}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Position Estimation}{41}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Particle Model}{43}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Quadrotor Model}{43}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Conclusions}{43}{section.4.5}
+\contentsline {chapter}{\numberline {5}Implementation and Results}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Android Application}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ground Control Station}{45}{section.5.2}
+\contentsline {section}{\numberline {5.3}Linear Quadratic Regulator Results}{45}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Simple Translational Movements (LQR)}{45}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Trajectory Tracking (LQR)}{45}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}H$\infty $ Regulator Results}{46}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Simple Translational Movements (H$\infty $)}{46}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Trajectory Tracking (H$\infty $)}{46}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Conclusions}{46}{section.5.5}
+\contentsline {chapter}{Conclusions and Outlook}{47}{chapter*.55}
+\contentsline {chapter}{Publications}{49}{chapter*.56}
+\contentsline {chapter}{Supplementary Material}{51}{chapter*.57}
+\contentsline {chapter}{Bibliography}{53}{appendix*.58}
