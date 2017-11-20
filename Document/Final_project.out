@@ -14,58 +14,60 @@
 \BOOKMARK [1][-]{section.1.5}{Outline}{chapter.1}% 14
 \BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 15
 \BOOKMARK [1][-]{section.2.1}{Quadrotors' Configurations}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.1.1}{'+' Configuration}{section.2.1}% 17
-\BOOKMARK [2][-]{subsection.2.1.2}{'X' Configuration}{section.2.1}% 18
-\BOOKMARK [1][-]{section.2.2}{Nonlinear Model}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.1}{Euler-Lagrange Approach}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.2}{Newton-Euler Approach}{section.2.2}% 21
-\BOOKMARK [1][-]{section.2.3}{Linearized Model}{chapter.2}% 22
-\BOOKMARK [1][-]{section.2.4}{Quadrotor's Inputs Setting}{chapter.2}% 23
-\BOOKMARK [2][-]{subsection.2.4.1}{Inputs in '+' Configuration}{section.2.4}% 24
-\BOOKMARK [2][-]{subsection.2.4.2}{Inputs in 'X' Configuration}{section.2.4}% 25
-\BOOKMARK [2][-]{subsection.2.4.3}{Thrust Compensation}{section.2.4}% 26
-\BOOKMARK [1][-]{section.2.5}{Conclusions}{chapter.2}% 27
-\BOOKMARK [0][-]{chapter.3}{Smartphone-based Quadrotor Prototype}{}% 28
-\BOOKMARK [1][-]{section.3.1}{Quadrotor Components}{chapter.3}% 29
-\BOOKMARK [2][-]{subsection.3.1.1}{Frame}{section.3.1}% 30
-\BOOKMARK [2][-]{subsection.3.1.2}{Smartphone}{section.3.1}% 31
-\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers}{section.3.1}% 32
-\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-to-ESC Gateway}{section.3.1}% 33
-\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 34
-\BOOKMARK [2][-]{subsection.3.1.6}{3D-printed Parts}{section.3.1}% 35
-\BOOKMARK [2][-]{subsection.3.1.7}{Assembled Smartphone-based Quadrotor}{section.3.1}% 36
-\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 37
-\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 38
-\BOOKMARK [2][-]{subsection.3.2.2}{Moments of Inertia}{section.3.2}% 39
-\BOOKMARK [2][-]{subsection.3.2.3}{Motors Thrust}{section.3.2}% 40
-\BOOKMARK [2][-]{subsection.3.2.4}{Motors Torque}{section.3.2}% 41
-\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 42
-\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Controllability and Observability}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 45
-\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Regulator}{section.4.2}% 46
-\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 47
-\BOOKMARK [1][-]{section.4.3}{Controllers Design}{chapter.4}% 48
-\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 49
-\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 50
-\BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 51
-\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 52
-\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 53
-\BOOKMARK [2][-]{subsection.4.4.2}{Position Estimation}{section.4.4}% 54
-\BOOKMARK [2][-]{subsection.4.4.3}{Particle Model}{section.4.4}% 55
-\BOOKMARK [2][-]{subsection.4.4.4}{Quadrotor Model}{section.4.4}% 56
-\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 57
-\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 58
-\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 59
-\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.3}{Linear Quadratic Regulator Results}{chapter.5}% 61
-\BOOKMARK [2][-]{subsection.5.3.1}{Simple Translational Movements \(LQR\)}{section.5.3}% 62
-\BOOKMARK [2][-]{subsection.5.3.2}{Trajectory Tracking \(LQR\)}{section.5.3}% 63
-\BOOKMARK [1][-]{section.5.4}{H Regulator Results}{chapter.5}% 64
-\BOOKMARK [2][-]{subsection.5.4.1}{Simple Translational Movements \(H\)}{section.5.4}% 65
-\BOOKMARK [2][-]{subsection.5.4.2}{Trajectory Tracking \(H\)}{section.5.4}% 66
-\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 67
-\BOOKMARK [0][-]{chapter*.55}{Conclusions and Outlook}{}% 68
-\BOOKMARK [0][-]{chapter*.56}{Publications}{}% 69
-\BOOKMARK [0][-]{chapter*.57}{Supplementary Material}{}% 70
-\BOOKMARK [0][-]{appendix*.58}{Bibliography}{}% 71
+\BOOKMARK [2][-]{subsection.2.1.1}{`+' Configuration}{section.2.1}% 17
+\BOOKMARK [2][-]{subsection.2.1.2}{`X' Configuration}{section.2.1}% 18
+\BOOKMARK [1][-]{section.2.2}{Quadrotors' Inputs}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.1}{Inputs Description}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.2}{Inputs Setting in `+' Configuration}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.3}{Inputs Setting in `X' Configuration}{section.2.2}% 22
+\BOOKMARK [1][-]{section.2.3}{Nonlinear Model}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.3.1}{Euler-Lagrange Approach}{section.2.3}% 24
+\BOOKMARK [2][-]{subsection.2.3.2}{Newton-Euler Approach}{section.2.3}% 25
+\BOOKMARK [1][-]{section.2.4}{Linearized Model}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.4.1}{Jacobian Linearization}{section.2.4}% 27
+\BOOKMARK [2][-]{subsection.2.4.2}{Thrust Compensation}{section.2.4}% 28
+\BOOKMARK [1][-]{section.2.5}{Conclusions}{chapter.2}% 29
+\BOOKMARK [0][-]{chapter.3}{Smartphone-based Quadrotor Prototype}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Quadrotor Components}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.1.1}{Frame}{section.3.1}% 32
+\BOOKMARK [2][-]{subsection.3.1.2}{Smartphone}{section.3.1}% 33
+\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-to-ESC Gateway}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 36
+\BOOKMARK [2][-]{subsection.3.1.6}{3D-printed Parts}{section.3.1}% 37
+\BOOKMARK [2][-]{subsection.3.1.7}{Assembled Smartphone-based Quadrotor}{section.3.1}% 38
+\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 39
+\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 40
+\BOOKMARK [2][-]{subsection.3.2.2}{Moments of Inertia}{section.3.2}% 41
+\BOOKMARK [2][-]{subsection.3.2.3}{Motors Thrust}{section.3.2}% 42
+\BOOKMARK [2][-]{subsection.3.2.4}{Motors Torque}{section.3.2}% 43
+\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 44
+\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 45
+\BOOKMARK [1][-]{section.4.1}{Controllability and Observability}{chapter.4}% 46
+\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Regulator}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 49
+\BOOKMARK [1][-]{section.4.3}{Controllers Design}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 51
+\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 52
+\BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 53
+\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 54
+\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 55
+\BOOKMARK [2][-]{subsection.4.4.2}{Position Estimation}{section.4.4}% 56
+\BOOKMARK [2][-]{subsection.4.4.3}{Particle Model}{section.4.4}% 57
+\BOOKMARK [2][-]{subsection.4.4.4}{Quadrotor Model}{section.4.4}% 58
+\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 59
+\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 60
+\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.3}{Linear Quadratic Regulator Results}{chapter.5}% 63
+\BOOKMARK [2][-]{subsection.5.3.1}{Simple Translational Movements \(LQR\)}{section.5.3}% 64
+\BOOKMARK [2][-]{subsection.5.3.2}{Trajectory Tracking \(LQR\)}{section.5.3}% 65
+\BOOKMARK [1][-]{section.5.4}{H Regulator Results}{chapter.5}% 66
+\BOOKMARK [2][-]{subsection.5.4.1}{Simple Translational Movements \(H\)}{section.5.4}% 67
+\BOOKMARK [2][-]{subsection.5.4.2}{Trajectory Tracking \(H\)}{section.5.4}% 68
+\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 69
+\BOOKMARK [0][-]{chapter*.59}{Conclusions and Outlook}{}% 70
+\BOOKMARK [0][-]{chapter*.60}{Publications}{}% 71
+\BOOKMARK [0][-]{chapter*.61}{Supplementary Material}{}% 72
+\BOOKMARK [0][-]{appendix*.62}{Bibliography}{}% 73
