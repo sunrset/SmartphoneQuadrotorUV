@@ -11,7 +11,7 @@ The first section (\fullref{sec:configurations}) shows the main idea of the quad
 dynamics and describes intuitively which movements are allowed and how it
 manages to perform stationary flight (hovering).
 \\\\
-The second section (\fullref{sec:inputs}) provides the model information
+The second section () provides the model information
 with physics and mathematical derivations. In this work, the Newton-Euler
 formalism and the Euler angles theories have been chosen.
 \\\\
@@ -22,7 +22,7 @@ motor itself, the reduction gears and the propeller.
 The last section (\fullref{sec:linearized}) provides an overview of the architecture:
 connections between devices and abstraction of the software and task.
 
-\section{Quadrotors' Configurations}
+\section{Quadrotors Configurations}
 \label{sec:configurations}
 As the term `quadrotor' refers to a multirotor whose thrust is generated from four motors and propellers, quadrotors can be built in multiple ways as long as they comply with the established definition. There are some configurations that are already standardized being widely used by commercial manufacturers and hobbyists, such as the `+' and `X' configurations.
 %\\\\
@@ -46,21 +46,63 @@ The geometry used in quadrotors built in `+' configuration is shown in Fig. \ref
     \end{center}
 \end{figure}
 Where, ($\phi$, $\theta$, $\psi$) are the angular deviations (pitch, roll and yaw, respectively) of the quadrotor about the body-frame,
- ($x$, $y$, $z$) are the body-frame axes,  ($X_W$, $Y_W$, $Z_W$) are the earth-frame axes, $L$ is the distance from the quadrotor's center of gravity ($CoG$) to the motor center, $F_{M_i}$ is the thrust force exerted by each motor, and $\omega_i$ is the angular velocity of each motor, with $i = 1,2,3,4$. 
+ ($x$, $y$, $z$) are the body-frame axes,  ($X_W$, $Y_W$, $Z_W$) are the earth-frame axes, $L$ is the distance from the quadrotor center of gravity ($CoG$) to the motor center, $F_{M_i}$ is the thrust force exerted by each motor, and $\omega_i$ is the angular velocity of each motor, with $i = 1,2,3,4$. 
 \\\\
-In this configuration, the body-frame axes $x$ and $y$, coincide with the lines that connect motors of opposite sides in the quadrotor's frame. This means that, in order to change the pitch or roll angles, only the angular velocities $\omega_i$ of two motors must be modified, ($\omega_1$, $\omega_3$) for pitch,  and ($\omega_2$, $\omega_4$) for roll. Here, $M_1$ is considered as the front motor, $M_3$ as the rear one, $M_2$ as the right motor, and $M_4$ as the left motor.
+In this configuration, the body-frame axes $x$ and $y$, coincide with the lines that connect motors of opposite sides in the quadrotor frame. This means that, in order to change the pitch or roll angles, only the angular velocities $\omega_i$ of two motors must be modified, ($\omega_1$, $\omega_3$) for pitch,  and ($\omega_2$, $\omega_4$) for roll, while the generated torques for roll and pitch are applied at a distance of $L$ from the quadrotor $CoG$. Here, $M_1$ is considered as the front motor, $M_3$ as the rear one, $M_2$ as the right motor, and $M_4$ as the left motor. 
 \\\\
+Even though the quadrotor has 6 DOF, it is equipped just with four propellers, hence it is not possible to reach a desired set-point for all the DOF, but at maximum four. However, thanks to its structure, it is quite easy to chose the four best controllable variables and to decouple them to make the controller easier. The four quadrotor targets are thus related to the four basic movements which allow the helicopter to reach a certain height and attitude. It follows the description of these basic movements.
+
+
+\subsubsection{Throttle $u$ [$N$]}
+\begin{equation}
+u = \sum_{i=1}^{4}F_{M_i}
+\end{equation}
+
+\subsubsection{Yaw Torque $\tau_{\psi}$ [$N\cdot m$]}
 As can be seen in Fig. \ref{fig:quadcopterplus}, $M_1$ and $M_3$ have a clockwise rotation while $M_2$ and $M_4$ rotate counter-clockwise. This configuration of opposite pairs rotational directions allows the system to control its conservation of momentum and thus change its yaw angle in a controlled manner without the need of a tail rotor used in the standard helicopter structure (\cite{Bresciani2008}). In `+' configuration, the fact that the pitch and roll angles are controlled using only two motors that rotate in the same direction, leads to large changes in the thrust force of the other two motors to achieve momentum conservation.
+\begin{equation}
+\tau_{\psi} = K_{m}(F_{M_2} + F_{M_4} - F_{M_1} - F_{M_3})
+\end{equation}
+
+\subsubsection{Roll Torque $\tau_{\theta}$ [$N\cdot m$]}
+\begin{equation}
+\tau_{\theta} = L(F_{M_4}-F_{M_2})
+\end{equation}
+
+\subsubsection{Pitch Torque $\tau_{\phi}$ [$N\cdot m$]}
+\begin{equation}
+\tau_{\phi} = L(F_{M_3}-F_{M_1})
+\end{equation}
+
+\subsubsection{Inputs Setting in `+' Configuration}
+\begin{equation}
+	U = \begin{bmatrix}
+	u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	0 & -L & 0 & L\\[5pt]
+	-L & 0 & L & 0
+							\end{bmatrix}
+\begin{bmatrix}
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}
+	\label{ec:U_X}						
+\end{equation}
 
 \subsection{`X' Configuration}
-In `X' configuration, the quadrotor's frame is rotated $\pi/4\ rad$ about the $z$-axis in the body-frame with respect to the `+' configuration, as shown in Fig. \ref{fig:quadrotorX}. 
-
-In this case, the front-line in the quadrotor is set between $M_1$ and $M_4$.
+Following the same nomenclature used in the `+' configuration, in `X' configuration, the quadrotor frame is rotated $\pi/4\ rad$ about the $z$-axis in the body-frame, as shown in Fig. \ref{fig:quadrotorX}. 
+\\\\
+In this case, the front-line in the quadrotor is set between $M_1$ and $M_4$, while $M_2$ and $M_3$ define its back line. Using the `X' configuration, the roll and pitch angles are changed using the forces exerted by all the motors, and not just by two of them. On the other hand, the pitch and roll torques are applied on the axes at a distance $L_X = L\cdot \cos(\pi/4)$. Thereby, the quadrotor has $2\cdot \cos(\pi/4)$ times more available torque to rotate around the $x$ and $y$ axes, when compare with the `+' configuration.
 
 \begin{figure}[H]
 \begin{center}
-% Use the relevant command to insert your figure file.
-% For example, with the graphicx package use
   \includegraphics[width=0.97\textwidth]{quadcopter1.eps}
 % figure caption is below the figure
 \caption{Quadrotor geometry in `X' configuration} 
@@ -68,52 +110,51 @@ In this case, the front-line in the quadrotor is set between $M_1$ and $M_4$.
     \end{center}
 \end{figure}
 
-
-\section{Quadrotors' Inputs}
-\label{sec:inputs}
-In this section, 
-
-\subsection{Inputs Description}
-iyhhkhjjkhkjhhjk
-
-\subsubsection{Throttle ($u$ [$N$])}
-
-\subsubsection{Yaw Torque ($\tau_{\psi}$ [$N\cdot m$])}
-
-\subsubsection{Roll Torque ($\tau_{\theta}$ [$N\cdot m$])}
-
-\subsubsection{Pitch Torque ($\tau_{\phi}$ [$N\cdot m$])}
-
-\subsection{Inputs Setting in `+' Configuration}
+\subsubsection{Throttle $u$ [$N$]}
 \begin{equation}
-	\tau = \begin{bmatrix}
-	\tau_{\psi}\\[5pt]
-	\tau_{\theta}\\[5pt]
-	\tau_{\phi}
-	\end{bmatrix} = \begin{bmatrix}
-								K_{m}(F_{M_2} + F_{M_4} - F_{M_1} - F_{M_3})\\[5pt]
-								L(F_{4}-F_{2})\\[5pt]
-								L(F_{3}-F_{1})
-							\end{bmatrix},
-	\label{ec:torques2}						
+u = \sum_{i=1}^{4}F_{M_i}
 \end{equation}
-\subsection{Inputs Setting in `X' Configuration}
-$L_{X} = L\cdot \cos\left(\pi/4\right)$ is the real distance between the point of application of the rolling and pitching torques and the quadrotor's center of mass along the $x$ and $y$ axes \cite{Faessler2016}.
+
+\subsubsection{Yaw Torque $\tau_{\psi}$ [$N\cdot m$]}
+\begin{equation}
+\tau_{\psi} = K_{m}(F_{M_2} + F_{M_4} - F_{M_1} - F_{M_3})
+\end{equation}
+
+\subsubsection{Roll Torque $\tau_{\theta}$ [$N\cdot m$]}
+\begin{equation}
+\tau_{\theta} = L_{X}(F_{M_3}+F_{M_4}-F_{M_2}-F_{M_1})
+\end{equation}
+
+\subsubsection{Pitch Torque $\tau_{\phi}$ [$N\cdot m$]}
+\begin{equation}
+\tau_{\phi} = L_{X}(F_{M_2}+F_{M_3}-F_{M_1}-F_{M_4})
+\end{equation}
+
+\subsubsection{Inputs Setting in `X' Configuration}
+$L_{X} = L\cdot \cos\left(\pi/4\right)$ is the real distance between the point of application of the rolling and pitching torques and the quadrotor center of mass along the $x$ and $y$ axes \cite{Faessler2016}.
 \\\\
 The rolling, pitching and yawing torques contained in vector $\tau$, are generated using the force exerted by each motor as 
 \begin{equation}
-	\tau = \begin{bmatrix}
+	U = \begin{bmatrix}
+	u\\[5pt]
 	\tau_{\psi}\\[5pt]
 	\tau_{\theta}\\[5pt]
 	\tau_{\phi}
 	\end{bmatrix} = \begin{bmatrix}
-								K_{m}(F_{M_2} + F_{M_4} - F_{M_1} - F_{M_3})\\[5pt]
-								L_{X}(F_{3}+F_{4}-F_{2}-F_{1})\\[10pt]
-								L_{X}(F_{2}+F_{3}-F_{1}-F_{4})
-							\end{bmatrix},
-	\label{ec:torques}						
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	-L_{X} & -L_{X} & L_{X} & L_{X}\\[5pt]
+	-L_{X} & L_{X} & L_{X} & -L_{X}
+							\end{bmatrix}
+\begin{bmatrix}
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}
+	\label{ec:U_X}						
 \end{equation}
-where $ T_{i} $ is the torque produced by each motor along the $z_{b}$ axis, $ L $ is the distance between each motor's rotor and the quadrotor's center of mass, and $L_X$ is the real distance between the point of application of the rolling and pitching torques and the quadrotor's center of mass along the $x_b$ and $y_b$ axes \cite{Faessler2016}.\\\\
+where $ T_{i} $ is the torque produced by each motor along the $z_{b}$ axis, $L$ is the distance between each motor rotor and the quadrotor $CoG$, and $L_X$ is the real distance between the point of application of the rolling and pitching torques and the quadrotor $CoG$ along the $x_b$ and $y_b$ axes \cite{Faessler2016}.\\\\
 
 
 
@@ -135,14 +176,14 @@ where $\xi=\begin{bmatrix}
 x & y & z
 \end{bmatrix}^{T}$ is the vector representing the position of the center of mass of the quadrotor relative to the body reference frame shown in Fig. \ref{fig:marcoreferencia} and $\eta=\begin{bmatrix}
 \psi & \theta & \phi
-\end{bmatrix}^{T}$ represent the quadrotor's attitude.
+\end{bmatrix}^{T}$ represent the quadrotor attitude.
 \\\\
 The Lagrangian of the quadrotor is defined by
 \begin{equation}
 	L(q,\dot{q})=K_{trans}+K_{rot} - U,	
 	\label{ec:lagrangiano}
 \end{equation}
-where $ K_{trans} = \dfrac{m}{2}\dot{\xi}^{T}\dot{\xi} $ is the translational kinetic energy, $ K_{rot} = \dfrac{1}{2}\dot{\eta}^{T}J\dot{\eta} $ is the rotational kinetic energy, $ U=mgz $ is the potential energy, $m$ is the quadrotor's mass , $z$ is the quadrotor's elevation, $g$ is the gravity acceleration magnitude, and $J$ is the inertial matrix. The dynamic model of the quadrotor is derived from the Euler-Lagrange equation
+where $ K_{trans} = \dfrac{m}{2}\dot{\xi}^{T}\dot{\xi} $ is the translational kinetic energy, $ K_{rot} = \dfrac{1}{2}\dot{\eta}^{T}J\dot{\eta} $ is the rotational kinetic energy, $ U=mgz $ is the potential energy, $m$ is the quadrotor mass , $z$ is the quadrotor elevation, $g$ is the gravity acceleration magnitude, and $J$ is the inertial matrix. The dynamic model of the quadrotor is derived from the Euler-Lagrange equation
 \begin{equation}
 	\dfrac{d}{dt}\dfrac{\partial L}{\partial \dot{q}}-\dfrac{\partial L}{\partial q}=
 	\begin{bmatrix}
@@ -161,7 +202,7 @@ C_\theta S_\psi & S_\psi S_\theta S_\phi+C_\phi C_\psi & C_\phi S_\psi S_\theta 
 \end{equation}
 is the rotation matrix from the body to the Earth frame where $C_\theta = \cos\theta$ and $S_\theta = \sin\theta$.
 \\\\
-In the quadrotor's body frame, the translational force $\hat{F_{b}}$ is only applied in the $z_{b}$ axis as shown in Fig. \ref{fig:marcoreferencia}. This force is represented by
+In the quadrotor body-frame, the translational force $\hat{F_{b}}$ is only applied in the $z_{b}$ axis as shown in Fig. \ref{fig:marcoreferencia}. This force is represented by
 \begin{equation}
 	\hat{F_{b}}=\begin{pmatrix}
 	0\\
@@ -214,7 +255,7 @@ where, $\begin{bmatrix}
 u_{1},\ u_{2},\ u_{3}, \ u_{4}
 \end{bmatrix}^{T} = \begin{bmatrix}
 u,\ \tau_{\psi},\ \tau_{\theta},\ \tau_{\phi}
-\end{bmatrix}^{T} $, and $ (J_{xx}, J_{yy}, J_{zz}) $ are the moments of inertia around the quadrotor's body axes \cite{Emam2016, Badr2016}.
+\end{bmatrix}^{T} $, and $ (J_{xx}, J_{yy}, J_{zz}) $ are the moments of inertia around the quadrotor body-frame axes \cite{Emam2016, Badr2016}.
 \\\\
 
 that is a simplified representation of the quadrotor complete model found in \cite{Bouabdallah2007}.

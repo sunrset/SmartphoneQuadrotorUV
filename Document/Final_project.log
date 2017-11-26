@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  20 NOV 2017 18:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  26 NOV 2017 14:19
 entering extended mode
 **./Final_project.tex
 (Final_project.tex
@@ -1415,7 +1415,11 @@ Writing index file Final_project.idx
 
 Writing nomenclature file Final_project.nlo
 (Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
-(tex/2QuadcopterModel.aux) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
+(tex/2QuadcopterModel.aux
+
+LaTeX Warning: Label `ec:U_X' multiply defined.
+
+) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
 (tex/4ControlStrategiesAndEstimation.aux) (tex/5Implementation.aux)
 (tex/conclusions.aux) (tex/publications.aux) (tex/supplementary.aux))
 \openout1 = `Final_project.aux'.
@@ -1505,7 +1509,7 @@ LaTeX Info: Redefining \nameref on input line 80.
 \openout7 = `Final_project.out'.
 
  (tex/OwnTitle.tex
-<./figures/univallelogo.pdf, id=295, 481.8pt x 361.35pt>
+<./figures/univallelogo.pdf, id=279, 481.8pt x 361.35pt>
 File: ./figures/univallelogo.pdf Graphic file (type pdf)
 
 <use ./figures/univallelogo.pdf>
@@ -1587,7 +1591,7 @@ File: uesvect.fd
 
 (tex/1Introduction.tex
 Chapter 1.
-<./figures/quadBasic1.jpg, id=541, 2087.8pt x 1565.85pt>
+<./figures/quadBasic1.jpg, id=521, 2087.8pt x 1565.85pt>
 File: ./figures/quadBasic1.jpg Graphic file (type jpg)
 
 <use ./figures/quadBasic1.jpg>
@@ -1796,7 +1800,7 @@ s-converted-to.pdf ./figures/quadcopterplus.eps>
 (epstopdf)             \includegraphics on input line 43.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopterplus-eps-converted-to.pdf, id=641, 309.155pt x 165.61874pt
+<./figures/quadcopterplus-eps-converted-to.pdf, id=620, 309.155pt x 165.61874pt
 >
 File: ./figures/quadcopterplus-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadcopterplus-eps-converted-to.pdf>
@@ -1819,6 +1823,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--54
  []
 
 [10 <./figures/quadcopterplus-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+[11]
 Package epstopdf Info: Source file: <./figures/quadcopter1.eps>
 (epstopdf)                    date: 2017-11-20 17:06:15
 (epstopdf)                    size: 80274 bytes
@@ -1828,117 +1837,108 @@ Package epstopdf Info: Source file: <./figures/quadcopter1.eps>
 (epstopdf)                    size: 37113 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/quadcopter1-eps-c
 onverted-to.pdf ./figures/quadcopter1.eps>
-(epstopdf)             \includegraphics on input line 64.
+(epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopter1-eps-converted-to.pdf, id=669, 353.32pt x 178.6675pt>
+<./figures/quadcopter1-eps-converted-to.pdf, id=664, 353.32pt x 178.6675pt>
 File: ./figures/quadcopter1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/quadcopter1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/quadcopter1-eps-converted-to.pdf used on inp
-ut line 64.
+ut line 106.
 (pdftex.def)             Requested size: 413.71196pt x 209.20914pt.
-
-Underfull \vbox (badness 2941) has occurred while \output is active []
-
- [11 <./figures/quadcopter1-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+ [12 <./figures/quadcopter1-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 134--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
 
 
-Package natbib Warning: Citation `modelamiento' on page 12 undefined on input l
-ine 123.
+Package natbib Warning: Citation `modelamiento' on page 13 undefined on input l
+ine 164.
 
 
-Package natbib Warning: Citation `modelamientoPDAFC' on page 12 undefined on in
-put line 123.
+Package natbib Warning: Citation `modelamientoPDAFC' on page 13 undefined on in
+put line 164.
 
 
-Package natbib Warning: Citation `modelamientoNCQ' on page 12 undefined on inpu
-t line 123.
-
-[12]
-
-LaTeX Warning: Reference `fig:marcoreferencia' on page 13 undefined on input li
-ne 136.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--141
-
- []
-
-
-LaTeX Warning: Reference `fig:marcoreferencia' on page 13 undefined on input li
-ne 164.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--165
-
- []
+Package natbib Warning: Citation `modelamientoNCQ' on page 13 undefined on inpu
+t line 164.
 
 
 LaTeX Warning: Reference `fig:marcoreferencia' on page 13 undefined on input li
 ne 177.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--180
-
- []
-
-
-LaTeX Warning: Reference `sec:Implementation' on page 13 undefined on input lin
-e 184.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--187
+Underfull \hbox (badness 10000) in paragraph at lines 174--182
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 212--219
+
+LaTeX Warning: Reference `fig:marcoreferencia' on page 14 undefined on input li
+ne 205.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--219
+LaTeX Warning: Reference `fig:marcoreferencia' on page 14 undefined on input li
+ne 218.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--236
+LaTeX Warning: Reference `sec:Implementation' on page 14 undefined on input lin
+e 225.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--228
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 253--260
 
  []
 
 
-Underfull \vbox (badness 1789) has occurred while \output is active []
-
- [14]
-Underfull \hbox (badness 10000) in paragraph at lines 263--267
+Underfull \hbox (badness 10000) in paragraph at lines 253--260
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 270--277
 
- [15]
-Overfull \hbox (262.91869pt too wide) in paragraph at lines 340--342
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 304--308
+
+ []
+
+[16]
+Overfull \hbox (262.91869pt too wide) in paragraph at lines 381--383
 [][]$\OT1/cmtt/m/n/12 https : / / robotics . stackexchange . com / questions / 
 4247 / tilt-[]compensated-[]motor-[]output-[]to-[]keep-[]altitude-[]for-[]quadc
 opter$[][]
  []
 
-[16]) [17]
+) [17]
 \openout2 = `tex/3SmartphoneBasedQuadrotorPrototype.aux'.
 
  (tex/3SmartphoneBasedQuadrotorPrototype.tex [18
@@ -1959,7 +1959,7 @@ eps-converted-to.pdf ./figures/hardwareOverview.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hardwareOverview-eps-converted-to.pdf, id=773, 346.29375pt x 152.57p
+<./figures/hardwareOverview-eps-converted-to.pdf, id=767, 346.29375pt x 152.57p
 t>
 File: ./figures/hardwareOverview-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hardwareOverview-eps-converted-to.pdf>
@@ -1975,7 +1975,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--12
 Underfull \vbox (badness 1418) has occurred while \output is active []
 
  [19 <./figures/hardwareOverview-eps-converted-to.pdf>]
-<./figures/lji500x4.jpg, id=800, 376.40625pt x 228.10219pt>
+<./figures/lji500x4.jpg, id=794, 376.40625pt x 228.10219pt>
 File: ./figures/lji500x4.jpg Graphic file (type jpg)
 
 <use ./figures/lji500x4.jpg>
@@ -1987,7 +1987,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--30
  []
 
 [20 <./figures/lji500x4.jpg>]
-<./figures/nexus5x.jpg, id=814, 285.31593pt x 332.74312pt>
+<./figures/nexus5x.jpg, id=808, 285.31593pt x 332.74312pt>
 File: ./figures/nexus5x.jpg Graphic file (type jpg)
 
 <use ./figures/nexus5x.jpg>
@@ -2017,14 +2017,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--64
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [21 <./figures/nexus5x.jpg>]
-<./figures/emax2216II2.png, id=826, 400.49625pt x 335.00156pt>
+<./figures/emax2216II2.png, id=820, 400.49625pt x 335.00156pt>
 File: ./figures/emax2216II2.png Graphic file (type png)
 
 <use ./figures/emax2216II2.png>
 Package pdftex.def Info: ./figures/emax2216II2.png used on input line 72.
 (pdftex.def)             Requested size: 159.3356pt x 133.2775pt.
 
-<./figures/emax4in1.jpg, id=828, 319.1925pt x 218.8175pt>
+<./figures/emax4in1.jpg, id=822, 319.1925pt x 218.8175pt>
 File: ./figures/emax4in1.jpg Graphic file (type jpg)
 
 <use ./figures/emax4in1.jpg>
@@ -2044,7 +2044,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--84
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
-<./figures/megaADK.jpg, id=840, 451.6875pt x 329.73187pt>
+<./figures/megaADK.jpg, id=834, 451.6875pt x 329.73187pt>
 File: ./figures/megaADK.jpg Graphic file (type jpg)
 
 <use ./figures/megaADK.jpg>
@@ -2060,7 +2060,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
 
-<./figures/floureon.jpg, id=851, 1003.75pt x 300.12125pt>
+<./figures/floureon.jpg, id=845, 1003.75pt x 300.12125pt>
 File: ./figures/floureon.jpg Graphic file (type jpg)
 
 <use ./figures/floureon.jpg>
@@ -2071,7 +2071,7 @@ Package pdftex.def Info: ./figures/floureon.jpg used on input line 125.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [24 <./figures/megaADK.jpg>]
-<./figures/phonesupport2.png, id=861, 516.42938pt x 295.85532pt>
+<./figures/phonesupport2.png, id=855, 516.42938pt x 295.85532pt>
 File: ./figures/phonesupport2.png Graphic file (type png)
 
 <use ./figures/phonesupport2.png>
@@ -2081,21 +2081,21 @@ Package pdftex.def Info: ./figures/phonesupport2.png used on input line 139.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/megasupport2.png, id=863, 521.69907pt x 280.79906pt>
+<./figures/megasupport2.png, id=857, 521.69907pt x 280.79906pt>
 File: ./figures/megasupport2.png Graphic file (type png)
 
 <use ./figures/megasupport2.png>
 Package pdftex.def Info: ./figures/megasupport2.png used on input line 150.
 (pdftex.def)             Requested size: 199.16928pt x 107.20177pt.
 
-<./figures/escsupport2.png, id=864, 539.76656pt x 201.00093pt>
+<./figures/escsupport2.png, id=858, 539.76656pt x 201.00093pt>
 File: ./figures/escsupport2.png Graphic file (type png)
 
 <use ./figures/escsupport2.png>
 Package pdftex.def Info: ./figures/escsupport2.png used on input line 156.
 (pdftex.def)             Requested size: 199.16928pt x 74.16675pt.
 
-<./figures/megaandescsupport2.png, id=865, 518.6878pt x 281.55188pt>
+<./figures/megaandescsupport2.png, id=859, 518.6878pt x 281.55188pt>
 File: ./figures/megaandescsupport2.png Graphic file (type png)
 
 <use ./figures/megaandescsupport2.png>
@@ -2103,7 +2103,7 @@ Package pdftex.def Info: ./figures/megaandescsupport2.png used on input line 16
 2.
 (pdftex.def)             Requested size: 199.16928pt x 108.1121pt.
  [25 <./figures/floureon.jpg>]
-<./figures/dome2.png, id=874, 517.935pt x 346.29375pt>
+<./figures/dome2.png, id=868, 517.935pt x 346.29375pt>
 File: ./figures/dome2.png Graphic file (type png)
 
 <use ./figures/dome2.png>
@@ -2111,7 +2111,7 @@ Package pdftex.def Info: ./figures/dome2.png used on input line 174.
 (pdftex.def)             Requested size: 244.69386pt x 163.60352pt.
  [26 <./figures/phonesupport2.png> <./figures/megasupport2.png> <./figures/escs
 upport2.png> <./figures/megaandescsupport2.png>]
-<./figures/complete.jpg, id=885, 4047.12pt x 3035.34pt>
+<./figures/complete.jpg, id=879, 4047.12pt x 3035.34pt>
 File: ./figures/complete.jpg Graphic file (type jpg)
 
 <use ./figures/complete.jpg>
@@ -2144,7 +2144,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorInertia1-eps-converted-to.pdf, id=906, 174.6525pt x 177.663
+<./figures/quadrotorInertia1-eps-converted-to.pdf, id=900, 174.6525pt x 177.663
 76pt>
 File: ./figures/quadrotorInertia1-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorInertia1-eps-converted-to.pdf>
@@ -2172,7 +2172,7 @@ Package epstopdf Info: Source file: <./figures/Ixx.eps>
 -to.pdf ./figures/Ixx.eps>
 (epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
- <./figures/Ixx-eps-converted-to.pdf, id=920, 380.42125pt x 292.09125pt>
+ <./figures/Ixx-eps-converted-to.pdf, id=914, 380.42125pt x 292.09125pt>
 File: ./figures/Ixx-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Ixx-eps-converted-to.pdf>
@@ -2190,7 +2190,7 @@ Package epstopdf Info: Source file: <./figures/Iyy.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Iyy-eps-converted-to.pdf, id=921, 380.42125pt x 293.095pt>
+<./figures/Iyy-eps-converted-to.pdf, id=915, 380.42125pt x 293.095pt>
 File: ./figures/Iyy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Iyy-eps-converted-to.pdf>
@@ -2208,7 +2208,7 @@ Package epstopdf Info: Source file: <./figures/Izz.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Izz-eps-converted-to.pdf, id=922, 388.45125pt x 292.09125pt>
+<./figures/Izz-eps-converted-to.pdf, id=916, 388.45125pt x 292.09125pt>
 File: ./figures/Izz-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Izz-eps-converted-to.pdf>
@@ -2239,7 +2239,7 @@ Package epstopdf Info: Source file: <./figures/thrustTest.eps>
 nverted-to.pdf ./figures/thrustTest.eps>
 (epstopdf)             \includegraphics on input line 296.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/thrustTest-eps-converted-to.pdf, id=941, 72.27pt x 72.27pt>
+<./figures/thrustTest-eps-converted-to.pdf, id=935, 72.27pt x 72.27pt>
 File: ./figures/thrustTest-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/thrustTest-eps-converted-to.pdf>
@@ -2273,7 +2273,7 @@ onverted-to.pdf ./figures/motorNvsPWM.eps>
 (epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/motorNvsPWM-eps-converted-to.pdf, id=953, 373.395pt x 299.1175pt>
+<./figures/motorNvsPWM-eps-converted-to.pdf, id=947, 373.395pt x 299.1175pt>
 File: ./figures/motorNvsPWM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorNvsPWM-eps-converted-to.pdf>
@@ -2292,7 +2292,7 @@ onverted-to.pdf ./figures/motorPWMvsN.eps>
 (epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/motorPWMvsN-eps-converted-to.pdf, id=954, 383.4325pt x 295.1025pt>
+<./figures/motorPWMvsN-eps-converted-to.pdf, id=948, 383.4325pt x 295.1025pt>
 File: ./figures/motorPWMvsN-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorPWMvsN-eps-converted-to.pdf>
@@ -2323,7 +2323,7 @@ ps-converted-to.pdf ./figures/quadrotorTorque.eps>
 (epstopdf)             \includegraphics on input line 344.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorTorque-eps-converted-to.pdf, id=976, 159.59625pt x 186.6975
+<./figures/quadrotorTorque-eps-converted-to.pdf, id=970, 159.59625pt x 186.6975
 pt>
 File: ./figures/quadrotorTorque-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorTorque-eps-converted-to.pdf>
@@ -2348,7 +2348,7 @@ verted-to.pdf ./figures/torque_id.eps>
 (epstopdf)             \includegraphics on input line 356.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/torque_id-eps-converted-to.pdf, id=992, 378.41376pt x 293.095pt>
+<./figures/torque_id-eps-converted-to.pdf, id=986, 378.41376pt x 293.095pt>
 File: ./figures/torque_id-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/torque_id-eps-converted-to.pdf>
@@ -2378,7 +2378,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--43
 
  []
 
-<./figures/lqgsim.pdf, id=1039, 405.83575pt x 77.89697pt>
+<./figures/lqgsim.pdf, id=1033, 405.83575pt x 77.89697pt>
 File: ./figures/lqgsim.pdf Graphic file (type pdf)
 
 <use ./figures/lqgsim.pdf>
@@ -2398,7 +2398,7 @@ Package epstopdf Info: Source file: <./figures/LQGvgain.eps>
 erted-to.pdf ./figures/LQGvgain.eps>
 (epstopdf)             \includegraphics on input line 65.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/LQGvgain-eps-converted-to.pdf, id=1041, 161.60374pt x 34.1275pt>
+<./figures/LQGvgain-eps-converted-to.pdf, id=1035, 161.60374pt x 34.1275pt>
 File: ./figures/LQGvgain-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/LQGvgain-eps-converted-to.pdf>
@@ -2437,7 +2437,7 @@ s-converted-to.pdf ./figures/augmentedPlant.eps>
 (epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/augmentedPlant-eps-converted-to.pdf, id=1044, 187.70125pt x 105.3937
+<./figures/augmentedPlant-eps-converted-to.pdf, id=1038, 187.70125pt x 105.3937
 5pt>
 File: ./figures/augmentedPlant-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/augmentedPlant-eps-converted-to.pdf>
@@ -2449,7 +2449,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--82
 
  []
 
-[38] <./figures/hinfcontroller.pdf, id=1058, 405.83575pt x 77.89697pt>
+[38] <./figures/hinfcontroller.pdf, id=1052, 405.83575pt x 77.89697pt>
 File: ./figures/hinfcontroller.pdf Graphic file (type pdf)
 
 <use ./figures/hinfcontroller.pdf>
@@ -2462,7 +2462,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--107
 
 [39 <./figures/lqgsim.pdf> <./figures/LQGvgain-eps-converted-to.pdf> <./figures
 /augmentedPlant-eps-converted-to.pdf>]
-<./figures/HSV.pdf, id=1100, 239.64923pt x 195.50256pt>
+<./figures/HSV.pdf, id=1094, 239.64923pt x 195.50256pt>
 File: ./figures/HSV.pdf Graphic file (type pdf)
 
 <use ./figures/HSV.pdf>
@@ -2642,18 +2642,21 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
 Package rerunfilecheck Info: File `Final_project.out' has not changed.
-(rerunfilecheck)             Checksum: 810E880E77330350831DE9DA5A3FEAC6;5069.
+(rerunfilecheck)             Checksum: C14ADDA1CD2B70F5B0235CA39287B590;4749.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 26493 strings out of 493333
- 463373 string characters out of 3139198
- 587767 words of memory out of 3000000
- 29150 multiletter control sequences out of 15000+200000
+ 26497 strings out of 493333
+ 463404 string characters out of 3139198
+ 584707 words of memory out of 3000000
+ 29144 multiletter control sequences out of 15000+200000
  554111 words of font info for 121 fonts, out of 3000000 for 9000
  1170 hyphenation exceptions out of 8191
  53i,27n,92p,10362b,553s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2679,9 +2682,9 @@ cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/U
 sers/Asus/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/esvect/vect10.pfb><C:/U
 sers/Asus/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/esvect/vect8.pfb>
-Output written on Final_project.pdf (75 pages, 6294244 bytes).
+Output written on Final_project.pdf (75 pages, 6274194 bytes).
 PDF statistics:
- 1437 PDF objects out of 1440 (max. 8388607)
- 304 named destinations out of 1000 (max. 500000)
- 740 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1433 PDF objects out of 1440 (max. 8388607)
+ 314 named destinations out of 1000 (max. 500000)
+ 708 words of extra memory for PDF output out of 10000 (max. 10000000)
 

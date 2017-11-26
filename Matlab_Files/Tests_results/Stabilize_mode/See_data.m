@@ -1,7 +1,7 @@
 %% Set data
     clear;
     clc;
-    filename = 'Tests-10-nov/dataFlightController-2017-11-10-113839.quv';
+    filename = 'Tests-23-nov/dataFlightController-2017-11-23-143932-posPro.quv';
     data = csvread(filename);
 
     t = (data(:,1)-data(1,1))./1000;
@@ -35,14 +35,18 @@
     acc_x = data(:,29);
     acc_y = data(:,30);
     acc_z = data(:,31);
-    altHkf_z = data(:,32);
-    altHkf_zdot = data(:,33);
-    altHkf_psi = data(:,34);
-    altHkf_psidot = data(:,35);
-    altHkf_theta = data(:,36);
-    altHkf_thetadot = data(:,37);
-    altHkf_phi = data(:,38);
-    altHkf_phidot = data(:,39);
+    altHkf_x = data(:,32);
+    altHkf_xdot = data(:,33);
+    altHkf_y = data(:,34);
+    altHkf_ydot = data(:,35);
+    altHkf_z = data(:,36);
+    altHkf_zdot = data(:,37);
+    altHkf_psi = data(:,38);
+    altHkf_psidot = data(:,39);
+    altHkf_theta = data(:,40);
+    altHkf_thetadot = data(:,41);
+    altHkf_phi = data(:,42);
+    altHkf_phidot = data(:,43);
 
 %% Plot data
     figure(2);
@@ -80,17 +84,17 @@
 
     figure(300);
     subplot(1,3,1);
-    plot(t,phi,'g',t,altHkf_phi,'r');
+    plot(t,phi,'g',t,(180/pi)*altHkf_phi,'r');
     leg1 = legend('$\phi$','$\phi_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Pitch ($\phi$) comparison','Interpreter','latex')
     subplot(1,3,2);
-    plot(t,theta,'g',t,altHkf_theta,'r');
+    plot(t,theta,'g',t,(180/pi)*altHkf_theta,'r');
     leg1 = legend('$\theta$','$\theta_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Roll ($\theta$) comparison','Interpreter','latex')
     subplot(1,3,3);
-    plot(t,psi-65,'g',t,-1.*altHkf_psi,'r');
+    plot(t,psi-65,'g',t,(180/pi)*altHkf_psi,'r');
     leg1 = legend('$\psi$','$\psi_{altKF}$');
     set(leg1,'Interpreter','latex');
     title('Yaw ($\psi$) comparison','Interpreter','latex')

@@ -245,6 +245,7 @@ public class MissionActivity extends AppCompatActivity{
     protected void onDestroy(){
         if(!backPressed) {
             mDataExchange.stopTCPserver();
+            mFlightController.adkCommunicator.stop();
             mFlightController.stopAcquiring();
             //mFlightController.mDataCollection.unregister();
             backPressed = false;

@@ -13,14 +13,13 @@ public class AltHoldKalmanFilter {
 
     private static final double dt = 0.01; //Our sample time
     private static final double Q_val = 0.05;
-    private static final double R_val = 1;
+    //private static final double R_val = 1;
+    private static final double R_val = 10;
     public double x_ic, y_ic, z_ic, psi_ic, theta_ic, phi_ic = 0;
 
     double[] ic, x_hat;
     DMatrixRMaj xhat_k_1, P_k_1, A, B, Q, Ro, H, z, U;
     KalmanFilterTotal f;
-    float QUAD_MASS = 1.568f; // [kg]
-    final float GRAVITY = 9.807f; // [m/s^2]
 
     public AltHoldKalmanFilter(Context context) {
         mInitialConditions = new InitialConditions(context);
@@ -37,27 +36,31 @@ public class AltHoldKalmanFilter {
 
         f = new KalmanFilterOperationsTotal();
 
-        ic = new double[]{z_ic , 0 , psi_ic , 0 , theta_ic , 0 , phi_ic , 0 };
-        xhat_k_1 = new DMatrixRMaj(8, 1, true, ic);
-        P_k_1 = new DMatrixRMaj(8,8); //9x9 matrix of zeros
+        ic = new double[]{x_ic, 0 , y_ic, 0, z_ic , 0 , psi_ic , 0 , theta_ic , 0 , phi_ic , 0 };
+        xhat_k_1 = new DMatrixRMaj(12, 1, true, ic);
+        P_k_1 = new DMatrixRMaj(12,12); //9x9 matrix of zeros
 
-        A = createA();
-        B = createB(mass, i_xx, i_yy, i_zz);
-        Q = createQ(dt*Q_val);
-        Ro = createR(R_val);
-        H = createH();
-        z = new DMatrixRMaj(7, 1); //7x1 vector of zeros
-        x_hat = new double[8];
+        A = createAfull();
+        B = createBfull();
+        Q = createQfull(dt*Q_val);
+        Ro = createR_6(R_val); // full
+        H = createH_6(); //full
+        z = new DMatrixRMaj(6, 1); //9x1 vector of zeros
+        x_hat = new double[12];
 
         f.configure(A,B,Q,H);
         f.setState(xhat_k_1, P_k_1);
 
-        QUAD_MASS = mass*1.2f;
     }
 
-    public void executeAltHoldKF(float posz, float psi, float psi_dot, float theta, float theta_dot, float phi, float phi_dot, float[] u){
-        z.setData(new double[]{posz,psi,psi_dot,theta,theta_dot,phi,phi_dot});
-        U = new DMatrixRMaj(4,1, true, new double[]{(u[0]-17.438f),u[1],u[2],u[3]});
+    //public void executeAltHoldKF(float posx, float posy, float posz, float psi, float psi_dot, float theta, float theta_dot, float phi, float phi_dot, float[] u){
+    //public void executeAltHoldKF(float posx, float posy, float posz, float psi, float theta, float phi, float[] u, float MG){public void executeAltHoldKF(float posx, float posy, float posz, float psi, float theta, float phi, float[] u, float MG){
+    //public void executeAltHoldKF(float posx, float posy, float posz, float psi, float psi_dot, float theta, float theta_dot, float phi, float phi_dot, float u, float tau_psi, float tau_theta, float tau_phi){
+    public void executeAltHoldKF(float posx, float posy, float posz, float psi, float theta, float phi, float u, float tau_psi, float tau_theta, float tau_phi){
+        //z.setData(new double[]{posx, posy, posz,psi,psi_dot,theta,theta_dot,phi,phi_dot});
+        z.setData(new double[]{posx, posy, posz, psi, theta, phi});
+        //U = new DMatrixRMaj(4,1, true, new double[]{(-u[0]+17.74),-u[1]/10,-u[2]/10,-u[3]/10});
+        U = new DMatrixRMaj(4,1, true, new double[]{-u,-tau_psi/10,-tau_theta/10,-tau_phi/10});
         f.predict(U);
         f.update(z,Ro);
     }
@@ -67,66 +70,104 @@ public class AltHoldKalmanFilter {
         return x_hat;
     }
 
-    public static DMatrixRMaj createA() {
+    public static DMatrixRMaj createAfull() {
         double []a = new double[]{
-                0, 1 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 1 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 1 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 1 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 };
-        return new DMatrixRMaj(8,8, true, a);
+                1,  0.01, 0 , 0 ,  0 , 0 ,  0 , 0 , 0.0004903 , 0.000001634 , 0 , 0 ,
+                0,  1,    0 , 0 ,  0 , 0 ,  0 , 0 , 0.09807 , 0.0004903 , 0 , 0 ,
+                0,  0,    1, 0.01, 0 , 0 ,  0 , 0 , 0 , 0 , 0.0004903 , 0.000001634,
+                0,  0,    0 , 1 ,  0 , 0 ,  0 , 0 , 0 , 0 , 0.09807 , 0.0004903 ,
+                0 , 0,    0,  0 ,  1, 0.01, 0 , 0 , 0 , 0 , 0 , 0 ,
+                0,  0,    0 , 0 ,  0 , 1 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0,  0,    0,  0 ,  0 , 0 , 1 , 0.01 , 0 , 0 , 0 , 0 ,
+                0,  0,    0 , 0 ,  0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 ,
+                0,  0,    0,  0 ,  0 , 0 , 0 , 0 , 1 , 0.01 , 0 , 0 ,
+                0,  0,    0 , 0 ,  0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ,
+                0,  0,    0,  0 ,  0 , 0 , 0 , 0 , 0 , 0 , 1 , 0.01 ,
+                0,  0,    0 , 0 ,  0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 };
+        return new DMatrixRMaj(12,12, true, a);
     }
 
-    public static DMatrixRMaj createB(double m, double i_xx, double i_yy, double i_zz ) {
+    public static DMatrixRMaj createBfull() {
         double []b = new double[]{
-                0,     0 ,       0 ,       0 ,
-                (1/m), 0 ,       0 ,       0,
-                0,     0 ,       0 ,       0 ,
-                0,     (1/i_zz), 0 ,       0 ,
-                0,     0 ,       0 ,       0 ,
-                0,     0 ,       (1/i_yy), 0 ,
-                0,     0 ,       0 ,       0 ,
-                0,     0 ,       0 ,       (1/i_xx) };
-        return new DMatrixRMaj(8,4, true, b);
+                0 ,         0 ,   0.0000003295, 0 ,
+                0 ,         0 ,    0.0001318 ,  0 ,
+                0 ,         0 ,       0 ,    0.0000003027 ,
+                0 ,         0 ,       0 ,     0.0001211 ,
+                0.00003189, 0 ,       0 ,       0 ,
+                0.006378,   0 ,       0 ,       0,
+                0,          0.001488, 0 ,       0 ,
+                0,          0.2976,   0 ,       0 ,
+                0,          0 ,       0.004032, 0 ,
+                0,          0 ,       0.8065,   0 ,
+                0,          0 ,       0 ,       0.003704,
+                0,          0 ,       0 ,       0.7407};
+        return new DMatrixRMaj(12,4, true, b);
     }
 
-    public static DMatrixRMaj createQ(double var) {
+    public static DMatrixRMaj createQfull(double var) {
         double []q = new double[]{
-                var, 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, var , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , var , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , var , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , var , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , var , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , var , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , var};
-        return new DMatrixRMaj(8,8, true, q);
+                var*10, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, var , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , var*10 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , var , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , var*10 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , var , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , var , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , var , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , var , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , var , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , var , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , var };
+        return new DMatrixRMaj(12,12, true, q);
     }
 
-    public static DMatrixRMaj createH() {
+    public static DMatrixRMaj createHfull() {
         double []h = new double[]{
-                1, 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 1 , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 1 , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 1 , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 1 , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
-                0, 0 , 0 , 0 , 0 , 0 , 0 , 1 };
-        return new DMatrixRMaj(7,8, true, h);
+                1, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 };
+        return new DMatrixRMaj(9,12, true, h);
     }
 
-    public static DMatrixRMaj createR(double var) {
+    public static DMatrixRMaj createRfull(double var) {
         double []r = new double[]{
-                var*1000, 0 , 0 , 0 , 0 , 0 , 0 ,
-                0, var , 0 , 0 , 0 , 0 , 0 ,
-                0, 0 , var , 0 , 0 , 0 , 0 ,
-                0, 0 , 0 , var , 0 , 0 , 0 ,
-                0, 0 , 0 , 0 , var , 0 , 0 ,
-                0, 0 , 0 , 0 , 0 , var , 0 ,
-                0, 0 , 0 , 0 , 0 , 0, var };
-        return new DMatrixRMaj(7,7, true, r);
+                var*1000, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, var*1000 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , var*1000 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , var , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , var , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , var , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0, var , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0, 0 , var , 0 ,
+                0, 0 , 0 , 0 , 0 , 0, 0 , 0 , var};
+        return new DMatrixRMaj(9,9, true, r);
+    }
+
+    public static DMatrixRMaj createR_6(double var) {
+        double []r = new double[]{
+                var*1000, 0 , 0 , 0 , 0 , 0 ,
+                0, var*1000 , 0 , 0 , 0 , 0 ,
+                0, 0 , var*1000 , 0 , 0 , 0 ,
+                0, 0 , 0 , var , 0 , 0 ,
+                0, 0 , 0 , 0 , var , 0 ,
+                0, 0 , 0 , 0 , 0 , var };
+        return new DMatrixRMaj(6,6, true, r);
+    }
+
+    public static DMatrixRMaj createH_6() {
+        double []h = new double[]{
+                1, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,
+                0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 };
+        return new DMatrixRMaj(6,12, true, h);
     }
 }

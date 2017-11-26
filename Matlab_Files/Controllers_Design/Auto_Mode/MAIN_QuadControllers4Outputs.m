@@ -194,11 +194,11 @@
                     z_wght = 0.001/3;
                     zdot_wght = 0.03/3;
                     psi_wght = 0.175/3;
-                    psidot_wght = 0.03/3; % 0.4/3
+                    psidot_wght = 0.4/3; % 0.4/3
                     theta_wght = 0.175/3;
-                    thetadot_wght = 0.03/3;
+                    thetadot_wght = 0.4/3;
                     phi_wght = 0.175/3;
-                    phidot_wght = 0.03/3; %0.4/3
+                    phidot_wght = 0.4/3; %0.4/3
                     
                     weights = [x_wght xdot_wght y_wght ydot_wght z_wght zdot_wght psi_wght psidot_wght theta_wght thetadot_wght phi_wght phidot_wght];
                     maxs = [pos_max dpos_max pos_max dpos_max pos_max dpos_max att_max datt_max att_max datt_max att_max datt_max];
@@ -212,10 +212,11 @@
                     %rho = 0.7;       %rho small --> large control effort, good performance
                                      %rho large --> small control effort, poor performance
                     %R = rho*eye(4);
-
+                    Gss_d = c2d(G,Ts,'zoh');
                     [P, eigenvalues, ~] = care(A,B,Q,R);
-                    F = -R\B'*P;
+                    %F = -R\B'*P;
                     %F = -lqr(A,B,Q,R); 
+                    F = -dlqr(Gss_d.A,Gss_d.B,Q,R)
                     %%% The command lqr does the 'care' command internally
 
                 %% LQE Observer Design
@@ -227,7 +228,7 @@
          
 
      %% Simulation 
-            controller = 1;
+            controller = 2;
                 % 1 --> H-inf controller desing
                 % 2 --> LQG controller design
                 % 3 --> Both H-inf and LQG controller design

@@ -45,7 +45,11 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
     BatteryManager bm;
     private int smartphoneBatLevel;
-    private int batteryPercentage = 0;
+    private int batteryPercentage = 1;
+    private float batteryPercentegeDec = 1;
+    private float batteryCorrection = 1;
+    private int batteryLecture = 1;
+    private float batterySmoother = 0.2f;
 
     Timer controllerScheduler;
     ControllerThread controllerThread;
@@ -59,7 +63,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public SaveFile mSaveFile;
     private ArrayList<String> dataList, listToSave;
 
-    public final float QUAD_MASS = 1.600f; // 1.568 [kg]
+    public final float QUAD_MASS = 1.568f; // 1.568 [kg]
     public final float GRAVITY = 9.807f; // [m/s^2]
     private final float I_XX = 0.0135f;
     private final float I_YY = 0.0124f;
@@ -81,16 +85,19 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public float Phi_ref = 0f;
     public float Phidot_ref = 0f;
 
-    public float Throttle = 0f;
+    public float Throttle = 0f; //[N]
 
     private double this_x, this_y, this_z, this_xdot, this_ydot, this_zdot;
     private double this_x_1, this_y_1, this_xdot_1, this_ydot_1;
+    private double this_xKF, this_yKF, this_zKF, this_xdotKF, this_ydotKF, this_zdotKF;
 
     private String FlightMode = "nothing";
 
     public float[] Motor_Forces = new float[4];
 
     private float Thrust_Compensation;
+
+    private PidRegulator xControl, yControl, zControl;
 
     public FlightController(Context ctx, Activity act){
 
@@ -116,6 +123,10 @@ public class FlightController implements AdkCommunicator.AdbListener {
         mSaveFile = new SaveFile(ctx, act);                         // Data logging class
         dataList = new ArrayList<>();
         listToSave = new ArrayList<>();
+
+        xControl = new PidRegulator(0.0f,  0.0f,  0.0f, 0.3f, 0.0f);
+        yControl = new PidRegulator(0.0f,  0.0f,  0.0f, 0.3f, 0.0f);
+        zControl = new PidRegulator(0.0f,  0.0f,  0.0f, 0.3f, 0.0f);
     }
 
     public void acquireData(){
@@ -146,20 +157,27 @@ public class FlightController implements AdkCommunicator.AdbListener {
         controllerThread = new ControllerThread();
         controllerScheduler.schedule(controllerThread, 0, 10);  // The controllerThread is executed each 10 ms
         t = 0;
+
+        xControl.setCoefficients(0.04f, 0.1f, 0.1f);
+        yControl.setCoefficients(0.04f, 0.1f, 0.1f);
+        zControl.setCoefficients(0.04f, 0.1f, 0.1f);
     }
 
     public void stopAcquiring(){
-        //adkCommunicator.stop();
-        //listToSave = dataList;
-        //dataList = new ArrayList<>();
-        ////mDataCollection.unregister();
         mSaveFile.closeFile();
-        //mSaveFile.saveArrayList(listToSave, "dataFlightController");
-        //listToSave = new ArrayList<>();
+
+        xControl.resetIntegrator();
+        yControl.resetIntegrator();
     }
 
     float joystick_gain = 1;
     float joystick_gain2 = 1;
+    float joystick_gain3 = 1;
+    //float M_G_Throttle = 17.74f;
+    float M_G_Throttle = QUAD_MASS*GRAVITY;
+    //float M_G_Throttle = 18.44f;
+    //float M_G_Throttle_init = 18.44f;
+    float M_G_Throttle_init = QUAD_MASS*GRAVITY;
 
     private void ControllerExecution(){
         if(MissionActivity.armed){                          // The control outputs are only set, if the motors are armed
@@ -168,15 +186,12 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
                 //Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.05f; // [N] [-1, 1]
                 Throttle = Throttle + ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(0.005f/50);
-                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.2f*3.1416f/180)/50);
-                if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
-                if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
+                //Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.2f*3.1416f/180)/50);
+                //if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
+                //if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
 
-
-                /*joystick_gain = joystick_gain + ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((0.005f)/50);
-                if(joystick_gain <= 0){joystick_gain = 0;}
-                joystick_gain2 = joystick_gain2 + ((MissionActivity.mDataExchange.rollJoystick)-50f)*((0.005f)/50);
-                if(joystick_gain2 <= 0){joystick_gain2 = 0;}*/
+                joystick_gain3 = joystick_gain3 + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.005f)/50);
+                if(joystick_gain3 <= 0){joystick_gain3 = 0;}
 
                 Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((12*3.1416f/180)/50);
                 Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((12*3.1416f/180)/50);
@@ -184,75 +199,97 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 // LQR controller ---------------------
                 controlSignals[0] = 0f;
                 controlSignals[1] = -1.7045f*(mDataCollection.psi-Psi_ref) - 0.21785f*(mDataCollection.psi_dot-Psidot_ref);
-                controlSignals[2] = -(1.1448f)*(mDataCollection.theta-Theta_ref) - (0.3107f)*(mDataCollection.theta_dot-Thetadot_ref);
-                controlSignals[3] = -(1.2461f)*(mDataCollection.phi-Phi_ref) - (0.3381f)*(mDataCollection.phi_dot-Phidot_ref);
-                // ------------------------------------ 0.7444011,0.7050997
+                controlSignals[2] = -1.5111f*(mDataCollection.theta-Theta_ref) - 0.3107f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.6448f*(mDataCollection.phi-Phi_ref) - 0.3381f*(mDataCollection.phi_dot-Phidot_ref);
+                // ------------------------------------
 
-                Thrust_Compensation = (float)(1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi))));
+                Thrust_Compensation = (float)Math.abs((1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi)))));
 
-                //controlSignals[0] = controlSignals[0] + 17.438f + (Throttle);
-                controlSignals[0] = (controlSignals[0] + 17.438f + (Throttle))*Thrust_Compensation;
-                // TODO: Test the thrust compensation, update the 17.438 N value
-                // TODO: Fix the Kalman Filter to discrete model using the whole model
+                M_G_Throttle = (M_G_Throttle_init) + Throttle;
+                //controlSignals[0] = controlSignals[0] + 19.15128f + (Throttle);
+                controlSignals[0] = (controlSignals[0] + M_G_Throttle)*Thrust_Compensation;
                 //controlSignals[0] = controlSignals[0] + QUAD_MASS*GRAVITY + (Throttle);
                     // QUAD_MASS*GRAVITY is the necessary thrust to overcome gravity [N] 17.438 N
             }
 
             else if(FlightMode.equals("AltHold")){
-                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
-                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
-                if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
-                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
-                Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
-                Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((15*3.1416f/180)/50);
+                //Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
+                Throttle = Throttle + ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(0.001f/50);
+                //Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                //if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
+                //if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+                //Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((10*3.1416f/180)/50);
+                //Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((15*3.1416f/180)/50);
                 Z_ref = Z_ref + Throttle;
                 Log.w("Z_ref ##############","############## Z_REF: "+Z_ref+" ##############");
 
-                // LQR controller ---------------------0.4301
-                controlSignals[0] = -(1.5680f)*(((float)this_z)-Z_ref) - (0.6901f)*(((float)this_zdot)-Zdot_ref);
-                //controlSignals[1] = -1.1459f*(mDataCollection.psi-Psi_ref) - 0.2775f*(mDataCollection.psi_dot-Psidot_ref);
-                //controlSignals[2] = -1.5379f*(mDataCollection.theta-Theta_ref) - 0.4406f*(mDataCollection.theta_dot-Thetadot_ref);
-                //controlSignals[3] = -1.6739f*(mDataCollection.phi-Phi_ref) - 0.4795f*(mDataCollection.phi_dot-Phidot_ref);
-                controlSignals[1] = -(1.7045f)*(mDataCollection.psi-Psi_ref) - (0.21785f)*(mDataCollection.psi_dot-Psidot_ref);
-                controlSignals[2] = -(1.1448f)*(mDataCollection.theta-Theta_ref) - (0.3107f)*(mDataCollection.theta_dot-Thetadot_ref);
-                controlSignals[3] = -(1.2461f)*(mDataCollection.phi-Phi_ref) - (0.3381f)*(mDataCollection.phi_dot-Phidot_ref);
-                // ------------------------------------
-                Thrust_Compensation = (float)(1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi))));
+                joystick_gain = joystick_gain + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.005f)/50);
+                if(joystick_gain <= 0){joystick_gain = 0;}
 
+                //zControl.setCoefficients(0.5f*joystick_gain, 0.03f*joystick_gain2, 0.02f*joystick_gain3);
+                zControl.setCoefficients(0, -0.001f*joystick_gain, 0);
+                controlSignals[0] = zControl.getInput(((float)this_z)-Z_ref, 0.01f);
+
+                // LQR controller ---------------------
+                controlSignals[0] = -1.2442f*(((float)this_z)-Z_ref) - 0.065f*(((float)this_zdot)-Zdot_ref);
+                //controlSignals[0] = -1.2442f*(((float)this_z)-Z_ref) - 0.065f*(((float)this_zdot)-Zdot_ref) + controlSignals[0];
+                controlSignals[1] = -1.7045f*(mDataCollection.psi-Psi_ref) - 0.21785f*(mDataCollection.psi_dot-Psidot_ref);
+                controlSignals[2] = -1.5511f*(mDataCollection.theta-Theta_ref) - 0.3507f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.6848f*(mDataCollection.phi-Phi_ref) - 0.3781f*(mDataCollection.phi_dot-Phidot_ref);
+                // ------------------------------------
+                Thrust_Compensation = (float)Math.abs((1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi)))));
+
+                M_G_Throttle = M_G_Throttle_init;
                 //controlSignals[0] = controlSignals[0] + 17.438f;
-                controlSignals[0] = (controlSignals[0] + 17.438f)*Thrust_Compensation;
+                controlSignals[0] = (controlSignals[0] + M_G_Throttle)*Thrust_Compensation;
                 // QUAD_MASS*GRAVITY is the necessary thrust to overcome gravity [N]
             }
             else if(FlightMode.equals("Loiter")){
-                Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
-                //if(Psi_ref > 0){Psi_ref = Psi_ref - (0.1f*3.1416f/180);}
-                //else if(Psi_ref < 0){Psi_ref = Psi_ref + (0.1f*3.1416f/180);}
-                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
+                //Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.0001f; // [m]
+                Throttle = Throttle + ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(0.005f/50);
+                if((Psi_ref <= 5*3.1416f/180) & (Psi_ref >= -5*3.1416f/180)){Psi_ref = 0;}
+                else if(Psi_ref > 5*3.1416f/180){Psi_ref = Psi_ref - (0.003f*3.1416f/180);}
+                else if(Psi_ref < -5*3.1416f/180){Psi_ref = Psi_ref + (0.003f*3.1416f/180);}
+
                 if(Psi_ref <=-160*3.1416f/180){Psi_ref = -160*3.1416f/180;}
-                if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+                else if(Psi_ref >=160*3.1416f/180){Psi_ref = 160*3.1416f/180;}
+
+                //Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.1f*3.1416f/180)/50);
                 Theta_ref = 0;
                 Phi_ref = 0;
 
                 //X_ref = X_ref + (((MissionActivity.mDataExchange.rollJoystick)-50f)*0.0001f); // [m]
                 //Y_ref = Y_ref + (((MissionActivity.mDataExchange.pitchJoystick)-50f)*0.0001f); // [m]
-                Z_ref = Z_ref + Throttle;
+                //Z_ref = Z_ref + Throttle;
 
                 joystick_gain = joystick_gain + ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((0.005f)/50);
                 if(joystick_gain <= 0){joystick_gain = 0;}
                 joystick_gain2 = joystick_gain2 + ((MissionActivity.mDataExchange.rollJoystick)-50f)*((0.005f)/50);
                 if(joystick_gain2 <= 0){joystick_gain2 = 0;}
+                joystick_gain3 = joystick_gain3 + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.005f)/50);
+                if(joystick_gain3 <= 0){joystick_gain3 = 0;}
+
+                //xControl.setCoefficients(0.04f*joystick_gain, 0.1f, 0.1f*joystick_gain2);
+                //yControl.setCoefficients(0.04f*joystick_gain, 0.1f, 0.1f*joystick_gain2);
+
+                //Theta_ref = xControl.getInput(X_ref, (float)this_x, 0.01f);
+                //Phi_ref = yControl.getInput(Y_ref, (float)this_y, 0.01f);
 
                 // LQR controller ---------------------
-                controlSignals[0] = -1.5680f*(((float)this_z)-Z_ref) - 0.6901f*(((float)this_zdot)-Zdot_ref);
+                controlSignals[0] = -(1.2542f*joystick_gain3)*(((float)this_z)-Z_ref) - (0.075f)*(((float)this_zdot)-Zdot_ref);
                 controlSignals[1] = -(1.7045f)*(mDataCollection.psi-Psi_ref) - (0.21785f)*(mDataCollection.psi_dot-Psidot_ref);
-                controlSignals[2] = -(1.5321f*joystick_gain)*(((float)this_x)-X_ref) - (0.7119f*joystick_gain2)*(((float)this_xdot)-Xdot_ref) - (1.1448f)*(mDataCollection.theta-Theta_ref) - (0.3107f)*(mDataCollection.theta_dot-Thetadot_ref);
-                controlSignals[3] = -(1.5317f*joystick_gain)*(((float)this_y)-Y_ref) - (0.7124f*joystick_gain2)*(((float)this_ydot)-Ydot_ref) - (1.2461f)*(mDataCollection.phi-Phi_ref) - (0.3381f)*(mDataCollection.phi_dot-Phidot_ref);
+                controlSignals[2] = -1.5111f*(mDataCollection.theta-Theta_ref) - 0.3107f*(mDataCollection.theta_dot-Thetadot_ref);
+                controlSignals[3] = -1.6448f*(mDataCollection.phi-Phi_ref) - 0.3381f*(mDataCollection.phi_dot-Phidot_ref);
+
+                controlSignals[2] = controlSignals[2] - ((0.315612f*joystick_gain)*(((float)this_xKF)-X_ref)) - ((0.01119f*joystick_gain2)*(((float)this_xdotKF)-Xdot_ref));
+                controlSignals[3] = controlSignals[3] - ((0.336130f*joystick_gain)*(((float)this_yKF)-Y_ref)) - ((0.01124f*joystick_gain2)*(((float)this_ydotKF)-Ydot_ref));
                 // ------------------------------------
 
-                Thrust_Compensation = (float)(1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi))));
+                Thrust_Compensation = (float)Math.abs(1/((Math.cos(mDataCollection.theta))*(Math.cos(mDataCollection.phi))));
 
+                M_G_Throttle = M_G_Throttle_init + Throttle;
                 //controlSignals[0] = controlSignals[0] + 17.438f;
-                controlSignals[0] = (controlSignals[0] + 17.438f)*Thrust_Compensation;
+                controlSignals[0] = (controlSignals[0] + M_G_Throttle)*Thrust_Compensation;
                 // QUAD_MASS*GRAVITY is the necessary thrust to overcome the gravity [N]
             }
             /*
@@ -297,6 +334,13 @@ public class FlightController implements AdkCommunicator.AdbListener {
         motorsPowers.m2 = (int)((-1.983f*Math.pow(Motor_Forces[1],2) + 47.84f*Motor_Forces[1] + 3.835f)*0.975f); // [0, 255]
         motorsPowers.m3 = (int)(-1.983f*Math.pow(Motor_Forces[2],2) + 47.84f*Motor_Forces[2] + 3.835f); // [0, 255]
         motorsPowers.m4 = (int)((-1.983f*Math.pow(Motor_Forces[3],2) + 47.84f*Motor_Forces[3] + 3.835f)*0.975f); // [0, 255]
+
+        /*motorsPowers.m1 = (int)(motorsPowers.m1 * batteryCorrection);
+        motorsPowers.m2 = (int)(motorsPowers.m2 * batteryCorrection);
+        motorsPowers.m3 = (int)(motorsPowers.m3 * batteryCorrection);
+        motorsPowers.m4 = (int)(motorsPowers.m4 * batteryCorrection);*/
+
+
         if(motorsPowers.m1 > 255){motorsPowers.m1 = 255;} // Motors saturation
         if(motorsPowers.m1 < 0){motorsPowers.m1 = 0;}
         if(motorsPowers.m2 > 255){motorsPowers.m2 = 255;}
@@ -327,7 +371,18 @@ public class FlightController implements AdkCommunicator.AdbListener {
     @Override
     public void onBatteryVoltageArrived(float batteryVoltage){ //It's executed when Android receives the Battery data from ADK
         //this.batteryPercentage = (int)(batteryVoltage*66.6667 - 740); //12.6 V full -- 11.1 V empty
-        this.batteryPercentage = (int)(batteryVoltage*31.25 - 293.75); //12.6 V full -- 9.4 V empty
+        this.batteryLecture = (int)(batteryVoltage*31.25 - 293.75); //12.6 V full -- 9.4 V empty
+        if(this.batteryPercentage < 5) {
+            this.batteryPercentage = this.batteryLecture;
+        }else{
+            this.batteryPercentage = (int)(batteryPercentage*batterySmoother + batteryLecture*(1-batterySmoother));
+        }
+        batteryPercentegeDec = batteryPercentage/100;
+
+        this.batteryCorrection = (float)(0.9f*((-0.0723f*(Math.pow(batteryPercentegeDec,2))) - (0.428f*batteryPercentegeDec) + 1.4605f));
+        if(batteryCorrection < 1){batteryCorrection = 1;}
+        else if(batteryCorrection > 1.3){batteryCorrection = 1.3f;}
+
         this.smartphoneBatLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         MissionActivity.UIHandler.post(new Runnable() {
             @Override
@@ -354,18 +409,32 @@ public class FlightController implements AdkCommunicator.AdbListener {
             Phi_ref = 0;
         }
         else if(flightMode.equals("AltHold")){
-            Z_ref = (float)this_z;
+            Z_ref = (float)this_z + 0.3f;
             Psi_ref = mDataCollection.psi;
             Theta_ref = 0;
-            Phi_ref = 0f*3.1416f/180;
+            Phi_ref = 0;
+
+            joystick_gain = 1;
+            joystick_gain2 = 1;
+
+            zControl.setCoefficients(0f, -0.03f, 0);
+            zControl.resetIntegrator();
         }
         else if(flightMode.equals("Loiter")){
             X_ref = (float)this_x;
             Y_ref = (float)this_y;
-            Z_ref = (float)this_z;
+            Z_ref = (float)this_z + 0.5f;
             Psi_ref = mDataCollection.psi;
             Theta_ref = 0;
             Phi_ref = 0;
+
+            joystick_gain = 1;
+            joystick_gain2 = 1;
+
+            xControl.setCoefficients(0.04f, 0.1f, 0.1f);
+            yControl.setCoefficients(0.04f, 0.1f, 0.1f);
+            xControl.resetIntegrator();
+            yControl.resetIntegrator();
         }
         else if(flightMode.equals("RTL")){
             X_ref = (float)this_x;
@@ -408,31 +477,35 @@ public class FlightController implements AdkCommunicator.AdbListener {
 
             ControllerExecution();
 
-            mSaveFile.writeDatainFile(t + "," + delta_time +
-                    "," + this_x + "," + this_y + "," + this_z +
-                    "," + MissionActivity.quadrotorState[3]+ "," + MissionActivity.quadrotorState[4] + "," + MissionActivity.quadrotorState[5] +
-                    "," + controlSignals[0] + "," + controlSignals[1] + "," + controlSignals[2] + "," + controlSignals[3] +
+            mSaveFile.writeDatainFile(df.format(t) + "," + df.format(delta_time) +
+                    "," + df.format(this_x) + "," + df.format(this_y) + "," + df.format(this_z) +
+                    "," + df.format(MissionActivity.quadrotorState[3])+ "," + df.format(MissionActivity.quadrotorState[4]) + "," + df.format(MissionActivity.quadrotorState[5]) +
+                    "," + df.format(controlSignals[0]) + "," + df.format(controlSignals[1]) + "," + df.format(controlSignals[2]) + "," + df.format(controlSignals[3]) +
                     "," + motorsPowers.m1 + "," + motorsPowers.m2 + "," + motorsPowers.m3 + "," + motorsPowers.m4 +
-                    "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + Throttle +
-                    "," + X_ref + "," + Y_ref + "," + Z_ref + "," + Psi_ref + "," + Theta_ref + "," + Phi_ref +
-                    "," + this_xdot + "," + this_ydot + "," + this_zdot +
-                    "," + mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] +
-                    "," + altHoldKF.getEstimatedState()[0] + "," + altHoldKF.getEstimatedState()[1] +
-                    "," + altHoldKF.getEstimatedState()[2] + "," + altHoldKF.getEstimatedState()[3] +
-                    "," + altHoldKF.getEstimatedState()[4] + "," + altHoldKF.getEstimatedState()[5] +
-                    "," + altHoldKF.getEstimatedState()[6] + "," + altHoldKF.getEstimatedState()[7] +
-                    "," + joystick_gain + "," + joystick_gain2 + "," + controlSignals[0] + System.lineSeparator());
+                    "," + MissionActivity.quadrotorState[6] + "," + MissionActivity.quadrotorState[7] + "," + df.format(Throttle) +
+                    "," + df.format(X_ref) + "," + df.format(Y_ref) + "," + df.format(Z_ref) + "," + df.format(Psi_ref) + "," + df.format(Theta_ref) + "," + df.format(Phi_ref) +
+                    "," + df.format(this_xdot) + "," + df.format(this_ydot) + "," + df.format(this_zdot) +
+                    "," + df.format(mDataCollection.earthAccVals[0]) + "," + df.format(mDataCollection.earthAccVals[1]) + "," + df.format(mDataCollection.earthAccVals[2]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[0]) + "," + df.format(altHoldKF.getEstimatedState()[1]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[2]) + "," + df.format(altHoldKF.getEstimatedState()[3]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[4]) + "," + df.format(altHoldKF.getEstimatedState()[5]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[6]) + "," + df.format(altHoldKF.getEstimatedState()[7]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[8]) + "," + df.format(altHoldKF.getEstimatedState()[9]) +
+                    "," + df.format(altHoldKF.getEstimatedState()[10]) + "," + df.format(altHoldKF.getEstimatedState()[11]) +
+                    "," + joystick_gain + "," + joystick_gain2 + "," + joystick_gain3 + "," + df.format(controlSignals[0]) + "," + df.format(Thrust_Compensation) +
+                    "," + batteryCorrection + System.lineSeparator());
             editGUI();
         }
 
         private void estimateQuadrotorStates(){
-            if(delta_time_kf >= 0.05){
+            if(delta_time_kf >= 0.02){ //delta_time_kf >= 0.05
+                //posKF.executePositionKF(0, 0, mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
                 posKF.executePositionKF(mDataCollection.conv_x,mDataCollection.conv_y,mDataCollection.baroElevation,mDataCollection.earthAccVals[0],mDataCollection.earthAccVals[1],mDataCollection.earthAccVals[2]);
                 this_x = posKF.getEstimatedState()[0];
                 this_y = posKF.getEstimatedState()[1];
                 this_z = mDataCollection.baroElevation;
-                this_xdot = this_xdot_1;
-                this_ydot = this_ydot_1;
+                this_xdot = this_xdotKF;
+                this_ydot = this_ydotKF;
                 this_zdot = posKF.getEstimatedState()[5];
 
                 last_time_kf = measured_time;
@@ -446,6 +519,8 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 this_z = mDataCollection.baroElevation;
                 //this_xdot = (this_x - this_x_1)/delta_time_kf_wogps;
                 //this_ydot = (this_y - this_y_1)/delta_time_kf_wogps;
+                this_xdot = this_xdotKF;
+                this_ydot = this_ydotKF;
                 if(Math.abs((this_x - this_x_1)/delta_time_kf_wogps) < 0.02){
                     this_xdot = 0;
                 }
@@ -461,8 +536,19 @@ public class FlightController implements AdkCommunicator.AdbListener {
                 this_ydot_1 = this_ydot;
             }
 
-            altHoldKF.executeAltHoldKF(mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,controlSignals);
-
+            //altHoldKF.executeAltHoldKF(mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,controlSignals, M_G_Throttle);
+            //altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,controlSignals);
+            //altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.theta,mDataCollection.phi,controlSignals, M_G_Throttle);
+            //altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,((controlSignals[0]/Thrust_Compensation)-M_G_Throttle),controlSignals[1],controlSignals[2],controlSignals[3]);
+            altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.theta,mDataCollection.phi,((controlSignals[0]/Thrust_Compensation)-M_G_Throttle),controlSignals[1],controlSignals[2],controlSignals[3]);
+            // TODO: Test this KF
+            // TODO: Add integral part of LQI control
+            this_xKF = altHoldKF.getEstimatedState()[0];
+            this_xdotKF = altHoldKF.getEstimatedState()[1];
+            this_yKF = altHoldKF.getEstimatedState()[2];
+            this_ydotKF = altHoldKF.getEstimatedState()[3];
+            this_zKF = altHoldKF.getEstimatedState()[4];
+            this_zdotKF = altHoldKF.getEstimatedState()[5];
             setQuadrotorState();
         }
 
