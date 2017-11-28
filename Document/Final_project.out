@@ -17,8 +17,8 @@
 \BOOKMARK [2][-]{subsection.2.1.1}{`+' Configuration}{section.2.1}% 17
 \BOOKMARK [2][-]{subsection.2.1.2}{`X' Configuration}{section.2.1}% 18
 \BOOKMARK [1][-]{section.2.2}{Nonlinear Model}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.1}{Euler-Lagrange Approach}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.2}{Newton-Euler Approach}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.1}{Newton-Euler Approach}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.2}{Euler-Lagrange Approach}{section.2.2}% 21
 \BOOKMARK [1][-]{section.2.3}{Linearized Model}{chapter.2}% 22
 \BOOKMARK [2][-]{subsection.2.3.1}{Jacobian Linearization}{section.2.3}% 23
 \BOOKMARK [2][-]{subsection.2.3.2}{Thrust Compensation}{section.2.3}% 24
@@ -63,7 +63,7 @@
 \BOOKMARK [2][-]{subsection.5.4.1}{Simple Translational Movements \(H\)}{section.5.4}% 63
 \BOOKMARK [2][-]{subsection.5.4.2}{Trajectory Tracking \(H\)}{section.5.4}% 64
 \BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 65
-\BOOKMARK [0][-]{chapter*.65}{Conclusions and Outlook}{}% 66
-\BOOKMARK [0][-]{chapter*.66}{Publications}{}% 67
-\BOOKMARK [0][-]{chapter*.67}{Supplementary Material}{}% 68
-\BOOKMARK [0][-]{appendix*.68}{Bibliography}{}% 69
+\BOOKMARK [0][-]{chapter*.59}{Conclusions and Outlook}{}% 66
+\BOOKMARK [0][-]{chapter*.60}{Publications}{}% 67
+\BOOKMARK [0][-]{chapter*.61}{Supplementary Material}{}% 68
+\BOOKMARK [0][-]{appendix*.62}{Bibliography}{}% 69

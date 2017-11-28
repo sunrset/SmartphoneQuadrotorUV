@@ -332,11 +332,9 @@ PWM = -1.983F_{M_i}^{2} + 47.84F_{M_i} + 3.835,
 \end{equation}
 where $F_{M_i}$ is given in $N$, and \textit{PWM} is a value between $0$ and $255$.
 \subsection{Motors Torque}
-The quadrotor suffers the application of a torque $\tau_{M_{i}}$ around the $z$ axis when a motor $M_i$ rotates. This torque affects the $\psi$ angle indirectly by adding to the $\tau_\psi$ torque proportionally to the thrust force $F_{M_i}$, as
-\begin{equation}
-\tau_{M_{i}} = K_{M}F_{M_i}\ [N\cdot m].
-\end{equation}
-The torque $\tau_{M_{i}}$ is generated due to the conservation of momentum, and its unbalance is used to rotate the quadrotor about the $z$ axis in the opposite direction to the rotation of the motor that generates it as exposed in \ref{sec:inputsetting}. In order to properly control the mentioned unbalance, it is necessary to find the value of the constant $K_m$.
+The quadrotor suffers the application of a torque $\tau_{M_{i}}$ around the $z$ axis when a motor $M_i$ rotates. This torque affects the $\psi$ angle indirectly by adding to the $\tau_\psi$ torque proportionally to the thrust force $F_{M_i}$, being $\tau_{M_i} = K_{M}F_{M_i}$, as shown in (\ref{ec:taumi}).
+\\\\
+The torque $\tau_{M_{i}}$ is generated due to the conservation of momentum, and its unbalance is used to rotate the quadrotor about the $z$ axis in the opposite direction to the rotation of the motor that generates it as exposed in Section \ref{sec:configurations}. In order to properly control the mentioned unbalance, it is necessary to find the value of the constant $K_m$.
 \\\\
 The constant $K_{m}$ can be found through a steady-state torque experiment, as stated by \cite{Oliveira2012}. In this experiment, the $z$ axis in the quadrotor is located parallel to the ground, leaving the rotation about this axis as the only unblocked $DoF$. Using the geometry seen in Fig. \ref{fig:quadrotortorque}, it is necessary to measure the force $F_s$ that is generated when the motor $M_i$ is rotating.
 \begin{figure}[H]
