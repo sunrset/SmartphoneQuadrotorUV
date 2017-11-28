@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -193,6 +193,16 @@ Matthias Faessler, Davide Falanga, and Davide Scaramuzza.
 \newblock URL
   \url{http://rpg.ifi.uzh.ch/docs/RAL16{\_}Faessler.pdf{\%}0Ahttp://ieeexplore.ieee.org/document/7784809/}.
 
+\bibitem[Bouabdallah(2007)]{Bouabdallah2007}
+Samir Bouabdallah.
+\newblock {Design and Control of Quadrotors With Application To Autonomous
+  Flying}.
+\newblock \emph{{\'{E}}cole Polytechnique F{\'{e}}d{\'{e}}rale De Lausanne,
+  {\`{A}} La Facult{\'{e}} Des Sciences Et Techniques De L'Ing{\'{e}}nieur},
+  3727\penalty0 (3727):\penalty0 61, 2007.
+\newblock ISSN 0921-0296.
+\newblock \doi{10.5075/epfl-thesis-3727}.
+
 \bibitem[Emam and Fakharian(2016)]{Emam2016}
 M~Emam and A~Fakharian.
 \newblock {Attitude tracking of quadrotor UAV via mixed H2/H{$\infty$}
@@ -212,22 +222,19 @@ Sherif Badr, Omar Mehrez, and A.~E. Kabeel.
 \newblock \doi{10.1109/ICUAS.2016.7502536}.
 \newblock URL \url{http://ieeexplore.ieee.org/document/7502536/}.
 
-\bibitem[Bouabdallah(2007)]{Bouabdallah2007}
-Samir Bouabdallah.
-\newblock {Design and Control of Quadrotors With Application To Autonomous
-  Flying}.
-\newblock \emph{{\'{E}}cole Polytechnique F{\'{e}}d{\'{e}}rale De Lausanne,
-  {\`{A}} La Facult{\'{e}} Des Sciences Et Techniques De L'Ing{\'{e}}nieur},
-  3727\penalty0 (3727):\penalty0 61, 2007.
-\newblock ISSN 0921-0296.
-\newblock \doi{10.5075/epfl-thesis-3727}.
-
 \bibitem[Sabatino(2015)]{Sabatino2015}
 Francesco Sabatino.
 \newblock \emph{{Quadrotor control : modeling, nonlinear control design, and
   simulation}}.
 \newblock Number June. KTH Royal Institute of Technology in Stockholm,
   Stockholm, Sweden, 2015.
+
+\bibitem[Vepa(2016)]{RanjanVepa2016}
+Ranjan Vepa.
+\newblock \emph{{Nonlinear Control of Robots and Unmanned Aerial Vehicles: An
+  Integrated Approach}}.
+\newblock CRC Press, London, 1st edition, 2016.
+\newblock ISBN 9781498767040.
 
 \bibitem[Lee et~al.(2011)Lee, Yun, Chang, Park, and Choi]{Lee2011}
 Keun~Uk Lee, Young~Hun Yun, Wook Chang, Jin~Bae Park, and Yoon~Ho Choi.

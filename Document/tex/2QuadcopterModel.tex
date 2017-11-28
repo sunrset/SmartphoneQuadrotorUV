@@ -50,8 +50,8 @@ Where, ($\phi$, $\theta$, $\psi$) are the angular deviations (pitch, roll and ya
 \\\\
 Although the quadrotor is a system with 6 degrees of freedom ($DoF$), the fact of having only four actuators, makes it an underactuated system. Therefore, it is only possible to reach a desired state for 4 degrees of freedom. However, it is possible to choose four control signals, or inputs, that represent the quadrotor basic movements and allow the quadrotor to achieve a desired position and attitude. This inputs are described below.
 \begin{itemize}
-\item \textbf{Throttle $T_u$ [$N$]}
-The throttle $u$ is the total thrust force exerted parallel to the body-frame $z$-axis by the four motors. When the $\theta$ and $\phi$ angles are different from zero, the throttle generates accelerations, not only on the $Z_W$-axis, but also on the $X_W$ and $Y_W$ axes, as the body-frame $z$-axis and the $Z_W$ do not coincide.
+\item \textbf{Thrust $T_u$ [$N$]}
+The thrust $u$ is the total thrust force exerted parallel to the body-frame $z$-axis by the four motors. When the $\theta$ and $\phi$ angles are different from zero, the thrust generates accelerations, not only on the $Z_W$-axis, but also on the $X_W$ and $Y_W$ axes, as the body-frame $z$-axis and the $Z_W$ do not coincide.
 \\\\
 This control signal affects the speed of rotation of all motors, and therefore their thrust, in equal magnitude, and is set as
 \begin{equation}
@@ -96,7 +96,7 @@ Unlike the roll torque, the pitch torque $\tau_\phi$ is the one exerted on the $
 \subsubsection{Inputs Setting in `+' Configuration}
 Summarizing the description of the four inputs in the quadrotor represented in a `+' configuration, these are established as linear combinations of the motors forces $F_{M_i}$ and can be represented as a system of linear equations in matrix representation based on equations (\ref{ec:u+}), (\ref{ec:taupsi+}), (\ref{ec:tautheta+}) and (\ref{ec:tauphi+}). Thus, the vector of inputs $U_{(+)}$ is defined as
 \begin{equation}
-	U_{(+)} = \begin{bmatrix}
+	\mathbf{U_{(+)}} = \begin{bmatrix}
 	T_u\\[5pt]
 	\tau_{\psi}\\[5pt]
 	\tau_{\theta}\\[5pt]
@@ -130,8 +130,8 @@ In this case, the front-line in the quadrotor is set between $M_1$ and $M_4$, wh
 \end{figure}
 The quadrotor inputs in `X' configuration do not change with respect to the + configuration, but it does change the way $\tau_\theta$ and $\tau_\phi$ are defined with respect to the forces $F_{M_i}$. The inputs description for the quadrotor `X' configuration is defined as follows.
 \begin{itemize}
-\item \textbf{Throttle $T_u$ [$N$]}\\\\
-The total thrust exerted by the four motors in the quadrotor is not changed between the `+' and `X' configurations. Hence, the throttle $u$ is defined in the same way as in `+' configuration as
+\item \textbf{Thrust $T_u$ [$N$]}\\\\
+The total thrust exerted by the four motors in the quadrotor is not changed between the `+' and `X' configurations. Hence, the thrust $u$ is defined in the same way as in `+' configuration as
 \begin{equation}
 \label{ec:ux}
 T_u = \sum_{i=1}^{4}F_{M_i}.
@@ -167,7 +167,7 @@ As in the roll torque, the pitch torque $\tau_{\phi}$ is affected by the forces 
 \subsubsection{Inputs Setting in `X' Configuration}
 In the `X' configuration, the quadrotor inputs remain the same with respect to the `+' configuration. However the torques $\tau_\theta$ and $\tau_\phi$ are affected by the interaction of all the motors and the change in the distance of the point of application of the forces $F_{M_i}$ on the $x$ and $y$ axes. The system of linear equations that shows the inputs setting for a quadrotor in `X' configuration is based on equations (\ref{ec:ux}), (\ref{ec:taupsix}), (\ref{ec:tauthetax}) and (\ref{ec:tauphix}), and is defined as
 \begin{equation}
-	U_{(X)} = \begin{bmatrix}
+	\mathbf{U_{(X)}} = \begin{bmatrix}
 	T_u\\[5pt]
 	\tau_{\psi}\\[5pt]
 	\tau_{\theta}\\[5pt]
@@ -205,7 +205,7 @@ Thereby, the quadrotor in `X' configuration has $2\cdot \cos(\pi/4)$ times more 
 \section{Nonlinear Model}
 \label{sec:nonlinear}
 
-This section describes the dynamic modeling used to perform the quadrotor control, based on the study carried out in \cite{Bresciani2008} and \cite{Bouabdallah2007}. This model represents the quadrotor as a solid symmetrical object subject to a total thrust ($u$) and three torques ($\tau_\psi$, $\tau_\theta$ and $\tau_\phi$), without considering the dynamics of the actuators. The modeling of the quadrotor system is done by two different methods. The Newton-Euler approach is based on the quadrotor body-frame, while the Euler-Lagrange approach bases its translational equations in the earth-frame while keeping its rotational equations related to the body-frame.
+This section describes the dynamic modeling used to perform the quadrotor control, based on the study carried out in \cite{Bresciani2008} and \cite{Bouabdallah2007}. This model represents the quadrotor as a solid symmetrical object subject to a total thrust ($u$) and three torques ($\tau_\psi$, $\tau_\theta$ and $\tau_\phi$), assuming that the quadrotor $CoG$ coincides with the origin of the body-frame and without considering the dynamics of the actuators . The modeling of the quadrotor system is done by two different methods. The Newton-Euler approach is based on the quadrotor body-frame, while the Euler-Lagrange approach bases its translational equations in the earth-frame while keeping its rotational equations related to the body-frame.
 
 \subsection{Newton-Euler Approach}
 Following the quadrotor geometry shown in Fig. \ref{fig:quadrotorX}, the quadrotor position vector ($\mathbf{\Xi}$), composed by the translational position ($\mathbf{\Gamma_W}$ [$m$]) and rotational position ($\mathbf{\Theta_W}$ [$rad$]) with respect to the earth-frame, is defined as
@@ -213,7 +213,7 @@ Following the quadrotor geometry shown in Fig. \ref{fig:quadrotorX}, the quadrot
 \mathbf{\Xi} = \begin{bmatrix}
 \mathbf{\Gamma_W} \\ \mathbf{\Theta_W}
 \end{bmatrix} = \begin{bmatrix}
-x \\ y \\ z \\ \psi \\ \theta \\ \phi
+X_W \\ Y_W \\ Z_W \\ \psi \\ \theta \\ \phi
 \end{bmatrix}.
 \end{equation}
 On the other hand, the quadrotor velocity vector ($\mathbf{\nu}$) is composed by the translational ($\mathbf{V_B}$ [$m\cdot s^{-1}$]) and rotational ($\mathbf{\Omega_B}$ [$rad\cdot s^{-1}$]) velocities with respect to the body-frame as
@@ -222,21 +222,21 @@ On the other hand, the quadrotor velocity vector ($\mathbf{\nu}$) is composed by
 \mathbf{V_B} \\ \mathbf{\Omega_B}
 \end{bmatrix} =
 \begin{bmatrix}
-u \\ v \\ w \\ p \\ q \\ r
+\dot{x} \\ \dot{y} \\ \dot{z} \\ \dot{\psi} \\ \dot{\theta} \\ \dot{\phi}
 \end{bmatrix}.
 \end{equation}
 There exists a generalized matrix
 \begin{equation}
-\mathbf{J_\Theta} = \begin{bmatrix}
+\mathbf{\zeta_\Theta} = \begin{bmatrix}
 \mathbf{R_{b}^{w}} & \mathbf{0_{3\times 3}} \\
 \mathbf{0_{3\times 3}} & \mathbf{T_{b}^{w}}
 \end{bmatrix},
 \end{equation}
 that ensures that
 \begin{equation}
-\mathbf{\dot{\Xi}} = \mathbf{J_\Theta}\mathbf{\nu},
+\mathbf{\dot{\Xi}} = \mathbf{\zeta_\Theta}\mathbf{\nu},
 \end{equation}
-where $\mathbf{0_{3\times 3}}$ is a $3\times 3$-matrix filled with zeros, $\mathbf{R_{b}^{w}}$ is the rotation matrix and $\mathbf{T_{b}^{w}}$ the transfer matrix, defined as
+where $\mathbf{0_{3\times 3}}$ is a $3\times 3$-matrix filled with zeros, $\mathbf{R_{b}^{w}}$ is the rotation matrix and $\mathbf{T_{b}^{w}}$ the transfer matrix from the body to the world-frame, defined as
 \begin{equation}
 \mathbf{R_{b}^{w}} = \begin{bmatrix}
 c_\theta c_\psi & c_\psi s_\theta s_\phi-c_\phi s_\psi & s_\phi s_\psi+c_\phi c_\psi s_\theta\\
@@ -256,230 +256,356 @@ with $s_\theta = \sin(\theta)$, $c_\theta = \cos(\theta)$, and $t_\theta = \tan(
 As the quadrotor is assumed to be a rigid body of 6 $DoF$, its dynamics consider the mass ($m$ [$kg$]) and the inertia matrix ($\mathbf{J}$ [$kg\cdot m^{2}$]) of it, and are described as
 \begin{equation}
 \label{eqn:eomNewtonEuler}
-\begin{bmatrix}
+\mathbf{M_{B}}\mathbf{\dot{\nu}} + \mathbf{S_\nu} = \mathbf{\Lambda}
+\end{equation}
+where
+\begin{align}
+\begin{split}
+\mathbf{M_{B}} & = \begin{bmatrix}
 m\mathbf{I_{3\times3}} & \mathbf{0_{3\times 3}} \\
 \mathbf{0_{3\times 3}} & \mathbf{J}
-\end{bmatrix}
-\begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
+m & 0 & 0 & 0 & 0 & 0 \\
+0 & m & 0 & 0 & 0 & 0 \\
+0 & 0 & m & 0 & 0 & 0 \\
+0 & 0 & 0 & J_{zz} & 0 & 0 \\
+0 & 0 & 0 & 0 & J_{yy} & 0 \\
+0 & 0 & 0 & 0 & 0 & J_{xx}
+\end{bmatrix},\\[8px]
+\dot{\nu} & = \begin{bmatrix}
 \mathbf{\dot{V}_{B}} \\ \mathbf{\dot{\Omega}_B}
-\end{bmatrix}
-+ \begin{bmatrix}
+\end{bmatrix}, \\[8px]
+\mathbf{S_\nu} & = \begin{bmatrix}
 \mathbf{\Omega_B} \times m\mathbf{V_{B}} \\
 \mathbf{\Omega_B} \times \mathbf{J}\mathbf{\Omega_B}
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
+m(\ddot{x} + \dot{z}\dot{\theta} - \dot{y}\dot{\phi})\\
+m(\ddot{y} + \dot{x}\dot{\phi} - \dot{z}\dot{\psi})\\
+m(\ddot{z} + \dot{y}\dot{\psi} - \dot{x}\dot{\theta})\\
+J_{zz}\dot{\psi} + \dot{\theta}\dot{\phi}(J_{xx} - J_{yy})\\
+J_{yy}\dot{\theta} + \dot{\psi}\dot{\phi}(J_{zz} - J_{xx})\\
+J_{xx}\dot{\phi} + \dot{\psi}\dot{\theta}(J_{yy} - J_{zz})\\
+\end{bmatrix},\\[8px]
+\mathbf{\Lambda} & = \begin{bmatrix}
 \mathbf{F_{B}} \\ \mathbf{\tau_{B}}
-\end{bmatrix},
+\end{bmatrix} = \begin{bmatrix}
+F_x & F_y & F_z & \tau_z & \tau_y & \tau_x
+\end{bmatrix}^{T},
+\end{split}
+\end{align}
+being $\mathbf{J}$ diagonal due to the assumption of a perfectly symmetric quadrotor body, $\mathbf{I}$ the identity matrix, $\mathbf{\dot{V}_{B}}$ is the quadrotor translational acceleration in the body-frame, $\mathbf{\dot{\Omega}_B}$ is the quadrotor angular acceleration in the body-frame, $\mathbf{F_{B}}$ is the quadrotor force vector and $\mathbf{\tau_{B}}$ is the quadrotor torques vector.
+\\\\
+The forces and torques vector $\mathbf{\Lambda}$ results from the effect of the gravitational force (represented in $\mathbf{G_{\Lambda}}$), the quadrotor inputs created by the motor forces (represented in $\mathbf{U_{\Lambda}}$), and the gyroscopic effects produced when the motors propellers are rotating (represented in $\mathbf{P_{\Lambda}}$. However in this project, for simplicity in the dynamic model, it is not taken into account the $\mathbf{P_{\Lambda}}$ contribution to the $\mathbf{\Lambda}$ vector and thus $\mathbf{P_{\Lambda}} \approx \mathbf{0_{6\times 1}}$.
+\\\\
+The gravitational force affects just the $\mathbf{F_B}$ component in $\mathbf{\Lambda}$, proportionally to its magnitude $|\vec{g}|= g = 9.807\ m/s^{2}$. $\mathbf{G_{\Lambda}}$ is the contribution of the gravitational force to the vector $\mathbf{\Lambda}$ and is expressed as 
+\begin{equation}
+\mathbf{G_{\Lambda}}= \begin{bmatrix}
+\mathbf{\hat{F}_{Gb}} \\ \mathbf{0_{3\times 1}}
+\end{bmatrix} = \begin{bmatrix}
+\mathbf{R_{b}^{w}}\mathbf{F_{G\xi}} \\ \mathbf{0_{3\times 1}}
+\end{bmatrix} = 
+\begin{bmatrix}
+\mathbf{R_{w}^{b}} 
+\begin{bmatrix}
+0 \\[5pt] 0 \\[5pt] -m g
+\end{bmatrix} \\[5pt]
+\mathbf{0_{3\times 1}}
+\end{bmatrix} =\begin{bmatrix}
+m g \sin(\theta) \\[5pt]
+m g \cos(\theta)\sin(\phi) \\[5pt]
+- m g \cos(\theta)\sin(\phi) \\[5pt]
+\mathbf{0_{3\times 1}}
+\end{bmatrix}
 \end{equation}
-where $\mathbf{I}$ is the identity matrix, $\mathbf{\dot{V}_{B}}$ is the quadrotor translational acceleration in the body-frame, $\mathbf{\dot{\Omega}_B}$ is the quadrotor angular acceleration in the body-frame, $\mathbf{F_{B}}$ is the quadrotor force vector and $\mathbf{\tau_{B}}$ is the quadrotor torques vector. 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=6.8cm]{quadcopter1.pdf}    
-\caption{Quadrotor squeme with movement axis and thrust forces.} 
-\label{fig:quadfigure}
-\end{center}
-\end{figure}
-\\From this Newton-Euler approach, the quadrotor equations obtained for the translational and angular accelerations are
-\begin{align}\label{eqn:eom}
-\begin{split}
-\ddot{x} &= \frac{u_{1}}{m}(\cos(\phi)\sin(\theta)\cos(\psi) + \sin(\phi)\sin(\psi)), \\
-\ddot{y} &= \frac{u_{1}}{m}(\cos(\phi)\sin(\theta)\sin(\psi) - \sin(\phi)\cos(\psi)), \\
-\ddot{z} &= \frac{u_{1}}{m}(\cos(\phi)\cos(\theta)) - g, \\
-\ddot{\psi} &= \dot{\phi}\dot{\theta}\dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}},\\
-\ddot{\theta} &= \dot{\phi}\dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}}, \\
-\ddot{\phi} &= \dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} +  \dfrac{u_{4}}{J_{xx}},
-\end{split}
-\end{align}
-with
-\begin{align}
-\label{eqn:eom1}
-\begin{split}
-u_{1} &= u-mg = F_{1} + F_{2} + F_{3} + F_{4}, \\
-u_{2} &= \tau_{\psi} = T_{2} + T_{4} - T_{1} - T_{3}, \\
-u_{3} &= \tau_{\theta} = L(F_{4} + F_{1} - F_{2} - F_{3}), \\
-u_{4} &= \tau_{\phi} = L(F_{1} + F_{2} - F_{3} - F_{4}),
-\end{split}
-\end{align}
-where $u$ is the total throttle applied by the motors, $\tau_{\phi}$, $\tau_{\theta}$, $\tau_{\psi}$ the rolling, pitching and yawing moment, $J_{xx}$, $J_{yy}$ and $J_{zz}$ are the moments of inertia around the $x$, $y$ and $z$ axis respectively, while $L$ is the distance from any motor to the center of mass of the quadrotor and $F_{i}$ and $T_{i}$, with $i$ $\in$ ${1,2,3,4}$, are the thrust force and torque exerted from each motor. The non-linear model of the quadrotor is linearized using the Jacobian of the non-linear model around an equilibrium point where $V_{B}$, $\omega_{B}$, $\psi$, $\theta$ and $\phi$ tend to zero, as
-\begin{align}
-\label{eqn:linear}
-\begin{split}
-\ddot{x} &= -g\theta, \\
-\ddot{y} &= g\phi,  \\
-\ddot{z} &= u_{1}/m, \\
-\ddot{\psi} &= u_{2}/I_{zz}, \\
-\ddot{\theta} &= u_{3}/I_{yy}, \\
-\ddot{\phi} &= u_{4}/I_{xx}, 
-\end{split}
-\end{align}
-and can be defined as a state space representation following the system
-\begin{equation}\label{eqn:ss}
-G = \mleft[
-\begin{array}{c|c}
-  A & B \\
-  \hline
-  C & D
-\end{array}
-\mright]
+were $\mathbf{F_{G\xi}}=\mathbf{R_{b}^{w}}\mathbf{\hat{F}_{Gb}}$ is the translational force due to  gravity in the earth-frame, and $\mathbf{R_{w}^{b}} = (\mathbf{R_{b}^{w})^{-1}}$ is the rotation matrix from the world to the body-frame.
+\\\\
+From Section \ref{sec:configurations}, it follows that the quadrotor inputs are proportional to the motor forces $F_{M_i}$, and do not affect the $x$ and $y$ components of $\mathbf{F_B}$. This inputs, depend on the quadrotor configuration (`+' or `X') and are set as
+\begin{equation}
+\mathbf{U_{\Lambda}} = \begin{bmatrix}
+0 \\[5pt] 0 \\[5pt] u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
+\end{bmatrix} = \begin{bmatrix}
+0 \\[5pt] 0 \\[5pt] T_u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+\end{bmatrix}
 \end{equation}
-where $A$ is the system matrix, $B$ is the input matrix, $C$ is the output matrix and $D$ is the feedthrough matrix. The state vector $X$, input vector $U$, and outputs vector $Y$ are
+where $T_u$, $\tau_\psi$, $\tau_\theta$ and $\tau_\phi$ depend on the configuration of the quadrotor as exposed in (\ref{ec:U_+}) and (\ref{ec:U_X}).
+\\\\
+Thus, (\ref{eqn:eomNewtonEuler}) can be redefined as
+\begin{equation}
+\label{eqn:eomNewtonEulerfull}
+\mathbf{M_{B}}\mathbf{\dot{\nu}} + \mathbf{S_\nu} = \mathbf{G_{\Lambda}} + \mathbf{U_{\Lambda}}.
+\end{equation}
+The quadrotor acceleration vector $\mathbf{\dot{\nu}}$ in the body-frame is then isolated from (\ref{eqn:eomNewtonEulerfull}), getting
+\begin{equation}
+\mathbf{\dot{\nu}} = \mathbf{M_{B}}^{-1}(-\mathbf{S_\nu} + \mathbf{G_{\Lambda}} + \mathbf{U_{\Lambda}}),
+\end{equation}
+or expressed as a system of equations
+\begin{align}
+\begin{split}
+\ddot{x} & = \dot{y} \dot{\phi} - \dot{z} \dot{\theta} + g \sin(\theta), \\[5pt]
+\ddot{y} & = \dot{z} \dot{\psi} - \dot{x} \dot{\phi} + g \cos(\theta)\sin(\phi), \\[5pt]
+\ddot{z} & = \dot{x} \dot{\theta} - \dot{y} \dot{\psi} - g \sin(\theta) + \dfrac{u_{1}}{m}, \\[5pt]
+\ddot{\psi} & = \dot{\phi}\dot{\theta} \dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}}, \\[5pt]
+\ddot{\theta} & = \dot{\phi} \dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}}, \\[5pt]
+\ddot{\phi} & =  \dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} + \dfrac{u_{4}}{J_{xx}},
+\end{split}
+\end{align}
+with the inputs set as
+\begin{equation}
+\begin{bmatrix}
+u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
+\end{bmatrix} = \begin{bmatrix}
+	T_u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	0 & -L & 0 & L\\[5pt]
+	-L & 0 & L & 0
+							\end{bmatrix}
+\begin{bmatrix}
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}					
+\end{equation}
+for quadrotors in `+' configuration, and
+\begin{equation}
+\begin{bmatrix}
+u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
+\end{bmatrix}	 = \begin{bmatrix}
+	T_u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	-L_{X} & -L_{X} & L_{X} & L_{X}\\[5pt]
+	-L_{X} & L_{X} & L_{X} & -L_{X}
+							\end{bmatrix}
+\begin{bmatrix}
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}
+\end{equation}
+for quadrotors in `X' configuration.
+\\\\
+Defining the state vector as
 \setcounter{MaxMatrixCols}{20}
 \begin{equation}
-X = \begin{bmatrix}
-x & y & z & \dot{x} & \dot{y} & \dot{z} & \psi & \theta & \phi & \dot{\psi} & \dot{\theta} & \dot{\phi} 
+\mathbf{x} = \begin{bmatrix}
+x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
 \end{bmatrix}^{T},
-\end{equation}
+\end{equation} 
+the quadrotor non-linear dynamics model $\mathbf{f(x,u)}$ got with a Newton-Euler approach is
 \begin{equation}
-U = \begin{bmatrix}
-u_{1} & u_{2} & u_{3} & u_{4}
-\end{bmatrix}^{T},
+\mathbf{\dot{x}} = \mathbf{f(x,u)} = \begin{bmatrix}
+\dot{x} \\[5pt]
+\dot{y} \dot{\phi} - \dot{z} \dot{\theta} + g \sin(\theta) \\[5pt]
+\dot{y} \\[5pt]
+\dot{z} \dot{\psi} - \dot{x} \dot{\phi} + g \cos(\theta)\sin(\phi) \\[5pt]
+\dot{z} \\[5pt]
+\dot{x} \dot{\theta} - \dot{y} \dot{\psi} - g \sin(\theta) + \dfrac{u_{1}}{m} \\[5pt]
+\dot{\psi} \\[5pt]
+\dot{\phi}\dot{\theta} \dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}} \\[5pt]
+\dot{\theta} \\[5pt]
+\dot{\phi} \dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}} \\[5pt]
+\dot{\phi} \\[5pt]
+\dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} + \dfrac{u_{4}}{J_{xx}}
+\end{bmatrix}
 \end{equation}
-\begin{equation}
-Y = \begin{bmatrix}
-x & y & z & \psi
-\end{bmatrix}^{T}.
-\end{equation}
-
 
 \subsection{Euler-Lagrange Approach}
 The general coordinates representing the position and attitude of the quadrotor are defined as
 \begin{equation}
-	\Xi=\begin{bmatrix}
-	\xi & \eta
+	\mathbf{\Xi}=\begin{bmatrix}
+	\mathbf{\xi_W} & \mathbf{\Theta_B}
 	\end{bmatrix}^{T},
 	\label{ec:coorgenerales}
 \end{equation}
-where $\xi=\begin{bmatrix}
-x & y & z
-\end{bmatrix}^{T}$ is the vector representing the position of the center of mass of the quadrotor relative to the body reference frame shown in Fig. \ref{fig:marcoreferencia} and $\eta=\begin{bmatrix}
+where $\mathbf{\xi_W}=\begin{bmatrix}
+X_W & Y_W & Z_W
+\end{bmatrix}^{T}$ is the vector representing the position of the $CoG$ of the quadrotor relative to the earth-frame shown in Fig. \ref{fig:quadrotorX} and $\mathbf{\Theta_B}=\begin{bmatrix}
 \psi & \theta & \phi
 \end{bmatrix}^{T}$ represent the quadrotor attitude.
 \\\\
 The Lagrangian of the quadrotor is defined by
 \begin{equation}
-	L(\Xi,\dot{\Xi})=K_{trans}+K_{rot} - U,	
+	L(\mathbf{\Xi},\mathbf{\dot{\Xi}})=K_{trans}+K_{rot} - E_{pot},	
 	\label{ec:lagrangiano}
 \end{equation}
-where $ K_{trans} = \dfrac{m}{2}\dot{\xi}^{T}\dot{\xi} $ is the translational kinetic energy, $ K_{rot} = \dfrac{1}{2}\dot{\eta}^{T}J\dot{\eta} $ is the rotational kinetic energy, $ U=mgz $ is the potential energy, $m$ is the quadrotor mass , $z$ is the quadrotor elevation, $g$ is the gravity acceleration magnitude, and $J$ is the inertial matrix. The dynamic model of the quadrotor is derived from the Euler-Lagrange equation
+where $ K_{trans}$ is the quadrotor translational kinetic energy, $ K_{rot}$ is the quadrotor rotational kinetic energy, $E_{pot}$ is the quadrotor potential energy, and $z$ is the quadrotor elevation. Hence, the Lagrangian in (\ref{ec:lagrangiano}) is rewritten as
 \begin{equation}
-	\dfrac{d}{dt}\dfrac{\partial L}{\partial \dot{\Xi}}-\dfrac{\partial L}{\partial \Xi}=
+	L(\mathbf{\Xi},\mathbf{\dot{\Xi}})=\dfrac{m}{2}\mathbf{\dot{\xi}_W}^{T}\mathbf{\dot{\xi}_W} + \dfrac{1}{2}\mathbf{\dot{\Theta}_B}^{T}J\mathbf{\dot{\Theta}_B} - mgz.
+	\label{ec:lagrangiano2}
+\end{equation}
+The dynamic model of the quadrotor is derived from the Euler-Lagrange equation
+\begin{equation}
+	\dfrac{d}{dt}\dfrac{\partial L}{\partial \mathbf{\dot{\Xi}}}-\dfrac{\partial L}{\partial \mathbf{\Xi}}=
 	\begin{bmatrix}
 	F_{\xi}\\
 	\tau
 	\end{bmatrix},
 	\label{ec:eulerlag}
  \end{equation} 
-where $F_{\xi}=R_{b}^{w}\hat{F_{b}}$ is the translational force applied to the quadrotor by the four motors, $\tau$ contains the rolling, pitching and yawing torques ($\tau_\theta$, $\tau_\phi$, $\tau_\psi$).
+where $F_{\xi}=R_{b}^{w}\hat{F_{b}}$ is the translational force applied to the quadrotor by its four motors, and $\tau = \begin{bmatrix}
+\tau_\psi & \tau_\theta & \tau_\phi
+\end{bmatrix}^{T}$.
 \\\\
-In the quadrotor body-frame, the translational force $\hat{F_{b}}$ is only applied in the $z_{b}$ axis as shown in Fig. \ref{fig:marcoreferencia}. This force is represented by
+In the quadrotor body-frame, the translational force $\hat{F_{b}}$ is only applied in the $z$-axis, and thus it is represented by
 \begin{equation}
-	\hat{F_{b}}=\begin{pmatrix}
+	\hat{F_{b}}=\begin{bmatrix}
 	0\\
 	0\\
-	u
-	\end{pmatrix} = \begin{pmatrix}
+	T_u
+	\end{bmatrix} = \begin{bmatrix}
 	0\\
 	0\\
 	\sum_{i=1}^{4}F_{M_i}
-	\end{pmatrix}  ,
+	\end{bmatrix}.
  \label{ec:fuerzas}
  \end{equation} 
-with $ F_{M_i} $ being the force, in N, exerted by the motor $ M_{i}$, as shown in Fig. \ref{fig:marcoreferencia}.
-\\\\
-The force $ F_{M_i} $ has a linear dependency with the square of the motor angular velocity, defined as
+The system of equations that represent the dynamics of the quadrotor got using the Euler-Lagrange approach (\ref{ec:eulerlag}) is
+\begin{align}
+\label{ec:eomEulerLagrange}
+\begin{split}
+\ddot{X}_W &= \frac{u_{1}}{m}(\cos(\phi)\sin(\theta)\cos(\psi) + \sin(\phi)\sin(\psi)), \\[5pt]
+\ddot{Y}_W &= \frac{u_{1}}{m}(\cos(\phi)\sin(\theta)\sin(\psi) - \sin(\phi)\cos(\psi)), \\[5pt]
+\ddot{Z}_W &= \frac{u_{1}}{m}(\cos(\phi)\cos(\theta)) - g, \\[5pt]
+\ddot{\psi} & = \dot{\phi}\dot{\theta}\dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}}, \\[5pt]
+\ddot{\theta} & = \dot{\phi}\dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}}, \\[5pt]
+\ddot{\phi} & = \dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} +  \dfrac{u_{4}}{J_{xx}},
+\end{split}
+\end{align}
+with the inputs set as
 \begin{equation}
-	F_{M_i}=k_{i}w_{i}^{2},
-	\label{ec:fi}
+\begin{bmatrix}
+u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
+\end{bmatrix} = \begin{bmatrix}
+	T_u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	0 & -L & 0 & L\\[5pt]
+	-L & 0 & L & 0
+							\end{bmatrix}
+\begin{bmatrix}
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}					
 \end{equation}
-where $ w_{i} $ is the angular velocity of the motor, and $ k_{i} $ is a proportional constant. However, in practice $F_{M_i}$ must be set using the PWM signal input of an ESC. The thrust-PWM relation is found experimentally and is shown in Section \ref{sec:Implementation}.
-\\\\
-The Euler-Lagrange equations can be divided in two parts, one for the $\xi$ coordinates and another for the $\eta$ coordinates, getting
+for quadrotors in `+' configuration, and
 \begin{equation}
-\label{eqn:E-L1}
-\ddot{\xi} =
 \begin{bmatrix}
-\ddot{x} \\ \ddot{y} \\ \ddot{z}
-\end{bmatrix} 
-=
+u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
+\end{bmatrix}	 = \begin{bmatrix}
+	T_u\\[5pt]
+	\tau_{\psi}\\[5pt]
+	\tau_{\theta}\\[5pt]
+	\tau_{\phi}
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 1 & 1 & 1 \\[5pt]
+	-K_{m} & K_{m} & -K_{m} & K_{m}\\[5pt]
+	-L_{X} & -L_{X} & L_{X} & L_{X}\\[5pt]
+	-L_{X} & L_{X} & L_{X} & -L_{X}
+							\end{bmatrix}
 \begin{bmatrix}
-\frac{u_{1}}{m}(C_\phi S_\theta C_\psi + S_\phi S_\psi) \\
- \frac{u_{1}}{m}(C_\phi S_\theta S_\psi - S_\phi C_\psi) \\
-\frac{u_{1}}{m}(C_\phi C_\theta) - g
-\end{bmatrix},
+F_{M_1}\\[5pt]
+F_{M_2}\\[5pt]
+F_{M_3}\\[5pt]
+F_{M_4}
+\end{bmatrix}
 \end{equation}
-\begin{equation}
-\label{eqn:E-L2}
-\ddot{\eta} =
-\begin{bmatrix}
-\ddot{\psi} \\ \ddot{\theta} \\ \ddot{\phi}
-\end{bmatrix} 
- =
-\begin{bmatrix}
-\dot{\phi}\dot{\theta}\dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}} \\
-\dot{\phi}\dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}} \\
- \dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} +  \dfrac{u_{4}}{J_{xx}}
-\end{bmatrix},
-\end{equation}
-where, $\begin{bmatrix}
-u_{1},\ u_{2},\ u_{3}, \ u_{4}
-\end{bmatrix}^{T} = \begin{bmatrix}
-u,\ \tau_{\psi},\ \tau_{\theta},\ \tau_{\phi}
-\end{bmatrix}^{T} $, and $ (J_{xx}, J_{yy}, J_{zz}) $ are the moments of inertia around the quadrotor body-frame axes \cite{Emam2016, Badr2016}.
+for quadrotors in `X' configuration (\cite{Emam2016, Badr2016}).
 \\\\
-
-that is a simplified representation of the quadrotor complete model found in \cite{Bouabdallah2007}.
+Defining the state vector as
+\setcounter{MaxMatrixCols}{20}
+\begin{equation}
+\mathbf{x} = \begin{bmatrix}
+X_W & \dot{X_W} & Y & \dot{Y_W} & Z_W & \dot{Z_W} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T},
+\end{equation} 
+the quadrotor non-linear dynamics model got with an Euler-Lagrange approach, can be represented as
+\begin{equation}
+\mathbf{\dot{x}} = \mathbf{f(x,u)} = \begin{bmatrix}
+\dot{X}_W \\[5pt]
+\dfrac{u_{1}}{m}(\cos(\phi)\sin(\theta)\cos(\psi) + \sin(\phi)\sin(\psi)) \\[5pt]
+\dot{Y}_W \\[5pt]
+\dfrac{u_{1}}{m}(\cos(\phi)\sin(\theta)\sin(\psi) - \sin(\phi)\cos(\psi)) \\[5pt]
+\dot{Z}_W \\[5pt]
+\dfrac{u_{1}}{m}(\cos(\phi)\cos(\theta)) - g \\[5pt]
+\dot{\psi} \\[5pt]
+\dot{\phi}\dot{\theta} \dfrac{J_{xx}-J_{yy}}{J_{zz}} + \dfrac{u_{2}}{J_{zz}} \\[5pt]
+\dot{\theta} \\[5pt]
+\dot{\phi} \dot{\psi}\dfrac{J_{zz}-J_{xx}}{J_{yy}} + \dfrac{u_{3}}{J_{yy}} \\[5pt]
+\dot{\phi} \\[5pt]
+\dot{\theta}\dot{\psi}\dfrac{J_{yy}-J_{zz}}{J_{xx}} + \dfrac{u_{4}}{J_{xx}}
+\end{bmatrix}
+\end{equation}
 
 \section{Linearized Model}
 \label{sec:linearized}
 \setcounter{MaxMatrixCols}{20}
 \subsection{Jacobian Linearization}
-\cite{Sabatino2015}
-\\\\
-The Euler-Lagrange equations in (\ref{eqn:E-L1}) and (\ref{eqn:E-L2}) are linearized using their Jacobian around the hover state where $\begin{bmatrix}
-\eta,\ \dot{\eta},\ \dot{\xi}
-\end{bmatrix} \to \begin{bmatrix}
-0,\ 0,\ 0
-\end{bmatrix}$, getting
-\begin{equation}
-\label{eqn:linear}
-\ddot{q}
-=
-\begin{bmatrix}
-g\theta \\
-g\phi\\
-u_{1}/m \\
-u_{2}/J_{zz} \\
-u_{3}/J_{yy} \\
-u_{4}/J_{xx}
-\end{bmatrix},
-\end{equation}
-
-As said above, in order to perform the linearization, an equilibrium point is
-needed. Such an equilibrium point can be:
-\begin{equation}
-\overline{\mathbf{x}} = \begin{bmatrix}
-\overline{x} & \overline{y} & \overline{z} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-\end{bmatrix}^{T}
-\end{equation}
-From the equations, we can find that the equilibrium point (2.29) is obtained by
-the constant input value:
+The linearization of a non-linear system is done about an equilibrium point $\overline{\mathbf{x}}$ achieved with a specific input called equilibrium input $\overline{\mathbf{u}}$  where $\mathbf{f(\overline{x},\overline{u})} \approx \mathbf{0}$. In the quadrotor, such an equilibrium point can be the hover state where $\mathbf{\Omega_B} \to \mathbf{0_{3\times 1}}$, $\mathbf{\dot{\Omega}_B} \to \mathbf{0_{3\times 1}}$, and $\mathbf{V_{B}} \to \mathbf{0_{3\times 1}}$. This is
+\begin{align}
+\label{ec:equilibrium}
+\begin{split}
+\overline{\mathbf{x}} & = \begin{bmatrix}
+\overline{x} & \dot{\overline{x}} & \overline{y} & \dot{\overline{y}} & \overline{z} & \dot{\overline{z}} & \overline{\psi} & \dot{\overline{\psi}} & \overline{\theta} & \dot{\overline{\theta}} & \overline{\phi} & \dot{\overline{\phi}}
+\end{bmatrix}^{T}\\
+ & = \begin{bmatrix}
+\overline{x} & 0 & \overline{y} & 0 & \overline{z} & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}^{T},
+\end{split}
+\end{align}
+where $\overline{x}$, $\overline{y}$ and $\overline{z}$ define a constant desired position in the body and earth-frame. When the quadrotor state is near the equilibrium point, the body and earth frames are assumed to coincide and thus $\mathbf{\dot{\xi}_W}\to \mathbf{V_{B}}$, $X_W \to x$, $Y_W \to y$, and $Z_W \to z$ (\cite{Sabatino2015}).\\\\
+The equilibrium point shown in \ref{ec:equilibrium} is obtained using a constant input value $\overline{\mathbf{u}}$ where only the thrust that overcomes gravity is applied, as shown below.
 \begin{equation}
 \overline{\mathbf{u}} = \begin{bmatrix}
+T_u & \tau_\psi & \tau_\theta & \tau_\phi
+\end{bmatrix}^{T} = \begin{bmatrix}
 mg & 0 & 0 & 0
 \end{bmatrix}^{T}
 \end{equation}
-with $mg$ being the lift force.
-\\\\
-The linearized model of the quad-rotor helicopter written as a state space model is given by
-
-\begin{align*}
-\dot{\mathbf{x}}(t) = & A\mathbf{x}(t)+B\mathbf{u}(t),\\
-\mathbf{y}(t) = & C\mathbf{x}(t),
-\end{align*}
+\\
+The Jacobian linearization is based on the fact that if the quadrotor is not exactly at the equilibrium point, but close to it with a small deviation $\delta_{\mathbf{x}} = \mathbf{x} - \overline{\mathbf{x}}$ due to an input deviation $\delta_{\mathbf{u}}= \mathbf{u} - \overline{\mathbf{u}}$ (\cite{RanjanVepa2016}), the non-linear system will be represented by
+\begin{equation}
+\label{ec:deltajacobian}
+\dot{\delta_{\mathbf{x}}} =  \mathbf{f(\overline{x}+\delta_{\mathbf{x}},\overline{u}}+\delta_{\mathbf{u}}).
+\end{equation}
+Using the first order Taylor polynomial from (\ref{ec:deltajacobian}) and considering that $\mathbf{f(\overline{x},\overline{u})} \approx \mathbf{0}$, the following expression is obtained.
+\begin{equation}
+\label{ec:linearizedsystem}
+\dot{\delta_{\mathbf{x}}} \approx 
+\frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{x}}\Bigr|_{\substack{\mathbf{x}=\overline{\mathbf{x}}\\\mathbf{u}=\overline{\mathbf{u}}}} \delta_{\mathbf{x}} + \frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{u}}\Bigr|_{\substack{\mathbf{x}=\overline{\mathbf{x}}\\\mathbf{u}=\overline{\mathbf{u}}}} \delta_{\mathbf{u}}
+\end{equation}
+The equation (\ref{ec:linearizedsystem}) describes a linear time-invariant representation of the non-linear dynamics of the quadrotor near an equilibrium point $\overline{\mathbf{x}}$ and with an input that tends to be $\overline{\mathbf{u}}$, which is established as a state space model
+\begin{align}
+\begin{split}
+\dot{\mathbf{x}}(t) & = A\mathbf{x}(t)+B\mathbf{u}(t)
+\end{split}
+\end{align}
 where
 \begin{align}
 \begin{split}
+\mathbf{x} = & \begin{bmatrix}
+x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T}\\
 A  = \frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{x}}\Bigr|_{\substack{\mathbf{x}=\overline{\mathbf{x}}\\\mathbf{u}=\overline{\mathbf{u}}}} = & 
 \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
@@ -501,65 +627,23 @@ B = \frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{u}}\Bigr|_{\substa
 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{I_{zz}} & 0 & 0 & 0 & 0\\[5px]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{I_{yy}} & 0 & 0\\[5px]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{I_{xx}}
-\end{bmatrix}^{T},\\[15px]
-C = &
-\begin{bmatrix}
-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 
-\end{bmatrix},
+\end{bmatrix}^{T}.
 \end{split}
 \end{align}
 
-with the parameters  
-
-$m=0.64 $ kg, 
-
-$g=9.81$ m/s.
-
-
-The state vector is defined as
-
-\begin{align*}
-x(t)=&
-\begin{bmatrix}
-r_x & \dot{r}_x & r_y & \dot{r}_y & r &\dot{r}_z 
-\end{bmatrix}^T,
-\end{align*}
-and the control inputs as
-\begin{align*}
-u(t)=&
-\begin{bmatrix}
-u_1 & u_2 &u_3 & u_4
-\end{bmatrix}^T,
-\end{align*}
-
-and the output vector is defined as
-
-\begin{align*}
-r(t)=
-\begin{bmatrix}
-r_{x} & r_{y} & r_{z}
-\end{bmatrix}^T.
-\end{align*}
-
 \subsection{Thrust Compensation}
-\url{https://robotics.stackexchange.com/questions/4247/tilt-compensated-motor-output-to-keep-altitude-for-quadcopter}
-Recalling the rotation matrix $R_{b}^{w}$,
+%\url{https://robotics.stackexchange.com/questions/4247/tilt-compensated-motor-output-to-keep-altitude-for-quadcopter}
+Given the fact that the forces $F_{M_i}$ applied by the motors in the quadrotor are parallel to the body-frame $z$-axis and not to the earth-frame $Z_W$-axis, a compensated thrust input $u_{1}^{*}$ must be set so that its projection $u_1$ on the $Z_W$-axis is such that it allows keeping the inputs of the system close to the equilibrium input, even though there are deviations in $\theta$ or $\phi$.
+\\\\
+Given the linearization consideration where the $z$ and $Z_W$ axes coincide, if a linear controller is designed to control the quadrotor, it takes the projection $u_{1}$ of $u_{1}^{*} = T_{u}$ on the $Z_W$-axis as its thrust control signal. From linear algebra, and following the geometry seen in Fig. \ref{fig:quadrotorX}, the projection $u_{1}$ is defined as
 \begin{equation}
-R_{b}^{w} = \begin{bmatrix}
-c\theta c\psi & c\psi s\theta s\phi-c\phi s\psi & s\phi s\psi+c\phi c\psi s\theta\\
-c\theta s\psi & s\psi s\theta s\phi+c\phi c\psi & c\phi s\psi s\theta - s\phi c\psi\\
--s\theta & c\theta s\phi & c\theta c\phi
-\end{bmatrix}
+u_{1} = u_{1}^{*}\cos(\theta)\cos(\phi),
 \end{equation}
+for any $|\theta|$ and $|\phi|$ magnitudes greater than zero. Thus, after each iteration of the control algorithm the real thrust input $u_{1}^{*}$ is calculated as
 \begin{equation}
-u = u^{*} \cos{\theta}\cos{\phi}
+u_{1}^{*} = \dfrac{u_{1}}{\cos(\theta)\cos(\phi)},
 \end{equation}
-\begin{equation}
-u^{*} = \dfrac{u}{\cos{\theta}\cos{\phi}}
-\end{equation}
+keeping the desired vertical thrust, despite any deviation about the $x$ or $y$ axes.
 \section{Conclusions}
 This chapter presented the design of the two vehicles developed in this thesis.
 The test-bench and the OS4. The first system is only capable of 3 DoF which
