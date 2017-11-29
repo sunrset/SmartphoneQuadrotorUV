@@ -1,31 +1,31 @@
 \select@language {english}
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Assembled quadcopter used in this research with the on-board smartphone on the top center of it.\relax }}{3}{figure.caption.6}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Assembled quadcopter used in this research with the on-board smartphone on the top center of it.\relax }}{2}{figure.caption.6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadrotor geometry in `+' configuration\relax }}{10}{figure.caption.15}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Quadrotor geometry in `X' configuration\relax }}{13}{figure.caption.17}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadrotor geometry in `+' configuration\relax }}{10}{figure.caption.10}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Quadrotor geometry in `X' configuration\relax }}{13}{figure.caption.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Quadrotor prototype's hardware overview\relax }}{25}{figure.caption.20}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces LJI 500-X4 carbon fiber frame}}{26}{figure.caption.21}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces LG Nexus 5X, smartphone used as flight controller}}{27}{figure.caption.22}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Motors and ESC used in the Quadrotor\footnotemark \relax }}{29}{figure.caption.24}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Arduino Mega ADK}}{30}{figure.caption.25}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces LiPo battery that powers the Quadrotor}}{31}{figure.caption.27}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Smartphone support\relax }}{32}{figure.caption.29}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Arduino Mega ADK and EMAX 4in1 ESCs designed supports\relax }}{32}{figure.caption.31}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces 3D Designed Dome\relax }}{33}{figure.caption.33}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{34}{figure.caption.34}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{36}{figure.caption.36}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{37}{figure.caption.37}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Thrust test configuration\relax }}{38}{figure.caption.39}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{39}{figure.caption.40}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Motors torque experiment configuration\relax }}{40}{figure.caption.41}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Torque\relax }}{41}{figure.caption.42}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Quadrotor prototype's hardware overview\relax }}{25}{figure.caption.15}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces LJI 500-X4 carbon fiber frame}}{26}{figure.caption.16}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces LG Nexus 5X, smartphone used as flight controller}}{27}{figure.caption.17}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Motors and ESC used in the Quadrotor\footnotemark \relax }}{29}{figure.caption.19}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Arduino Mega ADK}}{30}{figure.caption.20}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces LiPo battery that powers the Quadrotor}}{31}{figure.caption.22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Smartphone support\relax }}{32}{figure.caption.24}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Arduino Mega ADK and EMAX 4in1 ESCs designed supports\relax }}{32}{figure.caption.26}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 3D Designed Dome\relax }}{33}{figure.caption.28}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{34}{figure.caption.29}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{36}{figure.caption.31}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{37}{figure.caption.32}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Thrust test configuration\relax }}{38}{figure.caption.34}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{39}{figure.caption.35}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Motors torque experiment configuration\relax }}{40}{figure.caption.36}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Motors torque experiment results\relax }}{41}{figure.caption.37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop of the controlled system with an LQG controller.\relax }}{45}{figure.caption.43}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Closed-loop system with gain compensation for the LQG controller aiming to track a reference.\relax }}{45}{figure.caption.44}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{45}{figure.caption.45}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{46}{figure.caption.46}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{47}{figure.caption.48}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop of the controlled system with an LQG controller.\relax }}{45}{figure.caption.38}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Closed-loop system with gain compensation for the LQG controller aiming to track a reference.\relax }}{45}{figure.caption.39}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{45}{figure.caption.40}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{46}{figure.caption.41}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{47}{figure.caption.43}
 \addvspace {10\p@ }

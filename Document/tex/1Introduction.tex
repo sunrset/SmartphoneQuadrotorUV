@@ -6,8 +6,6 @@ This research project aims to design and implement algorithms that will be execu
 \\\\
 This paper presents the design of an optimal and a robust controller, and a state estimator based on a Kalman filter for a smartphone-based quadrotor. The non-linear and linerized model of the quadrotor is presented, the controller that allows the quadrotor to follow a trajectory reference using two approachs is designed. The two approaches are the LQG and $H_\infty$ controllers. The quadrotor flight dynamics estimation strategies using sensor fusion algorithms are described. 
 \\\\
-Current smartphone processors are able to perform complex calculations such as those required in the implementation of real time control strategies. There are many ongoing research related to the possibility of using smartphones to implement control strategies, such as \cite{Drumea2013a}, as configuration and monitoring interfaces in control systems as seen in \cite{Lin2014a,Truong2012a}, and as a tool in both education and design of control strategies seen in \cite{Aristizabal2014a,WuWu2013a}. Following this trend, in the Universidad del Valle, it was developed a smartphone-based platform for monitoring, control and communication in portable laboratories, where a controller for a pendulum based in the Lego Mindstorms EV3 platform was implemented \cite {GarciaTellez2015}.
-\\\\
 In recent years, the interest in aerial robotics research has increased substantially. This is because this type of robotics offers several potential new services such as search and rescue, observation, mapping, inspection, etc. On the other hand, smartphones have become essential devices for humans and easily acquirable development tools. The interaction between these two technologies allow the development of low cost quadcopters based on an everyday item such as the smartphones, facilitating the distribution of the quadcopter control software and its implementation by other researchers.
 %~\ref{fig:quads500} for an example.
 \begin{figure}[h]
@@ -18,10 +16,7 @@ In recent years, the interest in aerial robotics research has increased substant
 \end{center}
 \end{figure}
 \\\\
-In the University of Pennsylvania, in \cite{Loianno2015}, was developed a quadcopter using a last generation smartphone as a flight controller and an additional processing system for image-based positioning. The state estimation algorithms, control and planning were firstly implemented in a ODROID-XU board with additional sensors, but then, in \cite{Loianno2015a}, this algorithms were ported to the Qualcomm processor in the phone due to the Qualcomm colaboration in that project.
-\\\\
-Current research focuses on the development of aerial robots potentiated by the use of smartphones, as seen in \cite{Pearce2014a, ALEMARK2014a, Aldrovandi2015, Bryant2015}. In the last years, computing capacity and sensor technology in smartphones has decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadcopter flight controllers for autonomous flights following specific missions, taking advantage of the fact that the phones today are very powerful computers that include elements of sensing, processing and signal communication.
-\\\\
+
 In this paper, the implementation of a quadcopter with a smartphone acting as its flight controller while using exclusively the sensors and processor in the smartphone, is shown. The controller keeps the attitude of the quadcopter stabilized while making the quadcopter to hover at an altitude reference. It is presented the detailed composition of the test platform (quadcopter) used, integrating it with its dynamic model in addition to the quadcopter altitude and attitude estimation strategies using sensor fusion algorithms.
 \section{Motivation}
 wfwfew
@@ -33,6 +28,7 @@ Los  desafíos  de  investigación  existentes  están en  cómo  desarrollar  e
 La pregunta a responder es ?`cómo desarrollar estrategias de control en un teléfono inteligente para el control de vuelo de un cuadricóptero de manera que se utilice la instrumentación y capacidad de computación del teléfono y se puedan desarrollar misiones utilizando un cuadricóptero?\\
 \section{Objectives}
 \subsubsection{Objetivo General}
+In order to dev
 Para responder a la pregunta de investigación se plantea el siguiente objetivo general:\\
 Diseñar e implementar algoritmos de control y estimación de dinámicas de vuelo ejecutados en un teléfono inteligente para el cuadricóptero del Grupo de Investigación en Control Industrial.
 \subsubsection{Objetivos Específicos}
@@ -53,61 +49,44 @@ wfwefwe
 
 
 \subsection{Quadrotor Flight Modes}
-\url{http://ardupilot.org/copter/docs/flight-modes.html}
-\cite{Ardupilot2016}
+%\url{http://ardupilot.org/copter/docs/flight-modes.html}
+In quadrotors, the on-board flight controllers keep some of the quadrotors $DoF$ in a desired value autonomously in order to allow pilots to perform tasks during a flight. This controllers have different modes that can control from $3$ to $6$ $DoF$ depending on the will of the pilot. Flight modes commonly found in commercial flight controllers may be as basic to only control its attitude or as complex to let the quadrotor follow a complex trajectory with multiple waypoints \cite{Ardupilot2016}.
+\\\\
+The main flight modes, widely used in commercial flight controllers, are described bellow according to the number of controlled $DoF$, in ascending order.
 
-\subsubsection{Stabilize Mode}
-Stabilize mode allows you to fly your vehicle manually, but self-levels the roll and pitch axis.
+\begin{itemize}
+\item \textbf{Stabilize Mode}\\\\
+This mode allows the pilot to fly the quadrotor manually while the flight controller self-levels the quadrotor attitude and regulate its current heading. Thus, the stabilize mode attempts to control three $DoF$ of the quadrotor.\\\\
+The attitude references can be set or changed by the pilot using the remote control, but their default value is $0\ rad$. On the other hand, the quadrotor heading is simply set to be regulated in its current state, enabling its rate using the remote control.
 \\\\
-Pilot’s roll and pitch input control the lean angle of the copter. When the pilot releases the roll and pitch sticks the vehicle automatically levels itself.
-    
-    Pilot will need to regularly input roll and pitch commands to keep the vehicle in place as it is pushed around by the wind.
-    
-    Pilot’s yaw input controls the rate of change of the heading. When the pilot releases the yaw stick the vehicle will maintain it’s current heading.
-    
-    Pilot’s throttle input controls the average motor speed meaning that constant adjustment of the throttle is required to maintain altitude. If the pilot puts the throttle completely down the motors will go to their minimum rate (MOTSPINARMED) and if the vehicle is flying it will lose attitude control and tumble.
-    
-    The throttle sent to the motors is automatically adjusted based on the tilt angle of the vehicle (i.e. increased as the vehicle tilts over more) to reduce the compensation the pilot must do as the vehicle’s attitude changes.
+As the stabilize mode do not take into account the control of the quadrotor position, the pilot needs to regularly change the attitude references manually to keep the quadrotor in a desired position, as it is affected by wind disturbances. Also, the pilot needs to regularly adjust the quadrotor thrust, so that a desired altitude is maintained.
 
-\subsubsection{Altitude Hold Mode}
-In altitude hold mode, Copter maintains a consistent altitude while allowing roll, pitch, and yaw to be controlled normally. This page contains important information about using and tuning alt hold.
+\item \textbf{Altitude Hold Mode}\\\\
+The altitude hold mode adds automatic elevation control to the Stabilize mode. This way, in addition to controlling the attitude, the quadrotor thrust is set by the flight controller in order to maintain the quadrotor in a desired altitude, getting four controlled $DoF$.
 \\\\
-When altitude hold mode (aka AltHold) is selected, the throttle is automatically controlled to maintain the current altitude. Roll, Pitch and yaw operate the same as in Stabilize mode meaning that the pilot directly controls the roll and pitch lean angles and the heading.
-\\\\
-Automatic altitude hold is a feature of many other flight modes (Loiter, Sport, etc) so the information here pertains to those modes as well.
-\\\\
-The pilot can control the climb or descent rate of the vehicle with the throttle stick.
+In this mode, the pilot can remotely control the rate of change of the elevation (with a default value of $0\ m/s$), as well as the attitude references.
 
-    If the throttle stick is in the middle (40$\%$ ~ 60$\%$) the vehicle will maintain the current altitude.
-    Outside of the mid-throttle deadzone (i.e. below 40$\%$ or above 60$\%$) the vehicle will descend or climb depending upon the deflection of the stick. When the stick is completely down the copter will descend at 2.5m/s and if at the very top it will climb by 2.5m/s.
+\item \textbf{Loiter Mode}\\\\
+Loiter mode automatically attempts to regulate the six $DoF$ of the quadrotor in order to maintain a desired position, heading and altitude during a flight. Here, the quadrotor attitude is self-leveled, while the position and altitude reference can be modified by the pilot using the remote controller. The position and altitude references are initialized using the current quadrotor position and altitude when this mode is set. This is a GNSS-Dependent flight mode.
 
-\subsubsection{Loiter Mode}
-Loiter Mode automatically attempts to maintain the current location, heading and altitude. The pilot may fly the copter in Loiter mode as if it were in a more manual flight mode but when the sticks are released, the vehicle will slow to a stop and hold position.
-\\\\
-A good GPS lock, low magnetic interference on the compass and low vibrations are all important in achieving good loiter performance.
-\\\\
-The pilot can control the copter’s position with the control sticks.
+\item \textbf{Auto Mode}\\\\
+The Auto mode attempts to make a quadrotor follow automatically a pre-programmed path connecting multiple position and heading waypoints, while receiving . This mode use the same controller as the Loiter mode, but its references are set automatically following the waypoints list. As in Auto mode the quadrotor must follow geo-located waypoints, this is a GNSS-Dependent flight mode.
 
-    Horizontal location can be adjusted with the the Roll and Pitch control sticks with the default maximum horizontal speed being 5m/s (see Tuning section below on how to adjust this). When the pilot releases the sticks the copter will slow to a stop.
-    Altitude can be controlled with the Throttle control stick just as in AltHold mode
-    The heading can be set with the Yaw control stick
+\item \textbf{Return-To-Launch Mode}\\\\
+During a flight mission, the home location is set as the position and altitude where the quadrotor took off. The Return-To-Launch mode is used in case of emergency or when a the last waypoint is reached within a flight mission. This mode is equivalent to the Auto mode, but only has two waypoints. The first waypoint consists in the position of the home location with a previously set altitude ($RTL$ altitude) greater than the home altitude. When this waypoint is reached, the home location is set as the following waypoint so that the quadrotor starts its landing keeping the position controlled.
 
-\subsubsection{Return-To-Launch Mode}
-When RTL mode is selected, the copter will return to the home location. The copter will first rise to RTLALT before returning home or maintain the current altitude if the current altitude is higher than RTLALT. The default value for RTLALT is 15m.
-\\\\
-RTL is a GPS-dependent move, so it is essential that GPS lock is acquired before attempting to use this mode. Before arming, ensure that the APM’s blue LED is solid and not blinking. For a GPS without compass, the LED will be solid blue when GPS lock is acquired. For the GPS+Compass module, the LED will be blinking blue when GPS is locked.
-\\\\
-RTL will command the copter to return to the home position, meaning that it will return to the location where it was armed. Therefore, the home position is always supposed to be your copter’s actual GPS takeoff location, unobstructed and away from people. For Copter if you get GPS lock and then ARM your copter, the home position is the location the copter was in when it was armed. This means if you execute an RTL in Copter, it will return to the location where it was armed.
-
-\subsubsection{Auto Mode}
-In Auto mode the copter will follow a pre-programmed mission script stored in the autopilot which is made up of navigation commands (i.e. waypoints) and “do” commands (i.e. commands that do not affect the location of the copter including triggering a camera shutter). This page provides an overview of Auto mode.
+\end{itemize}
 
 
 \subsection{Smartphones as Controllers}
-wfwfwewf
+Current smartphone processors are able to perform complex calculations such as those required in the implementation of real time control strategies. There are many ongoing research related to the possibility of using smartphones to implement control strategies, such as \cite{Drumea2013a}, as configuration and monitoring interfaces in control systems as seen in \cite{Lin2014a,Truong2012a}, and as a tool in both education and design of control strategies seen in \cite{Aristizabal2014a,WuWu2013a}. Following this trend, in the Universidad del Valle, it was developed a smartphone-based platform for monitoring, control and communication in portable laboratories, where a controller for a pendulum based in the Lego Mindstorms EV3 platform was implemented \cite {GarciaTellez2015}.
+\\\\
 
 \subsection{Smartphone-based Quadrotors}
-wfwfwf
+In the University of Pennsylvania, in \cite{Loianno2015}, was developed a quadcopter using a last generation smartphone as a flight controller and an additional processing system for image-based positioning. The state estimation algorithms, control and planning were firstly implemented in a ODROID-XU board with additional sensors, but then, in \cite{Loianno2015a}, this algorithms were ported to the Qualcomm processor in the phone due to the Qualcomm colaboration in that project.
+\\\\
+Current research focuses on the development of aerial robots potentiated by the use of smartphones, as seen in \cite{Pearce2014a, ALEMARK2014a, Aldrovandi2015, Bryant2015}. In the last years, computing capacity and sensor technology in smartphones has decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadcopter flight controllers for autonomous flights following specific missions, taking advantage of the fact that the phones today are very powerful computers that include elements of sensing, processing and signal communication.
+\\\\
 
 \subsubsection{Smartphone-based Quadrotor Limitations}
 The idea of using a smartphone as flight controller in an UAV opens the possibility of a rapid and inexpensive development \cite{Aldrovandi2015}. A smartphone offers other advantages compared with off-the-shelf flight controllers, for instance its powerful quad or hexa-core processors and communications interfaces. However, smartphones and the Android operating system have some limitations that set challenges when implementing a control system in it.\\\\
