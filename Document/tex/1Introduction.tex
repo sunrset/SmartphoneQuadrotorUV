@@ -1,4 +1,19 @@
 \chapter{Introduction} \label{ch:introduction}
+
+\section{Quadrotors}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8.6cm]{lji500x4.jpg}    
+\caption[LJI 500-X4 carbon fiber frame]{LJI 500-X4 carbon fiber frame\protect\footnotemark} 
+\label{fig:quadframe}
+\end{center}
+\end{figure}
+\footnotetext{LJI 500-X4 frame image taken from \url{https://goo.gl/hHfHQR}}
+
+
+
+\section{Motivation}
 Quadrotor control is a difficult and interesting problem. A quadrotor has six degrees of freedom (three translational and three rotational) and four independent inputs (forces applied by the motors). As established by \cite{Liu2015} and \cite{Lopez2015}, quadrotor dynamics are affected by nonlinearity, parameters perturbations, uncertainties and disturbances: this include unknown and variable payloads, aerodynamical parameters of the system, wind changes, and sensors inaccuracies. Numerous studies have been developed in designing optimal and robust controllers that allow unmanned aircraft systems (UAS) to fly and accomplish missions rejecting disturbances and being robust to parameter uncertainties as seen in \cite{Jung2014, Kohno2014, Shang2016, Salazar2014}.\\\\
 Although there are embedded systems with high computational capacity that can serve as controllers of a quadrotor, smartphones are available, easily accessible for people and also have a large computational capacity, hence multiple instrumentation and communication elements integrated in the same device. The use of smartphones also facilitates distribution and installation of updates of the control application as it is a commonly known device and has application distribution platforms. Some attempts to joint smartphones and aerial robots have been made: in \cite{Pearce2014a}, a smartphone was used as a mission planner for a quadrotor and in \cite{ALEMARK2014a}, a smartphone was used as flight controller using its sensors and power to stabilize the quadrotor and control its altitude. A smartphone has been used as a flight controller and processing system for image-based positioning in a quadrotor, as shown in \cite{Loianno2015}.
 \\\\
@@ -16,36 +31,32 @@ In recent years, the interest in aerial robotics research has increased substant
 \end{center}
 \end{figure}
 \\\\
-
 In this paper, the implementation of a quadcopter with a smartphone acting as its flight controller while using exclusively the sensors and processor in the smartphone, is shown. The controller keeps the attitude of the quadcopter stabilized while making the quadcopter to hover at an altitude reference. It is presented the detailed composition of the test platform (quadcopter) used, integrating it with its dynamic model in addition to the quadcopter altitude and attitude estimation strategies using sensor fusion algorithms.
-\section{Motivation}
-wfwfew
+
 \section{Research Problem}
-En los últimos años el interés por la investigación en robótica aérea ha aumentado sustancialmente. Esto se debe a que este tipo de robótica ofrece diferentes servicios potenciales como búsqueda y rescate, observación, mapeo, inspección, entre otros. Por otro lado, los teléfonos inteligentes se han convertido en dispositivos esenciales para el ser humano y en herramientas de desarrollo y prototipado rápido de fácil acceso. La interacción entre estas dos tecnologías permitiría el desarrollo de cuadricópteros a bajo costo basados en un elemento cotidiano como los teléfonos inteligentes, facilitando la distribución del software de control y su implementación a manos de otros investigadores.
+The existing research challenges include how to develop and implement efficient control algorithms for smartphones using the Android operating system, and assess, adapt and develop the appropriate communication, sensing and performance technologies with smartphones in the execution of missions using quadrotors.
 \\\\
-Los  desafíos  de  investigación  existentes  están en  cómo  desarrollar  e  implementar  algoritmos eficientes de control para teléfonos inteligentes usando el sistema operativo Android, y  valorar,  adaptar  y  desarrollar  las  tecnologías  adecuadas  de  comunicación,  sensado  y actuación con los teléfonos inteligentes en la ejecución de misiones utilizando cuadricópteros.
-\\\\
-La pregunta a responder es ?`cómo desarrollar estrategias de control en un teléfono inteligente para el control de vuelo de un cuadricóptero de manera que se utilice la instrumentación y capacidad de computación del teléfono y se puedan desarrollar misiones utilizando un cuadricóptero?\\
+Then, the question to be answered is: how to develop control strategies in a smartphone in order to control the flight dynamics of a quadrotor so that it can develop flight missions while the instrumentation and computing capacity of the smartphone is used?
 \section{Objectives}
-\subsubsection{Objetivo General}
-In order to dev
-Para responder a la pregunta de investigación se plantea el siguiente objetivo general:\\
-Diseñar e implementar algoritmos de control y estimación de dinámicas de vuelo ejecutados en un teléfono inteligente para el cuadricóptero del Grupo de Investigación en Control Industrial.
-\subsubsection{Objetivos Específicos}
+In order to find a solution for the research problem, the following general and specific objectives are proposed:
+\subsubsection{General Objective}
+Design and implement algorithms for control and estimation of flight dynamics executed in a smartphone for the quadrotor of the Industrial Control Research Group.
+\subsubsection{Specific Objectives}
 \begin{enumerate}
-\item Realizar un estudio y análisis del estado del arte relacionado con el control y la estimación de los estados de cuadricópteros.
-\item Integrar el cuadricóptero existente con un telefono intelingente que contenga los sensores adecuados para el control y la estimación de estados.
-\item Obtener un modelo dinámico del cuadricóptero.
-\item Diseñar e implementar los algoritmos de control y de estimación de estados para el cuadricóptero.
-\item Integrar la plataforma de experimentación con los algoritmos de control y estimación en el teléfono inteligente.
-\item Evaluar el desempeño de las estrategias de control.%????
+\item Conduct a study and analysis of the state of the art related to the control and estimation of states of quadrotors.
+\item Integrate the existing quadrotor with a smart phone that contains the appropriate sensors for the control and estimation of states.
+\item Obtain a dynamic model of the quadrotor.
+\item Design and implement the algorithms for control and estimation of states for the quadrotor.
+\item Integrate the experimentation platform with the control and estimation algorithms in the smartphone.
+\item Evaluate the performance of the control strategies.%????
 \end{enumerate}
 
 \section{Literature Review}
-wfwfewf
 
-\subsection{Quadrotors}
-wfwefwe
+\subsection{Control Strategies in Quadrotors}
+
+
+\subsection{State Estimation in Quadrotors}
 
 
 \subsection{Quadrotor Flight Modes}
@@ -78,64 +89,58 @@ During a flight mission, the home location is set as the position and altitude w
 \end{itemize}
 
 
-\subsection{Smartphones as Controllers}
+\subsection{Smartphones in Control Systems}
 Current smartphone processors are able to perform complex calculations such as those required in the implementation of real time control strategies. There are many ongoing research related to the possibility of using smartphones to implement control strategies, such as \cite{Drumea2013a}, as configuration and monitoring interfaces in control systems as seen in \cite{Lin2014a,Truong2012a}, and as a tool in both education and design of control strategies seen in \cite{Aristizabal2014a,WuWu2013a}. Following this trend, in the Universidad del Valle, it was developed a smartphone-based platform for monitoring, control and communication in portable laboratories, where a controller for a pendulum based in the Lego Mindstorms EV3 platform was implemented \cite {GarciaTellez2015}.
 \\\\
+\cite{Gunawan2014}
+\cite{Stefka2016}
+\cite{Qgurlg2015}
+\cite{Luo2014}
+\cite{Lu2017}
+\cite{Chen2011}
+\cite{Tetzlaff2013}
+\cite{Geissbuhler2015}
+\cite{Oros2013a}
+\cite{DeABarbosa2015}
 
 \subsection{Smartphone-based Quadrotors}
+\cite{Alsharif2017a}
+\cite{Alsharif2016}
+\cite{Alsharif2017}
+\cite{Loianno2017}
+\cite{Isuru2017}
+
 In the University of Pennsylvania, in \cite{Loianno2015}, was developed a quadcopter using a last generation smartphone as a flight controller and an additional processing system for image-based positioning. The state estimation algorithms, control and planning were firstly implemented in a ODROID-XU board with additional sensors, but then, in \cite{Loianno2015a}, this algorithms were ported to the Qualcomm processor in the phone due to the Qualcomm colaboration in that project.
 \\\\
 Current research focuses on the development of aerial robots potentiated by the use of smartphones, as seen in \cite{Pearce2014a, ALEMARK2014a, Aldrovandi2015, Bryant2015}. In the last years, computing capacity and sensor technology in smartphones has decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadcopter flight controllers for autonomous flights following specific missions, taking advantage of the fact that the phones today are very powerful computers that include elements of sensing, processing and signal communication.
 \\\\
 
 \subsubsection{Smartphone-based Quadrotor Limitations}
-The idea of using a smartphone as flight controller in an UAV opens the possibility of a rapid and inexpensive development \cite{Aldrovandi2015}. A smartphone offers other advantages compared with off-the-shelf flight controllers, for instance its powerful quad or hexa-core processors and communications interfaces. However, smartphones and the Android operating system have some limitations that set challenges when implementing a control system in it.\\\\
-Android is not a real-time operating system and thus can not assure execution of algorithms, like estimation and control, with a constant sample time. Furthermore, the sensors embedded in commercial smartphones are made for applications that do not have high requirements of accuracy nor precision and therefore may not be appropriate for sensing quadrotor dynamics. Nonetheless, as explained by \cite{Bryant2015}, due to its computing capabilities, smartphones can overcome this limitations while using a temporized thread to execute the control system algorithms and implement a sensor fusion technique to improve the states estimation reliability. This thread must be executed with a lower sample time compared to the one of the sensors embedded in the smartphone. This will ensure that the execution is not delayed by the sensors acquisition process.
+The idea of using a smartphone as flight controller in an UAV opens the possibility of a quick and inexpensive development \cite{Aldrovandi2015}. A smartphone offers other advantages compared with off-the-shelf flight controllers, for instance its powerful quad, hexa or octa-core processors and communications interfaces. However, smartphones and the Android operating system have some limitations that set challenges when implementing a control system in it.\\\\
+Android is not a real-time operating system and thus can not assure execution of algorithms, like estimation and control, with a constant sample time. Furthermore, the sensors embedded in commercial smartphones are made for applications that do not have high requirements of accuracy nor precision and therefore may not be appropriate for sensing quadrotor dynamics. Nonetheless, as explained by \cite{Bryant2015}, due to its computing capabilities, smartphones can overcome this limitations while using a temporized thread to execute the control system algorithms and implementing a sensor fusion technique to improve the states estimation reliability. This thread must be executed with a lower sample time compared to the one of the sensors embedded in the smartphone. This will ensure that the execution is not delayed by the sensors acquisition process.
 
 \section{Outline}
-In the next section, a detailed description of the hardware used in the quadcopter is presented. After that, the dynamic non-linear and linearized quadcopter model is shown in Section \ref{sec:Model}. In Section \ref{sec:Controller}, all the aspects related to the altitude and attitude cascade controllers design are presented.
-Then, in Section \ref{sec:Estimation} the sensor fusion algorithm that is used to estimate the altitude of the quadcopter, and how the orientation of the system is estimated, is described. In Section \ref{sec:Implementation}, the implementation in Android of all the necessary software with its results is provided. Finally, Section \ref{sec:Conclusion} concludes this paper taking into account the results of this research and the future work to be done.
-\\\\
-This paper is organized as follows: The smartphone-based quadrotors features and limitations are shown in Section \ref{sec:limitations}. In Section \ref{sec:Model}, the dynamic model of a quadrotor in $X$-configuration using a Newton-Euler approach is presented. After that, in Section \ref{sec:controllers}, the quadrotor parameters and controllers design procedure is exposed. In Section \ref{sec:estimation}, the state estimation algorithms based on a Kalman filter and the kinematic model of a particle with constant acceleration are provided. The performance of the proposed flight control system through simulations is presented in Section \ref{sec:simulation}. Finally, Section \ref{sec:conclusions} shows the conclusions and future aiming of this project.
+This thesis is organized as follows.\\\\
+In Chapter \ref{ch:introduction}, 
 
-%\section{Multi-Agent Systems}
-%
-%
-%Advances in exploration and rescue technologies become more relevant than ever before.
-%
-%In an effort to develop distributed mobile agent systems able to resemble their natural counterparts, engineers have been experimenting with mobile sensor networks trying, for example, to implement flocking applications.  The goal has been to create self-organized networks  capable of coordinated group behaviour \citep{MateiBaras12}. For this purpose, heuristic rules were introduced by \citep{SpanosOlfatiMurray05} in order to explain any form of collective behaviour of a large number of individuals  with a common goal. These rules are known as cohesion, separation, and alignment. Cohesion means the attempt to stay close to  the neighbours, separation means avoiding collisions with neighbours, and alignment means the attempt to match velocity with neighbour agents. 
-%
-%
-% For example, oil spilled in the sea generates a scalar field of oil concentration values (Fig. \ref{fig:oilspill}). Similarly,  radiation levels after  nuclear disaster like in Fukushima (Fig.  \ref{fig:fukushima_1}), or a toxic substance cloud moving in space are  phenomena that can be represented as scalar fields (Fig. \ref{fig:scalarfieldsource}). 
-%\afterpage{
-%\begin{figure}[ht!]
-%        \centering
-%        \begin{subfigure}[t]{0.49\textwidth}
-%                \includegraphics[width=\textwidth]{oilspill.eps}
-%                \caption{Oil spill \footnotemark} 
-%                \label{fig:oilspill}
-%        \end{subfigure}%
-%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-%          %(or a blank line to force the subfigure onto a new line)
-%        \begin{subfigure}[t]{0.49\textwidth}
-%                \includegraphics[width=\textwidth]{fukushima_1.eps}
-%                \caption{Fukushima's environment radiation levels after nuclear disaster  \footnotemark}
-%                \label{fig:fukushima_1}
-%        \end{subfigure}
-%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-%          %(or a blank line to force the subfigure onto a new line)
-%        \begin{subfigure}[t]{0.62\textwidth}
-%                \includegraphics[width=\textwidth]{scalarfieldsource.eps}
-%                \caption{Toxic cloud}
-%                \label{fig:scalarfieldsource}
-%        \end{subfigure}%
-%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-%          %(or a blank line to force the subfigure onto a new line)
-%       \caption{Scalar fields} \label{fig:scalar field}
-%\end{figure}
-%\footnotetext[1]{Picture taken from FeedNetBack project}
-%\footnotetext[2]{Picture taken from seaandskyjp.wordpress.com}
-%}
-% 
+\ref{ch:model}
+\ref{ch:prototype}
+\ref{ch:controlandestimation}
+\ref{ch:implementation}
+\ref{ch:conclusions}
 
-
+In this chapter an introduction is given to this project and the quadrotor platform. Chapter 2
+contains a overview of other main quadrotor platforms.
+In the next part the dynamic model of the quadrotor is described, which is used to test
+the indoor navigation and control in simulation. Because the quadrotor is open-loop unstable system,
+a controller is required to do flight tests in simulation. This controller is designed in chapter 4.
+In part III first the selected sensors that are used in the sensor integration are modelled.
+Chapter 6 explains the state estimation method used to integrate the sensors of the IMU and the
+IR sensors and discusses the results of this state estimation in simulation.
+To perform flight tests with actual sensors, a quadrotor platform is designed. Part IV
+starts with the development of this platform in chapter 7. Because without any control feedback
+the quadrotor cannot fly, onboard filtering and control is required, which is described in chapter
+8. Next in chapter 9 the real data from the quadrotor UAV is used to test the state estimation
+method developed.
+Finally, a conclusions and discussion of the work and recommendations for future work are
+given.

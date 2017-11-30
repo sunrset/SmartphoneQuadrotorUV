@@ -94,10 +94,19 @@ A.~Bj{\"{a}}lemark and H.~Bergkvist, ``{Quadcopter control using Android based
   15--21, 2014.
 
 \bibitem{Loianno2015}
+\BIBentryALTinterwordspacing
 G.~Loianno, G.~Cross, C.~Qu, Y.~Mulgaonkar, J.~A. Hesch, and V.~Kumar,
-  ``{Flying Smartphones: Automated flight enabled by consumer electronics},''
-  \emph{IEEE Robotics Automation Magazine}, vol. Vol. 22, pp. pages 24 -- 32,
-  2015.
+  ``{Flying Smartphones: Automated Flight Enabled by Consumer Electronics},''
+  \emph{IEEE Robotics {\&} Automation Magazine}, vol.~22, no.~2, pp. 24--32,
+  jun 2015. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7105372/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Ardupilot2016}
+\BIBentryALTinterwordspacing
+{ArduPilot Dev Team}, ``{Copter - Flight Modes},'' 2016. [Online]. Available:
+  \url{http://ardupilot.org/copter/docs/flight-modes.html}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Drumea2013a}
 A.~Drumea, ``{Control of Industrial Systems Using Android-Based Devices},''
@@ -131,12 +140,154 @@ S.~{Wu Wu}, ``{Sintonizaci{\'{o}}n de controladores PI/PID mediante el
   Universidad de Costa Rica, 2013.
 
 \bibitem{GarciaTellez2015}
-J.~{Garc{\'{i}}a T{\'{e}}llez} and D.~F. {Ochoa Calamb{\'{a}}s},
-  \emph{{Desarrollo de una plataforma de monitorizaci{\'{o}}n, control y
-  comunicaci{\'{o}}n con tel{\'{e}}fonos inteligentes, para laboratorios
-  port{\'{a}}tiles de soporte al {\'{a}}rea de se{\~{n}}ales y
-  sistemas}}.\hskip 1em plus 0.5em minus 0.4em\relax Cali: Universidad del
-  Valle, 2015.
+J.~{Garc{\'{i}}a T{\'{e}}llez} and D.~F. {Ochoa Calamb{\'{a}}s}, ``{Desarrollo
+  de una plataforma de monitorizaci{\'{o}}n, control y comunicaci{\'{o}}n con
+  tel{\'{e}}fonos inteligentes, para laboratorios port{\'{a}}tiles de soporte
+  al {\'{a}}rea de se{\~{n}}ales y sistemas},'' Bachelor Thesis, Universidad
+  del Valle, Cali, 2015.
+
+\bibitem{Gunawan2014}
+\BIBentryALTinterwordspacing
+M.~A. Gunawan, F.~Sulaiman, T.~A. Putra, C.~{Daniel Hasudungan}, and R.~F.
+  Sari, ``{Object-following robot using adaptive cruise control algorithm with
+  IOIO},'' in \emph{2014 International Conference on Intelligent Green Building
+  and Smart Grid (IGBSG)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, apr
+  2014, pp. 1--5. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/xpls/abs{\_}all.jsp?arnumber=6835251
+  http://ieeexplore.ieee.org/document/6835251/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Stefka2016}
+\BIBentryALTinterwordspacing
+P.~Stefka and K.~Zakova, ``{Mobile application for remote control of
+  thermo-optical plant},'' in \emph{2016 13th International Conference on
+  Remote Engineering and Virtual Instrumentation (REV)}, no. February.\hskip
+  1em plus 0.5em minus 0.4em\relax IEEE, feb 2016, pp. 435--439. [Online].
+  Available: \url{http://ieeexplore.ieee.org/document/7444519/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Qgurlg2015}
+\BIBentryALTinterwordspacing
+A.~Mora, H.~Yagama, D.~Zorro, and L.~F.~R. Jimenez, ``{Speed digital control
+  for scale car via Bluetooth and Android},'' in \emph{2015 CHILEAN Conference
+  on Electrical, Electronics Engineering, Information and Communication
+  Technologies (CHILECON)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, oct
+  2015, pp. 129--134. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7400364/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Luo2014}
+\BIBentryALTinterwordspacing
+Y.~Luo, J.~Liu, Y.~Gao, and Z.~Lu, ``{Smartphone-Controlled Robot Snake for
+  Urban Search and Rescue},'' in \emph{Lecture Notes in Computer Science
+  (including subseries Lecture Notes in Artificial Intelligence and Lecture
+  Notes in Bioinformatics)}, 2014, vol. 8917, pp. 352--363. [Online].
+  Available:
+  \url{http://www.engineeringvillage.com/blog/document.url?mid=cpx{\_}4bcb64f714a3ae9b8caM668310178163125{\&}database=cpx
+  http://link.springer.com/10.1007/978-3-319-13966-1{\_}35}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lu2017}
+\BIBentryALTinterwordspacing
+Z.~Lu, F.~Nagata, K.~Watanabe, and M.~K. Habib, ``{iOS application for
+  quadrotor remote control},'' \emph{Artificial Life and Robotics}, vol.~22,
+  no.~3, pp. 374--379, sep 2017. [Online]. Available:
+  \url{http://link.springer.com/10.1007/s10015-017-0372-3}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Chen2011}
+\BIBentryALTinterwordspacing
+G.~Chen, S.~A. King, and M.~Scherger, ``{Robot Remote Control Using Bluetooth
+  and a Smartphone Augmented System},'' in \emph{Lecture Notes in Electrical
+  Engineering}, 2011, vol. 133 LNEE, no. VOL. 2, pp. 453--460. [Online].
+  Available: \url{http://link.springer.com/10.1007/978-3-642-25992-0{\_}63}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Tetzlaff2013}
+\BIBentryALTinterwordspacing
+T.~Tetzlaff, R.~Zandian, L.~Dr{\"{u}}ppel, and U.~Witkowski, \emph{{Robot
+  Intelligence Technology and Applications 2012}}, ser. Advances in Intelligent
+  Systems and Computing, J.-H. Kim, E.~T. Matson, H.~Myung, and P.~Xu,
+  Eds.\hskip 1em plus 0.5em minus 0.4em\relax Berlin, Heidelberg: Springer
+  Berlin Heidelberg, 2013, vol. 208. [Online]. Available:
+  \url{http://link.springer.com/10.1007/978-3-642-37374-9}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Geissbuhler2015}
+\BIBentryALTinterwordspacing
+A.~Geissb{\"{u}}hler, J.~Demongeot, M.~Mokhtari, B.~Abdulrazak, and H.~Aloulou,
+  \emph{{Inclusive Smart Cities and e-Health}}, ser. Lecture Notes in Computer
+  Science, A.~Geissb{\"{u}}hler, J.~Demongeot, M.~Mokhtari, B.~Abdulrazak, and
+  H.~Aloulou, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Cham: Springer
+  International Publishing, 2015, vol. 9102. [Online]. Available:
+  \url{http://link.springer.com/10.1007/978-3-319-19312-0}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Oros2013a}
+\BIBentryALTinterwordspacing
+N.~Oros and J.~L. Krichmar, ``{Smartphone Based Robotics: Powerful, Flexible
+  and Inexpensive Robots for Hobbyists, Educators, Students and Researchers},''
+  2013. [Online]. Available:
+  \url{https://pdfs.semanticscholar.org/1e4f/371b9509dac7b649a473a0b95c39f0bfd63a.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{DeABarbosa2015}
+\BIBentryALTinterwordspacing
+J.~P. {de A. Barbosa}, F.~{do P. de C. Lima}, L.~{dos S. Coutinho}, J.~P. {R.
+  Rodrigues Leite}, J.~{Barbosa Machado}, C.~{Henrique Valerio}, and G.~{Sousa
+  Bastos}, ``{ROS, Android and cloud robotics: How to make a powerful low cost
+  robot},'' in \emph{2015 International Conference on Advanced Robotics
+  (ICAR)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jul 2015, pp. 158--163.
+  [Online]. Available: \url{http://ieeexplore.ieee.org/document/7251449/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Alsharif2017a}
+\BIBentryALTinterwordspacing
+M.~A. Alsharif, Y.~E. Arslantas, and M.~S. Holzel, ``{A comparison between
+  advanced model-free PID and model-based LQI attitude control of a quadcopter
+  using asynchronous android flight data},'' in \emph{2017 25th Mediterranean
+  Conference on Control and Automation (MED)}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, jul 2017, pp. 1023--1028. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7984252/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Alsharif2016}
+\BIBentryALTinterwordspacing
+M.~A. Alsharif and M.~S. Holzel, ``{Estimation of a drone's rotational dynamics
+  with piloted Android flight data},'' in \emph{2016 IEEE 55th Conference on
+  Decision and Control (CDC)}, no. Cdc.\hskip 1em plus 0.5em minus 0.4em\relax
+  IEEE, dec 2016, pp. 1199--1204. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7798429/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Alsharif2017}
+\BIBentryALTinterwordspacing
+M.~A. Alsharif, Y.~E. Arslantas, and M.~S. Holzel, ``{Advanced PID attitude
+  control of a quadcopter using asynchronous android flight data},'' in
+  \emph{2017 International Conference on Unmanned Aircraft Systems
+  (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp.
+  1602--1607. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7991325/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Loianno2017}
+\BIBentryALTinterwordspacing
+G.~Loianno, C.~Brunner, G.~McGrath, and V.~Kumar, ``{Estimation, Control, and
+  Planning for Aggressive Flight With a Small Quadrotor With a Single Camera
+  and IMU},'' \emph{IEEE Robotics and Automation Letters}, vol.~2, no.~2, pp.
+  404--411, 2017. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7762111/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Isuru2017}
+\BIBentryALTinterwordspacing
+V.~A. Isuru, M.~A. I.~M. Dharmadasa, D.~V. B.~C. Jayasinghe, and C.~I.
+  Keppitiyagama, ``{Reusing discarded-smartphone capabilities on quadcopters:
+  The rationale, benefits and issues},'' in \emph{2016 Sixteenth International
+  Conference on Advances in ICT for Emerging Regions (ICTer)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, sep 2016, pp. 229--236. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/document/7829923/}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Loianno2015a}
 \BIBentryALTinterwordspacing
@@ -167,15 +318,9 @@ P.~Bryant, G.~Gradwell, and D.~Claveau, ``{Autonomous UAS controlled by onboard
   \url{http://ieeexplore.ieee.org/document/7152322/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Ardupilot2016}
-\BIBentryALTinterwordspacing
-{ArduPilot Dev Team}, ``{Copter - Flight Modes},'' 2016. [Online]. Available:
-  \url{http://ardupilot.org/copter/docs/flight-modes.html}
-\BIBentrySTDinterwordspacing
-
 \bibitem{Bresciani2008}
 T.~Bresciani, ``{Modelling, Identification and Control of a Quadrotor
-  Helicopter},'' Ph.D. dissertation, Lund University, 2008.
+  Helicopter},'' Master's thesis, Lund University, 2008.
 
 \bibitem{Faessler2016}
 \BIBentryALTinterwordspacing

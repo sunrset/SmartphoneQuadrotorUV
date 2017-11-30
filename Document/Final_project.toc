@@ -5,25 +5,27 @@
 \contentsline {chapter}{List of Figures}{xiii}{chapter*.4}
 \contentsline {chapter}{List of Tables}{xv}{chapter*.5}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Research Problem}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Objectives}{3}{section.1.3}
-\contentsline {subsubsection}{Objetivo General}{3}{section*.7}
-\contentsline {subsubsection}{Objetivos Espec\IeC {\'\i }ficos}{4}{section*.8}
-\contentsline {section}{\numberline {1.4}Literature Review}{4}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Quadrotors}{4}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Quadrotor Flight Modes}{4}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Smartphones as Controllers}{6}{subsection.1.4.3}
-\contentsline {subsection}{\numberline {1.4.4}Smartphone-based Quadrotors}{6}{subsection.1.4.4}
-\contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{7}{section*.9}
-\contentsline {section}{\numberline {1.5}Outline}{7}{section.1.5}
+\contentsline {section}{\numberline {1.1}Quadrotors}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Motivation}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Research Problem}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Objectives}{3}{section.1.4}
+\contentsline {subsubsection}{General Objective}{4}{section*.8}
+\contentsline {subsubsection}{Specific Objectives}{4}{section*.9}
+\contentsline {section}{\numberline {1.5}Literature Review}{4}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Control Strategies in Quadrotors}{4}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}State Estimation in Quadrotors}{4}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Quadrotor Flight Modes}{4}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Smartphones in Control Systems}{6}{subsection.1.5.4}
+\contentsline {subsection}{\numberline {1.5.5}Smartphone-based Quadrotors}{6}{subsection.1.5.5}
+\contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{7}{section*.10}
+\contentsline {section}{\numberline {1.6}Outline}{7}{section.1.6}
 \contentsline {chapter}{\numberline {2}Dynamic Model of the Quadrotor }{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Quadrotors Configurations}{9}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}`+' Configuration}{10}{subsection.2.1.1}
-\contentsline {subsubsection}{Inputs Setting in `+' Configuration}{12}{section*.11}
-\contentsline {subsection}{\numberline {2.1.2}`X' Configuration}{12}{subsection.2.1.2}
-\contentsline {subsubsection}{Inputs Setting in `X' Configuration}{14}{section*.13}
-\contentsline {subsubsection}{Maximum Torque About $x$ and $y$ axes in `X' Configuration}{14}{section*.14}
+\contentsline {subsection}{\numberline {2.1.1}The `+' Configuration}{10}{subsection.2.1.1}
+\contentsline {subsubsection}{Inputs Setting in `+' Configuration}{12}{section*.12}
+\contentsline {subsection}{\numberline {2.1.2}The `X' Configuration}{12}{subsection.2.1.2}
+\contentsline {subsubsection}{Inputs Setting in `X' Configuration}{14}{section*.14}
+\contentsline {subsubsection}{Maximum Torque About $x$ and $y$ axes in `X' Configuration}{14}{section*.15}
 \contentsline {section}{\numberline {2.2}Nonlinear Model}{15}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Newton-Euler Approach}{15}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Euler-Lagrange Approach}{19}{subsection.2.2.2}
@@ -39,9 +41,9 @@
 \contentsline {subsection}{\numberline {3.1.4}Smartphone-to-ESC Gateway}{29}{subsection.3.1.4}
 \contentsline {subsection}{\numberline {3.1.5}Battery}{30}{subsection.3.1.5}
 \contentsline {subsection}{\numberline {3.1.6}3D-printed Parts}{31}{subsection.3.1.6}
-\contentsline {subsubsection}{Smartphone Support}{31}{section*.23}
-\contentsline {subsubsection}{Arduino Mega ADK and ESC supports}{31}{section*.25}
-\contentsline {subsubsection}{Dome}{32}{section*.27}
+\contentsline {subsubsection}{Smartphone Support}{31}{section*.24}
+\contentsline {subsubsection}{Arduino Mega ADK and ESC supports}{31}{section*.26}
+\contentsline {subsubsection}{Dome}{32}{section*.28}
 \contentsline {subsection}{\numberline {3.1.7}Assembled Smartphone-based Quadrotor}{33}{subsection.3.1.7}
 \contentsline {section}{\numberline {3.2}Quadrotor Parameters}{34}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Mass}{34}{subsection.3.2.1}
@@ -54,20 +56,20 @@
 \contentsline {section}{\numberline {4.2}Control Strategies}{43}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Regulator}{44}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{45}{subsection.4.2.2}
-\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{46}{section*.42}
+\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{46}{section*.43}
 \contentsline {section}{\numberline {4.3}Controllers Design}{46}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{46}{subsection.4.3.1}
-\contentsline {subsubsection}{Dynamic Model}{47}{section*.44}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{47}{section*.45}
-\contentsline {subsubsection}{$H_\infty $ Controller}{47}{section*.46}
+\contentsline {subsubsection}{Dynamic Model}{47}{section*.45}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{47}{section*.46}
+\contentsline {subsubsection}{$H_\infty $ Controller}{47}{section*.47}
 \contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{47}{subsection.4.3.2}
-\contentsline {subsubsection}{Dynamic Model}{47}{section*.47}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{47}{section*.48}
-\contentsline {subsubsection}{$H_\infty $ Controller}{48}{section*.49}
+\contentsline {subsubsection}{Dynamic Model}{47}{section*.48}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{47}{section*.49}
+\contentsline {subsubsection}{$H_\infty $ Controller}{48}{section*.50}
 \contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{48}{subsection.4.3.3}
-\contentsline {subsubsection}{Dynamic Model}{48}{section*.50}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{48}{section*.51}
-\contentsline {subsubsection}{$H_\infty $ Controller}{48}{section*.52}
+\contentsline {subsubsection}{Dynamic Model}{48}{section*.51}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{48}{section*.52}
+\contentsline {subsubsection}{$H_\infty $ Controller}{48}{section*.53}
 \contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{48}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{48}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Position Estimation}{49}{subsection.4.4.2}
@@ -84,7 +86,7 @@
 \contentsline {subsection}{\numberline {5.4.1}Simple Translational Movements (H$\infty $)}{54}{subsection.5.4.1}
 \contentsline {subsection}{\numberline {5.4.2}Trajectory Tracking (H$\infty $)}{54}{subsection.5.4.2}
 \contentsline {section}{\numberline {5.5}Conclusions}{54}{section.5.5}
-\contentsline {chapter}{Conclusions and Outlook}{55}{chapter*.53}
+\contentsline {chapter}{\numberline {6}Conclusions and Outlook }{55}{chapter.6}
 \contentsline {chapter}{Publications}{57}{chapter*.54}
 \contentsline {chapter}{Supplementary Material}{59}{chapter*.55}
 \contentsline {chapter}{Bibliography}{61}{appendix*.56}
