@@ -9,6 +9,9 @@
             clear all;
             clc;
             
+            m = 1.568;
+            g = 9.807;
+            
             G = Quadrotor_modelAltHold();
             A = G.a;
             B = G.b;
@@ -228,6 +231,11 @@
                     Re = 0.9*eye(4);
                     [Pe, eigenvaluese, ~] = care(Gss_d.A',Gss_d.C',Qe,Re);
                     Fe = -Pe*C'/Re;  
+                    
+              %% LQI Control
+                    Q_lqi = diag([1, 0.1, 1, 0.1, 1, 0.1, 1, 0.1, 10, 40, 40, 10]);
+                    R_lqi = diag([3, 3, 3, 3]);
+                    [K_lqi] = lqi(Gss_d,Q_lqi,R_lqi);
 
      %% Simulation 
             controller = 2;
