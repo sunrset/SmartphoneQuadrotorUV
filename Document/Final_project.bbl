@@ -23,19 +23,15 @@
 
 \bibitem{Bouabdallah2007}
 S.~Bouabdallah, ``{Design and Control of Quadrotors With Application To
-  Autonomous Flying},'' \emph{{\'{E}}cole Polytechnique F{\'{e}}d{\'{e}}rale De
-  Lausanne, {\`{A}} La Facult{\'{e}} Des Sciences Et Techniques De
-  L'Ing{\'{e}}nieur}, vol. 3727, no. 3727, p.~61, 2007.
+  Autonomous Flying},'' Ph.D. dissertation, {\'{E}}cole Polytechnique
+  F{\'{e}}d{\'{e}}rale de Lausanne, 2007.
 
 \bibitem{Rahman2017}
-\BIBentryALTinterwordspacing
 M.~Rahman, A.~Ani, S.~Yahaya, Z.~Hussain, R.~Boudville, and A.~Ahmad,
   ``{Implementation of quadcopter as a teaching tool to enhance engineering
   courses},'' in \emph{2016 IEEE 8th International Conference on Engineering
   Education (ICEED)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, dec 2016,
-  pp. 32--37. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7856089/}
-\BIBentrySTDinterwordspacing
+  pp. 32--37.
 
 \bibitem{Garcia2015}
 C.~E. Garc{\'{i}}a and F.~A. Herrera, ``{Percepci{\'{o}}n remota en cultivos de
@@ -50,14 +46,11 @@ S.~S. Kumar and A.~S. Sundar, ``{The Rescue Mission with SQUADCOPTER by Real
   Research}, vol.~1, no.~5, pp. pp. 60--63, 2014.
 
 \bibitem{Gatteschi2015}
-\BIBentryALTinterwordspacing
 V.~Gatteschi, F.~Lamberti, G.~Paravati, A.~Sanna, C.~Demartini, A.~Lisanti, and
   G.~Venezia, ``{New Frontiers of Delivery Services Using Drones: A Prototype
   System Exploiting a Quadcopter for Autonomous Drug Shipments},'' in
   \emph{2015 IEEE 39th Annual Computer Software and Applications Conference},
   vol.~2.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jul 2015, pp. 920--927.
-  [Online]. Available: \url{http://ieeexplore.ieee.org/document/7273724/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Gonzalez2012}
 L.~F. Gonzalez, M.~P.~G. Castro, and F.~Tamagnone, ``{Multidisciplinary Design
@@ -66,13 +59,10 @@ L.~F. Gonzalez, M.~P.~G. Castro, and F.~Tamagnone, ``{Multidisciplinary Design
   2012.
 
 \bibitem{Argentim2013}
-\BIBentryALTinterwordspacing
 L.~M. Argentim, W.~C. Rezende, P.~E. Santos, and R.~A. Aguiar, ``{PID, LQR and
   LQR-PID on a quadcopter platform},'' in \emph{2013 International Conference
   on Informatics, Electronics and Vision (ICIEV)}.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, may 2013, pp. 1--6. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6572698/}
-\BIBentrySTDinterwordspacing
+  0.4em\relax IEEE, may 2013, pp. 1--6.
 
 \bibitem{Silva2016}
 M.~F. Silva, A.~C. Ribeiro, M.~F. Santos, M.~J. Carmo, L.~M. Hon{\'{o}}rio,
@@ -83,23 +73,17 @@ M.~F. Silva, A.~C. Ribeiro, M.~F. Santos, M.~J. Carmo, L.~M. Hon{\'{o}}rio,
   2016.
 
 \bibitem{Liu2016}
-\BIBentryALTinterwordspacing
 C.~Liu, J.~Pan, and Y.~Chang, ``{PID and LQR trajectory tracking control for an
   unmanned quadrotor helicopter: Experimental studies},'' in \emph{2016 35th
   Chinese Control Conference (CCC)}.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, jul 2016, pp. 10\,845--10\,850. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7555074/}
-\BIBentrySTDinterwordspacing
+  IEEE, jul 2016, pp. 10\,845--10\,850.
 
 \bibitem{Reyes-Valeria2013}
-\BIBentryALTinterwordspacing
 E.~Reyes-Valeria, R.~Enriquez-Caldera, S.~Camacho-Lara, and J.~Guichard, ``{LQR
   control for a quadrotor using unit quaternions: Modeling and simulation},''
   in \emph{CONIELECOMP 2013, 23rd International Conference on Electronics,
   Communications and Computing}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
-  mar 2013, pp. 172--178. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6525781/}
-\BIBentrySTDinterwordspacing
+  mar 2013, pp. 172--178.
 
 \bibitem{Dong2015}
 Y.~Dong, J.~Fu, B.~Yu, Y.~Zhang, and J.~Ai, ``{Position and heading angle
@@ -118,13 +102,10 @@ K.~Zhang, J.~Chen, Y.~Chang, and Y.~Shi, ``{EKF-based LQR tracking control of a
   (Industrial Electronics Conference)}, pp. 5426--5431, 2016.
 
 \bibitem{Configuration2017}
-\BIBentryALTinterwordspacing
 G.~Ganga and M.~M. Dharmana, ``{MPC controller for trajectory tracking control
   of quadcopter},'' in \emph{2017 International Conference on Circuit ,Power
   and Computing Technologies (ICCPCT)}.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, apr 2017, pp. 1--6. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/8074380/}
-\BIBentrySTDinterwordspacing
+  IEEE, apr 2017, pp. 1--6.
 
 \bibitem{Castillo201603a}
 A.~Castillo, R.~Sanz, P.~Garc{\'{i}}a, and P.~Albertos, ``{A quaternion-based
@@ -133,31 +114,22 @@ A.~Castillo, R.~Sanz, P.~Garc{\'{i}}a, and P.~Albertos, ``{A quaternion-based
   ICIA 2016}, no. August, pp. 240--245, 2016.
 
 \bibitem{Ameho2013}
-\BIBentryALTinterwordspacing
 Y.~Ameho, F.~Niel, F.~Defay, J.-M. Biannic, and C.~Berard, ``{Adaptive control
   for quadrotors},'' in \emph{2013 IEEE International Conference on Robotics
   and Automation}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, may 2013, pp.
-  5396--5401. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6631351/}
-\BIBentrySTDinterwordspacing
+  5396--5401.
 
 \bibitem{Gao2015}
-\BIBentryALTinterwordspacing
 H.~Gao, C.~Liu, D.~Guo, and J.~Liu, ``{Fuzzy adaptive PD control for quadrotor
   helicopter},'' in \emph{2015 IEEE International Conference on Cyber
   Technology in Automation, Control, and Intelligent Systems (CYBER)}, no.
   JUNE.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp. 281--286.
-  [Online]. Available: \url{http://ieeexplore.ieee.org/document/7287949/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Wang2017a}
-\BIBentryALTinterwordspacing
 B.~Wang, L.~Mu, and Y.~Zhang, ``{Adaptive robust control of quadrotor
   helicopter towards payload transportation applications},'' in \emph{2017 36th
   Chinese Control Conference (CCC)}.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, jul 2017, pp. 4774--4779. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/8028107/}
-\BIBentrySTDinterwordspacing
+  IEEE, jul 2017, pp. 4774--4779.
 
 \bibitem{Emran2015}
 B.~J. Emran, J.~Dias, L.~Seneviratne, and G.~Cai, ``{Robust adaptive control
@@ -165,30 +137,21 @@ B.~J. Emran, J.~Dias, L.~Seneviratne, and G.~Cai, ``{Robust adaptive control
   Control Conference, CCC}, vol. 2015-Septe, pp. 3252--3257, 2015.
 
 \bibitem{Wang2017}
-\BIBentryALTinterwordspacing
 B.~Wang, L.~Mu, and Y.~Zhang, ``{Adaptive robust tracking control of quadrotor
   helicopter with parametric uncertainty and external disturbance},'' in
   \emph{2017 International Conference on Unmanned Aircraft Systems
   (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp.
-  402--407. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7991398/}
-\BIBentrySTDinterwordspacing
+  402--407.
 
 \bibitem{Prayitno2016}
-\BIBentryALTinterwordspacing
 A.~Prayitno, V.~Indrawati, and C.~Arron, ``{H-Infinity Control for Pitch-Roll
   AR.Drone},'' \emph{TELKOMNIKA (Telecommunication Computing Electronics and
-  Control)}, vol.~14, no.~3, p. 963, 2016. [Online]. Available:
-  \url{http://www.journal.uad.ac.id/index.php/TELKOMNIKA/article/view/3748}
-\BIBentrySTDinterwordspacing
+  Control)}, vol.~14, no.~3, p. 963, 2016.
 
 \bibitem{Ortiz2016}
-\BIBentryALTinterwordspacing
 J.~P. Ortiz, L.~I. Minchala, and M.~J. Reinoso, ``{Nonlinear Robust H-Infinity
   PID Controller for the Multivariable System Quadrotor},'' \emph{IEEE Latin
-  America Transactions}, vol.~14, no.~3, pp. 1176--1183, mar 2016. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/7459596/}
-\BIBentrySTDinterwordspacing
+  America Transactions}, vol.~14, no.~3, pp. 1176--1183, mar 2016.
 
 \bibitem{Munoz2017}
 P.~{Mu{\~{n}}oz}, ``{Control de Elevaci{\'{o}}n Para Cuadric{\'{o}}ptero Usando
@@ -201,22 +164,16 @@ M.~Moghadam and F.~Caliskan, ``{Actuator and Sensor Fault Detection and
   Australian Control Conference (AUCC)}, vol.~4, no.~1, pp. 2--7, 2015.
 
 \bibitem{Goodarzi2016}
-\BIBentryALTinterwordspacing
 F.~A. Goodarzi and T.~Lee, ``{Extended Kalman filter on SE(3) for geometric
   control of a quadrotor UAV},'' in \emph{2016 International Conference on
   Unmanned Aircraft Systems (ICUAS)}, no.~3.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, jun 2016, pp. 1371--1380. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7502682/}
-\BIBentrySTDinterwordspacing
+  0.4em\relax IEEE, jun 2016, pp. 1371--1380.
 
 \bibitem{Oh2015}
-\BIBentryALTinterwordspacing
 K.-H. Oh and H.-S. Ahn, ``{Extended Kalman filter with multi-frequency
   reference data for quadrotor navigation},'' in \emph{2015 15th International
   Conference on Control, Automation and Systems (ICCAS)}, no. Iccas.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, oct 2015, pp. 201--206. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/7364907/}
-\BIBentrySTDinterwordspacing
+  plus 0.5em minus 0.4em\relax IEEE, oct 2015, pp. 201--206.
 
 \bibitem{Sebesta2014}
 K.~D. Sebesta and N.~Boizot, ``{A real-time adaptive high-gain EKF, applied to
@@ -224,13 +181,10 @@ K.~D. Sebesta and N.~Boizot, ``{A real-time adaptive high-gain EKF, applied to
   Industrial Electronics}, vol.~61, no.~1, pp. 495--503, 2014.
 
 \bibitem{Goslinski2013}
-\BIBentryALTinterwordspacing
 J.~Goslinski, W.~Giernacki, and S.~Gardecki, ``{Unscented Kalman Filter for an
   orientation module of a quadrotor mathematical model},'' in \emph{2013 9th
   Asian Control Conference (ASCC)}.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, jun 2013, pp. 1--6. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6606269/}
-\BIBentrySTDinterwordspacing
+  IEEE, jun 2013, pp. 1--6.
 
 \bibitem{AlYounes2015}
 Y.~{Al Younes}, H.~Noura, M.~Muflehi, A.~Rabhi, and A.~{El Hajjaji},
@@ -239,31 +193,22 @@ Y.~{Al Younes}, H.~Noura, M.~Muflehi, A.~Rabhi, and A.~{El Hajjaji},
   2015}, pp. 1378--1384, 2015.
 
 \bibitem{Xie2016}
-\BIBentryALTinterwordspacing
 N.~Xie, X.~Lin, and Y.~Yu, ``{Position estimation and control for quadrotor
   using optical flow and GPS sensors},'' in \emph{2016 31st Youth Academic
   Annual Conference of Chinese Association of Automation (YAC)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, nov 2016, pp. 181--186. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7804886/}
-\BIBentrySTDinterwordspacing
+  0.5em minus 0.4em\relax IEEE, nov 2016, pp. 181--186.
 
 \bibitem{Yu2017}
-\BIBentryALTinterwordspacing
 Q.~Yu, F.~He, Y.~Zhang, and J.~Ma, ``{Stereo-vision based obstacle motion
   information acquisition algorithm for quadrotors},'' in \emph{2017 36th
   Chinese Control Conference (CCC)}.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, jul 2017, pp. 5590--5595. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/8028244/}
-\BIBentrySTDinterwordspacing
+  IEEE, jul 2017, pp. 5590--5595.
 
 \bibitem{Liu2017}
-\BIBentryALTinterwordspacing
 Y.~Liu and M.~Z.~Q. Chen, ``{A novel three-axis visual attitude estimation
   algorithm with application to quadrotors},'' in \emph{2017 29th Chinese
   Control And Decision Conference (CCDC)}.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, may 2017, pp. 5436--5441. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7979463/}
-\BIBentrySTDinterwordspacing
+  0.4em\relax IEEE, may 2017, pp. 5436--5441.
 
 \bibitem{Ardupilot2016}
 \BIBentryALTinterwordspacing
@@ -272,43 +217,30 @@ Y.~Liu and M.~Z.~Q. Chen, ``{A novel three-axis visual attitude estimation
 \BIBentrySTDinterwordspacing
 
 \bibitem{Oros2013a}
-\BIBentryALTinterwordspacing
 N.~Oros and J.~L. Krichmar, ``{Smartphone Based Robotics: Powerful, Flexible
   and Inexpensive Robots for Hobbyists, Educators, Students and Researchers},''
-  2013. [Online]. Available:
-  \url{https://pdfs.semanticscholar.org/1e4f/371b9509dac7b649a473a0b95c39f0bfd63a.pdf}
-\BIBentrySTDinterwordspacing
+  2013.
 
 \bibitem{DeABarbosa2015}
-\BIBentryALTinterwordspacing
 J.~P. {de A. Barbosa}, F.~{do P. de C. Lima}, L.~{dos S. Coutinho}, J.~P. {R.
   Rodrigues Leite}, J.~{Barbosa Machado}, C.~{Henrique Valerio}, and G.~{Sousa
   Bastos}, ``{ROS, Android and cloud robotics: How to make a powerful low cost
   robot},'' in \emph{2015 International Conference on Advanced Robotics
   (ICAR)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jul 2015, pp. 158--163.
-  [Online]. Available: \url{http://ieeexplore.ieee.org/document/7251449/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Gunawan2014}
-\BIBentryALTinterwordspacing
 M.~A. Gunawan, F.~Sulaiman, T.~A. Putra, C.~{Daniel Hasudungan}, and R.~F.
   Sari, ``{Object-following robot using adaptive cruise control algorithm with
   IOIO},'' in \emph{2014 International Conference on Intelligent Green Building
   and Smart Grid (IGBSG)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, apr
-  2014, pp. 1--5. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/xpls/abs{\_}all.jsp?arnumber=6835251
-  http://ieeexplore.ieee.org/document/6835251/}
-\BIBentrySTDinterwordspacing
+  2014, pp. 1--5.
 
 \bibitem{Tetzlaff2013}
-\BIBentryALTinterwordspacing
 T.~Tetzlaff, R.~Zandian, L.~Dr{\"{u}}ppel, and U.~Witkowski, \emph{{Robot
   Intelligence Technology and Applications 2012}}, ser. Advances in Intelligent
   Systems and Computing, J.-H. Kim, E.~T. Matson, H.~Myung, and P.~Xu,
   Eds.\hskip 1em plus 0.5em minus 0.4em\relax Berlin, Heidelberg: Springer
-  Berlin Heidelberg, 2013, vol. 208. [Online]. Available:
-  \url{http://link.springer.com/10.1007/978-3-642-37374-9}
-\BIBentrySTDinterwordspacing
+  Berlin Heidelberg, 2013, vol. 208.
 
 \bibitem{Drumea2013a}
 A.~Drumea, ``{Control of Industrial Systems Using Android-Based Devices},''
@@ -327,22 +259,16 @@ N.-V. Truong and D.-L. Vu, ``{Remote monitoring and control of industrial
   (ICCAIS)}, no.~1, pp. 340--343, 2012.
 
 \bibitem{Lu2017}
-\BIBentryALTinterwordspacing
 Z.~Lu, F.~Nagata, K.~Watanabe, and M.~K. Habib, ``{iOS application for
   quadrotor remote control},'' \emph{Artificial Life and Robotics}, vol.~22,
-  no.~3, pp. 374--379, sep 2017. [Online]. Available:
-  \url{http://link.springer.com/10.1007/s10015-017-0372-3}
-\BIBentrySTDinterwordspacing
+  no.~3, pp. 374--379, sep 2017.
 
 \bibitem{Aristizabal2014a}
-\BIBentryALTinterwordspacing
 L.~F. Aristizabal, D.~F. Almario, and J.~A. Lopez, ``{Development of an Android
   App as a learning tool of dynamic systems and automatic control},'' in
   \emph{2014 III International Congress of Engineering Mechatronics and
   Automation (CIIMA)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, oct 2014,
-  pp. 1--5. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6983438/}
-\BIBentrySTDinterwordspacing
+  pp. 1--5.
 
 \bibitem{WuWu2013a}
 S.~{Wu Wu}, ``{Sintonizaci{\'{o}}n de controladores PI/PID mediante el
@@ -357,25 +283,19 @@ J.~{Garc{\'{i}}a T{\'{e}}llez} and D.~F. {Ochoa Calamb{\'{a}}s}, ``{Desarrollo
   del Valle, Cali, 2015.
 
 \bibitem{Isuru2017}
-\BIBentryALTinterwordspacing
 V.~A. Isuru, M.~A. I.~M. Dharmadasa, D.~V. B.~C. Jayasinghe, and C.~I.
   Keppitiyagama, ``{Reusing discarded-smartphone capabilities on quadcopters:
   The rationale, benefits and issues},'' in \emph{2016 Sixteenth International
   Conference on Advances in ICT for Emerging Regions (ICTer)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, sep 2016, pp. 229--236. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7829923/}
-\BIBentrySTDinterwordspacing
+  0.5em minus 0.4em\relax IEEE, sep 2016, pp. 229--236.
 
 \bibitem{Pearce2014a}
-\BIBentryALTinterwordspacing
 C.~Pearce, M.~Guckenberg, B.~Holden, A.~Leach, R.~Hughes, C.~Xie, M.~Hassett,
   A.~Adderley, L.~E. Barnes, M.~Sherriff, and G.~C. Lewin, ``{Designing a
   spatially aware, automated quadcopter using an Android control system},'' in
   \emph{2014 Systems and Information Engineering Design Symposium (SIEDS)},
   vol.~00, no.~c.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, apr 2014, pp.
-  23--28. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6829921/}
-\BIBentrySTDinterwordspacing
+  23--28.
 
 \bibitem{ALEMARK2014a}
 A.~Bj{\"{a}}lemark and H.~Bergkvist, ``{Quadcopter control using Android based
@@ -383,158 +303,109 @@ A.~Bj{\"{a}}lemark and H.~Bergkvist, ``{Quadcopter control using Android based
   15--21, 2014.
 
 \bibitem{Loianno2015}
-\BIBentryALTinterwordspacing
 G.~Loianno, G.~Cross, C.~Qu, Y.~Mulgaonkar, J.~A. Hesch, and V.~Kumar,
   ``{Flying Smartphones: Automated Flight Enabled by Consumer Electronics},''
   \emph{IEEE Robotics {\&} Automation Magazine}, vol.~22, no.~2, pp. 24--32,
-  jun 2015. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7105372/}
-\BIBentrySTDinterwordspacing
+  jun 2015.
 
 \bibitem{Loianno2015a}
-\BIBentryALTinterwordspacing
 G.~Loianno, Y.~Mulgaonkar, C.~Brunner, D.~Ahuja, A.~Ramanandan, M.~Chari,
   S.~Diaz, and V.~Kumar, ``{Smartphones power flying robots},'' in \emph{2015
   IEEE/RSJ International Conference on Intelligent Robots and Systems
   (IROS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, sep 2015, pp.
-  1256--1263. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7353530/}
-\BIBentrySTDinterwordspacing
+  1256--1263.
 
 \bibitem{Alsharif2016}
-\BIBentryALTinterwordspacing
 M.~A. Alsharif and M.~S. Holzel, ``{Estimation of a drone's rotational dynamics
   with piloted Android flight data},'' in \emph{2016 IEEE 55th Conference on
   Decision and Control (CDC)}, no. Cdc.\hskip 1em plus 0.5em minus 0.4em\relax
-  IEEE, dec 2016, pp. 1199--1204. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7798429/}
-\BIBentrySTDinterwordspacing
+  IEEE, dec 2016, pp. 1199--1204.
 
 \bibitem{Alsharif2017}
-\BIBentryALTinterwordspacing
 M.~A. Alsharif, Y.~E. Arslantas, and M.~S. Holzel, ``{Advanced PID attitude
   control of a quadcopter using asynchronous android flight data},'' in
   \emph{2017 International Conference on Unmanned Aircraft Systems
   (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp.
-  1602--1607. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7991325/}
-\BIBentrySTDinterwordspacing
+  1602--1607.
 
 \bibitem{Alsharif2017a}
-\BIBentryALTinterwordspacing
 ------, ``{A comparison between advanced model-free PID and model-based LQI
   attitude control of a quadcopter using asynchronous android flight data},''
   in \emph{2017 25th Mediterranean Conference on Control and Automation
   (MED)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jul 2017, pp.
-  1023--1028. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7984252/}
-\BIBentrySTDinterwordspacing
+  1023--1028.
 
 \bibitem{Aldrovandi2015}
-\BIBentryALTinterwordspacing
 L.~Aldrovandi, M.~Hayajneh, M.~Melega, M.~Furci, R.~Naldi, and L.~Marconi, ``{A
   smartphone based quadrotor: Attitude and position estimation},'' in
   \emph{2015 International Conference on Unmanned Aircraft Systems
   (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  1251--1259. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7152418/}
-\BIBentrySTDinterwordspacing
+  1251--1259.
 
 \bibitem{Bryant2015}
-\BIBentryALTinterwordspacing
 P.~Bryant, G.~Gradwell, and D.~Claveau, ``{Autonomous UAS controlled by onboard
   smartphone},'' in \emph{2015 International Conference on Unmanned Aircraft
   Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  451--454. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7152322/}
-\BIBentrySTDinterwordspacing
+  451--454.
 
 \bibitem{Liu2015}
-\BIBentryALTinterwordspacing
 H.~Liu and X.~Wang, ``{Quaternion-based robust attitude control for
   quadrotors},'' in \emph{2015 International Conference on Unmanned Aircraft
   Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  920--925. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7152379/}
-\BIBentrySTDinterwordspacing
+  920--925.
 
 \bibitem{Lopez2015}
-\BIBentryALTinterwordspacing
 R.~Lopez, I.~Gonzalez-Hernandez, S.~Salazar, A.~E. Rodriguez, J.~J. Ordaz, and
   A.~Osorio, ``{Disturbance rejection for a Quadrotor aircraft through a robust
   control},'' in \emph{2015 International Conference on Unmanned Aircraft
   Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  409--415. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7152317/}
-\BIBentrySTDinterwordspacing
+  409--415.
 
 \bibitem{Jung2014}
-\BIBentryALTinterwordspacing
 J.~Jung, Y.~Jung, D.~You, and D.~H. Shim, ``{A flight control system design for
   highly unstable unmanned combat aerial vehicles},'' in \emph{2014
   International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1117--1125. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/6842365/}
-\BIBentrySTDinterwordspacing
+  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1117--1125.
 
 \bibitem{Kohno2014}
-\BIBentryALTinterwordspacing
 S.~Kohno and K.~Uchiyama, ``{Design of robust controller of fixed-wing UAV for
   transition flight},'' in \emph{2014 International Conference on Unmanned
   Aircraft Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, may
-  2014, pp. 1111--1116. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/6842364/}
-\BIBentrySTDinterwordspacing
+  2014, pp. 1111--1116.
 
 \bibitem{Shang2016}
-\BIBentryALTinterwordspacing
 B.~Shang, J.~Liu, T.~Zhao, and Y.~Chen, ``{Fractional order robust visual
   servoing control of a quadrotor UAV with larger sampling period},'' in
   \emph{2016 International Conference on Unmanned Aircraft Systems (ICUAS)},
   vol.~1, no. 209.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2016, pp.
-  1228--1234. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7502645/}
-\BIBentrySTDinterwordspacing
+  1228--1234.
 
 \bibitem{Salazar2014}
-\BIBentryALTinterwordspacing
 S.~Salazar, I.~Gonzalez-Hernandez, R.~Lopez, and R.~Lozano, ``{Simulation and
   robust trajectory-tracking for a Quadrotor UAV},'' in \emph{2014
   International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1167--1174. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/6842371/}
-\BIBentrySTDinterwordspacing
+  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1167--1174.
 
 \bibitem{Bresciani2008}
 T.~Bresciani, ``{Modelling, Identification and Control of a Quadrotor
   Helicopter},'' Master's thesis, Lund University, 2008.
 
 \bibitem{Faessler2016}
-\BIBentryALTinterwordspacing
 M.~Faessler, D.~Falanga, and D.~Scaramuzza, ``{Thrust Mixing, Saturation, and
   Body-Rate Control for Accurate Aggressive Quadrotor Flight},'' \emph{IEEE
-  Robotics and Automation Letters}, vol.~PP, no.~99, pp. 1--7, 2016. [Online].
-  Available:
-  \url{http://rpg.ifi.uzh.ch/docs/RAL16{\_}Faessler.pdf{\%}0Ahttp://ieeexplore.ieee.org/document/7784809/}
-\BIBentrySTDinterwordspacing
+  Robotics and Automation Letters}, vol.~PP, no.~99, pp. 1--7, 2016.
 
 \bibitem{Emam2016}
-\BIBentryALTinterwordspacing
 M.~Emam and A.~Fakharian, ``{Attitude tracking of quadrotor UAV via mixed
   H2/H{$\infty$} controller: An LMI based approach},'' in \emph{2016 24th
   Mediterranean Conference on Control and Automation (MED)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, jun 2016, pp. 390--395. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7535919/}
-\BIBentrySTDinterwordspacing
+  0.5em minus 0.4em\relax IEEE, jun 2016, pp. 390--395.
 
 \bibitem{Badr2016}
-\BIBentryALTinterwordspacing
 S.~Badr, O.~Mehrez, and A.~E. Kabeel, ``{A novel modification for a quadrotor
   design},'' in \emph{2016 International Conference on Unmanned Aircraft
   Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2016, pp.
-  702--710. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7502536/}
-\BIBentrySTDinterwordspacing
+  702--710.
 
 \bibitem{Sabatino2015}
 F.~Sabatino, \emph{{Quadrotor control : modeling, nonlinear control design, and
@@ -552,30 +423,21 @@ K.~U. Lee, Y.~H. Yun, W.~Chang, J.~B. Park, and Y.~H. Choi, ``{Modeling and
   Conference on Control, Automation and Systems}, 2011, pp. 1897--1902.
 
 \bibitem{Khodja2017}
-\BIBentryALTinterwordspacing
 M.~A. Khodja, M.~Tadjine, M.~S. Boucherit, and M.~Benzaoui, ``{Experimental
   dynamics identification and control of a quadcopter},'' in \emph{2017 6th
   International Conference on Systems and Control (ICSC)}.\hskip 1em plus 0.5em
-  minus 0.4em\relax IEEE, may 2017, pp. 498--502. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/document/7958668/}
-\BIBentrySTDinterwordspacing
+  minus 0.4em\relax IEEE, may 2017, pp. 498--502.
 
 \bibitem{Tomas2011}
-\BIBentryALTinterwordspacing
 T.~Jiřinec, \emph{{Stabilization and control of unmanned quadcopter}}.\hskip
   1em plus 0.5em minus 0.4em\relax Prague, Czech Republic: Czech Technical
-  University in Prague, 2011. [Online]. Available:
-  \url{https://support.dce.felk.cvut.cz/mediawiki/images/d/d4/Dp{\_}2011{\_}jirinec{\_}tomas.pdf}
-\BIBentrySTDinterwordspacing
+  University in Prague, 2011.
 
 \bibitem{Garcia2017}
-\BIBentryALTinterwordspacing
 G.~A. Garcia, A.~R. Kim, E.~Jackson, S.~S. Kashmiri, and D.~Shukla, ``{Modeling
   and flight control of a commercial nano quadrotor},'' in \emph{2017
   International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp. 524--532. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/7991439/}
-\BIBentrySTDinterwordspacing
+  plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp. 524--532.
 
 \bibitem{Mustapa2016}
 Z.~Mustapa, S.~Saat, A.~M. Darsono, and H.~H. Yusof, ``{Experimental Validation
@@ -602,13 +464,10 @@ S.~Skogestad and I.~Postlethwaite, \emph{{Multivariable Feedback Control:
   Sons, 2001, vol.~2.
 
 \bibitem{Astudillo2017}
-\BIBentryALTinterwordspacing
 A.~Astudillo, P.~Munoz, F.~Alvarez, and E.~Rosero, ``{Altitude and attitude
   cascade controller for a smartphone-based quadcopter},'' in \emph{2017
   International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp. 1447--1454. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/7991400/}
-\BIBentrySTDinterwordspacing
+  plus 0.5em minus 0.4em\relax IEEE, jun 2017, pp. 1447--1454.
 
 \bibitem{AndSensor}
 \BIBentryALTinterwordspacing
@@ -618,6 +477,7 @@ A.~Astudillo, P.~Munoz, F.~Alvarez, and E.~Rosero, ``{Altitude and attitude
 
 \bibitem{Lauszus2015}
 K.~S. Lauszus, ``{Flight Controller for Quad Rotor Helicopter in
-  X-configuration},'' Ph.D. dissertation, Kongens Lyngby, Denmark, 2015.
+  X-configuration},'' Bachelor Thesis, Technical University of Denmark, Kongens
+  Lyngby, Denmark, 2015.
 
 \end{thebibliography}

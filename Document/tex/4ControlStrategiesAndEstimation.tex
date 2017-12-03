@@ -1,6 +1,37 @@
 \chapter{Control Strategies and State Estimation} \label{ch:controlandestimation}
-rtrtrtrtr
-\section{Controllability and Observability}
+This project seeks to evaluate control strategies designed for a quadrotor, test its performance in simulation, and then implement them in the smartphone-based quadrotor prototype. In this chapter, the design procedure of the control and estimation algorithms for the quadrotor is shown. This algorithms are based on the linearized model of the quadrotor, detailed in Section \ref{sec:linearized}. Also, all the simulations carried out in MATLAB to verify the proper functioning of the designed algorithms are exposed.
+\\\\
+The concept of state-space representation, controllability and observability of a system are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. This controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
+\\\\
+Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode.
+\\\\
+Finally, the state estimation algorithm developed mainly for the case of the LQI controller, is detailed in Section \ref{sec:stateestimation}.
+
+\section{Concept and Generalities}
+\label{sec:generalities}
+
+\subsection{State Space Representation}
+
+\begin{align}
+\begin{split}
+\dot{\mathbf{x}}(t) & = A\mathbf{x}(t)+B\mathbf{u}(t)\\[10px]
+\mathbf{y}(t) & = C\mathbf{x}(t)+D\mathbf{u}(t)
+\end{split}
+\end{align}
+where $A$ is the system matrix; $B$ is the input matrix; $C$ is the output matrix; and $D$ is the feed-through matrix.
+\\\\
+This system, can be also represented by the quartet of matrices $G$ as
+\begin{equation}\label{eqn:ss}
+G = \mleft[
+\begin{array}{c|c}
+  A & B \\
+  \hline
+  C & D
+\end{array}
+\mright].
+\end{equation}
+
+\subsection{Controllability and Observability}
 The controllability and observability features of the linearized system are checked using the controllability and observability Grammians $W_{c}$ and $W_{o}$ defined as
 		\begin{equation}
 		W_{c} = \int_{0}^{\infty}e^{At}BB^{T}e^{A^{T}t}dt,
@@ -9,76 +40,73 @@ The controllability and observability features of the linearized system are chec
 		W_{o} = \int_{0}^{\infty}e^{A^{T}t}C^{T}Ce^{At}dt.
 		\end{equation}
 As the matrices $W_{c}$ and $W_{o}$ are positive definite matrices, then the system is both controllable and observable \cite{Werner2012}.
-
+\begin{equation}
+\mathcal{C_{G}} =
+\begin{bmatrix}
+B &  AB & \hdots & A^{k-1}B
+\end{bmatrix},
+\end{equation}
+\begin{equation}
+\mathcal{O_G} = \begin{bmatrix}
+C\\
+CA\\
+\vdots\\
+CA^{k-1}
+\end{bmatrix}
+\end{equation}
 \section{Control Strategies}
-This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic Gaussian controller is described. It includes a regulator and an estimator, in addition to a gain compensator, allowing the system to track a trajectory. The design process of a $H_{\infty}$ controller is shown, taking into account some weighting sensitivities.
+\label{sec:controlstrategies}
+This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic integral controller is described. It includes a regulator and an estimator, in addition to a gain compensator, allowing the system to track a trajectory. The design process of a $H_{\infty}$ controller is shown, taking into account some weighting sensitivities.
 
-\subsection{Linear Quadratic Regulator}
-Designing an infinite-time regulator, a linear quadratic Gaussian (LQG) controller is set while looking for the minimization of the cost function $V$ as
+\subsection{Linear Quadratic Integral (LQI) Controller}
+Designing an infinite-time regulator, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $V$ as
 	\begin{equation}
-	V = \int_{0}^{\infty}(X^{T}QX + U^{T}RU) dt.
+	V = \int_{0}^{\infty}(\mathbf{x}^{T}Q\mathbf{x} + \mathbf{u}^{T}R\mathbf{u}) dt.
 	\end{equation}
-\\This minimization is achieved using $Q$ and $R$ as penalization matrices for the states and the inputs respectively, and the optimal input $U^{*}$ is found as
+\\This minimization is achieved using $Q$ and $R$ as penalization matrices for the states and the inputs respectively, and the optimal input $\mathbf{u}^{*}$ is found as
 \begin{align}
 \begin{split}
-U^{*}&= FX,\\
-F &= -R^{-1}B^{T}P,
+\mathbf{u}^{*}&= K_{lqr}\mathbf{x},\\
+K_{lqr} &= -R^{-1}B^{T}P,
 \end{split}
 \end{align}
-such that $P$ is a solution of the Algebraic Riccati Equation \cite{RobustWerner2013}
+such that $P$ is a solution of the Algebraic Riccati Equation (ARE) \cite{RobustWerner2013}
 	\begin{equation}
 	0 = PA + A^{T}P + Q - PBR^{-1}B^{T}P.
 	\end{equation}
-For this quadrotor controller, the tuning matrices $Q$ and $R$ were set as $Q = C^{T}C$ and $R = 0.7* \mathcal{I}_{4\times4}$.
-\\\\To find the linear quadratic estimator (LQE) gain $F_{e}$ it is used the duality principle and then, $F_{e}$ is defined as
-	\begin{equation}
-	F_{e} = -P_{e}C^{T}R_{e}^{-1}
-	\end{equation}
-	such that $P_e$ is a solution of the Filter Algebraic Riccati Equation
-	\begin{equation}
-	0 = P_{e}A^{T} + AP_{e} + Q_{e} - P_{e}C^{T}R_{e}^{-1}CP_{e},
-	\end{equation}
-setting the tuning matrices as $Q_{e} = BB^{T}$ and $R_{e} = 0.9*\mathcal{I}_{4\times4}$.
-\\\\Thus, the LQG controller will be a mixture between the LQR and LQE where the closed-loop system is defined as  
-\begin{align}
-\label{eqn:ssgcl}
-\begin{split}
-\dot{X} &= (A+BF+F_{e}C)X + BU,\\
-Y &= CX,
-\end{split}
-\end{align}
-and is shown in Fig. \ref{fig:lqgsim}.
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=7cm]{lqgsim.pdf}   
-	\caption{Closed-loop of the controlled system with an LQG controller.}
-	\label{fig:lqgsim}
-	\end{center}
-	\end{figure}
 \\As the LQR is not made for reference tracking, to let the quadrotor track a defined trajectory, it is necessary to include a gain filter $v$ for the reference that compensates the total gain of the closed-loop system and enables the tracking of a reference input $r$. This gain filter is defined as
 	\begin{equation}\label{eqn:v}
 	v = -(C*(A+BF+F_{e}C)^{-1}*B)^{-1},
 	\end{equation}
-and its placing in the system is shown in Fig. \ref{fig:vcompensation}.
+and its placing in the system is shown in Fig. \ref{fig:lqi}.
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=4.5cm]{LQGvgain.eps}
+	\includegraphics[width=10.5cm]{lqi}
 	\caption{Closed-loop system with gain compensation for the LQG controller aiming to track a reference.}
-	\label{fig:vcompensation}
+	\label{fig:lqi}
 	\end{center}
 	\end{figure}
 \\where $G_{cl}$ is the closed-system with the LQG controller described in (\ref{eqn:ssgcl}).
+\begin{equation}
+\mathbf{x_i} = \int \mathbf{e}\ dt
+\end{equation}
+\begin{equation}
+\mathbf{x_{lqi}} = \begin{bmatrix}
+\mathbf{x} \\
+\mathbf{x_i}
+\end{bmatrix}
+\end{equation}
 
 \subsection{$H_\infty$ Controller}
 For the design of the $H\infty$ controller, a generalized plant like the shown in the Fig. \ref{fig:augmentedPlant}, was built.
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{center}
-	\includegraphics[width=4.5cm]{augmentedPlant.eps}
+	\includegraphics[width=6.5cm]{augmentedPlant.eps}
 	\caption{Generalized plant with the weighting filters $W_s$ and $W_k$.}
 	\label{fig:augmentedPlant}
 	\end{center}
 	\end{figure}	
-\\\\In this generalized plant, $G$ represents the quadrotor dynamics, $K$ the controller, $r$ is the system reference, $e$ is the error, $u$ is the control input and $W_{s},\ W_{k}$ are weighting filters that must satisfy 
+In this generalized plant, $G$ represents the quadrotor dynamics, $K$ the controller, $r$ is the system reference, $e$ is the error, $u$ is the control input and $W_{s},\ W_{k}$ are weighting filters that must satisfy 
 	\begin{equation}\label{eqn:hinf}
 	\gamma = \left|\left|\begin{bmatrix}
 	W_{s}S\\W_{k}KS
@@ -127,41 +155,339 @@ are analysed. The energy of the Hankel singular values is shown in Fig. \ref{fig
 \end{figure}
 \\\\As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics \cite{Skogestad2005}. 
 
-\section{Controllers Design}
+\section{Controllers Design and Simulation}
+\label{sec:controldesign}
 fhfgfhfh
 \subsection{Stabilize Mode}
 fghgfh
 \subsubsection{Dynamic Model}
-rtrterere
+\begin{align}
+\begin{split}
+\mathbf{x} = & \begin{bmatrix}
+\psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T},\\[15px]
+\mathbf{y} = & \begin{bmatrix}
+\psi & \theta & \phi
+\end{bmatrix}^{T}
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+A = & 
+\begin{bmatrix}
+0 & 1 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 1 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 1 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}, \\[15px]
+B = & 
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0\\[5px]
+0 & \dfrac{1}{J_{zz}} & 0 & 0 & 0 & 0\\[5px]
+0 & 0 & 0 & \dfrac{1}{J_{yy}} & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{xx}}
+\end{bmatrix}^{T}.
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+C = & 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 1 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}, \\[15px]
+D = &\ \mathbf{0_{3\times 4}}.
+\end{split}
+\end{align}
 \subsubsection{Linear Quadratic Regulator}
-rtrterere
+rtrte
+
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_psi_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:stabilize_psi_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_theta_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:stabilize_theta_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:stabilize_psi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:stabilize_lqi}
+\end{figure}
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_psi_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:stabilize_psi_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_theta_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:stabilize_theta_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=7.0cm]{stabilize_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:stabilize_psi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:stabilize_lqi}
+\end{figure}
+
 
 \subsection{Altitude Hold Mode}
 \subsubsection{Dynamic Model}
-rtrterere
+
+\begin{align}
+\begin{split}
+\mathbf{x} = & \begin{bmatrix}
+z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T},\\[15px]
+\mathbf{y} = & \begin{bmatrix}
+z & \psi & \theta & \phi
+\end{bmatrix}^{T}
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+A = & 
+\begin{bmatrix}
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}, \\[15px]
+B = & 
+\begin{bmatrix}
+0 & \dfrac{1}{m} & 0 & 0 & 0 & 0 & 0 & 0\\[5px]
+0 & 0 & 0 & \dfrac{1}{J_{zz}} & 0 & 0 & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{yy}} & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{xx}}
+\end{bmatrix}^{T}.
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+C = & 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 
+\end{bmatrix}, \\[15px]
+D = &\ \mathbf{0_{4\times 4}}.
+\end{split}
+\end{align}
 \subsubsection{Linear Quadratic Regulator}
 rtrterere
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_z_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:althold_z_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_psi_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:althold_psi_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{0.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_theta_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:althold_theta_lqi}
+\end{subfigure}
+\begin{subfigure}{0.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:althold_phi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:althold_lqi}
+\end{figure}
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
+
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_z_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:althold_z_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_psi_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:althold_psi_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{0.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_theta_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:althold_theta_lqi}
+\end{subfigure}
+\begin{subfigure}{0.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:althold_phi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:althold_lqi}
+\end{figure}
 
 \subsection{GNSS Dependent Flight Modes}
 
 \subsubsection{Dynamic Model}
-rtrterere
+\begin{align}
+\begin{split}
+\mathbf{x} = & \begin{bmatrix}
+x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T},\\[15px]
+\mathbf{y} = & \begin{bmatrix}
+x & y & z & \psi & \theta & \phi
+\end{bmatrix}^{T}
+\end{split}
+\end{align}
 
+\begin{align}
+\begin{split}
+A = & 
+\begin{bmatrix}
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & g & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & g & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}, \\[15px]
+B = & 
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & \dfrac{1}{m} & 0 & 0 & 0 & 0 & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{zz}} & 0 & 0 & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{yy}} & 0 & 0\\[5px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{xx}}
+\end{bmatrix}^{T}.
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+C = & 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\[2px]
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}, \\[15px]
+D = &\ \mathbf{0_{6\times 4}}.
+\end{split}
+\end{align}
 \subsubsection{Linear Quadratic Regulator}
 rtrterere
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi}
+	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\label{fig:auto_xyz_lqi}
+	\end{center}
+	\end{figure}
+	
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_psi_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:auto_psi_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_theta_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:auto_theta_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:auto_psi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:auto_lqi}
+\end{figure}
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
 
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi}
+	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\label{fig:auto_xyz_lqi}
+	\end{center}
+	\end{figure}
+	
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_psi_lqi}
+\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\label{fig:auto_psi_lqi}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_theta_lqi}
+\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\label{fig:auto_theta_lqi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=7.0cm]{auto_phi_lqi}
+\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\label{fig:auto_psi_lqi}
+\end{subfigure}
+\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\label{fig:auto_lqi}
+\end{figure}
 
 \section{State Estimation Through Kalman Filter}
-The quadrotor dynamics are sensed exclusively using the on-board smartphone's sensors. Considering that these sensors have different sample frequencies, and poor accuracy, it is necessary to use estimation algorithms, as a Kalman filter, to get reliable state data with constant sample frequency and improved accuracy and precision when compared with the raw data from the sensors.
+\label{sec:stateestimation}
+The quadrotor dynamics are sensed exclusively using the on-board smartphone's sensors. Considering that these sensors have different sample frequencies, and poor accuracy, it is necessary to use estimation algorithms, as a Kalman filter, to get reliable state data with constant sample frequency.
 
 \subsection{Attitude Estimation}
 The Android API implements a Kalman filter for attitude estimation using the raw data deliverd by the smartphone's accelerometer, gyroscope and magnetometer, as exposed in \cite{Astudillo2017}. Using the quaternion $Q_s$ delivered by the Rotation virtual sensor included in the Android SDK, it is obtained an absolute orientation representation with respect to the Earth frame \cite{AndSensor}, with

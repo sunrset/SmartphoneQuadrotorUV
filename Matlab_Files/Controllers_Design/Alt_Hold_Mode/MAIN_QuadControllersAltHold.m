@@ -40,7 +40,7 @@
             
 %% Initial Conditions
 
-        z_Init         =  2           ;
+        z_Init         =  0           ;
         z_dot_Init     =  0           ;
         psi_Init       =  0 * pi/180 ;
         psi_dot_Init   =  0           ;

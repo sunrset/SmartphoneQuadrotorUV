@@ -53,41 +53,45 @@
 \contentsline {subsection}{\numberline {3.2.4}Motors Torque}{43}{subsection.3.2.4}
 \contentsline {section}{\numberline {3.3}Conclusions}{45}{section.3.3}
 \contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Controllability and Observability}{47}{section.4.1}
-\contentsline {section}{\numberline {4.2}Control Strategies}{47}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Regulator}{48}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{49}{subsection.4.2.2}
-\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{50}{section*.46}
-\contentsline {section}{\numberline {4.3}Controllers Design}{50}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{50}{subsection.4.3.1}
-\contentsline {subsubsection}{Dynamic Model}{51}{section*.48}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{51}{section*.49}
-\contentsline {subsubsection}{$H_\infty $ Controller}{51}{section*.50}
-\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{51}{subsection.4.3.2}
-\contentsline {subsubsection}{Dynamic Model}{51}{section*.51}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{51}{section*.52}
-\contentsline {subsubsection}{$H_\infty $ Controller}{52}{section*.53}
-\contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{52}{subsection.4.3.3}
-\contentsline {subsubsection}{Dynamic Model}{52}{section*.54}
-\contentsline {subsubsection}{Linear Quadratic Regulator}{52}{section*.55}
-\contentsline {subsubsection}{$H_\infty $ Controller}{52}{section*.56}
-\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{52}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{52}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Position Estimation}{53}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Particle Model}{55}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Quadrotor Model}{55}{subsection.4.4.4}
-\contentsline {section}{\numberline {4.5}Conclusions}{55}{section.4.5}
-\contentsline {chapter}{\numberline {5}Implementation and Results}{57}{chapter.5}
-\contentsline {section}{\numberline {5.1}Android Application}{57}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ground Control Station}{57}{section.5.2}
-\contentsline {section}{\numberline {5.3}Linear Quadratic Regulator Results}{57}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Simple Translational Movements (LQR)}{57}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Trajectory Tracking (LQR)}{57}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}H$\infty $ Regulator Results}{58}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Simple Translational Movements (H$\infty $)}{58}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Trajectory Tracking (H$\infty $)}{58}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Conclusions}{58}{section.5.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Outlook }{59}{chapter.6}
-\contentsline {chapter}{Publications}{61}{chapter*.57}
-\contentsline {chapter}{Supplementary Material}{63}{chapter*.58}
-\contentsline {chapter}{Bibliography}{65}{appendix*.59}
+\contentsline {section}{\numberline {4.1}Concept and Generalities}{48}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{48}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{48}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Control Strategies}{48}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral (LQI) Controller}{49}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{50}{subsection.4.2.2}
+\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{50}{section*.45}
+\contentsline {section}{\numberline {4.3}Controllers Design and Simulation}{51}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{52}{subsection.4.3.1}
+\contentsline {subsubsection}{Dynamic Model}{52}{section*.47}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{52}{section*.48}
+\contentsline {subsubsection}{$H_\infty $ Controller}{53}{section*.50}
+\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{54}{subsection.4.3.2}
+\contentsline {subsubsection}{Dynamic Model}{54}{section*.52}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{55}{section*.53}
+\contentsline {subsubsection}{$H_\infty $ Controller}{56}{section*.55}
+\contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{57}{subsection.4.3.3}
+\contentsline {subsubsection}{Dynamic Model}{57}{section*.57}
+\contentsline {subsubsection}{Linear Quadratic Regulator}{58}{section*.58}
+\contentsline {subsubsection}{$H_\infty $ Controller}{60}{section*.61}
+\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{61}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{61}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Position Estimation}{62}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Particle Model}{64}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Quadrotor Model}{64}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Conclusions}{64}{section.4.5}
+\contentsline {chapter}{\numberline {5}Implementation and Results}{65}{chapter.5}
+\contentsline {section}{\numberline {5.1}Android Application}{65}{section.5.1}
+\contentsline {section}{\numberline {5.2}Ground Control Station}{65}{section.5.2}
+\contentsline {section}{\numberline {5.3}LQI Controller Implementation}{65}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Stabilize Mode (LQI)}{65}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Altitude Hold Mode (LQI)}{66}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}GNSS-Dependent Modes (LQI)}{69}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}H$_\infty $ Controller Implementation}{71}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Stabilize Mode (H$_\infty $)}{71}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Altitude Hold Mode (H$_\infty $)}{71}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}GNSS-Dependent Modes (H$_\infty $)}{74}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}Conclusions}{76}{section.5.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Outlook }{77}{chapter.6}
+\contentsline {chapter}{Publications}{79}{chapter*.76}
+\contentsline {chapter}{Supplementary Material}{81}{chapter*.77}
+\contentsline {chapter}{Bibliography}{83}{appendix*.78}

@@ -40,9 +40,9 @@
 
         x_Init         =  0           ;
         x_dot_Init     =  0           ;
-        y_Init         =  1           ;
+        y_Init         =  0           ;
         y_dot_Init     =  0           ;
-        z_Init         =  2           ;
+        z_Init         =  0           ;
         z_dot_Init     =  0           ;
         psi_Init       =  0 * pi/180 ;
         psi_dot_Init   =  0           ;
@@ -229,7 +229,8 @@
                 %% LQI Control
                     Q_lqi = diag([1, 0.1, 1, 0.1, 1, 0.1, 1, 0.1, 1, 0.1, 1, 0.1, 40, 40, 40, 10]);
                     R_lqi = diag([3, 3, 3, 3]);
-                    [K_lqi] = lqi(Gss_d,Q_lqi,R_lqi)
+                    [K_lqi] = lqi(Gss_d,Q_lqi,R_lqi);
+                    K_lqi = -K_lqi
 
      %% Simulation 
             controller = 2;

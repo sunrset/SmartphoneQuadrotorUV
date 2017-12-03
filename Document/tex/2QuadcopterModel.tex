@@ -82,9 +82,9 @@ Unlike the roll torque, the pitch torque $\tau_\phi$ is the one exerted on the $
 \end{itemize}
 
 \subsubsection{Inputs Setting in `+' Configuration}
-Summarizing, the `+' configuration quadrotor inputs are established as linear combinations of the motors forces $F_{M_i}$. Equations (\ref{ec:u+}), (\ref{ec:taupsi+}), (\ref{ec:tautheta+}) and (\ref{ec:tauphi+}) integrate a linear equations system where the vector of inputs $U_{(+)}$ is
+Summarizing, the `+' configuration quadrotor inputs are established as linear combinations of the motors forces $F_{M_i}$. Equations (\ref{ec:u+}), (\ref{ec:taupsi+}), (\ref{ec:tautheta+}) and (\ref{ec:tauphi+}) integrate a linear equations system where the vector of inputs $\mathbf{u_{(+)}}$ is
 \begin{equation}
-	\mathbf{U_{(+)}} = \begin{bmatrix}
+	\mathbf{u_{(+)}} = \begin{bmatrix}
 	T_u\\[5pt]
 	\tau_{\psi}\\[5pt]
 	\tau_{\theta}\\[5pt]
@@ -151,7 +151,7 @@ Due to the $CW$ positive direction of the $\phi$ angle, and considering the sign
 \subsubsection{Inputs Setting in `X' Configuration}
 In the `X' configuration, the quadrotor inputs remain the same regarding the `+' configuration. However both $\tau_\theta$ and $\tau_\phi$ are affected by the interaction of all the motors and the change in the distance of the point of application of the forces $F_{M_i}$ on the $x$ and $y$ axes. The linear equations system that shows the inputs setting for a quadrotor in `X' configuration is defined as
 \begin{equation}
-	\mathbf{U_{(X)}} = \begin{bmatrix}
+	\mathbf{u_{(X)}} = \begin{bmatrix}
 	T_u\\[5pt]
 	\tau_{\psi}\\[5pt]
 	\tau_{\theta}\\[5pt]
@@ -306,7 +306,7 @@ were $\mathbf{F_{G\xi}}=\mathbf{R_{b}^{w}}\mathbf{\hat{F}_{Gb}}$ is the translat
 \\\\
 From Section \ref{sec:configurations}, it follows that the quadrotor inputs are proportional to the motor forces $F_{M_i}$, and do not affect the $x$ and $y$ components of $\mathbf{F_B}$. These inputs, depend on the quadrotor configuration (`+' or `X') and are set as
 \begin{equation}
-\mathbf{U_{\Lambda}} = \begin{bmatrix}
+\mathbf{u_{\Lambda}} = \begin{bmatrix}
 0 \\[5pt] 0 \\[5pt] u_1 \\[5pt] u_2 \\[5pt] u_3 \\[5pt] u_4
 \end{bmatrix} = \begin{bmatrix}
 0 \\[5pt] 0 \\[5pt] T_u\\[5pt]
@@ -320,11 +320,11 @@ where $T_u$, $\tau_\psi$, $\tau_\theta$ and $\tau_\phi$ depend on the configurat
 Thus, (\ref{eqn:eomNewtonEuler}) can be redefined as
 \begin{equation}
 \label{eqn:eomNewtonEulerfull}
-\mathbf{M_{B}}\mathbf{\dot{\nu}} + \mathbf{S_\nu} = \mathbf{G_{\Lambda}} + \mathbf{U_{\Lambda}}.
+\mathbf{M_{B}}\mathbf{\dot{\nu}} + \mathbf{S_\nu} = \mathbf{G_{\Lambda}} + \mathbf{u_{\Lambda}}.
 \end{equation}
 The quadrotor acceleration vector $\mathbf{\dot{\nu}}$ in the body-frame is then isolated from (\ref{eqn:eomNewtonEulerfull}), getting
 \begin{equation}
-\mathbf{\dot{\nu}} = \mathbf{M_{B}}^{-1}(-\mathbf{S_\nu} + \mathbf{G_{\Lambda}} + \mathbf{U_{\Lambda}}),
+\mathbf{\dot{\nu}} = \mathbf{M_{B}}^{-1}(-\mathbf{S_\nu} + \mathbf{G_{\Lambda}} + \mathbf{u_{\Lambda}}),
 \end{equation}
 or expressed as a system of equations
 \begin{align}
@@ -589,7 +589,10 @@ where
 \begin{split}
 \mathbf{x} = & \begin{bmatrix}
 x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
-\end{bmatrix}^{T},\\
+\end{bmatrix}^{T},\\[15px]
+\mathbf{u} = & \begin{bmatrix}
+T_u & \tau_\psi & \tau_\theta & \tau_\phi
+\end{bmatrix}^{T},\\[15px]
 A  = \frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{x}}\Bigr|_{\substack{\mathbf{x}=\overline{\mathbf{x}}\\\mathbf{u}=\overline{\mathbf{u}}}} = & 
 \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]

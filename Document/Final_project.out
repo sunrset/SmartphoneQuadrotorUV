@@ -42,31 +42,35 @@
 \BOOKMARK [2][-]{subsection.3.2.4}{Motors Torque}{section.3.2}% 42
 \BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 43
 \BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 44
-\BOOKMARK [1][-]{section.4.1}{Controllability and Observability}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 46
-\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Regulator}{section.4.2}% 47
-\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 48
-\BOOKMARK [1][-]{section.4.3}{Controllers Design}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 50
-\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 51
-\BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 52
-\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 53
-\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 54
-\BOOKMARK [2][-]{subsection.4.4.2}{Position Estimation}{section.4.4}% 55
-\BOOKMARK [2][-]{subsection.4.4.3}{Particle Model}{section.4.4}% 56
-\BOOKMARK [2][-]{subsection.4.4.4}{Quadrotor Model}{section.4.4}% 57
-\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 58
-\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 59
-\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.3}{Linear Quadratic Regulator Results}{chapter.5}% 62
-\BOOKMARK [2][-]{subsection.5.3.1}{Simple Translational Movements \(LQR\)}{section.5.3}% 63
-\BOOKMARK [2][-]{subsection.5.3.2}{Trajectory Tracking \(LQR\)}{section.5.3}% 64
-\BOOKMARK [1][-]{section.5.4}{H Regulator Results}{chapter.5}% 65
-\BOOKMARK [2][-]{subsection.5.4.1}{Simple Translational Movements \(H\)}{section.5.4}% 66
-\BOOKMARK [2][-]{subsection.5.4.2}{Trajectory Tracking \(H\)}{section.5.4}% 67
-\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 68
-\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 69
-\BOOKMARK [0][-]{chapter*.57}{Publications}{}% 70
-\BOOKMARK [0][-]{chapter*.58}{Supplementary Material}{}% 71
-\BOOKMARK [0][-]{appendix*.59}{Bibliography}{}% 72
+\BOOKMARK [1][-]{section.4.1}{Concept and Generalities}{chapter.4}% 45
+\BOOKMARK [2][-]{subsection.4.1.1}{State Space Representation}{section.4.1}% 46
+\BOOKMARK [2][-]{subsection.4.1.2}{Controllability and Observability}{section.4.1}% 47
+\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Integral \(LQI\) Controller}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 50
+\BOOKMARK [1][-]{section.4.3}{Controllers Design and Simulation}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 52
+\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 53
+\BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 54
+\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 56
+\BOOKMARK [2][-]{subsection.4.4.2}{Position Estimation}{section.4.4}% 57
+\BOOKMARK [2][-]{subsection.4.4.3}{Particle Model}{section.4.4}% 58
+\BOOKMARK [2][-]{subsection.4.4.4}{Quadrotor Model}{section.4.4}% 59
+\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 60
+\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 61
+\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 63
+\BOOKMARK [1][-]{section.5.3}{LQI Controller Implementation}{chapter.5}% 64
+\BOOKMARK [2][-]{subsection.5.3.1}{Stabilize Mode \(LQI\)}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.2}{Altitude Hold Mode \(LQI\)}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.3}{GNSS-Dependent Modes \(LQI\)}{section.5.3}% 67
+\BOOKMARK [1][-]{section.5.4}{H Controller Implementation}{chapter.5}% 68
+\BOOKMARK [2][-]{subsection.5.4.1}{Stabilize Mode \(H\)}{section.5.4}% 69
+\BOOKMARK [2][-]{subsection.5.4.2}{Altitude Hold Mode \(H\)}{section.5.4}% 70
+\BOOKMARK [2][-]{subsection.5.4.3}{GNSS-Dependent Modes \(H\)}{section.5.4}% 71
+\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 72
+\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 73
+\BOOKMARK [0][-]{chapter*.76}{Publications}{}% 74
+\BOOKMARK [0][-]{chapter*.77}{Supplementary Material}{}% 75
+\BOOKMARK [0][-]{appendix*.78}{Bibliography}{}% 76
