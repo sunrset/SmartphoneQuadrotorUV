@@ -449,14 +449,35 @@ M.~D.~L. {Costa De Oliveira}, \emph{{Modeling, Identification and Control of a
   Quadrotor Aircraft}}.\hskip 1em plus 0.5em minus 0.4em\relax Czech Technical
   University in Prague, jun 2011.
 
+\bibitem{controlability1981}
+T.~Koussiouris and G.~Kafiris, ``Controllability indices, observability indices
+  and the hankel matrix,'' \emph{International Journal of Control}, vol.~33,
+  no.~4, pp. 773--775, 1981.
+
 \bibitem{Werner2012}
 H.~Werner, \emph{{Lecture Notes - Control Systems Theory and Design}}.\hskip
   1em plus 0.5em minus 0.4em\relax Hamburg: Hamburg University of Technology,
   2012.
 
+\bibitem{Steinbuch2007}
+M.~Steinbuch and G.~Meinsma, \emph{{Design Methods for Control Systems}}, 2007.
+
+\bibitem{Murray2009}
+R.~M. Murray, \emph{{Optimization-Based Control}}.\hskip 1em plus 0.5em minus
+  0.4em\relax California Institute of Technology, 2009.
+
+\bibitem{Moore1989}
+B.~Anderson and J.~Moore, \emph{{Optimal Control, Linear Quadratic Methods}},
+  T.~Kailath, Ed.\hskip 1em plus 0.5em minus 0.4em\relax Prentice Hall
+  International, Inc., 1989, vol.~1.
+
 \bibitem{RobustWerner2013}
-------, \emph{{Lecture Notes - Optimal and Robust Control}}.\hskip 1em plus
+H.~Werner, \emph{{Lecture Notes - Optimal and Robust Control}}.\hskip 1em plus
   0.5em minus 0.4em\relax Hamburg: Hamburg University of Technology, 2013.
+
+\bibitem{Zhou1999}
+K.~Zhou and J.~Doyle, \emph{{Essentials of robust control}}.\hskip 1em plus
+  0.5em minus 0.4em\relax Pearson, 1999, vol.~1.
 
 \bibitem{Skogestad2005}
 S.~Skogestad and I.~Postlethwaite, \emph{{Multivariable Feedback Control:

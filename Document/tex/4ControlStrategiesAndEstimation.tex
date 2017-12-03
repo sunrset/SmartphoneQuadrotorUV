@@ -1,7 +1,7 @@
 \chapter{Control Strategies and State Estimation} \label{ch:controlandestimation}
 This project seeks to evaluate control strategies designed for a quadrotor, test its performance in simulation, and then implement them in the smartphone-based quadrotor prototype. In this chapter, the design procedure of the control and estimation algorithms for the quadrotor is shown. This algorithms are based on the linearized model of the quadrotor, detailed in Section \ref{sec:linearized}. Also, all the simulations carried out in MATLAB to verify the proper functioning of the designed algorithms are exposed.
 \\\\
-The concept of state-space representation, controllability and observability of a system are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. This controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
+The state-space representation of the system, and the concept of controllability and observability, are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. This controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
 \\\\
 Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode.
 \\\\
@@ -11,18 +11,19 @@ Finally, the state estimation algorithm developed mainly for the case of the LQI
 \label{sec:generalities}
 
 \subsection{State Space Representation}
-
+Recalling from Section \ref{sec:linearized}, the dynamic model of the quadrotor, based on its six $DoF$, is represented by the linear state-space model
 \begin{align}
+\label{ec:statespace}
 \begin{split}
-\dot{\mathbf{x}}(t) & = A\mathbf{x}(t)+B\mathbf{u}(t)\\[10px]
-\mathbf{y}(t) & = C\mathbf{x}(t)+D\mathbf{u}(t)
+\dot{\mathbf{x}}(t) & = A\mathbf{x}(t)+B\mathbf{u}(t),\\[10px]
+\mathbf{y}(t) & = C\mathbf{x}(t)+D\mathbf{u}(t),
 \end{split}
 \end{align}
-where $A$ is the system matrix; $B$ is the input matrix; $C$ is the output matrix; and $D$ is the feed-through matrix.
+where $A$ is the system matrix; $B$ is the input matrix; $C$ is the output matrix; $D$ is the feed-through matrix; $\mathbf{x}$ is the states vector of size $\mathit{n_x}$; $\mathbf{u}$ is the inputs vector of size $\mathit{n_u}$; and $\mathbf{y}$ is the outputs vector of size $\mathit{n_y}$.
 \\\\
-This system, can be also represented by the quartet of matrices $G$ as
+For simplicity, the state-space model representation shown in (\ref{ec:statespace}), can be represented by the quartet of matrices $\mathcal{G}$ as
 \begin{equation}\label{eqn:ss}
-G = \mleft[
+\mathcal{G} = \mleft[
 \begin{array}{c|c}
   A & B \\
   \hline
@@ -30,51 +31,119 @@ G = \mleft[
 \end{array}
 \mright].
 \end{equation}
+For the design of each controller, only the dynamics that are required to control, according to the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
 
 \subsection{Controllability and Observability}
-The controllability and observability features of the linearized system are checked using the controllability and observability Grammians $W_{c}$ and $W_{o}$ defined as
-		\begin{equation}
-		W_{c} = \int_{0}^{\infty}e^{At}BB^{T}e^{A^{T}t}dt,
-		\end{equation}
-		\begin{equation}
-		W_{o} = \int_{0}^{\infty}e^{A^{T}t}C^{T}Ce^{At}dt.
-		\end{equation}
-As the matrices $W_{c}$ and $W_{o}$ are positive definite matrices, then the system is both controllable and observable \cite{Werner2012}.
-\begin{equation}
-\mathcal{C_{G}} =
+The concept of controllability is related to the question of whether or not there exists a sequence of $\mathbf{u}$ capable of changing the states $\mathbf{x}$ from an initial value $\mathbf{x_0}$, to a desired final value $\mathbf{x_f}$, in a finite time. On the other hand, observability refers to the possibility of inferring, in finite time, the initial value of the states $\mathbf{x_0}$ knowing just the system dynamics $\mathcal{G}$ and its outputs $\mathbf{y}$ \cite{controlability1981}.
+\\\\
+Typically, the controllability and observability of a system are determined using the so-called controllability and observability matrices, $\mathcal{C_{G}}$ and $\mathcal{O_{G}}$ respectively.
+This matrices depend on the system matrices $A$, $B$ and $C$, and are set as
+\begin{align}
+\begin{split}
+\mathcal{C_{G}} & =
 \begin{bmatrix}
 B &  AB & \hdots & A^{k-1}B
-\end{bmatrix},
-\end{equation}
-\begin{equation}
-\mathcal{O_G} = \begin{bmatrix}
+\end{bmatrix},\\[5px]
+\mathcal{O_G} & = \begin{bmatrix}
 C\\
 CA\\
 \vdots\\
 CA^{k-1}
-\end{bmatrix}
-\end{equation}
+\end{bmatrix}.
+\end{split}
+\end{align}
+Thus, the system $\mathcal{G}$ is defined as controllable if $\mathcal{C_G}$ have $\mathit{n_x}$ linear independent rows (or columns). This is, the rank of $\mathcal{C_G}$ is equal to $\mathit{n_x}$. Analogous to the controllability, the observability of $\mathcal{G}$ is checked if the rank of the matrix $\mathcal{O_G}$ is equal to $\mathit{n_x}$.
+\\\\
+Another way to check the controllability and observability features of $\mathcal{G}$ is using the controllability and observability Grammians $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ defined as the solutions to the Lyapunov equations
+\begin{align}
+\begin{split}
+0 & = A\mathcal{W}_{c} + \mathcal{W}_{c}A^{T} + BB^{T},\\[5px]
+0 & = A^{T}\mathcal{W}_{o} + \mathcal{W}_{o}A + C^{T}C,
+\end{split}
+\end{align}
+where
+\begin{align}
+\begin{split}
+\mathcal{W}_{c} & = \int_{0}^{\infty}e^{At}BB^{T}e^{A^{T}t}dt,\\[5px]
+\mathcal{W}_{o} & = \int_{0}^{\infty}e^{A^{T}t}C^{T}Ce^{At}dt.
+\end{split}
+\end{align}
+In this case, if the matrices $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ are positive definite, the system is both controllable and observable \cite{Werner2012}.
+
 \section{Control Strategies}
 \label{sec:controlstrategies}
 This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic integral controller is described. It includes a regulator and an estimator, in addition to a gain compensator, allowing the system to track a trajectory. The design process of a $H_{\infty}$ controller is shown, taking into account some weighting sensitivities.
 
 \subsection{Linear Quadratic Integral (LQI) Controller}
-Designing an infinite-time regulator, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $V$ as
-	\begin{equation}
-	V = \int_{0}^{\infty}(\mathbf{x}^{T}Q\mathbf{x} + \mathbf{u}^{T}R\mathbf{u}) dt.
-	\end{equation}
-\\This minimization is achieved using $Q$ and $R$ as penalization matrices for the states and the inputs respectively, and the optimal input $\mathbf{u}^{*}$ is found as
+\subsubsection{Optimal Problem Solution}
+The design of optimal controllers seeks that a dynamic system can be controlled achieving a minimum cost. The cost function is determined by the control designer \cite{Steinbuch2007}. Designing an finite-time regulator, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $\mathcal{V}$ as
+\begin{equation}
+\mathcal{V} = \int_{0}^{T}\mathcal{L}(\mathbf{x},\mathbf{u},t)\ dt + \Psi(\mathbf{x},\mathbf{u},t),
+\end{equation}
+where
 \begin{align}
 \begin{split}
-\mathbf{u}^{*}&= K_{lqr}\mathbf{x},\\
-K_{lqr} &= -R^{-1}B^{T}P,
+\mathcal{L}(\mathbf{x},\mathbf{u},t) = \mathbf{x}^{T}\mathcal{Q}\mathbf{x} + \mathbf{u}^{T}\mathcal{R}\mathbf{u},\\[5px]
+\Psi(\mathbf{x},\mathbf{u},t) = \mathbf{x}^{T}(T)\mathcal{S}\mathbf{x}(T),
 \end{split}
 \end{align}
-such that $P$ is a solution of the Algebraic Riccati Equation (ARE) \cite{RobustWerner2013}
+$\mathcal{R}$ is a positive definite matrix; and $\mathcal{Q}$ and $\mathcal{S}$ are positive semi-definite matrices. These matrices penalize the inputs, states and the terminal cost, respectively. Thus, the optimal controller design problem turns into an optimization problem where it is necessary to find an input $\mathbf{u}^{*}$ such that minimizes $\mathcal{V}$ for a controllable system subject to
+\begin{align}
+\begin{split}
+\dot{\mathbf{x}}(t) & = \mathbf{f}(\mathbf{x}, \mathbf{u}, t) \approx A\mathbf{x}(t)+B\mathbf{u}(t),\\[5px]
+\mathbf{x}(0) & = \mathbf{x_0},\ \ \ t \in [0, T].
+\end{split}
+\end{align}
+This minimization is achieved using the Pontryagin's maximum principle \cite{Murray2009}, where
+\begin{equation}
+\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t) = \mathcal{L}(\mathbf{x},\mathbf{u},t) + \lambda_\mathcal{P}^{T}\mathbf{f}(\mathbf{x}, \mathbf{u}, t)
+\end{equation}
+is the Hamiltonian function, with $\lambda_\mathcal{P}$ being the vector of co-state variables of size $\mathit{n_x}$, and
+\begin{align}
+\label{eqn:hamilt}
+\begin{split}
+\dot{\mathbf{x}}(t) & = \left(\dfrac{\partial \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)}{\partial \lambda_\mathcal{P}}\right)^{T} = A\mathbf{x}(t)+B\mathbf{u}(t),\\[5px]
+-\dot{\lambda}_{\mathcal{P}}(t) & = \left(\dfrac{\partial \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)}{\partial \mathbf{x}}\right)^{T} = \mathcal{Q}\mathbf{x}(t) + A^{T}\lambda_{\mathcal{P}}(t),\\[5px]
+0 & = \dfrac{\partial \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)}{\partial \mathbf{u}} = \mathcal{R}\mathbf{u}(t) + \lambda_\mathcal{P}^{T}(t)B.
+\end{split}
+\end{align}
+Thereby, from (\ref{eqn:hamilt}), the optimal solution to $\mathbf{u}$ that minimizes $\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)$, and by Pontryagin's maximum principle, the cost function $\mathcal{V}$, is
+\begin{equation}
+\mathbf{u}^{*}(t) = -\mathcal{R}^{-1}B^{T}\lambda_\mathcal{P}(t).
+\end{equation}
+Assuming that $\lambda_\mathcal{P}(t) = \mathcal{P}(t)\mathbf{x}(t)$, the optimal input $\mathbf{u}^{*}$ depends directly on a feedback vector, which is the state vector $\mathbf{x}$, such that
+\begin{align}
+\label{eqn:optimalu}
+\begin{split}
+\mathbf{u}^{*}(t) & = \mathbf{K_{lqr}}(t)\mathbf{x}(t),\\[5px]
+\mathbf{K_{lqr}}(t) & = -\mathcal{R}^{-1}B^{T}\mathcal{P}(t).
+\end{split}
+\end{align}
+Here, matrix $\mathcal{P}(t)$ is a solution of the Riccati Equation \cite{Moore1989}
 	\begin{equation}
-	0 = PA + A^{T}P + Q - PBR^{-1}B^{T}P.
+	-\dot{\mathcal{P}} = \mathcal{P}A + A^{T}\mathcal{P} + \mathcal{Q} - \mathcal{P}B\mathcal{R}^{-1}B^{T}\mathcal{P}.
 	\end{equation}
-\\As the LQR is not made for reference tracking, to let the quadrotor track a defined trajectory, it is necessary to include a gain filter $v$ for the reference that compensates the total gain of the closed-loop system and enables the tracking of a reference input $r$. This gain filter is defined as
+When $T \to \infty$, an infinite-time regulator is designed. Here, aiming for a steady-state solution, the terminal cost $\Psi(\mathbf{x}, \mathbf{u},t)$ is eliminated, and the matrix $\mathcal{P}$ is assumed to be constant. Thus, $\mathcal{P}$ is a solution of the Algebraic Riccati Equation (ARE)
+	\begin{equation}
+	0 = \mathcal{P}A + A^{T}\mathcal{P} + \mathcal{Q} - \mathcal{P}B\mathcal{R}^{-1}B^{T}\mathcal{P}.
+	\end{equation}
+Consequently, in the infinite-time LQR, the optimal input $\mathbf{u}^{*}$ is achieved by multiplying the state vector $\mathbf{x}$ with the constant feedback gain matrix
+\begin{equation}
+\mathbf{K_{lqr}} = -\mathcal{R}^{-1}B^{T}\mathcal{P}.
+\end{equation}
+\\As the feedback gain is not a dynamical system, but a static matrix, the order of the closed-loop dynamics is the same as the one of the system dynamics $\mathcal{G}$. The closed-loop dynamics are written as
+\begin{equation}
+\dot{\mathbf{x}} = (A+B\mathbf{K_{lqr}})\mathbf{x}.
+\end{equation}
+When the desired state value $\mathbf{x_{des}}$ is different from zero, these reference value is applied to the dynamics through the feedback gain matrix as
+\begin{equation}
+\dot{\mathbf{x}} = (A+B\mathbf{K_{lqr}})\mathbf{x}-B\mathbf{K_{lqr}}\mathbf{x_{des}},
+\end{equation}
+due to the fact that the error $\mathbf{e} = \mathbf{x} - \mathbf{x_{des}}$ is used as the feedback vector of the LQR.
+
+\subsubsection{Reference Tracking}
+The LQR design is not made for reference tracking, but just for regulation. 
+, to let the quadrotor track a defined trajectory, it is necessary to include a gain filter $v$ for the reference that compensates the total gain of the closed-loop system and enables the tracking of a reference input $r$. This gain filter is defined as
 	\begin{equation}\label{eqn:v}
 	v = -(C*(A+BF+F_{e}C)^{-1}*B)^{-1},
 	\end{equation}
@@ -88,16 +157,42 @@ and its placing in the system is shown in Fig. \ref{fig:lqi}.
 	\end{figure}
 \\where $G_{cl}$ is the closed-system with the LQG controller described in (\ref{eqn:ssgcl}).
 \begin{equation}
-\mathbf{x_i} = \int \mathbf{e}\ dt
+\mathbf{x_i} = \int \mathbf{e}\ dt,\ \ \mathbf{x_i}(0) = \mathbf{0},
 \end{equation}
 \begin{equation}
 \mathbf{x_{lqi}} = \begin{bmatrix}
 \mathbf{x} \\
 \mathbf{x_i}
-\end{bmatrix}
+\end{bmatrix},
 \end{equation}
+\begin{align}
+\begin{split}
+\begin{bmatrix}
+\dot{\mathbf{x}}\\
+\mathbf{\dot{x}_i}
+\end{bmatrix} & = \begin{bmatrix}
+A & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}} \\
+-C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
+\end{bmatrix}\begin{bmatrix}
+\mathbf{x} \\
+\mathbf{x_i}
+\end{bmatrix} + \begin{bmatrix}
+B \\ \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
+\end{bmatrix}\mathbf{u} +  \begin{bmatrix}
+\mathbf{0_{\mathit{n_x}\times \mathit{n_x}}} \\
+\mathcal{I}_{\mathit{n_y}\times \mathit{n_y}}
+\end{bmatrix}r \\[5px]
+\mathbf{y} & = \begin{bmatrix}
+C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
+\end{bmatrix}\begin{bmatrix}
+\mathbf{x} \\
+\mathbf{x_i}
+\end{bmatrix}
+\end{split}
+\end{align}
 
 \subsection{$H_\infty$ Controller}
+\cite{Zhou1999}
 For the design of the $H\infty$ controller, a generalized plant like the shown in the Fig. \ref{fig:augmentedPlant}, was built.
 \begin{figure}[H]
 	\begin{center}

@@ -14,6 +14,7 @@ Database file #1: bib/Quadcopter.bib
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in Oros2013a
+Warning--missing publisher in Steinbuch2007
 
 Done.
-(There was 1 warning)
+(There were 2 warnings)

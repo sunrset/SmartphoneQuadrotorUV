@@ -558,7 +558,7 @@ The linearization of a non-linear system is done about an equilibrium point $\ov
 \end{split}
 \end{align}
 where $\overline{x}$, $\overline{y}$ and $\overline{z}$ define a constant desired position in the body and earth-frame. When the quadrotor state is near the equilibrium point, the body and earth frames are assumed to coincide and thus $\mathbf{\dot{\xi}_W}\to \mathbf{V_{B}}$, $X_W \to x$, $Y_W \to y$, and $Z_W \to z$ (\cite{Sabatino2015}).\\\\
-The equilibrium point shown in \ref{ec:equilibrium} is obtained using a constant input value $\overline{\mathbf{u}}$ where only the thrust that overcomes gravity is applied, as shown below.
+The equilibrium point shown in \ref{ec:equilibrium}, is obtained using a constant input value $\overline{\mathbf{u}}$ where only the thrust that overcomes gravity is applied, as shown below.
 \begin{equation}
 \overline{\mathbf{u}} = \begin{bmatrix}
 T_u & \tau_\psi & \tau_\theta & \tau_\phi
@@ -567,7 +567,7 @@ mg & 0 & 0 & 0
 \end{bmatrix}^{T}
 \end{equation}
 \\
-The Jacobian linearization is based on the fact that if the quadrotor is not exactly at the equilibrium point, but close to it with a small deviation $\delta_{\mathbf{x}} = \mathbf{x} - \overline{\mathbf{x}}$ due to an input deviation $\delta_{\mathbf{u}}= \mathbf{u} - \overline{\mathbf{u}}$ (\cite{RanjanVepa2016}), the non-linear system will be represented by
+The Jacobian linearization is based on the fact that if the quadrotor is not exactly at the equilibrium point, but close to it with a small deviation $\delta_{\mathbf{x}} = \mathbf{x} - \overline{\mathbf{x}}$, due to an input deviation $\delta_{\mathbf{u}}= \mathbf{u} - \overline{\mathbf{u}}$ \cite{RanjanVepa2016}. The non-linear system is represented by
 \begin{equation}
 \label{ec:deltajacobian}
 \dot{\delta_{\mathbf{x}}} =  \mathbf{f(\overline{x}+\delta_{\mathbf{x}},\overline{u}}+\delta_{\mathbf{u}}).
