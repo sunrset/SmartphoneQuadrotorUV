@@ -30,30 +30,32 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{52}{figure.caption.44}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{53}{figure.caption.46}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{54}{figure.caption.47}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{57}{figure.caption.51}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{58}{figure.caption.53}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{60}{figure.caption.56}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{61}{figure.caption.58}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{61}{figure.caption.60}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{62}{figure.caption.59}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{64}{figure.caption.63}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{64}{figure.caption.64}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{65}{figure.caption.66}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{66}{figure.caption.67}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{66}{figure.caption.69}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{67}{figure.caption.68}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Results of the static test of the smartphone GNSS receiver and barometer\relax }}{69}{figure.caption.70}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{57}{figure.caption.51}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode\relax }}{58}{figure.caption.53}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces HSV energy histogram of $K_H$ in stabilize mode\relax }}{59}{figure.caption.54}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{60}{figure.caption.55}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{62}{figure.caption.58}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode\relax }}{63}{figure.caption.60}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces HSV energy histogram of $K_H$ in altitude hold mode\relax }}{64}{figure.caption.61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{64}{figure.caption.62}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.65}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.66}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes\relax }}{68}{figure.caption.68}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{69}{figure.caption.69}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.70}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.71}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Static test of the smartphone GNSS receiver and barometer\relax }}{73}{figure.caption.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{74}{figure.caption.71}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{75}{figure.caption.72}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{76}{figure.caption.73}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{77}{figure.caption.74}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{78}{figure.caption.75}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{78}{figure.caption.76}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{79}{figure.caption.77}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{80}{figure.caption.78}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{81}{figure.caption.79}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{82}{figure.caption.80}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{83}{figure.caption.81}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{83}{figure.caption.82}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{76}{figure.caption.73}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{77}{figure.caption.74}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{78}{figure.caption.75}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{79}{figure.caption.76}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{80}{figure.caption.77}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{80}{figure.caption.78}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{81}{figure.caption.79}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{82}{figure.caption.80}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{83}{figure.caption.81}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{84}{figure.caption.82}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{85}{figure.caption.83}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{85}{figure.caption.84}
 \addvspace {10\p@ }

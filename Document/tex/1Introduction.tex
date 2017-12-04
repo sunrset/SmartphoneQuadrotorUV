@@ -105,15 +105,14 @@ The altitude hold mode adds automatic elevation control to the Stabilize mode. T
 \\\\
 In this mode, the pilot can remotely control the rate of change of the elevation (with a default value of $0\ m/s$), as well as the attitude references.
 
-\item \textbf{Loiter Mode}\\\\
-Loiter mode automatically attempts to regulate the six $DoF$ of the quadrotor in order to maintain a desired position, heading and altitude during a flight. Here, the quadrotor attitude is self-leveled, while the position and altitude reference can be modified by the pilot using the remote controller. The position and altitude references are initialized using the current quadrotor position and altitude when this mode is set. This is a Global Navigation Satellite System (GNSS)-Dependent flight mode.
-
-\item \textbf{Auto Mode}\\\\
-The Auto mode attempts to make a quadrotor follow automatically a pre-programmed path connecting multiple position and heading waypoints, while receiving . This mode use the same controller as the Loiter mode, but its references are set automatically following the waypoints list. As in Auto mode the quadrotor must follow geo-located waypoints, this is a GNSS-Dependent flight mode.
-
-\item \textbf{Return-To-Launch Mode}\\\\
-During a flight mission, the home location is set as the position and altitude where the quadrotor took off. The Return-To-Launch mode is used in case of emergency or when a the last waypoint is reached within a flight mission. This mode is equivalent to the Auto mode, but only has two waypoints. The first waypoint consists in the position of the home location with a previously set altitude ($RTL$ altitude) greater than the home altitude. When this waypoint is reached, the home location is set as the following waypoint so that the quadrotor starts its landing keeping the position controlled.
-
+\item \textbf{GNSS-Dependent Flight Modes}\\\\
+The Global Navigation Satellite System (GNSS)-Dependent flight modes, are those that automatically attempt to regulate the six $DoF$ of the quadrotor in order to maintain a desired position, heading and altitude during a flight. The main GNSS-Dependent Flight Modes are: Loiter mode, Auto Mode, and Return-To-Launch (RTL) Mode.
+\\\\
+In Loiter mode, the quadrotor attitude is self-leveled, while the position and altitude reference can be modified by the pilot using the remote controller. The position and altitude references are initialized using the current quadrotor position and altitude when this mode is set. 
+\\\\
+The Auto mode attempts to make a quadrotor follow automatically a pre-programmed path connecting multiple position and heading waypoints. This mode use the same controller as the Loiter mode, but its references are set automatically following a waypoints list. 
+\\\\
+During a flight mission, the home location is set as the position and altitude where the quadrotor took off. The RTL mode is used in case of emergency or when a the last waypoint is reached within a flight mission. This mode is equivalent to the Auto mode, but only has two waypoints. The first waypoint consists in the position of the home location with a previously set security altitude ($RTL$ altitude) greater than the take-off altitude. When this waypoint is reached, the home location is set as the following waypoint so that the quadrotor starts its landing, while keeping the position controlled.
 \end{itemize}
 
 
@@ -171,7 +170,7 @@ Design and implement algorithms for control and estimation of flight dynamics ex
 \subsubsection{Specific Objectives}
 \begin{enumerate}
 \item Conduct a study and analysis of the state of the art related to the control and estimation of states of quadrotors.
-\item Integrate the existing quadrotor with a smart phone that contains the appropriate sensors for the control and estimation of states.
+\item Integrate the existing quadrotor with a smartphone that contains the appropriate sensors for the control and estimation of states.
 \item Obtain a dynamic model of the quadrotor.
 \item Design and implement the algorithms for control and estimation of states for the quadrotor.
 \item Integrate the experimentation platform with the control and estimation algorithms in the smartphone.
@@ -180,13 +179,13 @@ Design and implement algorithms for control and estimation of flight dynamics ex
 
 \section{Outline}
 This thesis is organized as follows.\\\\
-In Chapter \ref{ch:introduction}, the definition and classification of UAVs are given. After that, a short literature review regarding control and estimation in quadrotors, flight modes, and smartphones in control systems, is detailed. Finally, the motivation and scope of this project is presented.
+In Chapter \ref{ch:introduction}, the definition and classification of UAVs are given. After that, a short literature review regarding control and estimation in quadrotors, flight modes, and smartphones in control systems, is detailed. Finally, the motivation and scope of this project are presented.
 \\\\
 In the next chapter, (\ref{ch:model}), the dynamic model of the quadrotor is described. Here, the non-linear and linearized quadrotor model are obtained taking into account the main quadrotor geometry configurations and their inputs setting. 
 \\\\
 Chapter \ref{ch:prototype} focuses on the smartphone-based quadrotor prototype description, detailing all its components and their interactions, as well as the specific parameters of the prototype.
 \\\\
-The control and estimation algorithms design is presented in Chapter \ref{ch:controlandestimation}. In this chapter, specific controllers for each quadrotor flight mode is design and simulate.
+The control and estimation algorithms design is presented in Chapter \ref{ch:controlandestimation}. In this chapter, specific controllers for each quadrotor flight mode are designed and simulated.
 \\\\
 In Chapter \ref{ch:implementation}, the results of the implementation of the control and estimation algorithms, as well as the description of the Android application and the GCS are detailed.
 \\\\

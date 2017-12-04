@@ -51,7 +51,7 @@
 \BOOKMARK [1][-]{section.4.3}{Controllers Design and Simulation}{chapter.4}% 51
 \BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 52
 \BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 53
-\BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.3}{GNSS-Dependent Flight Modes}{section.4.3}% 54
 \BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 55
 \BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 56
 \BOOKMARK [2][-]{subsection.4.4.2}{Position Measurement}{section.4.4}% 57
@@ -70,6 +70,6 @@
 \BOOKMARK [2][-]{subsection.5.4.3}{GNSS-Dependent Modes \(H\)}{section.5.4}% 70
 \BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 71
 \BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 72
-\BOOKMARK [0][-]{chapter*.83}{Publications}{}% 73
-\BOOKMARK [0][-]{chapter*.84}{Supplementary Material}{}% 74
-\BOOKMARK [0][-]{appendix*.85}{Bibliography}{}% 75
+\BOOKMARK [0][-]{chapter*.85}{Publications}{}% 73
+\BOOKMARK [0][-]{chapter*.86}{Supplementary Material}{}% 74
+\BOOKMARK [0][-]{appendix*.87}{Bibliography}{}% 75

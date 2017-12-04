@@ -3,7 +3,7 @@ This project seeks to evaluate control strategies designed for a quadrotor, test
 \\\\
 The state-space representation of the system, and the concept of controllability and observability, are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. This controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
 \\\\
-Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode.
+Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode. All the simulations are done using the non-linear dynamics model of the quadrotor.
 \\\\
 Finally, the state estimation algorithm developed mainly for the case of the LQI controller, is detailed in Section \ref{sec:stateestimation}.
 
@@ -31,7 +31,9 @@ For simplicity, the state-space model representation shown in (\ref{ec:statespac
 \end{array}
 \mright],
 \end{equation}
-while the discretized state-space model $\mathcal{G}_k$, using a sample time of $t_k$, is represented by
+For the design of each controller, only the dynamics that are required to control, according to the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
+\\\\
+Since the control system is implemented in a smartphone, whose algorithms are executed with a sample time of $t_{k} = 0.01\ s$, the system $\mathcal{G}$ is discretized. The discrete system $\mathcal{G}_k$ is got using the Zero Order Hold (ZOH) equivalent method, and the sample time $t_{k} = 0.01\ s$. The discrete state-space model $\mathcal{G}_k$ is represented by
 \begin{align}
 \label{ec:statespace}
 \begin{split}
@@ -49,7 +51,7 @@ Thus, $\mathcal{G}_k$ is represented by the quartet
 \end{array}
 \mright],
 \end{equation}
-For the design of each controller, only the dynamics that are required to control, according to the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
+which is the system for which the controllers are developed.
 
 \subsection{Controllability and Observability}
 The concept of controllability is related to the question of whether or not there exists a sequence of $\mathbf{u}$ capable of changing the states $\mathbf{x}$ from an initial value $\mathbf{x_0}$, to a desired final value $\mathbf{x_f}$, in a finite time. On the other hand, observability refers to the possibility of inferring, in finite time, the initial value of the states $\mathbf{x_0}$ knowing just the system dynamics $\mathcal{G}$ and its outputs $\mathbf{y}$ \cite{controlability1981}.
@@ -72,7 +74,7 @@ CA^{k-1}
 \end{align}
 Thus, the system $\mathcal{G}$ is defined as controllable if $\mathcal{C_G}$ have $\mathit{n_x}$ linear independent rows (or columns). This is, the rank of $\mathcal{C_G}$ is equal to $\mathit{n_x}$. Analogous to the controllability, the observability of $\mathcal{G}$ is checked if the rank of the matrix $\mathcal{O_G}$ is equal to $\mathit{n_x}$.
 \\\\
-Another way to check the controllability and observability features of $\mathcal{G}$ is using the controllability and observability Grammians $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ defined as the solutions to the Lyapunov equations
+One equivalent way to check the controllability and observability features of $\mathcal{G}$ is using the controllability and observability Grammians $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ defined as the solutions to the Lyapunov equations
 \begin{align}
 \begin{split}
 0 & = A\mathcal{W}_{c} + \mathcal{W}_{c}A^{T} + BB^{T},\\[5px]
@@ -96,6 +98,7 @@ This section exposes the controllers design procedure. Here, the mathematical pr
 \subsubsection{Optimal Problem Solution}
 The design of optimal controllers seeks that a dynamic system can be controlled achieving a minimum cost. The cost function is determined by the control designer \cite{Steinbuch2007}. Designing an finite-time regulator, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $\mathcal{V}$ as
 \begin{equation}
+\label{eqn:cost}
 \mathcal{V} = \int_{0}^{T}\mathcal{L}(\mathbf{x},\mathbf{u},t)\ dt + \Psi(\mathbf{x},\mathbf{u},t),
 \end{equation}
 where
@@ -256,7 +259,7 @@ Z_s & Z_k
 \end{bmatrix}$; and $W_{s},\ W_{k}$ are weighting filters that must satisfy 
 	\begin{equation}\label{eqn:hinf}
 	\gamma = \left|\left|\begin{bmatrix}
-	W_{s}S\\W_{k}KS
+	W_{s}S\\W_{k}K_{H}S
 	\end{bmatrix}\right|\right|_{\infty} < 1,
 	\end{equation}
 \\where $S$ is the sensitivity function and $K_{H}S$ is the control sensitivity defined as
@@ -292,10 +295,11 @@ If $\hat{K}_{H}=(\hat{A}_H,\ \hat{B}_H,\ \hat{C}_H,\ \hat{D}_H)$ is the balanced
 
 \section{Controllers Design and Simulation}
 \label{sec:controldesign}
-fhfgfhfh
+This section shows the specific design for the LQI and $H_\infty$ controllers in each of the quadrotor flight modes. Based on what is described on Section \ref{sec:controlstrategies}, the dynamic model for each flight mode is set. Then, the controllers are designed and simulated in order to check their proper operation.
 \subsection{Stabilize Mode}
-fghgfh
+In stabilize mode, the dynamics related to the position of the quadrotor are neglected. Thus, the only $DoF$ that are automatically controlled are $\psi$, $\theta$, and $\phi$.
 \subsubsection{Dynamic Model}
+The dynamic model exposed in \ref{sec:linearized}, is reduced to a sixth order dynamic system ($n_x = 6$) with  three outputs ($n_y = 3$), where
 \begin{align}
 \begin{split}
 \mathbf{x} = & \begin{bmatrix}
@@ -303,9 +307,10 @@ fghgfh
 \end{bmatrix}^{T},\\[15px]
 \mathbf{y} = & \begin{bmatrix}
 \psi & \theta & \phi
-\end{bmatrix}^{T}
+\end{bmatrix}^{T}.
 \end{split}
 \end{align}
+The linear state-space representation (\ref{ec:statespace}) for the dynamics related to the stabilize mode is defined by the matrices
 \begin{align}
 \begin{split}
 A = & 
@@ -316,103 +321,130 @@ A = &
 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
 0 & 0 & 0 & 0 & 0 & 1 \\[2px]
 0 & 0 & 0 & 0 & 0 & 0
-\end{bmatrix}, \\[15px]
+\end{bmatrix}, \\[10px]
 B = & 
 \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0\\[5px]
 0 & \dfrac{1}{J_{zz}} & 0 & 0 & 0 & 0\\[5px]
 0 & 0 & 0 & \dfrac{1}{J_{yy}} & 0 & 0\\[5px]
 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{xx}}
-\end{bmatrix}^{T}.
-\end{split}
-\end{align}
-\begin{align}
-\begin{split}
+\end{bmatrix}^{T}.\\[10px]
 C = & 
 \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 \\[2px]
 0 & 0 & 1 & 0 & 0 & 0 \\[2px]
 0 & 0 & 0 & 0 & 1 & 0
-\end{bmatrix}, \\[15px]
+\end{bmatrix}, \\[10px]
 D = &\ \mathbf{0_{3\times 4}}.
 \end{split}
 \end{align}
-\subsubsection{Linear Quadratic Regulator}
-rtrte
+Both the controllability matrix $\mathcal{C_G}$ and observability matrix $\mathcal{O_G}$, have full rank ($rank(\mathcal{C_G}) = rank(\mathcal{O_G}) = 6$), and therefore the system is controllable and observable.
 
-\begin{figure}[H]
+\subsubsection{LQI Controller}
+The design of the LQI controller is done using the penalization matrices $\mathcal{Q}$ and $\mathcal{R}$, that modify the cost function (\ref{eqn:cost}). Both matrices are set as diagonal matrices, so that there is only one parameter in the matrix affecting each state or input. The matrix $\mathcal{Q}$ must be a $9\times 9$ matrix, since the size of $\mathbf{x_{lqi}}$ is $n_x + n_y$. Similarly, $\mathcal{R}$ must have four components in its diagonal, inasmuch as the number of inputs $n_u$ remains four.
+In \cite{Alsharif2017a}, the author suggests the matrices
+\begin{align}
+\label{eqn:QR_stabilize}
+\begin{split}
+\mathcal{Q} & = \mathcal{I}_{9 \times 9}\begin{bmatrix}
+1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 10 & 40 & 40
+\end{bmatrix}^{T},\\
+\mathcal{R} & = \mathcal{I}_{4 \times 4}\begin{bmatrix}
+3 & 3 & 3 & 3
+\end{bmatrix}^{T},
+\end{split}
+\end{align}
+where the system outputs $\mathbf{y}$ have greater penalty than their derivatives ($\dot{\psi}$, $\dot{\theta}$, $\dot{\phi}$); $\mathbf{x_{lqi}}$ have greater penalties than $\mathbf{x}$; and the input vector $\mathbf{u}$ is slightly more penalized than $\mathbf{x}$. If the penalty of $\mathbf{x_{lqi}}$ is small, the response of the system will tend to be slow. On the other hand, if the penalty of $\mathbf{x_{lqi}}$ is very high, the controller will overcompensate the system.
+\\\\
+Based on the penalization matrices from (\ref{eqn:QR_stabilize}), the feedback gain matrix $\mathbf{K_{lqi}}$ is calculated. The closed-loop response of the system shown in Fig. \ref{fig:lqi} is simulated using MATLAB, and is shown in Fig. \ref{fig:stabilize_lqi}.
+\begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_psi_lqi}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:stabilize_psi_lqi}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_theta_lqi}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:stabilize_theta_lqi}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_phi_lqi}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
-\label{fig:stabilize_psi_lqi}
+\caption{Pitch angle response}
+\label{fig:stabilize_phi_lqi}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of stabilize mode controlled by a LQI controller}
 \label{fig:stabilize_lqi}
 \end{figure}
-
+\\Here, the system shows responses with a setting time of less than $1.5\ s$ and overshoot of less than $5$ \%.
 \subsubsection{$H_\infty$ Controller}
-rtrtererre
-$\gamma = 0.0150$
-
-where $w_{s} = 10^{-4}$, $M_{s} = 10^{-4}$, $w_{k} = 20$, $M_{k} = 20$, and $c_{k} = 10^{3}$.
-
+The design of the $H_\infty$ controller is based on the weighting filters $W_s$ and $W_k$, which are set so that (\ref{eqn:hinf}) is satisfied.\\\\
+In the case of the stabilize mode, the filters are set as 
+\begin{align}
+\begin{split}
+W_{s} &= \dfrac{(22\cdot10^{-7})/(10^{-4})}{s + (22\cdot10^{-7})}*\mathcal{I}_{3\times 3}\ ,\\[5px]
+W_{k} &= \dfrac{10^{3}}{20}\dfrac{s+50}{s+(10^{3}\cdot 50)}*\mathcal{I}_{4\times 4}\ ,
+\end{split}
+\end{align}
+with which $\gamma = 0.0150$ was obtained. Since the $\gamma$ value is very far from $1$, the filters are normalized with $\gamma$ as
+\begin{align}
+\begin{split}
+W_{s} &= \dfrac{1}{\gamma} W_{s},\\[5px]
+W_{k} &= \dfrac{1}{\gamma} W_{k},
+\end{split}
+\end{align}
+after which $\gamma$ is recalculated, obtaining a value of $\gamma = 0.8542 $. The filters $W_s$ and $W_k$  effectively set an upper bound for sensitivity $S$ and the control sensitivity $K_{H}S$, as shown in Fig. \ref{fig:sv_stabilize_hinf}.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=10.8cm]{sv_stabilize_hinf}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
+\includegraphics[width=10.3cm]{sv_stabilize_hinf}  
+\caption{Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode} 
 \label{fig:sv_stabilize_hinf}
 \end{center}
 \end{figure}
-13 states, then 12
-The energy of the  is shown in Fig. \ref{fig:hsv}.
+\\The computed dynamic controller $K_H$ is a $13^{th}$ order system. However, it is possible to find an equivalent system of lower order as seen in Section \ref{sec:controlstrategies}.
+The energy of the HSV of $K_H$, is shown in Fig. \ref{fig:hsv_stabilize_h}.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=10.8cm]{hsv_stabilize_h}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
+\caption{HSV energy histogram of $K_H$ in stabilize mode} 
 \label{fig:hsv_stabilize_h}
 \end{center}
 \end{figure}
-As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
-\begin{figure}[H]
+\\\\
+As shown in Fig. \ref{fig:hsv_stabilize_h}, the last ordered state of the balanced realization of $K_H$, has unnoticeable energy when it is plotted; that means that this state can be truncated from the controller without modifying its dynamics. Thus, the reduced order controller $K_{H}^{*}$ is a $12^{th}$ order system.
+\\\\
+Once, the optimal $H_\infty$ controller $K_{H}^{*}$ is synthesized using MATLAB, its performance is simulated. For the simulation, the system is subjected to the same disturbances and reference changes set in the LQI simulation. The simulation response is shown in Fig. \ref{fig:stabilize_h}.
+\begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_psi_h}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:stabilize_psi_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_theta_h}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:stabilize_theta_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_phi_h}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:stabilize_psi_h}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
-\label{fig:stabilize_lqi}
+\caption{Closed-loop response of stabilize mode controlled by a $H_\infty$ controller}
+\label{fig:stabilize_h}
 \end{figure}
-
+\\\\For the $H_\infty$ controller designed for the quadrotor stabilize mode, the closed-loop performance is improved when compared to the LQI controller. The designed $K_H^{*}$ controller achieves to get responses with less than $1.1\ s$ of setting time and $3$ \% overshoot.
 
 \subsection{Altitude Hold Mode}
+This mode adds the flight altitude of the quadrotor, represented by the variable $z$, to the quadrotor controlled $DoF$. Hence, it neglects the dynamics related to the $x$ and $y$ position.
 \subsubsection{Dynamic Model}
-
+The altitude hold mode, is represented by a dynamic model of $8^{th}$ order, which states and outputs vectors are
 \begin{align}
 \begin{split}
 \mathbf{x} = & \begin{bmatrix}
@@ -420,9 +452,10 @@ z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
 \end{bmatrix}^{T},\\[15px]
 \mathbf{y} = & \begin{bmatrix}
 z & \psi & \theta & \phi
-\end{bmatrix}^{T}
+\end{bmatrix}^{T}.
 \end{split}
 \end{align}
+This dynamic system, is represented by the matrices
 \begin{align}
 \begin{split}
 A = & 
@@ -435,123 +468,142 @@ A = &
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[2px]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\[2px]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
-\end{bmatrix}, \\[15px]
+\end{bmatrix}, \\[5px]
 B = & 
 \begin{bmatrix}
 0 & \dfrac{1}{m} & 0 & 0 & 0 & 0 & 0 & 0\\[5px]
 0 & 0 & 0 & \dfrac{1}{J_{zz}} & 0 & 0 & 0 & 0\\[5px]
 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{yy}} & 0 & 0\\[5px]
 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dfrac{1}{J_{xx}}
-\end{bmatrix}^{T}.
-\end{split}
-\end{align}
-\begin{align}
-\begin{split}
+\end{bmatrix}^{T}, \\[5px]
 C = & 
 \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\[2px]
 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\[2px]
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\[2px]
 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 
-\end{bmatrix}, \\[15px]
+\end{bmatrix}, \\[5px]
 D = &\ \mathbf{0_{4\times 4}}.
 \end{split}
 \end{align}
-\subsubsection{Linear Quadratic Regulator}
-rtrterere
-\begin{figure}[H]
+The controllability and observability features of the system are checked using the matrices $\mathcal{C_G}$ and $\mathcal{O_G}$. In the altitude hold dynamic model, both matrices have a $rank$ of $8$, which means that the system is controllable and observable.
+\\\\
+\subsubsection{LQI Controller}
+For the altitude hold mode, the penalization matrices $\mathcal{Q}$ and $\mathcal{R}$ are set as
+\begin{align}
+\label{eqn:QR_althold}
+\begin{split}
+\mathcal{Q} & = \mathcal{I}_{12 \times 12}\begin{bmatrix}
+1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 10 & 10 & 40 & 40
+\end{bmatrix}^{T},\\
+\mathcal{R} & = \mathcal{I}_{4 \times 4}\begin{bmatrix}
+3 & 3 & 3 & 3
+\end{bmatrix}^{T},
+\end{split}
+\end{align}
+so that the state $z$ has the same penalization as the other outputs, while the penalization of the unmeasured states remains being lower. The integral error of the quadrotor elevation is penalized the same way as the error of yaw, with a not so big penalization, as the pitch and roll dynamics must be prioritized.
+\begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_z_lqi}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{$z$ position response}
 \label{fig:althold_z_lqi}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_psi_lqi}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw angle response}
 \label{fig:althold_psi_lqi}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_theta_lqi}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll angle response}
 \label{fig:althold_theta_lqi}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_phi_lqi}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:althold_phi_lqi}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of altitude hold mode controlled by a LQI controller}
 \label{fig:althold_lqi}
 \end{figure}
+\\
+In Fig. \ref{fig:althold_lqi}, the closed-loop response of the system $\mathcal{G}_k$ in altitude hold mode with LQI control, is shown. Here, the altitude has a response with a setting time of $11.5\ s$ and an overshoot of $6$ \%. The attitude response remains the same as it is in the stabilize mode due to the use of the same penalties for the corresponding states and inputs. 
 
 \subsubsection{$H_\infty$ Controller}
-rtrtererre
-$\gamma = 0.5976$
+In altitude hold mode, the weighting filters which satisfy $\gamma < 1$ are
+\begin{align}
+\begin{split}
+W_{s} &= \dfrac{(10^{-4})/(10^{-4})}{s + (10^{-4})}*\mathcal{I}_{4\times 4}\ ,\\[5px]
+W_{k} &= \dfrac{10^{3}}{20}\dfrac{s+20}{s+(10^{3}\cdot 20)}*\mathcal{I}_{4\times 4}.
+\end{split}
+\end{align}
+In this case, $\gamma = 0.5976$, forcing to iterate after normalizing the filters. After one iteration, the value of $\gamma$ is $0.9939$. The bounding of the $S$ and $K_{H}S$ functions, is shown in Fig. \ref{fig:sv_althold_hinf}
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=10.8cm]{sv_althold_hinf}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
-\label{fig:sv_auto_hinf}
+\includegraphics[width=10.3cm]{sv_althold_hinf}  
+\caption{Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode} 
+\label{fig:sv_althold_hinf}
 \end{center}
 \end{figure}
-16 states, then 10
-The energy of the  is shown in Fig. \ref{fig:hsv}.
+\\\\As the dynamic model for altitude hold is a $8^{th}$ order system with $4$ inputs and $4$ outputs, the resulting $H_\infty$ controller is a $16^{th}$ dynamic system.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=10.8cm]{hsv_althold_h}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
-\label{fig:hsv_auto_h}
+\caption{HSV energy histogram of $K_H$ in altitude hold mode} 
+\label{fig:hsv_althold_h}
 \end{center}
 \end{figure}
-As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
-
+\\\\The $K_H$ HSV energy, exposed in Fig. \ref{fig:hsv_althold_h}, shows that there are $13$ states of $K_H$ which are influenced in terms of controllability and observability, and make up a minimal realization $K_{H}^{*}$ of $K_H$.
+\\\\
+The simulated response of the designed control system (Fig. \ref{fig:althold_h}), shows an improvement in setting time and overshoot when compared to the LQI controller response in the same mode. Using the $H_\infty$ controller, the setting time for $z$ is $10.7\ s$, while the overshoot is $4.5$ \%.
+ 
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_z_h}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{$z$ position response}
 \label{fig:althold_z_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_psi_h}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw angle response}
 \label{fig:althold_psi_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_theta_h}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll angle response}
 \label{fig:althold_theta_h}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_phi_lqi}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:althold_phi_h}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of altitude hold mode controlled by a $H_\infty$ controller}
 \label{fig:althold_h}
 \end{figure}
 
-\subsection{GNSS Dependent Flight Modes}
-
+\subsection{GNSS-Dependent Flight Modes}
+The GNSS-Dependent flight modes take into account the full states dynamics of the quadrotor. These modes include loiter, auto and RTL mode. The designed controllers can be used in any of the three mentioned modes.
 \subsubsection{Dynamic Model}
-\begin{align}
+The dynamic model used for the design of controllers for the GNSS-Dependent flight modes, is the full $12^{th}$ system introduced in Section \ref{sec:linearized} with all the measurable outputs available, where
+\begin{align*}
 \begin{split}
 \mathbf{x} = & \begin{bmatrix}
 x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
 \end{bmatrix}^{T},\\[15px]
 \mathbf{y} = & \begin{bmatrix}
 x & y & z & \psi & \theta & \phi
-\end{bmatrix}^{T}
+\end{bmatrix}^{T},
 \end{split}
-\end{align}
-
+\end{align*}
 \begin{align}
 \begin{split}
 A = & 
@@ -592,94 +644,115 @@ C = &
 D = &\ \mathbf{0_{6\times 4}}.
 \end{split}
 \end{align}
-\subsubsection{Linear Quadratic Regulator}
-rtrterere
+Verifying the controllability and observability of the system using the matrices $\mathcal{C_G}$ and $\mathcal{O_G}$, it is confirmed that these matrices have full-rank. Hence, the system is controllable and observable.
+
+\subsubsection{LQI Controller}
+Similarly to the altitude hold mode, in the GNSS-Dependent modes, the penalization matrices are
+\begin{align}
+\label{eqn:QR_auto}
+\begin{split}
+\mathcal{Q} & = \mathcal{I}_{18 \times 18}\begin{bmatrix}
+1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 1 & 0.1 & 10 & 10 & 10 & 10 & 40 & 40
+\end{bmatrix}^{T},\\
+\mathcal{R} & = \mathcal{I}_{4 \times 4}\begin{bmatrix}
+3 & 3 & 3 & 3
+\end{bmatrix}^{T},
+\end{split}
+\end{align}
+where $x$ and $y$ have the same penalty as $z$, and analogously happens with $\dot{x}$, $\dot{y}$ and $\dot{z}$.
+\\\\
+Using MATLAB, the quadrotor controlled by the designed LQI controller, is simulated. In this simulation, the quadrotor is commanded automatically through some waypoints, which describe a square figure with constant flight altitude.
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi}
-	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\includegraphics[width=0.7\textwidth]{auto_xyz_lqi}
+	\caption{Position response of the GNSS-Dependent modes with a LQI controller}
 	\label{fig:auto_xyz_lqi}
 	\end{center}
 	\end{figure}
-	
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_psi_lqi}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:auto_psi_lqi}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_theta_lqi}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:auto_theta_lqi}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_phi_lqi}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:auto_psi_lqi}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Attitude response of the GNSS-Dependent modes with a LQI controller}
 \label{fig:auto_lqi}
 \end{figure}
-
+As can be seen in Fig. \ref{fig:auto_xyz_lqi}, the quadrotor is capable of following the desired trajectory while being controlled by the LQI controller in a GNSS-Dependent mode. In addition, the quadrotor manages to recover its track in less than $3.5\ s$, after suffer the actions of disturbances that periodically simulate the force of the wind.
 \subsubsection{$H_\infty$ Controller}
-rtrtererre
-$\gamma = 0.5976$
+For the GNSS-Dependent flight modes, the weighting filter $W_s$ is now a $6\times 6$-matrix due to the existence of six output signals in $\mathbf{y}$. Thus, the weighting filters are set as
+\begin{align}
+\begin{split}
+W_{s} &= \dfrac{(10^{-4})/(10^{-4})}{s + (10^{-4})}*\mathcal{I}_{6\times 6}\ ,\\[5px]
+W_{k} &= \dfrac{10^{4}}{20}\dfrac{s+30}{s+(10^{4}\cdot 30)}*\mathcal{I}_{4\times 4}.
+\end{split}
+\end{align}
+Wigh these weighting filters, $\gamma = 0.5976$. After one iteration, with normalized weighting filters, the $\gamma$ value becomes equal to $0.999$. Thus, the sensitivity and control sensitivity functions are closely upper bounded by the weighting filters, as shown in Fig. \ref{fig:sv_auto_hinf}.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=10.8cm]{sv_auto_hinf}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
+\includegraphics[width=10.3cm]{sv_auto_hinf}  
+\caption{Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes} 
 \label{fig:sv_auto_hinf}
 \end{center}
 \end{figure}
-
-The energy of the  is shown in Fig. \ref{fig:hsv}.
+\\\\The synthesized $H_\infty$ controller $K_H$ for the GNSS-Dependent modes has $20$ states. An equivalent controller $K_{H}^{*}$ of lower order is found, using the HSV energy shown in Fig. \ref{fig:hsv_auto_h}.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=10.8cm]{hsv_auto_h}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
+\caption{HSV energy histogram of $K_H$ in GNSS-Dependent modes} 
 \label{fig:hsv_auto_h}
 \end{center}
 \end{figure}
-As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
-
+\\The system $K_H$ has four unnoticeable states in terms of controllability and observability, as seen in Fig. \ref{fig:hsv_auto_h}. Therefore, the reduced order controller $K_{H}^{*}$ is the subsystem of $K_H$ which includes just the $16$ noticeable states.
+\\\\
+The simulation of the designed $H_\infty$ controller with the quadrotor non-linear dynamics, is also developed using a reference of waypoints describing a square with sides of $2\ m$, and a constant elevation.
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{auto_xyz_h}
-	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\includegraphics[width=0.7\textwidth]{auto_xyz_h}
+	\caption{Position response of the GNSS-Dependent modes with a $H_\infty$ controller}
 	\label{fig:auto_xyz_h}
 	\end{center}
 	\end{figure}
-	
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_psi_h}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:auto_psi_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_theta_h}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:auto_theta_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_phi_h}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:auto_psi_h}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
 \label{fig:auto_h}
 \end{figure}
+The simulated control system manages to follow the position reference, despite being affected by disturbances, as seen in Fig. \ref{fig:auto_xyz_h}. For disturbances, it shows a setting time of $2.8\ s$.
 
 \section{State Estimation Through Kalman Filter}
 \label{sec:stateestimation}
-The quadrotor dynamics are sensed exclusively using the on-board smartphone sensors. These sensors have different sample frequencies and poor accuracy. On the other hand, the LQI controller needs a full-state feedback. However, in a smartphone, it is not posible to get reliable measurements of all the components in $\mathbf{x}$. Hence, it is necessary to use estimation algorithms, as a Kalman filter, to get reliable estimations with constant sample frequency for the state vector $\mathbf{x}$.
+The quadrotor dynamics are sensed exclusively using the on-board smartphone sensors. These sensors have different sample frequencies and poor accuracy. On the other hand, the LQI controller needs a full-state feedback, but it is not posible to get reliable measurements of all the components in $\mathbf{x}$ in a smartphone. Hence, it is necessary to use estimation algorithms, as a Kalman filter. The principle of separation allows the design of controllers and state estimators independently.
 
 \subsection{Attitude Estimation}
 The Android API implements a Kalman filter for attitude estimation using the raw data deliverd by the smartphone accelerometer, gyroscope and magnetometer, as exposed in \cite{Astudillo2017}. Using the quaternion $Q_s$ delivered by the Rotation virtual sensor included in the Android SDK, it is obtained an absolute orientation representation with respect to the Earth frame \cite{AndSensor}, with
@@ -754,7 +827,7 @@ The smartphone GNSS receiver and barometer were tested statically, leaving the p
 \caption{GNSS receiver accuracy}
 \label{fig:gpsacc_test}
 \end{subfigure}
-\caption{Results of the static test of the smartphone GNSS receiver and barometer}
+\caption{Static test of the smartphone GNSS receiver and barometer}
 \label{fig:sensorstest}
 \end{figure}
 \\\\As seen in Fig. \ref{fig:pos_test}, even though the phone was kept in a static position, the $x_m$ and $y_m$ position signal received from the GNSS receiver shows a change of about $6\ m$ in both the $X_W$ and $Y_W$ directions, after just $60\ s$. The $z_m$ position, however, has sudden changes in short periods of time, but without reaching errors greater than $2.5\ m$. The attitude results, Fig. \ref{fig:att_test}, show stable signals for the three Euler angles. The $\psi_m$ and $\theta_m$ angles suffer from a drift of about $0.04$ and $-0.02\ rad$ respectively, while the initial drift suffered by $\phi_m$ is just $-0.01\ rad$.
@@ -814,24 +887,5 @@ This algorithm is executed once every sampling period, after which, the controll
 
 
 \section{Conclusions}
-This chapter presented the simulation and the testing of five control techniques
-for the attitude control of a quadrotor. The first technique is based
-on Lyapunov theory, it proved to be very reactive, especially for the yaw
-angle control. However, the stabilization in the direct neighborhood of the
-equilibrium point was not rigid enough to permit hover flight. The second
-one is a PID controller, it proved to be well adapted to the quadrotor when
-flying near hover. It was possible using this technique to successfully perform
-the first autonomous flight. The PID controller was only able to control the
-quadrotor in near hover and absence of large disturbances. The third one
-is an LQ controller, it displayed average stabilization results. It showed to
-be less dynamic than the PID. The fourth control technique is the Backstepping,
-its ability to control the orientation angles in presence of relatively
-high perturbations is very interesting. The sliding-mode technique is the fifth
-approach, it did not provide excellent results. The switching nature of the
-controller seems to be ill adapted to the dynamics of the quadrotor. The results
-of all these control approaches conducted to a combination of PID and
-Backstepping into the so-called Integral Backstepping. This was proposed
-as a single tool to design attitude, altitude and position controllers. The
-experiment has shown that OS4 is currently able to take-off, hover, land and
-avoid collisions automatically. As far as we know, OS4 is the first quadrotor
-practically capable of a collision avoidance maneuver.
+The control and state estimation algorithms design procedure is presented in this chapter. The concepts of representation of a system as a state space model, controllability and observability, were introduced in the first part. Given the need to achieve trajectory tracking with the quadrotor, a LQR controller with integral feedback LQI is designed. This controller ensures zero steady-state error. Also, it is designed a controller based on the $H_\infty$ synthesis. The performance of these controllers acting with the non-linear dynamic model of the quadrotor, is simulated. In simulations, the $H_\infty$ controller showed a better performance when subjected to exactly the same disturbances and reference changes as the LQI controller.
+Finally, due to the principle of separation, a state estimator based on a Kalman filter is designed taking into account the accuracy of the smartphone measurements.

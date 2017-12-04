@@ -6,7 +6,7 @@ xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
 lgd = legend('$\psi$', '$\psi_{ref}$');
 set(lgd,'Interpreter','latex','Location','northwest')
-axis([0 40 -0.1 0.35])
+axis([0 40 -0.04 0.24])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 stabilize_psi_h.eps
@@ -19,7 +19,7 @@ xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
 lgd = legend('$\theta$', '$\theta_{ref}$');
 set(lgd,'Interpreter','latex','Location','southeast')
-axis([0 40 -0.12 0.3])
+axis([0 40 -0.06 0.24])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 stabilize_theta_h.eps
@@ -32,7 +32,7 @@ xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
 lgd = legend('$\phi$', '$\phi_{ref}$');
 set(lgd,'Interpreter','latex','Location','southwest')
-%axis([0 30 -0.22 0.10])
+axis([0 40 -0.25 0.09])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 stabilize_phi_h.eps
