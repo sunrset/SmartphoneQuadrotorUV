@@ -134,7 +134,7 @@
                                 % This three commands can be reduced to
                                 % just the command 'balancmr'
 
-                                [K1, hsvinfo] = balancmr(K1,16);
+                                [K1, hsvinfo] = balancmr(K1);
                                 %K1 = balancmr(K1);        %If the desired order isn't included, the HSV will be plot and you will be asked to enter the desired order in the command window
                                 
                                 % The command 'balancmr' do all about
@@ -233,7 +233,7 @@
                     K_lqi = -K_lqi
 
      %% Simulation 
-            controller = 2;
+            controller = 1;
                 % 1 --> H-inf controller desing
                 % 2 --> LQG controller design
                 % 3 --> Both H-inf and LQG controller design

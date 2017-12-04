@@ -54,23 +54,22 @@
 \BOOKMARK [2][-]{subsection.4.3.3}{GNSS Dependent Flight Modes}{section.4.3}% 54
 \BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 55
 \BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 56
-\BOOKMARK [2][-]{subsection.4.4.2}{Position Estimation}{section.4.4}% 57
-\BOOKMARK [2][-]{subsection.4.4.3}{Particle Model}{section.4.4}% 58
-\BOOKMARK [2][-]{subsection.4.4.4}{Quadrotor Model}{section.4.4}% 59
-\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 60
-\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 61
-\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 62
-\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 63
-\BOOKMARK [1][-]{section.5.3}{LQI Controller Implementation}{chapter.5}% 64
-\BOOKMARK [2][-]{subsection.5.3.1}{Stabilize Mode \(LQI\)}{section.5.3}% 65
-\BOOKMARK [2][-]{subsection.5.3.2}{Altitude Hold Mode \(LQI\)}{section.5.3}% 66
-\BOOKMARK [2][-]{subsection.5.3.3}{GNSS-Dependent Modes \(LQI\)}{section.5.3}% 67
-\BOOKMARK [1][-]{section.5.4}{H Controller Implementation}{chapter.5}% 68
-\BOOKMARK [2][-]{subsection.5.4.1}{Stabilize Mode \(H\)}{section.5.4}% 69
-\BOOKMARK [2][-]{subsection.5.4.2}{Altitude Hold Mode \(H\)}{section.5.4}% 70
-\BOOKMARK [2][-]{subsection.5.4.3}{GNSS-Dependent Modes \(H\)}{section.5.4}% 71
-\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 72
-\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 73
-\BOOKMARK [0][-]{chapter*.78}{Publications}{}% 74
-\BOOKMARK [0][-]{chapter*.79}{Supplementary Material}{}% 75
-\BOOKMARK [0][-]{appendix*.80}{Bibliography}{}% 76
+\BOOKMARK [2][-]{subsection.4.4.2}{Position Measurement}{section.4.4}% 57
+\BOOKMARK [2][-]{subsection.4.4.3}{States Estimation}{section.4.4}% 58
+\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 59
+\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 60
+\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.3}{LQI Controller Implementation}{chapter.5}% 63
+\BOOKMARK [2][-]{subsection.5.3.1}{Stabilize Mode \(LQI\)}{section.5.3}% 64
+\BOOKMARK [2][-]{subsection.5.3.2}{Altitude Hold Mode \(LQI\)}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.3}{GNSS-Dependent Modes \(LQI\)}{section.5.3}% 66
+\BOOKMARK [1][-]{section.5.4}{H Controller Implementation}{chapter.5}% 67
+\BOOKMARK [2][-]{subsection.5.4.1}{Stabilize Mode \(H\)}{section.5.4}% 68
+\BOOKMARK [2][-]{subsection.5.4.2}{Altitude Hold Mode \(H\)}{section.5.4}% 69
+\BOOKMARK [2][-]{subsection.5.4.3}{GNSS-Dependent Modes \(H\)}{section.5.4}% 70
+\BOOKMARK [1][-]{section.5.5}{Conclusions}{chapter.5}% 71
+\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 72
+\BOOKMARK [0][-]{chapter*.83}{Publications}{}% 73
+\BOOKMARK [0][-]{chapter*.84}{Supplementary Material}{}% 74
+\BOOKMARK [0][-]{appendix*.85}{Bibliography}{}% 75

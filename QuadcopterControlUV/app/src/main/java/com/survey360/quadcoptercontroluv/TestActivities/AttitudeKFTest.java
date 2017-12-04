@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -73,6 +74,7 @@ public class AttitudeKFTest extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attitude_kftest);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mDataCollection = new DataCollection(this);
@@ -396,10 +398,14 @@ public class AttitudeKFTest extends AppCompatActivity {
             // ------------------------------------------
             updateTextViews();
             t = t + dt/1000;
-            mSaveFile.writeDatainFile(t + "," + dt + "," +
+            /*mSaveFile.writeDatainFile(t + "," + dt + "," +
                     mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] + "," +
                     mDataCollection.earthAccVals[0] + "," + mDataCollection.earthAccVals[1] + "," + mDataCollection.earthAccVals[2] + "," +
-                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());
+                    mDataCollection.quaternionVals[0] + "," + mDataCollection.quaternionVals[1] + "," + mDataCollection.quaternionVals[2] + "," + mDataCollection.quaternionVals[3] + System.lineSeparator());*/
+            mSaveFile.writeDatainFile(t + "," + dt + "," +
+                    mDataCollection.conv_x + "," + mDataCollection.conv_y + "," + mDataCollection.gps_accuracy + "," + mDataCollection.baroElevation + "," +
+                    mDataCollection.orientationValsDeg[2] + "," + mDataCollection.orientationValsDeg[1] + "," + mDataCollection.orientationValsDeg[0] +
+                    System.lineSeparator());
         }
     }
 

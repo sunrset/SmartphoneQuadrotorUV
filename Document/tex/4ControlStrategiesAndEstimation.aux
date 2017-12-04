@@ -11,125 +11,141 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{48}{subsection.4.1.1}}
 \newlabel{ec:statespace}{{4.1}{48}{State Space Representation}{equation.4.1.1}{}}
 \newlabel{eqn:ss}{{4.2}{48}{State Space Representation}{equation.4.1.2}{}}
+\newlabel{ec:statespace}{{4.3}{48}{State Space Representation}{equation.4.1.3}{}}
+\newlabel{eqn:ssk}{{4.4}{48}{State Space Representation}{equation.4.1.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{48}{subsection.4.1.2}}
 \citation{Werner2012}
 \citation{Steinbuch2007}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Control Strategies}{49}{section.4.2}}
 \newlabel{sec:controlstrategies}{{4.2}{49}{Control Strategies}{section.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral (LQI) Controller}{49}{subsection.4.2.1}}
-\@writefile{toc}{\contentsline {subsubsection}{Optimal Problem Solution}{49}{section*.42}}
 \citation{Murray2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral (LQI) Controller}{50}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{Optimal Problem Solution}{50}{section*.42}}
+\newlabel{eqn:hamilt}{{4.12}{50}{Optimal Problem Solution}{equation.4.2.12}{}}
 \citation{Moore1989}
-\newlabel{eqn:hamilt}{{4.10}{50}{Optimal Problem Solution}{equation.4.2.10}{}}
-\newlabel{eqn:optimalu}{{4.12}{50}{Optimal Problem Solution}{equation.4.2.12}{}}
-\citation{Zhou1999}
+\newlabel{eqn:optimalu}{{4.14}{51}{Optimal Problem Solution}{equation.4.2.14}{}}
 \@writefile{toc}{\contentsline {subsubsection}{Reference Tracking}{51}{section*.43}}
-\newlabel{eqn:v}{{4.18}{51}{Reference Tracking}{equation.4.2.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with gain compensation for the LQG controller aiming to track a reference.\relax }}{52}{figure.caption.44}}
-\newlabel{fig:lqi}{{4.1}{52}{Closed-loop system with gain compensation for the LQG controller aiming to track a reference.\relax }{figure.caption.44}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{52}{subsection.4.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{52}{figure.caption.45}}
-\newlabel{fig:augmentedPlant}{{4.2}{52}{Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }{figure.caption.45}{}}
-\newlabel{eqn:hinf}{{4.22}{52}{$H_\infty $ Controller}{equation.4.2.22}{}}
-\newlabel{eqn:wswk}{{4.24}{52}{$H_\infty $ Controller}{equation.4.2.24}{}}
+\newlabel{eqn:augmentedLQI}{{4.22}{52}{Reference Tracking}{equation.4.2.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{52}{figure.caption.44}}
+\newlabel{fig:lqi}{{4.1}{52}{Closed-loop system with LQI controller for reference tracking\relax }{figure.caption.44}{}}
+\citation{Werner2012}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{53}{subsection.4.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Synthesis for Controller Design}{53}{section*.45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{53}{figure.caption.46}}
+\newlabel{fig:generalized}{{4.2}{53}{Control loop with generalized plant\relax }{figure.caption.46}{}}
+\newlabel{eqn:hinf}{{4.26}{53}{$H_\infty $ Synthesis for Controller Design}{equation.4.2.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{54}{figure.caption.47}}
+\newlabel{fig:augmentedPlant}{{4.3}{54}{Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }{figure.caption.47}{}}
+\newlabel{eqn:wswk}{{4.28}{54}{$H_\infty $ Synthesis for Controller Design}{equation.4.2.28}{}}
+\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{54}{section*.48}}
 \citation{Skogestad2005}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{53}{figure.caption.46}}
-\newlabel{fig:hinfcontroller}{{4.3}{53}{Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }{figure.caption.46}{}}
-\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{53}{section*.47}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controllers Design and Simulation}{53}{section.4.3}}
-\newlabel{sec:controldesign}{{4.3}{53}{Controllers Design and Simulation}{section.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{53}{subsection.4.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{54}{figure.caption.48}}
-\newlabel{fig:hsv}{{4.4}{54}{Hankel singular values energy histogram of the designed controller.\relax }{figure.caption.48}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{54}{section*.49}}
-\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{55}{section*.50}}
-\newlabel{fig:stabilize_psi_lqi}{{4.5a}{55}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.51}{}}
-\newlabel{sub@fig:stabilize_psi_lqi}{{a}{55}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.51}{}}
-\newlabel{fig:stabilize_theta_lqi}{{4.5b}{55}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.51}{}}
-\newlabel{sub@fig:stabilize_theta_lqi}{{b}{55}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.51}{}}
-\newlabel{fig:stabilize_psi_lqi}{{4.5c}{55}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.51}{}}
-\newlabel{sub@fig:stabilize_psi_lqi}{{c}{55}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.51}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{55}{figure.caption.51}}
-\newlabel{fig:stabilize_lqi}{{4.5}{55}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.51}{}}
-\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{55}{section*.52}}
-\newlabel{fig:stabilize_psi_lqi}{{4.6a}{56}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.53}{}}
-\newlabel{sub@fig:stabilize_psi_lqi}{{a}{56}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.53}{}}
-\newlabel{fig:stabilize_theta_lqi}{{4.6b}{56}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.53}{}}
-\newlabel{sub@fig:stabilize_theta_lqi}{{b}{56}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.53}{}}
-\newlabel{fig:stabilize_psi_lqi}{{4.6c}{56}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.53}{}}
-\newlabel{sub@fig:stabilize_psi_lqi}{{c}{56}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.53}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{56}{figure.caption.53}}
-\newlabel{fig:stabilize_lqi}{{4.6}{56}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.53}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{56}{subsection.4.3.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{56}{section*.54}}
-\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{57}{section*.55}}
-\newlabel{fig:althold_z_lqi}{{4.7a}{58}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{sub@fig:althold_z_lqi}{{a}{58}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{fig:althold_psi_lqi}{{4.7b}{58}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{sub@fig:althold_psi_lqi}{{b}{58}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{fig:althold_theta_lqi}{{4.7c}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{sub@fig:althold_theta_lqi}{{c}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{fig:althold_phi_lqi}{{4.7d}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
-\newlabel{sub@fig:althold_phi_lqi}{{d}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{58}{figure.caption.56}}
-\newlabel{fig:althold_lqi}{{4.7}{58}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.56}{}}
-\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{58}{section*.57}}
-\newlabel{fig:althold_z_lqi}{{4.8a}{59}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{sub@fig:althold_z_lqi}{{a}{59}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{fig:althold_psi_lqi}{{4.8b}{59}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{sub@fig:althold_psi_lqi}{{b}{59}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{fig:althold_theta_lqi}{{4.8c}{59}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{sub@fig:althold_theta_lqi}{{c}{59}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{fig:althold_phi_lqi}{{4.8d}{59}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.58}{}}
-\newlabel{sub@fig:althold_phi_lqi}{{d}{59}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.58}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{59}{figure.caption.58}}
-\newlabel{fig:althold_lqi}{{4.8}{59}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.58}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{59}{subsection.4.3.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{59}{section*.59}}
-\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{60}{section*.60}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{61}{figure.caption.61}}
-\newlabel{fig:auto_xyz_lqi}{{4.9}{61}{Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }{figure.caption.61}{}}
-\newlabel{fig:auto_psi_lqi}{{4.10a}{61}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.62}{}}
-\newlabel{sub@fig:auto_psi_lqi}{{a}{61}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.62}{}}
-\newlabel{fig:auto_theta_lqi}{{4.10b}{61}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.62}{}}
-\newlabel{sub@fig:auto_theta_lqi}{{b}{61}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.62}{}}
-\newlabel{fig:auto_psi_lqi}{{4.10c}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.62}{}}
-\newlabel{sub@fig:auto_psi_lqi}{{c}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.62}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{61}{figure.caption.62}}
-\newlabel{fig:auto_lqi}{{4.10}{61}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.62}{}}
-\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{62}{section*.63}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{62}{figure.caption.64}}
-\newlabel{fig:auto_xyz_lqi}{{4.11}{62}{Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Controllers Design and Simulation}{55}{section.4.3}}
+\newlabel{sec:controldesign}{{4.3}{55}{Controllers Design and Simulation}{section.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{55}{subsection.4.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{55}{section*.49}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{56}{section*.50}}
+\newlabel{fig:stabilize_psi_lqi}{{4.4a}{57}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.51}{}}
+\newlabel{sub@fig:stabilize_psi_lqi}{{a}{57}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.51}{}}
+\newlabel{fig:stabilize_theta_lqi}{{4.4b}{57}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.51}{}}
+\newlabel{sub@fig:stabilize_theta_lqi}{{b}{57}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.51}{}}
+\newlabel{fig:stabilize_psi_lqi}{{4.4c}{57}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.51}{}}
+\newlabel{sub@fig:stabilize_psi_lqi}{{c}{57}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{57}{figure.caption.51}}
+\newlabel{fig:stabilize_lqi}{{4.4}{57}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.51}{}}
+\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{57}{section*.52}}
+\newlabel{fig:stabilize_psi_lqi}{{4.5a}{58}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.53}{}}
+\newlabel{sub@fig:stabilize_psi_lqi}{{a}{58}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.53}{}}
+\newlabel{fig:stabilize_theta_lqi}{{4.5b}{58}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.53}{}}
+\newlabel{sub@fig:stabilize_theta_lqi}{{b}{58}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.53}{}}
+\newlabel{fig:stabilize_psi_lqi}{{4.5c}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.53}{}}
+\newlabel{sub@fig:stabilize_psi_lqi}{{c}{58}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.53}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{58}{figure.caption.53}}
+\newlabel{fig:stabilize_lqi}{{4.5}{58}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.53}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{58}{subsection.4.3.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{58}{section*.54}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{59}{section*.55}}
+\newlabel{fig:althold_z_lqi}{{4.6a}{60}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{sub@fig:althold_z_lqi}{{a}{60}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{fig:althold_psi_lqi}{{4.6b}{60}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{sub@fig:althold_psi_lqi}{{b}{60}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{fig:althold_theta_lqi}{{4.6c}{60}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{sub@fig:althold_theta_lqi}{{c}{60}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{fig:althold_phi_lqi}{{4.6d}{60}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
+\newlabel{sub@fig:althold_phi_lqi}{{d}{60}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{60}{figure.caption.56}}
+\newlabel{fig:althold_lqi}{{4.6}{60}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.56}{}}
+\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{60}{section*.57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{61}{figure.caption.58}}
+\newlabel{fig:sv_auto_hinf}{{4.7}{61}{Hankel singular values energy histogram of the designed controller.\relax }{figure.caption.58}{}}
+\newlabel{fig:althold_z_h}{{4.9a}{61}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:althold_z_h}{{a}{61}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{fig:althold_psi_h}{{4.9b}{61}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:althold_psi_h}{{b}{61}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{fig:althold_theta_h}{{4.9c}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:althold_theta_h}{{c}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{fig:althold_phi_h}{{4.9d}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:althold_phi_h}{{d}{61}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{61}{figure.caption.60}}
+\newlabel{fig:althold_h}{{4.9}{61}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{62}{figure.caption.59}}
+\newlabel{fig:hsv_auto_h}{{4.8}{62}{Hankel singular values energy histogram of the designed controller.\relax }{figure.caption.59}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}GNSS Dependent Flight Modes}{62}{subsection.4.3.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Dynamic Model}{62}{section*.61}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Quadratic Regulator}{63}{section*.62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{64}{figure.caption.63}}
+\newlabel{fig:auto_xyz_lqi}{{4.10}{64}{Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }{figure.caption.63}{}}
+\newlabel{fig:auto_psi_lqi}{{4.11a}{64}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.64}{}}
+\newlabel{sub@fig:auto_psi_lqi}{{a}{64}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.64}{}}
+\newlabel{fig:auto_theta_lqi}{{4.11b}{64}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.64}{}}
+\newlabel{sub@fig:auto_theta_lqi}{{b}{64}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.64}{}}
+\newlabel{fig:auto_psi_lqi}{{4.11c}{64}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.64}{}}
+\newlabel{sub@fig:auto_psi_lqi}{{c}{64}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.64}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{64}{figure.caption.64}}
+\newlabel{fig:auto_lqi}{{4.11}{64}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {subsubsection}{$H_\infty $ Controller}{65}{section*.65}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{65}{figure.caption.66}}
+\newlabel{fig:sv_auto_hinf}{{4.12}{65}{Hankel singular values energy histogram of the designed controller.\relax }{figure.caption.66}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Hankel singular values energy histogram of the designed controller.\relax }}{66}{figure.caption.67}}
+\newlabel{fig:hsv_auto_h}{{4.13}{66}{Hankel singular values energy histogram of the designed controller.\relax }{figure.caption.67}{}}
+\newlabel{fig:auto_psi_h}{{4.15a}{66}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.69}{}}
+\newlabel{sub@fig:auto_psi_h}{{a}{66}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.69}{}}
+\newlabel{fig:auto_theta_h}{{4.15b}{66}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.69}{}}
+\newlabel{sub@fig:auto_theta_h}{{b}{66}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.69}{}}
+\newlabel{fig:auto_psi_h}{{4.15c}{66}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.69}{}}
+\newlabel{sub@fig:auto_psi_h}{{c}{66}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.69}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{66}{figure.caption.69}}
+\newlabel{fig:auto_h}{{4.15}{66}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.69}{}}
 \citation{Astudillo2017}
 \citation{AndSensor}
-\newlabel{fig:auto_psi_lqi}{{4.12a}{63}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.65}{}}
-\newlabel{sub@fig:auto_psi_lqi}{{a}{63}{Rotation about $x$ axis, $J_{xx}$ experiment\relax }{figure.caption.65}{}}
-\newlabel{fig:auto_theta_lqi}{{4.12b}{63}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.65}{}}
-\newlabel{sub@fig:auto_theta_lqi}{{b}{63}{Rotation about $y$ axis, $J_{yy}$ experiment\relax }{figure.caption.65}{}}
-\newlabel{fig:auto_psi_lqi}{{4.12c}{63}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.65}{}}
-\newlabel{sub@fig:auto_psi_lqi}{{c}{63}{Rotation about $z$ axis, $J_{zz}$ experiment\relax }{figure.caption.65}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{63}{figure.caption.65}}
-\newlabel{fig:auto_lqi}{{4.12}{63}{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }{figure.caption.65}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{63}{section.4.4}}
-\newlabel{sec:stateestimation}{{4.4}{63}{State Estimation Through Kalman Filter}{section.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{63}{subsection.4.4.1}}
-\newlabel{eqn:rotvector}{{4.35}{64}{Attitude Estimation}{equation.4.4.35}{}}
-\newlabel{eqn:quattoeu}{{4.37}{64}{Attitude Estimation}{equation.4.4.37}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Position Estimation}{64}{subsection.4.4.2}}
-\newlabel{eqn:A}{{4.39}{64}{Position Estimation}{equation.4.4.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{67}{figure.caption.68}}
+\newlabel{fig:auto_xyz_h}{{4.14}{67}{Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }{figure.caption.68}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{67}{section.4.4}}
+\newlabel{sec:stateestimation}{{4.4}{67}{State Estimation Through Kalman Filter}{section.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{67}{subsection.4.4.1}}
 \citation{Lauszus2015}
-\newlabel{eqn:statePrognosis}{{4.40}{65}{Position Estimation}{equation.4.4.40}{}}
-\newlabel{eqn:covariancePrognosis}{{4.41}{65}{Position Estimation}{equation.4.4.41}{}}
-\newlabel{eqn:correctionKalman}{{4.42}{65}{Position Estimation}{equation.4.4.42}{}}
-\newlabel{eqn:correctionKalman2}{{4.43}{65}{Position Estimation}{equation.4.4.43}{}}
-\newlabel{eqn:H}{{4.44}{65}{Position Estimation}{equation.4.4.44}{}}
-\newlabel{eqn:hbarom}{{4.45}{65}{Position Estimation}{equation.4.4.45}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Particle Model}{66}{subsection.4.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Quadrotor Model}{66}{subsection.4.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Conclusions}{66}{section.4.5}}
+\newlabel{eqn:rotvector}{{4.39}{68}{Attitude Estimation}{equation.4.4.39}{}}
+\newlabel{eqn:rotbw2}{{4.40}{68}{Attitude Estimation}{equation.4.4.40}{}}
+\newlabel{eqn:quattoeu}{{4.41}{68}{Attitude Estimation}{equation.4.4.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Position Measurement}{68}{subsection.4.4.2}}
+\newlabel{eqn:hbarom}{{4.42}{68}{Position Measurement}{equation.4.4.42}{}}
+\newlabel{fig:pos_test}{{4.16a}{69}{Position drift\relax }{figure.caption.70}{}}
+\newlabel{sub@fig:pos_test}{{a}{69}{Position drift\relax }{figure.caption.70}{}}
+\newlabel{fig:att_test}{{4.16b}{69}{Attitude drift\relax }{figure.caption.70}{}}
+\newlabel{sub@fig:att_test}{{b}{69}{Attitude drift\relax }{figure.caption.70}{}}
+\newlabel{fig:gpsacc_test}{{4.16c}{69}{GNSS receiver accuracy\relax }{figure.caption.70}{}}
+\newlabel{sub@fig:gpsacc_test}{{c}{69}{GNSS receiver accuracy\relax }{figure.caption.70}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Results of the static test of the smartphone GNSS receiver and barometer\relax }}{69}{figure.caption.70}}
+\newlabel{fig:sensorstest}{{4.16}{69}{Results of the static test of the smartphone GNSS receiver and barometer\relax }{figure.caption.70}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}States Estimation}{70}{subsection.4.4.3}}
+\newlabel{eqn:statePrognosis}{{4.43}{70}{States Estimation}{equation.4.4.43}{}}
+\newlabel{eqn:covariancePrognosis}{{4.44}{70}{States Estimation}{equation.4.4.44}{}}
+\newlabel{eqn:correctionKalman}{{4.45}{70}{States Estimation}{equation.4.4.45}{}}
+\newlabel{eqn:correctionKalman2}{{4.46}{70}{States Estimation}{equation.4.4.46}{}}
+\newlabel{eqn:H}{{4.49}{70}{States Estimation}{equation.4.4.49}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Conclusions}{71}{section.4.5}}
 \@setckpt{tex/4ControlStrategiesAndEstimation}{
-\setcounter{page}{67}
-\setcounter{equation}{47}
+\setcounter{page}{72}
+\setcounter{equation}{49}
 \setcounter{enumi}{6}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -143,7 +159,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{12}
+\setcounter{figure}{16}
 \setcounter{table}{0}
 \setcounter{float@type}{8}
 \setcounter{algorithm}{0}
@@ -160,7 +176,7 @@
 \setcounter{section@level}{1}
 \setcounter{Item}{6}
 \setcounter{Hfootnote}{11}
-\setcounter{bookmark@seq@number}{60}
+\setcounter{bookmark@seq@number}{59}
 \setcounter{theorem}{0}
 \setcounter{proposition}{0}
 \setcounter{lemma}{0}

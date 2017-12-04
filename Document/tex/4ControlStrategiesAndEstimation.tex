@@ -29,7 +29,25 @@ For simplicity, the state-space model representation shown in (\ref{ec:statespac
   \hline
   C & D
 \end{array}
-\mright].
+\mright],
+\end{equation}
+while the discretized state-space model $\mathcal{G}_k$, using a sample time of $t_k$, is represented by
+\begin{align}
+\label{ec:statespace}
+\begin{split}
+\mathbf{x}(k+1) & = A_k\mathbf{x}(k)+B_k\mathbf{u}(k),\\[10px]
+\mathbf{y}(k+1) & = C_k\mathbf{x}(k)+D_k\mathbf{u}(k).
+\end{split}
+\end{align}
+Thus, $\mathcal{G}_k$ is represented by the quartet
+\begin{equation}\label{eqn:ssk}
+\mathcal{G}_k = \mleft[
+\begin{array}{c|c}
+  A_k & B_k \\
+  \hline
+  C_k & D_k
+\end{array}
+\mright],
 \end{equation}
 For the design of each controller, only the dynamics that are required to control, according to the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
 
@@ -94,7 +112,7 @@ $\mathcal{R}$ is a positive definite matrix; and $\mathcal{Q}$ and $\mathcal{S}$
 \mathbf{x}(0) & = \mathbf{x_0},\ \ \ t \in [0, T].
 \end{split}
 \end{align}
-This minimization is achieved using the Pontryagin's maximum principle \cite{Murray2009}, where
+This minimization is achieved using the Pontryagin maximum principle \cite{Murray2009}, where
 \begin{equation}
 \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t) = \mathcal{L}(\mathbf{x},\mathbf{u},t) + \lambda_\mathcal{P}^{T}\mathbf{f}(\mathbf{x}, \mathbf{u}, t)
 \end{equation}
@@ -107,7 +125,7 @@ is the Hamiltonian function, with $\lambda_\mathcal{P}$ being the vector of co-s
 0 & = \dfrac{\partial \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)}{\partial \mathbf{u}} = \mathcal{R}\mathbf{u}(t) + \lambda_\mathcal{P}^{T}(t)B.
 \end{split}
 \end{align}
-Thereby, from (\ref{eqn:hamilt}), the optimal solution to $\mathbf{u}$ that minimizes $\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)$, and by Pontryagin's maximum principle, the cost function $\mathcal{V}$, is
+Thereby, from (\ref{eqn:hamilt}), the optimal solution to $\mathbf{u}$ that minimizes $\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)$, and by Pontryagin maximum principle, the cost function $\mathcal{V}$, is
 \begin{equation}
 \mathbf{u}^{*}(t) = -\mathcal{R}^{-1}B^{T}\lambda_\mathcal{P}(t).
 \end{equation}
@@ -139,116 +157,138 @@ When the desired state value $\mathbf{x_{des}}$ is different from zero, these re
 \begin{equation}
 \dot{\mathbf{x}} = (A+B\mathbf{K_{lqr}})\mathbf{x}-B\mathbf{K_{lqr}}\mathbf{x_{des}},
 \end{equation}
-due to the fact that the error $\mathbf{e} = \mathbf{x} - \mathbf{x_{des}}$ is used as the feedback vector of the LQR.
+due to the fact that the error $\mathbf{e_x} = \mathbf{x} - \mathbf{x_{des}}$ is used as the feedback vector of the LQR.
 
 \subsubsection{Reference Tracking}
-The LQR design is not made for reference tracking, but just for regulation. 
-, to let the quadrotor track a defined trajectory, it is necessary to include a gain filter $v$ for the reference that compensates the total gain of the closed-loop system and enables the tracking of a reference input $r$. This gain filter is defined as
-	\begin{equation}\label{eqn:v}
-	v = -(C*(A+BF+F_{e}C)^{-1}*B)^{-1},
-	\end{equation}
-and its placing in the system is shown in Fig. \ref{fig:lqi}.
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=10.5cm]{lqi}
-	\caption{Closed-loop system with gain compensation for the LQG controller aiming to track a reference.}
-	\label{fig:lqi}
-	\end{center}
-	\end{figure}
-\\where $G_{cl}$ is the closed-system with the LQG controller described in (\ref{eqn:ssgcl}).
+For the quadrotor position control, a controller capable of reference tracking is necessary. However, the LQR controller is not made for reference tracking, but just for regulation. This is overcame making use of a Linear Quadratic Integral (LQI) controller, which is a LQR with an additional integral feedback. The integral action ensures that a zero steady-state error is achieved. 
+\\\\
+The approach of using integral feedback with a LQR to provide tracking capabilities to the control system, is based on the augmentation of the state vector $\mathbf{x}$ with a vector
 \begin{equation}
-\mathbf{x_i} = \int \mathbf{e}\ dt,\ \ \mathbf{x_i}(0) = \mathbf{0},
+\mathbf{x_i} = \int \mathbf{e}\ dt,\ \ \mathbf{x_i}(0) = \mathbf{0},\ \ \mathbf{x_i} \in \mathbb{R}^{n_y},
 \end{equation}
+containing the integral of the error signal $\mathbf{e} = r - \mathbf{y}$, where $r$ is the reference signal of size $n_y$. The augmented state vector $\mathbf{x_{lqi}}$ is defined as
 \begin{equation}
 \mathbf{x_{lqi}} = \begin{bmatrix}
 \mathbf{x} \\
 \mathbf{x_i}
 \end{bmatrix},
 \end{equation}
+with which the augmented system to be controlled is obtained as
 \begin{align}
+\label{eqn:augmentedLQI}
 \begin{split}
-\begin{bmatrix}
-\dot{\mathbf{x}}\\
-\mathbf{\dot{x}_i}
-\end{bmatrix} & = \begin{bmatrix}
-A & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}} \\
--C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
-\end{bmatrix}\begin{bmatrix}
-\mathbf{x} \\
-\mathbf{x_i}
-\end{bmatrix} + \begin{bmatrix}
-B \\ \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
-\end{bmatrix}\mathbf{u} +  \begin{bmatrix}
-\mathbf{0_{\mathit{n_x}\times \mathit{n_x}}} \\
-\mathcal{I}_{\mathit{n_y}\times \mathit{n_y}}
-\end{bmatrix}r \\[5px]
-\mathbf{y} & = \begin{bmatrix}
-C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
-\end{bmatrix}\begin{bmatrix}
-\mathbf{x} \\
-\mathbf{x_i}
-\end{bmatrix}
+\mathbf{\dot{x}_{lqi}} & = \bar{A}\mathbf{x_{lqi}} + \bar{B}\mathbf{u} + B_{i}r,\\[5px]
+\mathbf{y} & = \bar{C}\mathbf{x_{lqi}},
 \end{split}
 \end{align}
+where
+\begin{align}
+\begin{split}
+\bar{A} & = \begin{bmatrix}
+A & \mathbf{0_{\mathit{n_x}\times \mathit{n_y}}} \\
+-C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
+\end{bmatrix}, \\[5px]
+\bar{B} & = \begin{bmatrix}
+B \\ \mathbf{0_{\mathit{n_y}\times \mathit{n_u}}}
+\end{bmatrix}, \\[5px]
+B_{r} & = \begin{bmatrix}
+\mathbf{0_{\mathit{n_x}\times \mathit{n_y}}} \\
+\mathcal{I}_{\mathit{n_y}\times \mathit{n_y}}
+\end{bmatrix}, \\[5px]
+\bar{C} & = \begin{bmatrix}
+C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
+\end{bmatrix}.
+\end{split}
+\end{align}
+Given the augmented system in (\ref{eqn:augmentedLQI}), the controller is designed using the Optimal Problem Solution detailed before, obtaining a control law of the form
+\begin{align}
+\begin{split}
+\mathbf{u} & = \mathbf{K_{lqi}}\mathbf{x_{lqi}} =\begin{bmatrix}
+\mathbf{K_{lqr}} & \mathbf{K_{i}}
+\end{bmatrix}\begin{bmatrix}
+\mathbf{x} \\
+\mathbf{x_i}
+\end{bmatrix},
+\end{split}
+\end{align}
+where $\mathbf{K_{lqr}}$ and $\mathbf{K_i}$ are  submatrices which correspond to the feedback gain matrices that multiply $\mathbf{x}$ and $\mathbf{x_i}$ respectively, as shown in Fig. \ref{fig:lqi}.
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=10.5cm]{lqi}
+	\caption{Closed-loop system with LQI controller for reference tracking}
+	\label{fig:lqi}
+	\end{center}
+	\end{figure}
+
 
 \subsection{$H_\infty$ Controller}
-\cite{Zhou1999}
-For the design of the $H\infty$ controller, a generalized plant like the shown in the Fig. \ref{fig:augmentedPlant}, was built.
-\begin{figure}[H]
+\subsubsection{$H_\infty$ Synthesis for Controller Design}
+The design of the $H_\infty$ controller is based on a representation of the closed-loop system including the generalized plant $P_H$ and the controller $K_H$, shown in Fig. \ref{fig:generalized}.
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=4.5cm]{generalized}
+	\caption{Control loop with generalized plant}
+	\label{fig:generalized}
+	\end{center}
+	\end{figure}
+\\\\The generalized plant $P_H$ corresponds to the system
+\begin{align}
+\begin{split}
+\mathbf{\dot{x}} & = A\mathbf{x} + B_{w}w_{h} + B\mathbf{u},\\[5px]
+z_{h} & = C_{z}\mathbf{x} + D_{zw}w_{h} + D_{zu}\mathbf{u},\\[5px]
+v_{h} & = -C\mathbf{x} + D_{vw}w_{h} + D_{vu}\mathbf{u}.
+\end{split}
+\end{align} 
+where $w_h$ are the external inputs, including command inputs, disturbances and noises; $z_h$ is a fictitious output vector used to express design specifications; and $v_h$ are the measured outputs of the system \cite{Werner2012}.
+\\\\
+The $H_\infty$ design procedure aims to synthesize a dynamic controller $K_H$, with input $v_h = -\mathbf{y}$ and output $\mathbf{u}$, such that the closed-loop system is stabilized and the fictitious output $z_h$ is minimized.
+\\\\
+The system in Fig. \ref{fig:generalized}, is rearranged for easy interpretation, in the way of Fig. \ref{fig:augmentedPlant}.
+\begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=6.5cm]{augmentedPlant.eps}
 	\caption{Generalized plant with the weighting filters $W_s$ and $W_k$.}
 	\label{fig:augmentedPlant}
 	\end{center}
 	\end{figure}	
-In this generalized plant, $G$ represents the quadrotor dynamics, $K$ the controller, $r$ is the system reference, $e$ is the error, $u$ is the control input and $W_{s},\ W_{k}$ are weighting filters that must satisfy 
+\\In Fig. \ref{fig:augmentedPlant}, $\mathcal{G}$ represents the quadrotor dynamics; $K_H$ the controller; $r$ is the system reference; $\mathbf{e}$ is the error; $\mathbf{u}$ is the control input; $z_{h} = \begin{bmatrix}
+Z_s & Z_k
+\end{bmatrix}$; and $W_{s},\ W_{k}$ are weighting filters that must satisfy 
 	\begin{equation}\label{eqn:hinf}
 	\gamma = \left|\left|\begin{bmatrix}
 	W_{s}S\\W_{k}KS
 	\end{bmatrix}\right|\right|_{\infty} < 1,
 	\end{equation}
-\\where $S$ is the sensitivity function and $KS$ is the control sensitivity defined as
+\\where $S$ is the sensitivity function and $K_{H}S$ is the control sensitivity defined as
 	\begin{equation}
-	S = (\mathcal{I} + GK)^{-1},\ \ \ KS = K(\mathcal{I} + GK)^{-1}.
+	S = (\mathcal{I} + \mathcal{G}K_{H})^{-1},\ \ \ K_{H}S = K_{H}(\mathcal{I} + \mathcal{G}K_{H})^{-1}.
 	\end{equation}
-The weighting filters for the sensitivity and the control sensitivity were chosen as
+The $H_\infty$ norm is defined only for proper and stable systems, so the weighting filters must satisfy that condition. The weighting filter $W_{s}$ impose an upper bound on the sensitivity and is designed taking into account that it is desired to have integral action in the closed-loop. This ensures a zero steady-state error. On the other hand, the filter $W_k$ impose an upper bound on the control sensitivity and must have a high-pass behaviour.
+\\\\
+The weighting filters for the sensitivity and the control sensitivity are chosen as
 \begin{align}\label{eqn:wswk}
 \begin{split}
-W_{S} &= \dfrac{w_{s}/M_{s}}{s + w_{s}}*\mathcal{I}_{4\times4}\ ,\\
-W_{K} &= \dfrac{c}{M_{k}}\dfrac{s+w_{k}}{s+cw_{k}}*\mathcal{I}_{4\times4}\ ,
+W_{s} &= \dfrac{w_{s}/M_{s}}{s + w_{s}}*\mathcal{I}_{n_{y}\times n_{y}}\ ,\\
+W_{k} &= \dfrac{c_k}{M_{k}}\dfrac{s+w_{k}}{s+c_{k}w_{k}}*\mathcal{I}_{n_{u}\times n_{u}}\ ,
 \end{split}
 \end{align}
-where $w_{s} = 10^{-4}$, $M_{s} = 10^{-4}$, $w_{k} = 20$, $M_{k} = 20$, and $c = 10^{3}$. With these weighting filters, the value of $\gamma$ is greater than one, and then it is necessary to rebuild the generalized plant using normalized weighting filters.
-\\\\The $H_{\infty}$ controller can be simulated as shown in Fig. \ref{fig:hinfcontroller}.
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=7.0cm]{hinfcontroller.pdf}
-	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
-	\label{fig:hinfcontroller}
-	\end{center}
-	\end{figure}
+where $M_s$ is small constant that sets an upper bound on the sensitivity at low frequencies; and $w_s$ is a small constant that ensures that $W_s$ does not have a pole at the origin; $M_k$ is a constant that sets the upper bound on the control sensitivity at low frequencies; $w_k$ is a small constant that place the zero of $W_k$ near the origin; and $c_k$ is a large constant that place the pole of $W_k$ at a frequency above the bandwidth.
+\\\\
+If the resulting value of $\gamma$ is greater than one, the design procedure is iterated normalizing the weighting filters with $\gamma$.
+\\\\
+In this project, the synthesized optimal $H_\infty$ controllers $K_H$ are computed using the Robust Control Toolbox of MATLAB.
+
 \subsubsection{$H_\infty$ Controller Order Reduction}
-The designed $H_{\infty}$ controller for our quadrotor, will have 4 outputs (the quadrotor has 4 control inputs), 4 inputs (the quadrotor has 4 measured outputs) and 20 states (due to the 12 order plant, 4 order $W_{k}$ and 4 order $W_s$). To be able to implement this controller in a smartphone running Android, it it necessary to find a reduced order controller that behaves similarly to the full order controller $K$. To reduce the order of the controller, the singular values of the Hankel matrix
+The designed $H_{\infty}$ controller $K_H$ is a dynamic model with $n_u$ outputs, $n_y$ inputs and
+order $n_H = n_{x} + n_{y} + n_{u}$. To reduce the computational load that the execution of a high-order dynamic system entails, it is necessary to find a reduced order controller that behaves similarly to the full order controller $K_H$. 
+\\\\
+In a dynamic system, the states with small singular value energy in $\mathcal{W}_{c}$ show a weak response to a control input, while states with small singular value energy in $\mathcal{W}_{o}$ have weak influence on the observed output. In order to check which states of $K_H$ have little influence both in terms of controllability and observability, the singular values of the Hankel matrix
 \begin{equation}
-H_{k} = \begin{bmatrix}
-C\\
-CA\\
-\vdots\\
-CA^{k-1}
-\end{bmatrix}
-\begin{bmatrix}
-B\\ AB \\ \vdots \\ A^{k-1}B
-\end{bmatrix}^{T},
+H_{k} = \mathcal{O_{K_H}}\mathcal{C_{K_H}},
 \end{equation}
-are analysed. The energy of the Hankel singular values is shown in Fig. \ref{fig:hsv}.
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=7.8cm]{HSV.pdf}  
-\caption{Hankel singular values energy histogram of the designed controller.} 
-\label{fig:hsv}
-\end{center}
-\end{figure}
-\\\\As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics \cite{Skogestad2005}. 
+are analysed. The matrices $\mathcal{C_{K_H}}$ and $\mathcal{O_{K_H}}$ represent the controllability and observability matrices of the system $K_H$, respectively. A Hankel singular value (HSV) with small energy indicates that a state has little influence both in terms of controllability and observability.
+\\\\
+If $\hat{K}_{H}=(\hat{A}_H,\ \hat{B}_H,\ \hat{C}_H,\ \hat{D}_H)$ is the balanced realization of $K_H$ with $n_H$ state variables, and we have $n_h$ significant states, so the last $n_{H}-n_{h}$ HSVs are small enough to be neglected without modifying the system dynamics \cite{Skogestad2005}. 
 
 \section{Controllers Design and Simulation}
 \label{sec:controldesign}
@@ -325,24 +365,45 @@ rtrte
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
+$\gamma = 0.0150$
+
+where $w_{s} = 10^{-4}$, $M_{s} = 10^{-4}$, $w_{k} = 20$, $M_{k} = 20$, and $c_{k} = 10^{3}$.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{sv_stabilize_hinf}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:sv_stabilize_hinf}
+\end{center}
+\end{figure}
+13 states, then 12
+The energy of the  is shown in Fig. \ref{fig:hsv}.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{hsv_stabilize_h}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:hsv_stabilize_h}
+\end{center}
+\end{figure}
+As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{stabilize_psi_lqi}
+\includegraphics[width=7.0cm]{stabilize_psi_h}
 \caption{Rotation about $x$ axis, $J_{xx}$ experiment}
-\label{fig:stabilize_psi_lqi}
+\label{fig:stabilize_psi_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{stabilize_theta_lqi}
+\includegraphics[width=7.0cm]{stabilize_theta_h}
 \caption{Rotation about $y$ axis, $J_{yy}$ experiment}
-\label{fig:stabilize_theta_lqi}
+\label{fig:stabilize_theta_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=7.0cm]{stabilize_phi_lqi}
+\includegraphics[width=7.0cm]{stabilize_phi_h}
 \caption{Rotation about $z$ axis, $J_{zz}$ experiment}
-\label{fig:stabilize_psi_lqi}
+\label{fig:stabilize_psi_h}
 \end{subfigure}
 \caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
 \label{fig:stabilize_lqi}
@@ -429,34 +490,52 @@ rtrterere
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
+$\gamma = 0.5976$
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{sv_althold_hinf}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:sv_auto_hinf}
+\end{center}
+\end{figure}
+16 states, then 10
+The energy of the  is shown in Fig. \ref{fig:hsv}.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{hsv_althold_h}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:hsv_auto_h}
+\end{center}
+\end{figure}
+As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
 
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{althold_z_lqi}
+\includegraphics[width=7.0cm]{althold_z_h}
 \caption{Rotation about $x$ axis, $J_{xx}$ experiment}
-\label{fig:althold_z_lqi}
+\label{fig:althold_z_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{althold_psi_lqi}
+\includegraphics[width=7.0cm]{althold_psi_h}
 \caption{Rotation about $y$ axis, $J_{yy}$ experiment}
-\label{fig:althold_psi_lqi}
+\label{fig:althold_psi_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{althold_theta_lqi}
+\includegraphics[width=7.0cm]{althold_theta_h}
 \caption{Rotation about $z$ axis, $J_{zz}$ experiment}
-\label{fig:althold_theta_lqi}
+\label{fig:althold_theta_h}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_phi_lqi}
 \caption{Rotation about $z$ axis, $J_{zz}$ experiment}
-\label{fig:althold_phi_lqi}
+\label{fig:althold_phi_h}
 \end{subfigure}
 \caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
-\label{fig:althold_lqi}
+\label{fig:althold_h}
 \end{figure}
 
 \subsection{GNSS Dependent Flight Modes}
@@ -548,51 +627,69 @@ rtrterere
 
 \subsubsection{$H_\infty$ Controller}
 rtrtererre
+$\gamma = 0.5976$
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{sv_auto_hinf}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:sv_auto_hinf}
+\end{center}
+\end{figure}
+
+The energy of the  is shown in Fig. \ref{fig:hsv}.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.8cm]{hsv_auto_h}  
+\caption{Hankel singular values energy histogram of the designed controller.} 
+\label{fig:hsv_auto_h}
+\end{center}
+\end{figure}
+As shown in Fig. \ref{fig:hsv}, the last ordered four states have unnoticeable energy when it is plotted; that means that these four states can be truncated from the controller without modifying its dynamics.
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi}
+	\includegraphics[width=0.8\textwidth]{auto_xyz_h}
 	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
-	\label{fig:auto_xyz_lqi}
+	\label{fig:auto_xyz_h}
 	\end{center}
 	\end{figure}
 	
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{auto_psi_lqi}
+\includegraphics[width=7.0cm]{auto_psi_h}
 \caption{Rotation about $x$ axis, $J_{xx}$ experiment}
-\label{fig:auto_psi_lqi}
+\label{fig:auto_psi_h}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{auto_theta_lqi}
+\includegraphics[width=7.0cm]{auto_theta_h}
 \caption{Rotation about $y$ axis, $J_{yy}$ experiment}
-\label{fig:auto_theta_lqi}
+\label{fig:auto_theta_h}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=7.0cm]{auto_phi_lqi}
+\includegraphics[width=7.0cm]{auto_phi_h}
 \caption{Rotation about $z$ axis, $J_{zz}$ experiment}
-\label{fig:auto_psi_lqi}
+\label{fig:auto_psi_h}
 \end{subfigure}
 \caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
-\label{fig:auto_lqi}
+\label{fig:auto_h}
 \end{figure}
 
 \section{State Estimation Through Kalman Filter}
 \label{sec:stateestimation}
-The quadrotor dynamics are sensed exclusively using the on-board smartphone's sensors. Considering that these sensors have different sample frequencies, and poor accuracy, it is necessary to use estimation algorithms, as a Kalman filter, to get reliable state data with constant sample frequency.
+The quadrotor dynamics are sensed exclusively using the on-board smartphone sensors. These sensors have different sample frequencies and poor accuracy. On the other hand, the LQI controller needs a full-state feedback. However, in a smartphone, it is not posible to get reliable measurements of all the components in $\mathbf{x}$. Hence, it is necessary to use estimation algorithms, as a Kalman filter, to get reliable estimations with constant sample frequency for the state vector $\mathbf{x}$.
 
 \subsection{Attitude Estimation}
-The Android API implements a Kalman filter for attitude estimation using the raw data deliverd by the smartphone's accelerometer, gyroscope and magnetometer, as exposed in \cite{Astudillo2017}. Using the quaternion $Q_s$ delivered by the Rotation virtual sensor included in the Android SDK, it is obtained an absolute orientation representation with respect to the Earth frame \cite{AndSensor}, with
+The Android API implements a Kalman filter for attitude estimation using the raw data deliverd by the smartphone accelerometer, gyroscope and magnetometer, as exposed in \cite{Astudillo2017}. Using the quaternion $Q_s$ delivered by the Rotation virtual sensor included in the Android SDK, it is obtained an absolute orientation representation with respect to the Earth frame \cite{AndSensor}, with
 \begin{align}\label{eqn:rotvector}
 \begin{split}
 Q_{s} &= \mathrm{e}^{(\alpha/2)(u\vv{i}+v\vv{j}+w\vv{k})} \\
 &= \begin{bmatrix}
-u\sin(\alpha / 2)\\
-v\sin(\alpha / 2)\\
-w\sin(\alpha / 2)\\
+\kappa_{0}\sin(\alpha / 2)\\
+\kappa_{1}\sin(\alpha / 2)\\
+\kappa_{2}\sin(\alpha / 2)\\
 \cos(\alpha / 2)
 \end{bmatrix} = \begin{bmatrix}
 q_{0} \\
@@ -602,20 +699,21 @@ q_{3}
 \end{bmatrix}
 \end{split}
 \end{align}
-where $\alpha$ is the amount of degrees the quaternion is rotated around the axis $u\vv{i}+v\vv{j}+w\vv{k}$. The rotation matrix $R_{b}^{w}$ can be defined using $Q_s$ as
+where $\alpha$ is the amount of degrees the quaternion is rotated around the axis $\kappa_{0}\vv{i}+\kappa_{1}\vv{j}+\kappa_{2}\vv{k}$. The rotation matrix $\mathbf{R_{b}^{w}}$ can be defined using $Q_s$ as
 \begin{equation}
-R_{b}^{w} = \begin{bmatrix}
+\label{eqn:rotbw2}
+\mathbf{R_{b}^{w}} = \begin{bmatrix}
 1-2(q_{2}^{2}+q_{3}^{2}) & 2(q_{1}q_{2}-q_{0}q_{3}) & 2(q_{0}q_{2}+q_{1}q_{3}) \\
 2(q_{1}q_{2}-q_{0}q_{3}) & 1-2(q_{1}^{2}+q_{3}^{2}) & 2(q_{2}q_{3}+q_{0}q_{1}) \\
 2(q_{1}q_{3}+q_{0}q_{2}) & 2(q_{0}q_{1}+q_{2}q_{3}) & 1-2(q_{1}^{2}+q_{2}^{2})
 \end{bmatrix}.
 \end{equation}
-Comparing the terms in the two representations of $R_{b}^{w}$, the Euler angles are obtained as
+Comparing (\ref{eqn:rotbw1}) and (\ref{eqn:rotbw2}), the Euler angles ($\psi_{m}$, $\theta_m$, $\phi_m$) are then obtained from the quaternion $Q_s$ as
 \begin{equation}\label{eqn:quattoeu}
 \begin{bmatrix}
-\psi \\
-\theta \\
-\phi
+\psi_{m} \\
+\theta_{m} \\
+\phi_{m}
 \end{bmatrix} =
 \begin{bmatrix}
 atan2(2(q_{3}q_{2} + q_{0}q{1}),1-2(q_{1}^{2} + q_{2}^{2})) \\
@@ -624,90 +722,96 @@ atan2(2(q_{3}q_{0} + q_{1}q{2}),1-2(q_{0}^{2} + q_{1}^{2}))
 \end{bmatrix}.
 \end{equation}
 
-\subsection{Position Estimation}
-Taking into account that the global navigation satellite systems (GNSS) receivers in smartphones have an accuracy of around $3\ m$ and a sampling frequency of $1\ Hz$, a Kalman filter for position tracking is designed. In order to keep the estimation system independent from the application of controlling the quadrotor, this filter is based on the dynamics of a moving particle with constant acceleration between two samples
-\begin{equation}
-\xi(k+1) = \xi(k) + \dot{\xi}(k)t_{k} + 0.5\ddot{\xi}(k)t_{k}^{2},
+\subsection{Position Measurement}
+The smartphone used in this project, can measure its position with respect to the Earth-frame. For this task, it counts with a GNSS receiver and a barometer.
+The $x_{m}$ and $y_{m}$ position measurements, with respect to the $X_W$ and $Y_W$ axes, are acquired using the GNSS receiver. 
+\\\\
+Each coordinates sample is initially set in an ellipsoidal representation of decimal degrees, following the WGS84 coordinate system. Then, the coordinates are converted to a bi-dimensional representation in meter units using the cartographic projection Magna-Sirgas (projection EPSG:3115).
+\\\\
+The altitude measurements $z_{m}$ are acquired using the barometric pressure sensor which delivers the pressure value $p_k$ in hPa units. This signal is converted to meters as
+\begin{equation}\label{eqn:hbarom}
+z_{m} = 44330\left(1-\frac{p_k}{p_{0}}^{1/5.255}\right)\ [m],
 \end{equation}
-where $t_{k}$ is the sample time.\\\\
-Using $E_{k} = \begin{bmatrix}
-\xi & \dot{\xi} & \ddot{\xi}
-\end{bmatrix}^{T}
- =
-\begin{bmatrix}x_{k} & y_{k} & z_{k} & \dot{x}_{k} & \dot{y}_{k} & \dot{z}_{k} & \ddot{x}_{k} & \ddot{y}_{k} & \ddot{z}_{k} \end{bmatrix}^{T}$ as state vector and being 
-\begin{equation}\label{eqn:A}
-\Gamma = \begin{bmatrix}
-   				 1 & 0 & 0 & t_{k} & 0 & 0 & 0.5t_{k}^{2} & 0 & 0\\
-   				 0 & 1 & 0 & 0 & t_{k} & 0 & 0 & 0.5t_{k}^{2} & 0\\
-   				 0 & 0 & 1 & 0 & 0 & t_{k} & 0 & 0 & t_{k}^{2}\\
-   				 0 & 0 & 0 & 1 & 0 & 0 & t_{k} & 0 & 0\\
-   				 0 & 0 & 0 & 0 & 1 & 0 & 0 & t_{k} & 0 \\
-   				 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & t_{k} \\
-   				 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
-   				 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
-   				 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 
-				\end{bmatrix},
-\end{equation}
-the matrix that satisfies $E_{k+1} = \Gamma E_{k}$, the prediction of the state $\hat{E}_{k}^{-}$ and its covariance $P_{k}^{-}$ are obtained as
+where $p_{0}$ is the atmospheric pressure at sea level \cite{Lauszus2015}.
+\\\\
+The smartphone GNSS receiver and barometer were tested statically, leaving the phone in a stable position for 100 minutes, with an ambient temperature of $22\ ^{\circ}C$ and a UV index of $3$. The results of the test are shown in Fig. \ref{fig:sensorstest}
+\begin{figure}[h]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{pos_test}
+\caption{Position drift}
+\label{fig:pos_test}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{att_test}
+\caption{Attitude drift}
+\label{fig:att_test}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=7.0cm]{gpsacc_test}
+\caption{GNSS receiver accuracy}
+\label{fig:gpsacc_test}
+\end{subfigure}
+\caption{Results of the static test of the smartphone GNSS receiver and barometer}
+\label{fig:sensorstest}
+\end{figure}
+\\\\As seen in Fig. \ref{fig:pos_test}, even though the phone was kept in a static position, the $x_m$ and $y_m$ position signal received from the GNSS receiver shows a change of about $6\ m$ in both the $X_W$ and $Y_W$ directions, after just $60\ s$. The $z_m$ position, however, has sudden changes in short periods of time, but without reaching errors greater than $2.5\ m$. The attitude results, Fig. \ref{fig:att_test}, show stable signals for the three Euler angles. The $\psi_m$ and $\theta_m$ angles suffer from a drift of about $0.04$ and $-0.02\ rad$ respectively, while the initial drift suffered by $\phi_m$ is just $-0.01\ rad$.
+\\\\
+Despite being under a clear sky, where the smartphone could have visibility of more than six satellites of the GPS and GLONASS constellations, the GNSS accuracy value, delivered by the receiver in the smartphone, is always more than $9\ m$ as seen in Fig. \ref{fig:gpsacc_test}. 
+\\\\
+\subsection{States Estimation}
+In order to estimate all the components of the state vector $\mathbf{x}$, a Kalman filter is designed. The Kalman filter is an iterative algorithm that estimates the observable (and not measurable) states of a system, using the measurable variables, the inputs and the variances of the noises that affect the system.
+\\\\
+This filter is designed using the linearized dynamic model of the quadrotor from Section \ref{sec:linearized}, where $\mathbf{x} =  \begin{bmatrix}
+x & \dot{x} & y & \dot{y} & z & \dot{z} & \psi & \dot{\psi} & \theta & \dot{\theta} & \phi & \dot{\phi}
+\end{bmatrix}^{T}$, and using the discretized representation $\mathcal{G}_k$.
+\\\\
+The algorithm starts calculating a prediction of the state $\hat{\mathbf{x}}_{k}^{-}$ and its covariance $P_{k}^{-}$ as
 \begin{equation}\label{eqn:statePrognosis}
-\hat{E}_{k}^{-} = \Gamma \hat{E}_{k-1},
+\hat{\mathbf{x}}_{k}^{-} = A_k\hat{\mathbf{x}}_{k-1}+B_k\mathbf{u},
 \end{equation}
 \begin{equation}\label{eqn:covariancePrognosis}
-P_{k}^{-} = \Gamma P_{k-1} \Gamma^{T} + Q_{k},
+P_{k}^{-} = A_k P_{k-1} A_{k}^{T} + Q_{k},
 \end{equation}
-where $\hat{E}_{k-1}$ is the previous estimated state, $P_{k-1}$ the previous error covariance matrix and $Q_{k}$ the process variance. The state prediction is then corrected calculating the Kalman gain vector $K_k$ as
+where $\hat{\mathbf{x}}_{k-1} = \hat{\mathbf{x}}(k-1)$ is the previous estimated state, $P_{k-1}$ the previous error covariance matrix and $Q_{k}$ the process variance. The state prediction is then corrected using the Kalman gain vector
 \begin{align}\label{eqn:correctionKalman}
 \begin{split}
-K_{k} &= P^{-}_{k}H^{T}(HP^{-}_{k}H^{T} + R)^{-1},
+K_{k} &= P^{-}_{k}H^{T}(HP^{-}_{k}H^{T} + R_k)^{-1},
 \end{split}
 \end{align}
-and updating the state estimation $\hat{E}_{k}$ and its covariance $P_{k}$, based on the measurements $\zeta_k$ as
+and updating the state estimation $\hat{\mathbf{x}}_{k}$ and its covariance $P_{k}$, based on the measurements $\vartheta_k$ as
 \begin{align}\label{eqn:correctionKalman2}
 \begin{split}
-\hat{E}_{k} &= \hat{E}^{-}_{k} + K_{k}(\zeta_{k} - H\hat{E}^{-}_{k}),\\
+\hat{\mathbf{x}}_{k} &= \hat{\mathbf{x}}^{-}_{k} + K_{k}(\vartheta_{k} - H\hat{\mathbf{x}}^{-}_{k}),\\
 P_{k} &= (\mathcal{I} - K_{k}H)P^{-}_{k},
 \end{split}
 \end{align}
-where $R$ is the measurement covariance matrix, $\mathcal{I}$ is the identity matrix and $H$ is the matrix that relate $\zeta_k$ and $E_k$. $H$ is defined as
+where $R_k$ is the measurement covariance matrix, $\mathcal{I}$ is the identity matrix and $H$ is the matrix that satisfies
+\begin{equation}
+\vartheta_k = H \mathbf{x}_k.
+\end{equation}
+The measurements vector $\vartheta_k$ is set as
+\begin{equation}
+\vartheta_k = \begin{bmatrix}
+x_{m} & y_{m} & z_{m} & \psi_{m} & \theta_{m} & \phi_{m}
+\end{bmatrix}^{T},
+\end{equation}
+so matrix $H$ is defined as
 \begin{equation}\label{eqn:H}
 H =\begin{bmatrix}
-			1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-			0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-			0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
-			0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
-			0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
-			0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-			\end{bmatrix},
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+			\end{bmatrix}.
 \end{equation}
-considering that $\zeta_k \in R^{6}$ contains the GNSS measurements of $x_{m}$ and $y_{m}$, the barometer measurements of $z_{m}$ (in $m$), and the measurements of $\ddot{x}_{m}$, $\ddot{y}_{m}$ and $\ddot{z}_{m}$ in the Earth frame (in $m/s^{2}$).
-\\\\
-The $x_{m}$ and $y_{m}$ position measurements are acquired using the GNSS receiver in the smartphone. Each sample of these coordinates are initially set in an ellipsoidal representation of decimal degrees by the receiver, and then converted to a bi-dimensional representation in meter units using the cartographic projection Magna-Sirgas.
-\\
-The $z_{m}$ measurements are acquired using the barometric pressure sensor which delivers the pressure value $p_k$ in hPa. This signal is converted to meters as
-\begin{equation}\label{eqn:hbarom}
-z_{m} = 44330\left(1-\frac{p_k}{p_{0}}^{1/5.255}\right),
-\end{equation}
-where $p_{0}$ is the atmospheric pressure at sea level \cite{Lauszus2015}.\\\\
-The remaining measurement signals are the accelerations with respect to the Earth frame, $\ddot{\xi}_{m}$. These signals are calculated using the raw acceleration measurements from the smartphone $a_{b}$, which are represented with respect to the smartphone's body frame, and the attitude quaternion $Q_s$ as
-\begin{equation}
-\ddot{\xi}_{m} = \begin{bmatrix}
-\ddot{x}_{m} & \ddot{y}_{m} & \ddot{z}_{m}
-\end{bmatrix}^{T} =Q_{s}a_{b}Q'_{s},
-\end{equation}
-where $Q'_{s}$ is the quaternion conjugate of $Q_{s}$.
-\\\\
-The vector $\zeta_k$ is then set as
-\begin{equation}
-\zeta_k = \begin{bmatrix}
-x_{m} & y_{m} & z_{m} & \ddot{x}_{m} & \ddot{y}_{m} & \ddot{z}_{m}
-\end{bmatrix}^{T}.
-\end{equation}
+This algorithm is executed once every sampling period, after which, the controller can use the vector of estimated states $\hat{\mathbf{x}}_{k}$ as feedback.
 
-\subsection{Particle Model}
-rtrtrtrtrt
 
-\subsection{Quadrotor Model}
-ytytyttytt
 
 \section{Conclusions}
 This chapter presented the simulation and the testing of five control techniques

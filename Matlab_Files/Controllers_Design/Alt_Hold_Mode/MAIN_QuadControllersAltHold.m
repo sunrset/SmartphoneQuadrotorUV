@@ -125,7 +125,7 @@
                                 % This three commands can be reduced to
                                 % just the command 'balancmr'
 
-                                [K1, hsvinfo] = balancmr(K1,10);
+                                %[K1, hsvinfo] = balancmr(K1);
                                 %K1 = balancmr(K1);        %If the desired order isn't included, the HSV will be plot and you will be asked to enter the desired order in the command window
                                 
                                 % The command 'balancmr' do all about
