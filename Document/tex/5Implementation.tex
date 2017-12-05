@@ -1,29 +1,104 @@
 \chapter{Implementation and Results} \label{ch:implementation}
-rgrtgrtgrgtrgrrg
+The smartphone-based quadrotor control system developed in this project, is subjected to flight tests. the results of which are shown in this chapter. This chapter describes the Android application developed for the execution of the flight controller, detailing its activities and functions. In order to build a complete UAS, a GCS is developed and a communication channel is established between the Android application executed on board, and the desktop application (GCS). The quadrotor is tested for each designed flight mode and controller.
+\\\\
+In Section \ref{sec:app}, the flight control application, developed to run on the Android operating system, is detailed. Here, the activities of which the application is composed, and its functions, are detailed.
+\\\\
+The components and features of the GCS, are shown in Section \ref{sec:gcs}. This section details the characteristics of the developed desktop application, in addition to the communication channel established with the Android application, and therefore with the quadrotor. Finally, in Section \ref{sec:tests}, the results obtained after the execution of the flight tests in the quadrotor, are presented. These results show the quadrotor performance after being subjected to disturbances and changes of references, while executing the designed control and estimation algorithms.
 
-\section{Android Application}
-sdfdsfdsfds
+\section{Android Application} \label{sec:app}
+The flight controller application, designed for being executed in an Android smartphone, is exposed in this section. The application is based on nine activities, which allow the user to perform tests and data acquisition with or without being connected to the smartphone-to-ESC gateway. The application activities composition and its navigation flow, are shown in Fig. \ref{fig:mainActivities}.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=\textheight]{mainActivities}  
+\caption{Activities diagram in the Android application} 
+\label{fig:mainActivities}
+\end{center}
+\end{figure}
+The activities description, based on the navigation flow shown in Fig. \ref{fig:mainActivities}, is detailed below.
 
+\subsubsection{Launch Activity}
+The launch activity is the activity executed first when starting the application. This activity is executed for around 3 seconds. Here, the initial load of the application is completed, and the required permissions are requested. These are the location and storage permissions.
+
+\subsubsection{Main Activity}
+This activity is the main interface of the application. From here, the user can access the mission, tests and information activities, as well as change application settings. If the interface does not receive any command, and the screen is not touched after 10 seconds of execution, the mission activity is executed automatically.
+
+\subsubsection{Mission Activity}
+The mission activity is the activity responsible for the execution of the flight controller. During the execution of this activity, a TCP server is created, which waits for the remote connection of the GCS. Additionally, the sensors of the smartphone, and the control and estimation algorithms, are initialized and are available to the flight controller. 
+\\\\
+Once the communication channel with the GCS is established, the flight controller initiates the decoding of frames coming from the GCS, which include commands of: arming or disarming of motors, flight mode change, waypoints setting, references changes, remote controller commands, and quadrotor data query.
+\\\\
+For debug purposes, the mission activity also has an interface that shows the flight mode in which the quadrotor is located, the current type of controller being executed, the status of the motors, current position and attitude, level of the smartphone and quadrotor batteries, number of received waypoints, and remote control commands. Also, the communication between the smartphone and the gateway can be tested using the button `Led On/Off', which sends a command to turn on or off the built-in led of the Arduino Mega ADK.
+
+
+\subsubsection{Information Activity}
+This activity shows information about this project and its author, so that the user of the application knows its origin.
+
+\subsubsection{Tests Activity}
+The preliminary tests of the smartphone-based quadrotor system can be accessed from this activity. These tests are: the communication test, position sensing test, attitude estimation test, and quadrotor motors test.
+
+\subsubsection{Communication Test Activity}
+The communication test activity allows the user to check if the communication channel between the Android application and the GCS, is working. Here, the user can turn on or off the TCP server, and watch some commands sent by the remote controller, through the GCS. 
+
+\subsubsection{Position Test Activity}
+The position test activity initializes the smartphone GNSS receiver and starts the GNSS data acquisition. This activity shows the raw GNSS data and its projection to the Magna-Sirgas coordinate system, in addition to the altitude value acquired from the barometer and the attitude from the rotation virtual sensor.
+
+\subsubsection{Attitude Test Activity}
+This activity shows the data obtained from the virtual rotation sensor, as well as the raw position of the GNSS, to the user. It also allows the simultaneous plot of two of these signals, which can be changed during the acquisition execution.
+
+\subsubsection{Motors Test Activity}
+Finally, the motors test activity allows the user to test the established communication between the smartphone and the Arduino Mega ADK. In this activity, the user can configure the \textit{PWM} signal sent to each motor separately, in addition to checking the status of the quadrotor and smartphone batteries. The motors thrust and torque tests, shown in Section \ref{sec:parameters}, are developed using this activity to command the motors thrust.
+
+\section{Ground Control Station (GCS)}\label{sec:gcs}
+The GCS is the land-based control station that adds monitoring and remote control functions for a UAV. For this project, the GCS software is designed using the Java programming language. The Java language is chosen in order to add portability to the application.
+\\\\
+As mentioned earlier, the Android application creates a TCP server in order to let the GCS, acting as a TCP client, exchange data packets with the smartphone. The communication between the Android application and the GCS, is based on a packet-based communication using the TCP and IP protocols. 
+\\\\
+The user can interact with the GCS through the mouse or touchscreen of the computer, or using a control for video games (remote controller) connected through the USB interface of the computer. Using button sequences commands through the remote controller, the user can establish and finish the connection with the quadrotor, change the flight mode, and arm or disarm the motors. Also, the quadrotor position and attitude references can be changed using the remote controller joysticks.
+\\\\
+The GCS interface, is composed by six main panels, shown in Fig. \ref{fig:missionGCS}, and a Communication tab, which are are described below.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=10.8cm]{hsv_auto_h}  
-\caption{HSV energy histogram of $K_H$ in GNSS-Dependent modes} 
-\label{fig:APPlaunch}
+\includegraphics[width=\textwidth]{missionGCS.jpg}  
+\caption{Ground Control System main interface} 
+\label{fig:missionGCS}
 \end{center}
 \end{figure}
 
-\section{Ground Control Station}
-sdfsdfdsd
-
+\subsubsection*{Connection Panel}
+Located at the upper left edge of the GCS interface, this panel allows the user to select the quadrotor to which the user wants to connect and establish its IP address. This is the only panel enabled after the execution of the GCS. Once the connection with the quadrotor is established, the other panels are enabled.
+\subsubsection*{Flight Modes Panel}
+Once the connection is established, the user can select the desired flight mode using the buttons in the Flight Modes panel. After a flight mode button is pushed, the user is prompted to confirm its will to change the quadrotor flight mode. When a confirmation of flight mode change is received from the smartphone, the current flight mode, in the Status and Console Panel, is updated.
+\subsubsection*{Status and Console Panel}
+The Status and Console panel is located in the upper right edge of the GCS interface. This panel, shows the current status of the motors and flight mode. Additionally, this panel includes buttons for arming/disarming the quadrotor motors, and a console area. This console, show relevant information regarding the connection, waypoints, flight mode, and motors status.
+\subsubsection*{Map Panel}
+In order to check the current position of the quadrotor, a map is displayed in the Map Panel, located in the center of the GCS interface. This display is based on the JXMapViewer2 library and the Open Street Map (OSM) project. In the map, the user can select the waypoints that the quadrotor will visit, which will be automatically connected in the graph, and added to the waypoints list. Also, a quadrotor icon is displayed in the current geolocated position of the quadrotor so the user can track it. When the GCS has internet access, the map provider from OSM is set. Otherwise, the map is got from downloaded map tiles which are included in the GCS resources. The offline map is restricted to the area of the city of Cali, Colombia, while the online map is available for all the world. The map is projected using the Pseudo-Mercator projection.
+\subsubsection*{Waypoints Panel}
+The Waypoints panel is located on the left flank of the Map panel. This panel shows the list of waypoints dynamically, so it is updated each time a waypoint is added in the Map panel. Also, the waypoints coordinates can be edited by the user, and their position is automatically updated in the map.
+\subsubsection*{Quadrotor State Panel}
+The quadrotor state data is composed by the quadrotor position, the quadrotor attitude, the quadrotor battery level and the smartphone battery level. This data is shown in the Quadrotor State panel, located on the right of the Map panel. The quadrotor state values are updated each $100\ ms$.
+\subsubsection*{Communication Tab}
+Additionally, the GCS interface have a Communication tab, which includes a Controller Settings Panel shown in Fig. \ref{fig:commGCS}. This panel shows the connection status of the GCS with the remote controller. Also, it presents the current value of the remote controller joysticks and its buttons state.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=10.8cm]{hsv_auto_h}  
-\caption{HSV energy histogram of $K_H$ in GNSS-Dependent modes} 
-\label{fig:hsv_auto_h}
+\includegraphics[width=0.3\textwidth]{commGCS.jpg}  
+\caption{Controller settings in GCS} 
+\label{fig:commGCS}
+\end{center}
+\end{figure}
+\\\\
+In order to obtain a wide range of wireless communication between the Android application and the GCS, an external high-gain WLAN antenna is used. Using this antenna, the quadrotor was tested to fly $200$ meters from the GCS with line of sight, without failing to keep a constant communication with the GCS.
+\\\\
+The complete UAS built in this project is shown in Fig. \ref{fig:UAS}. This UAS is composed by a smartphone-based quadrotor UAV, a GCS executing a java application for monitoring and remote control, and a WLAN-based communication channel between both of them.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{UAS.jpg}  
+\caption{Complete implemented Smartphone-based UAS} 
+\label{fig:UAS}
 \end{center}
 \end{figure}
 
-\section{Flight Tests}
+\section{Flight Tests} \label{sec:tests}
+The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation}, are implemented in the Android application that is executed in the smartphone on board the quadrotor. Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. The results of these tests are shown in this section.
 
 \subsection{Stabilize Mode}
 
@@ -33,22 +108,22 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_psi_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:stabilize_psi_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_theta_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:stabilize_theta_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_phi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:stabilize_psi_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of stabilize mode controlled by a LQI controller}
 \label{fig:stabilize_lqi_imp}
 \end{figure}
 
@@ -59,22 +134,22 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_psi_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:stabilize_psi_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_theta_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:stabilize_theta_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_phi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:stabilize_psi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of stabilize mode controlled by a $H_\infty$ controller}
 \label{fig:stabilize_h_imp}
 \end{figure}
 
@@ -87,28 +162,28 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_z_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{$z$ position response}
 \label{fig:althold_z_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_psi_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw angle response}
 \label{fig:althold_psi_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_theta_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll angle response}
 \label{fig:althold_theta_lqi_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_phi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:althold_phi_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of altitude hold mode controlled by a LQI controller}
 \label{fig:althold_lqi_imp}
 \end{figure}
 
@@ -119,28 +194,28 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_z_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{$z$ position response}
 \label{fig:althold_z_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_psi_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw angle response}
 \label{fig:althold_psi_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_theta_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll angle response}
 \label{fig:althold_theta_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_phi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:althold_phi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Closed-loop response of altitude hold mode controlled by a $H_\infty$ controller}
 \label{fig:althold_h_imp}
 \end{figure}
 
@@ -153,7 +228,7 @@ sdfsdfdsd
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi_imp}
-	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\caption{Position response of the GNSS-Dependent modes with a LQI controller}
 	\label{fig:auto_xyz_lqi_imp}
 	\end{center}
 	\end{figure}
@@ -162,22 +237,22 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_psi_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:auto_psi_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_theta_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:auto_theta_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_phi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:auto_psi_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Attitude response of the GNSS-Dependent modes with a LQI controller}
 \label{fig:auto_lqi_imp}
 \end{figure}
 
@@ -187,7 +262,7 @@ sdfsdfdsd
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.8\textwidth]{auto_xyz_h_imp}
-	\caption{Closed-loop of the controlled system with an $H_{\infty}$ controller.}
+	\caption{Position response of the GNSS-Dependent modes with a $H_\infty$ controller}
 	\label{fig:auto_xyz_h_imp}
 	\end{center}
 	\end{figure}
@@ -196,22 +271,22 @@ sdfsdfdsd
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_psi_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Yaw angle response}
 \label{fig:auto_psi_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_theta_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Roll angle response}
 \label{fig:auto_theta_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_phi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch angle response}
 \label{fig:auto_psi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
 \label{fig:auto_h_imp}
 \end{figure}
 

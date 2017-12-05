@@ -376,7 +376,7 @@ Based on the penalization matrices from (\ref{eqn:QR_stabilize}), the feedback g
 \caption{Pitch angle response}
 \label{fig:stabilize_phi_lqi}
 \end{subfigure}
-\caption{Closed-loop response of stabilize mode controlled by a LQI controller}
+\caption{Simulated closed-loop response of stabilize mode controlled by a LQI controller}
 \label{fig:stabilize_lqi}
 \end{figure}
 \\Here, the system shows responses with a setting time of less than $1.5\ s$ and overshoot of less than $5$ \%.
@@ -436,7 +436,7 @@ Once, the optimal $H_\infty$ controller $K_{H}^{*}$ is synthesized using MATLAB,
 \caption{Pitch angle response}
 \label{fig:stabilize_psi_h}
 \end{subfigure}
-\caption{Closed-loop response of stabilize mode controlled by a $H_\infty$ controller}
+\caption{Simulated closed-loop response of stabilize mode controlled by a $H_\infty$ controller}
 \label{fig:stabilize_h}
 \end{figure}
 \\\\For the $H_\infty$ controller designed for the quadrotor stabilize mode, the closed-loop performance is improved when compared to the LQI controller. The designed $K_H^{*}$ controller achieves to get responses with less than $1.1\ s$ of setting time and $3$ \% overshoot.
@@ -527,7 +527,7 @@ so that the state $z$ has the same penalization as the other outputs, while the 
 \caption{Pitch angle response}
 \label{fig:althold_phi_lqi}
 \end{subfigure}
-\caption{Closed-loop response of altitude hold mode controlled by a LQI controller}
+\caption{Simulated closed-loop response of altitude hold mode controlled by a LQI controller}
 \label{fig:althold_lqi}
 \end{figure}
 \\
@@ -586,7 +586,7 @@ The simulated response of the designed control system (Fig. \ref{fig:althold_h})
 \caption{Pitch angle response}
 \label{fig:althold_phi_h}
 \end{subfigure}
-\caption{Closed-loop response of altitude hold mode controlled by a $H_\infty$ controller}
+\caption{Simulated closed-loop response of altitude hold mode controlled by a $H_\infty$ controller}
 \label{fig:althold_h}
 \end{figure}
 
@@ -665,7 +665,7 @@ Using MATLAB, the quadrotor controlled by the designed LQI controller, is simula
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{auto_xyz_lqi}
-	\caption{Position response of the GNSS-Dependent modes with a LQI controller}
+	\caption{Simulated position response of the GNSS-Dependent modes with a LQI controller}
 	\label{fig:auto_xyz_lqi}
 	\end{center}
 	\end{figure}
@@ -688,7 +688,7 @@ Using MATLAB, the quadrotor controlled by the designed LQI controller, is simula
 \caption{Pitch angle response}
 \label{fig:auto_psi_lqi}
 \end{subfigure}
-\caption{Attitude response of the GNSS-Dependent modes with a LQI controller}
+\caption{Simulated attitude response of the GNSS-Dependent modes with a LQI controller}
 \label{fig:auto_lqi}
 \end{figure}
 As can be seen in Fig. \ref{fig:auto_xyz_lqi}, the quadrotor is capable of following the desired trajectory while being controlled by the LQI controller in a GNSS-Dependent mode. In addition, the quadrotor manages to recover its track in less than $3.5\ s$, after suffer the actions of disturbances that periodically simulate the force of the wind.
@@ -722,7 +722,7 @@ The simulation of the designed $H_\infty$ controller with the quadrotor non-line
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{auto_xyz_h}
-	\caption{Position response of the GNSS-Dependent modes with a $H_\infty$ controller}
+	\caption{Simulated position response of the GNSS-Dependent modes with a $H_\infty$ controller}
 	\label{fig:auto_xyz_h}
 	\end{center}
 	\end{figure}
@@ -745,7 +745,7 @@ The simulation of the designed $H_\infty$ controller with the quadrotor non-line
 \caption{Pitch angle response}
 \label{fig:auto_psi_h}
 \end{subfigure}
-\caption{Attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
+\caption{Simulated attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
 \label{fig:auto_h}
 \end{figure}
 The simulated control system manages to follow the position reference, despite being affected by disturbances, as seen in Fig. \ref{fig:auto_xyz_h}. For disturbances, it shows a setting time of $2.8\ s$.

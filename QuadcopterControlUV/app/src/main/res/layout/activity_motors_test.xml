@@ -46,7 +46,7 @@
                 android:layout_alignBottom="@+id/tv_TextBVolt"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@+id/tb_TCPserver"
-                android:text="B_Volt"
+                android:text="11.9 V"
                 android:textSize="20sp" />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_alignBaseline="@+id/tv_TextSmartBat"
                 android:layout_alignBottom="@+id/tv_TextSmartBat"
                 android:layout_alignStart="@+id/pb_BatPercent"
-                android:text="B_Volt"
+                android:text="51 %"
                 android:textSize="20sp" />
 
             <TextView
@@ -66,7 +66,7 @@
                 android:layout_alignBaseline="@+id/tv_TextBPerc"
                 android:layout_alignBottom="@+id/tv_TextBPerc"
                 android:layout_alignStart="@+id/tv_BatVolt"
-                android:text="B_Percent"
+                android:text="87 %"
                 android:textSize="20sp" />
 
             <TextView

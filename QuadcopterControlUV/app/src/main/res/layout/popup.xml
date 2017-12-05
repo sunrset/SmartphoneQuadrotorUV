@@ -24,6 +24,8 @@
             android:id="@+id/lb_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:fontFamily="sans-serif"
             android:text="Alejandro Astudillo Vigoya"
             android:textSize="24sp"
@@ -35,9 +37,7 @@
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            tools:layout_constraintTop_creator="1" />
 
         <Button
             android:id="@+id/bt_ClosePopUp"
@@ -54,27 +54,27 @@
             android:id="@+id/lb_2"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/lb_author"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="member of the Research Group in Industrial Control at the Universidad del Valle, Cali, Colombia"
-            android:textAlignment="center"
-            android:textSize="24sp"
             android:layout_marginTop="17dp"
-            android:layout_below="@+id/lb_author"
-            android:layout_centerHorizontal="true" />
+            android:text="member of the Industrial Control Research Group (GICI) at the Universidad del Valle, Cali, Colombia"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text='This app was developed within the Master thesis called "Design and Implementation of Flight Dynamics Control Strategies for a Quadrotor Based On a Smartphone" by:'
-            android:textAlignment="center"
-            android:textSize="24sp"
             android:layout_above="@+id/lb_author"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="22dp" />
+            android:layout_marginBottom="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text='This app was developed within the Master thesis called "Design and Implementation of Flight Dynamics Control Strategies for a Smartphone-based Quadrotor" by:'
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 

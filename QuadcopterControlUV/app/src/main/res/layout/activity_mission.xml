@@ -132,7 +132,7 @@
                 android:layout_alignBaseline="@+id/tv_TextSmartBat"
                 android:layout_alignBottom="@+id/tv_TextSmartBat"
                 android:layout_alignStart="@+id/tv_quadbatt"
-                android:text="B_Volt"
+                android:text="59 %"
                 android:textSize="18sp" />
 
             <TextView
@@ -231,7 +231,7 @@
                 android:layout_alignBottom="@+id/tv_TextBPerc"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@+id/tv_TextSmartBat"
-                android:text="B_Percent"
+                android:text="96 %"
                 android:textSize="18sp" />
 
             <ProgressBar

@@ -28,7 +28,7 @@ public class TestsActivity extends AppCompatActivity {
         bt_posKF = (Button) findViewById(R.id.bt_KalmanPosTest);
         bt_motorTest = (Button) findViewById(R.id.bt_MotorsTest);
         bt_commTest = (Button) findViewById(R.id.bt_CommTest);
-        bt_attControl = (Button) findViewById(R.id.bt_AttControlTest);
+
 
         bt_attKF.setOnClickListener(new View.OnClickListener(){
             @Override

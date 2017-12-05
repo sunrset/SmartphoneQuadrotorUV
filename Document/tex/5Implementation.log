@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  5 DEC 2017 01:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  5 DEC 2017 09:20
 entering extended mode
 **./5Implementation.tex
 (5Implementation.tex
@@ -342,7 +342,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 18--19
 
 ! Undefined control sequence.
 l.20 \includegraphics
-                     [width=10.8cm]{hsv_auto_h}
+                     [width=10.8cm]{missionGCS.jpg}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -363,26 +363,20 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no ] in font nullfont!
-Missing character: There is no h in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
-Missing character: There is no v in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.20 \includegraphics[width=10.8cm]{hsv_
-                                        auto_h}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.20 \includegraphics[width=10.8cm]{hsv_auto_h}
-                                               
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no G in font nullfont!
+Missing character: There is no C in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
 
 ! LaTeX Error: \caption outside float.
 
@@ -395,26 +389,26 @@ l.21 \caption
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.21 \caption{HSV energy histogram of $
-                                       K_H$ in GNSS-Dependent modes}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no K in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.21 \caption{HSV energy histogram of $K_
-                                         H$ in GNSS-Dependent modes}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+Missing character: There is no H in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no G in font nullfont!
@@ -437,8 +431,8 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (143.3261pt too wide) in paragraph at lines 20--23
- []\OML/cmm/m/it/10 uto[][]$$[]$ 
+Overfull \hbox (16.07779pt too wide) in paragraph at lines 20--23
+ \OML/cmm/m/it/10 K[]$ 
  []
 
 
@@ -454,8 +448,134 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \begin{figure}
+                   [h]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no ] in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+[] 
+ []
+
 ! Undefined control sequence.
-l.26 \section
+l.28 \includegraphics
+                     [width=10.8cm]{commGCS.jpg}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no G in font nullfont!
+Missing character: There is no C in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 \caption
+             {HSV energy histogram of $K_H$ in GNSS-Dependent modes}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no H in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no G in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+
+Overfull \hbox (16.07779pt too wide) in paragraph at lines 28--31
+ \OML/cmm/m/it/10 K[]$ 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \end{figure}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.34 \section
              {Flight Tests}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -475,12 +595,12 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+Overfull \hbox (20.0pt too wide) in paragraph at lines 34--35
 []
  []
 
 ! Undefined control sequence.
-l.28 \subsection
+l.36 \subsection
                 {Stabilize Mode}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -502,12 +622,12 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 28--29
+Overfull \hbox (20.0pt too wide) in paragraph at lines 36--37
 []
  []
 
 ! Undefined control sequence.
-l.30 \subsubsection
+l.38 \subsubsection
                    {LQI Controller}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -529,7 +649,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 30--31
+Overfull \hbox (20.0pt too wide) in paragraph at lines 38--39
 []
  []
 
@@ -540,7 +660,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.32 \begin{figure}
+l.40 \begin{figure}
                    [H]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -556,7 +676,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.33 \begin{subfigure}
+l.41 \begin{subfigure}
                       {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -567,7 +687,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.33 \begin{subfigure}{.5\linewidth}
+l.41 \begin{subfigure}{.5\linewidth}
                                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -576,7 +696,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.33 \begin{subfigure}{.5\linewidth}
+l.41 \begin{subfigure}{.5\linewidth}
                                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -586,7 +706,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.35 \includegraphics
+l.43 \includegraphics
                      [width=7.0cm]{stabilize_psi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -619,13 +739,13 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.35 \includegraphics[width=7.0cm]{stabilize_
+l.43 \includegraphics[width=7.0cm]{stabilize_
                                              psi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.35 ...aphics[width=7.0cm]{stabilize_psi_lqi_imp}
+l.43 ...aphics[width=7.0cm]{stabilize_psi_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -640,7 +760,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.36 \caption
+l.44 \caption
              {Rotation about $x$ axis, $J_{xx}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -648,7 +768,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.36 \caption{Rotation about $
+l.44 \caption{Rotation about $
                               x$ axis, $J_{xx}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -661,7 +781,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.36 \caption{Rotation about $x$ axis, $J_
+l.44 \caption{Rotation about $x$ axis, $J_
                                           {xx}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -683,7 +803,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.38 \end{subfigure}
+l.46 \end{subfigure}
                     %
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -696,7 +816,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.39 \begin{subfigure}
+l.47 \begin{subfigure}
                       {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -707,7 +827,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.39 \begin{subfigure}{.5\linewidth}
+l.47 \begin{subfigure}{.5\linewidth}
                                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -716,7 +836,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.39 \begin{subfigure}{.5\linewidth}
+l.47 \begin{subfigure}{.5\linewidth}
                                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -726,7 +846,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.41 \includegraphics
+l.49 \includegraphics
                      [width=7.0cm]{stabilize_theta_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -759,13 +879,13 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.41 \includegraphics[width=7.0cm]{stabilize_
+l.49 \includegraphics[width=7.0cm]{stabilize_
                                              theta_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.41 ...hics[width=7.0cm]{stabilize_theta_lqi_imp}
+l.49 ...hics[width=7.0cm]{stabilize_theta_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -780,7 +900,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42 \caption
+l.50 \caption
              {Rotation about $y$ axis, $J_{yy}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -788,7 +908,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.42 \caption{Rotation about $
+l.50 \caption{Rotation about $
                               y$ axis, $J_{yy}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -801,7 +921,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.42 \caption{Rotation about $y$ axis, $J_
+l.50 \caption{Rotation about $y$ axis, $J_
                                           {yy}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -823,7 +943,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.44 \end{subfigure}
+l.52 \end{subfigure}
                     \\[1ex]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -836,7 +956,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.45 \begin{subfigure}
+l.53 \begin{subfigure}
                       {\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -845,7 +965,7 @@ or  <return>  to continue without it.
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.45 \begin{subfigure}{\linewidth}
+l.53 \begin{subfigure}{\linewidth}
                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -854,7 +974,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.45 \begin{subfigure}{\linewidth}
+l.53 \begin{subfigure}{\linewidth}
                                   
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -864,7 +984,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.47 \includegraphics
+l.55 \includegraphics
                      [width=7.0cm]{stabilize_phi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -897,13 +1017,13 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.47 \includegraphics[width=7.0cm]{stabilize_
+l.55 \includegraphics[width=7.0cm]{stabilize_
                                              phi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.47 ...aphics[width=7.0cm]{stabilize_phi_lqi_imp}
+l.55 ...aphics[width=7.0cm]{stabilize_phi_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -918,7 +1038,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.48 \caption
+l.56 \caption
              {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -926,7 +1046,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.48 \caption{Rotation about $
+l.56 \caption{Rotation about $
                               z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -939,7 +1059,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.48 \caption{Rotation about $z$ axis, $J_
+l.56 \caption{Rotation about $z$ axis, $J_
                                           {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -961,7 +1081,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.50 \end{subfigure}
+l.58 \end{subfigure}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -974,7 +1094,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.51 \caption
+l.59 \caption
              {Rotation about $x$, $y$ and $z$ axes during the bifilar pendul...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -1043,49 +1163,49 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.53 \end{figure}
+l.61 \end{figure}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 32--54
+Overfull \hbox (20.0pt too wide) in paragraph at lines 40--62
 []
  []
 
 
-Overfull \hbox (135.79485pt too wide) in paragraph at lines 32--54
+Overfull \hbox (135.79485pt too wide) in paragraph at lines 40--62
 []\OML/cmm/m/it/10 si[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (145.4196pt too wide) in paragraph at lines 32--54
+Overfull \hbox (145.4196pt too wide) in paragraph at lines 40--62
 []\OML/cmm/m/it/10 heta[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (136.01483pt too wide) in paragraph at lines 32--54
+Overfull \hbox (136.01483pt too wide) in paragraph at lines 40--62
 []\OML/cmm/m/it/10 hi[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 32--54
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 40--62
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 32--54
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 40--62
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 32--54
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 40--62
 \OML/cmm/m/it/10 z$
  []
 
 ! Undefined control sequence.
-l.55 \subsubsection
+l.64 \subsubsection
                    {$H_\infty$ Controller}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1104,7 +1224,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (36.78474pt too wide) in paragraph at lines 55--56
+Overfull \hbox (36.78474pt too wide) in paragraph at lines 64--65
 []$\OML/cmm/m/it/10 H[]$
  []
 
@@ -1115,7 +1235,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 \begin{figure}
+l.66 \begin{figure}
                    [H]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1131,7 +1251,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58 \begin{subfigure}
+l.67 \begin{subfigure}
                       {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1142,7 +1262,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.58 \begin{subfigure}{.5\linewidth}
+l.67 \begin{subfigure}{.5\linewidth}
                                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1151,7 +1271,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.58 \begin{subfigure}{.5\linewidth}
+l.67 \begin{subfigure}{.5\linewidth}
                                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1161,7 +1281,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.60 \includegraphics
+l.69 \includegraphics
                      [width=7.0cm]{stabilize_psi_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1194,18 +1314,18 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.60 \includegraphics[width=7.0cm]{stabilize_
+l.69 \includegraphics[width=7.0cm]{stabilize_
                                              psi_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.60 ...ludegraphics[width=7.0cm]{stabilize_psi_h_
+l.69 ...ludegraphics[width=7.0cm]{stabilize_psi_h_
                                                   imp}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Extra }, or forgotten $.
-l.60 ...graphics[width=7.0cm]{stabilize_psi_h_imp}
+l.69 ...graphics[width=7.0cm]{stabilize_psi_h_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1220,7 +1340,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.61 \caption
+l.70 \caption
              {Rotation about $x$ axis, $J_{xx}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1228,7 +1348,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.61 \caption{Rotation about $
+l.70 \caption{Rotation about $
                               x$ axis, $J_{xx}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1241,7 +1361,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.61 \caption{Rotation about $x$ axis, $J_
+l.70 \caption{Rotation about $x$ axis, $J_
                                           {xx}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1263,7 +1383,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.63 \end{subfigure}
+l.72 \end{subfigure}
                     %
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1276,7 +1396,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.64 \begin{subfigure}
+l.73 \begin{subfigure}
                       {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1287,7 +1407,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.64 \begin{subfigure}{.5\linewidth}
+l.73 \begin{subfigure}{.5\linewidth}
                                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1296,7 +1416,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.64 \begin{subfigure}{.5\linewidth}
+l.73 \begin{subfigure}{.5\linewidth}
                                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1306,7 +1426,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.66 \includegraphics
+l.75 \includegraphics
                      [width=7.0cm]{stabilize_theta_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1339,18 +1459,18 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.66 \includegraphics[width=7.0cm]{stabilize_
+l.75 \includegraphics[width=7.0cm]{stabilize_
                                              theta_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.66 ...degraphics[width=7.0cm]{stabilize_theta_h_
+l.75 ...degraphics[width=7.0cm]{stabilize_theta_h_
                                                   imp}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Extra }, or forgotten $.
-l.66 ...aphics[width=7.0cm]{stabilize_theta_h_imp}
+l.75 ...aphics[width=7.0cm]{stabilize_theta_h_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1365,7 +1485,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 \caption
+l.76 \caption
              {Rotation about $y$ axis, $J_{yy}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1373,7 +1493,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.67 \caption{Rotation about $
+l.76 \caption{Rotation about $
                               y$ axis, $J_{yy}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1386,7 +1506,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.67 \caption{Rotation about $y$ axis, $J_
+l.76 \caption{Rotation about $y$ axis, $J_
                                           {yy}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1408,7 +1528,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.69 \end{subfigure}
+l.78 \end{subfigure}
                     \\[1ex]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1421,7 +1541,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70 \begin{subfigure}
+l.79 \begin{subfigure}
                       {\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1430,7 +1550,7 @@ or  <return>  to continue without it.
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.70 \begin{subfigure}{\linewidth}
+l.79 \begin{subfigure}{\linewidth}
                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1439,7 +1559,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.70 \begin{subfigure}{\linewidth}
+l.79 \begin{subfigure}{\linewidth}
                                   
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1449,7 +1569,7 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.72 \includegraphics
+l.81 \includegraphics
                      [width=7.0cm]{stabilize_phi_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1482,18 +1602,18 @@ Missing character: There is no e in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.72 \includegraphics[width=7.0cm]{stabilize_
+l.81 \includegraphics[width=7.0cm]{stabilize_
                                              phi_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.72 ...ludegraphics[width=7.0cm]{stabilize_phi_h_
+l.81 ...ludegraphics[width=7.0cm]{stabilize_phi_h_
                                                   imp}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Extra }, or forgotten $.
-l.72 ...graphics[width=7.0cm]{stabilize_phi_h_imp}
+l.81 ...graphics[width=7.0cm]{stabilize_phi_h_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1508,7 +1628,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 \caption
+l.82 \caption
              {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1516,7 +1636,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.73 \caption{Rotation about $
+l.82 \caption{Rotation about $
                               z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1529,7 +1649,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.73 \caption{Rotation about $z$ axis, $J_
+l.82 \caption{Rotation about $z$ axis, $J_
                                           {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1551,7 +1671,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 \end{subfigure}
+l.84 \end{subfigure}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1564,7 +1684,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 \caption
+l.85 \caption
              {Rotation about $x$, $y$ and $z$ axes during the bifilar pendul...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -1633,49 +1753,49 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78 \end{figure}
+l.87 \end{figure}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 57--79
+Overfull \hbox (20.0pt too wide) in paragraph at lines 66--88
 []
  []
 
 
-Overfull \hbox (129.6391pt too wide) in paragraph at lines 57--79
+Overfull \hbox (129.6391pt too wide) in paragraph at lines 66--88
 []\OML/cmm/m/it/10 si[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (139.26385pt too wide) in paragraph at lines 57--79
+Overfull \hbox (139.26385pt too wide) in paragraph at lines 66--88
 []\OML/cmm/m/it/10 heta[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (129.85909pt too wide) in paragraph at lines 57--79
+Overfull \hbox (129.85909pt too wide) in paragraph at lines 66--88
 []\OML/cmm/m/it/10 hi[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 57--79
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 66--88
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 57--79
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 66--88
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 57--79
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 66--88
 \OML/cmm/m/it/10 z$
  []
 
 ! Undefined control sequence.
-l.80 \subsection
+l.90 \subsection
                 {Altitude Hold Mode}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1700,12 +1820,12 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 80--81
+Overfull \hbox (20.0pt too wide) in paragraph at lines 90--91
 []
  []
 
 ! Undefined control sequence.
-l.82 \subsubsection
+l.92 \subsubsection
                    {LQI Controller}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1727,7 +1847,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 82--83
+Overfull \hbox (20.0pt too wide) in paragraph at lines 92--93
 []
  []
 
@@ -1738,7 +1858,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.84 \begin{figure}
+l.94 \begin{figure}
                    [H]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1754,7 +1874,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.85 \begin{subfigure}
+l.95 \begin{subfigure}
                       {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1765,7 +1885,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.85 \begin{subfigure}{.5\linewidth}
+l.95 \begin{subfigure}{.5\linewidth}
                                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1774,7 +1894,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.85 \begin{subfigure}{.5\linewidth}
+l.95 \begin{subfigure}{.5\linewidth}
                                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1784,8 +1904,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.87 \includegraphics
-                     [width=7.0cm]{althold_z_lqi}
+l.97 \includegraphics
+                     [width=7.0cm]{althold_z_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1815,19 +1935,19 @@ Missing character: There is no d in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.87 \includegraphics[width=7.0cm]{althold_
-                                           z_lqi}
+l.97 \includegraphics[width=7.0cm]{althold_
+                                           z_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.87 \includegraphics[width=7.0cm]{althold_z_
-                                             lqi}
+l.97 \includegraphics[width=7.0cm]{althold_z_
+                                             lqi_imp}
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Extra }, or forgotten $.
-l.87 \includegraphics[width=7.0cm]{althold_z_lqi}
-                                                 
+l.97 ...degraphics[width=7.0cm]{althold_z_lqi_imp}
+                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -1841,7 +1961,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.88 \caption
+l.98 \caption
              {Rotation about $x$ axis, $J_{xx}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1849,7 +1969,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.88 \caption{Rotation about $
+l.98 \caption{Rotation about $
                               x$ axis, $J_{xx}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1862,7 +1982,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.88 \caption{Rotation about $x$ axis, $J_
+l.98 \caption{Rotation about $x$ axis, $J_
                                           {xx}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1884,728 +2004,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.90 \end{subfigure}
-                    %
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.91 \begin{subfigure}
-                      {.5\linewidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no . in font nullfont!
-Missing character: There is no 5 in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   }
-l.91 \begin{subfigure}{.5\linewidth}
-                                    
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.91 \begin{subfigure}{.5\linewidth}
-                                    
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Undefined control sequence.
-l.93 \includegraphics
-                     [width=7.0cm]{althold_psi_lqi}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no [ in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no d in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.93 \includegraphics[width=7.0cm]{althold_
-                                           psi_lqi}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.93 ...ludegraphics[width=7.0cm]{althold_psi_lqi}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.94 \caption
-             {Rotation about $y$ axis, $J_{yy}$ experiment}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.94 \caption{Rotation about $
-                              y$ axis, $J_{yy}$ experiment}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no y in font nullfont!
-Missing character: There is no J in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.94 \caption{Rotation about $y$ axis, $J_
-                                          {yy}$ experiment}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-
-! LaTeX Error: \begin{document} ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 \end{subfigure}
-                    \\[1ex]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 \begin{subfigure}
-                      {0.5\linewidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 5 in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   }
-l.97 \begin{subfigure}{0.5\linewidth}
-                                     
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.97 \begin{subfigure}{0.5\linewidth}
-                                     
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Undefined control sequence.
-l.99 \includegraphics
-                     [width=7.0cm]{althold_theta_lqi}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no [ in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no d in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.99 \includegraphics[width=7.0cm]{althold_
-                                           theta_lqi}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.99 ...degraphics[width=7.0cm]{althold_theta_lqi}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.100 \caption
-              {Rotation about $z$ axis, $J_{zz}$ experiment}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.100 \caption{Rotation about $
-                               z$ axis, $J_{zz}$ experiment}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no z in font nullfont!
-Missing character: There is no J in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.100 \caption{Rotation about $z$ axis, $J_
-                                           {zz}$ experiment}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-
-! LaTeX Error: \begin{document} ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.102 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 \begin{subfigure}
-                       {0.5\linewidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 5 in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   }
-l.103 \begin{subfigure}{0.5\linewidth}
-                                      
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.103 \begin{subfigure}{0.5\linewidth}
-                                      
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Undefined control sequence.
-l.105 \includegraphics
-                      [width=7.0cm]{althold_phi_lqi}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no [ in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no d in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.105 \includegraphics[width=7.0cm]{althold_
-                                            phi_lqi}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.105 ...udegraphics[width=7.0cm]{althold_phi_lqi}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.106 \caption
-              {Rotation about $z$ axis, $J_{zz}$ experiment}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.106 \caption{Rotation about $
-                               z$ axis, $J_{zz}$ experiment}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no z in font nullfont!
-Missing character: There is no J in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.106 \caption{Rotation about $z$ axis, $J_
-                                           {zz}$ experiment}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-
-! LaTeX Error: \begin{document} ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.108 \end{subfigure}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.109 \caption
-              {Rotation about $x$, $y$ and $z$ axes during the bifilar pendu...
-
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Missing character: There is no R in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no s in font nullfont!
-
-! LaTeX Error: \begin{document} ended by \end{figure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 \end{figure}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 84--112
-[]
- []
-
-
-Overfull \hbox (110.50688pt too wide) in paragraph at lines 84--112
-[][]\OML/cmm/m/it/10 qi[]$$axis;$$[]$
- []
-
-
-Overfull \hbox (118.19821pt too wide) in paragraph at lines 84--112
-[]\OML/cmm/m/it/10 si[]qi[]$$axis;$$[]$
- []
-
-
-Overfull \hbox (127.8808pt too wide) in paragraph at lines 84--112
-[]\OML/cmm/m/it/10 heta[]qi[]$$axis;$$[]$
- []
-
-
-Overfull \hbox (118.87416pt too wide) in paragraph at lines 84--112
-[]\OML/cmm/m/it/10 hi[]qi[]$$axis;$$[]$
- []
-
-
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 84--112
-\OML/cmm/m/it/10 x$
- []
-
-
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 84--112
-\OML/cmm/m/it/10 y$
- []
-
-
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 84--112
-\OML/cmm/m/it/10 z$
- []
-
-! Undefined control sequence.
-l.113 \subsubsection
-                    {$H_\infty$ Controller}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no C in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-
-Overfull \hbox (36.78474pt too wide) in paragraph at lines 113--114
-[]$\OML/cmm/m/it/10 H[]$
- []
-
-
-! LaTeX Error: Environment figure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.115 \begin{figure}
-                    [H]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no [ in font nullfont!
-Missing character: There is no H in font nullfont!
-Missing character: There is no ] in font nullfont!
-
-! LaTeX Error: Environment subfigure undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.116 \begin{subfigure}
-                       {.5\linewidth}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no . in font nullfont!
-Missing character: There is no 5 in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   }
-l.116 \begin{subfigure}{.5\linewidth}
-                                     
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.116 \begin{subfigure}{.5\linewidth}
-                                     
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Undefined control sequence.
-l.118 \includegraphics
-                      [width=7.0cm]{althold_z_lqi}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no [ in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no ] in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no d in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.118 \includegraphics[width=7.0cm]{althold_
-                                            z_lqi}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Double subscript.
-l.118 \includegraphics[width=7.0cm]{althold_z_
-                                              lqi}
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Extra }, or forgotten $.
-l.118 \includegraphics[width=7.0cm]{althold_z_lqi}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 \caption
-              {Rotation about $x$ axis, $J_{xx}$ experiment}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.119 \caption{Rotation about $
-                               x$ axis, $J_{xx}$ experiment}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no x in font nullfont!
-Missing character: There is no J in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.119 \caption{Rotation about $x$ axis, $J_
-                                           {xx}$ experiment}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-
-! LaTeX Error: \begin{document} ended by \end{subfigure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.121 \end{subfigure}
+l.100 \end{subfigure}
                      %
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2618,7 +2017,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.122 \begin{subfigure}
+l.101 \begin{subfigure}
                        {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2629,7 +2028,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.122 \begin{subfigure}{.5\linewidth}
+l.101 \begin{subfigure}{.5\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2638,7 +2037,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.122 \begin{subfigure}{.5\linewidth}
+l.101 \begin{subfigure}{.5\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2648,8 +2047,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.124 \includegraphics
-                      [width=7.0cm]{althold_psi_lqi}
+l.103 \includegraphics
+                      [width=7.0cm]{althold_psi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2679,13 +2078,13 @@ Missing character: There is no d in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.124 \includegraphics[width=7.0cm]{althold_
-                                            psi_lqi}
+l.103 \includegraphics[width=7.0cm]{althold_
+                                            psi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.124 ...udegraphics[width=7.0cm]{althold_psi_lqi}
+l.103 ...raphics[width=7.0cm]{althold_psi_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2700,7 +2099,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.125 \caption
+l.104 \caption
               {Rotation about $y$ axis, $J_{yy}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2708,7 +2107,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.125 \caption{Rotation about $
+l.104 \caption{Rotation about $
                                y$ axis, $J_{yy}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2721,7 +2120,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.125 \caption{Rotation about $y$ axis, $J_
+l.104 \caption{Rotation about $y$ axis, $J_
                                            {yy}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2743,7 +2142,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.127 \end{subfigure}
+l.106 \end{subfigure}
                      \\[1ex]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2756,7 +2155,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.128 \begin{subfigure}
+l.107 \begin{subfigure}
                        {0.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2768,7 +2167,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.128 \begin{subfigure}{0.5\linewidth}
+l.107 \begin{subfigure}{0.5\linewidth}
                                       
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2777,7 +2176,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.128 \begin{subfigure}{0.5\linewidth}
+l.107 \begin{subfigure}{0.5\linewidth}
                                       
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2787,8 +2186,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.130 \includegraphics
-                      [width=7.0cm]{althold_theta_lqi}
+l.109 \includegraphics
+                      [width=7.0cm]{althold_theta_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2818,13 +2217,13 @@ Missing character: There is no d in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.130 \includegraphics[width=7.0cm]{althold_
-                                            theta_lqi}
+l.109 \includegraphics[width=7.0cm]{althold_
+                                            theta_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.130 ...egraphics[width=7.0cm]{althold_theta_lqi}
+l.109 ...phics[width=7.0cm]{althold_theta_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2839,7 +2238,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.131 \caption
+l.110 \caption
               {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2847,7 +2246,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.131 \caption{Rotation about $
+l.110 \caption{Rotation about $
                                z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2860,7 +2259,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.131 \caption{Rotation about $z$ axis, $J_
+l.110 \caption{Rotation about $z$ axis, $J_
                                            {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2882,7 +2281,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.133 \end{subfigure}
+l.112 \end{subfigure}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2895,7 +2294,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.134 \begin{subfigure}
+l.113 \begin{subfigure}
                        {0.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2907,7 +2306,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.134 \begin{subfigure}{0.5\linewidth}
+l.113 \begin{subfigure}{0.5\linewidth}
                                       
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2916,7 +2315,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.134 \begin{subfigure}{0.5\linewidth}
+l.113 \begin{subfigure}{0.5\linewidth}
                                       
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2926,8 +2325,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.136 \includegraphics
-                      [width=7.0cm]{althold_phi_lqi}
+l.115 \includegraphics
+                      [width=7.0cm]{althold_phi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2957,13 +2356,13 @@ Missing character: There is no d in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.136 \includegraphics[width=7.0cm]{althold_
-                                            phi_lqi}
+l.115 \includegraphics[width=7.0cm]{althold_
+                                            phi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.136 ...udegraphics[width=7.0cm]{althold_phi_lqi}
+l.115 ...raphics[width=7.0cm]{althold_phi_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2978,7 +2377,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.137 \caption
+l.116 \caption
               {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2986,7 +2385,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.137 \caption{Rotation about $
+l.116 \caption{Rotation about $
                                z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2999,7 +2398,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.137 \caption{Rotation about $z$ axis, $J_
+l.116 \caption{Rotation about $z$ axis, $J_
                                            {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3021,7 +2420,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 \end{subfigure}
+l.118 \end{subfigure}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3034,7 +2433,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.140 \caption
+l.119 \caption
               {Rotation about $x$, $y$ and $z$ axes during the bifilar pendu...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -3103,54 +2502,795 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.142 \end{figure}
+l.121 \end{figure}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 115--143
+Overfull \hbox (20.0pt too wide) in paragraph at lines 94--122
 []
  []
 
 
-Overfull \hbox (110.50688pt too wide) in paragraph at lines 115--143
-[][]\OML/cmm/m/it/10 qi[]$$axis;$$[]$
+Overfull \hbox (127.64755pt too wide) in paragraph at lines 94--122
+[][]\OML/cmm/m/it/10 qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (118.19821pt too wide) in paragraph at lines 115--143
-[]\OML/cmm/m/it/10 si[]qi[]$$axis;$$[]$
+Overfull \hbox (135.33888pt too wide) in paragraph at lines 94--122
+[]\OML/cmm/m/it/10 si[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (127.8808pt too wide) in paragraph at lines 115--143
-[]\OML/cmm/m/it/10 heta[]qi[]$$axis;$$[]$
+Overfull \hbox (145.02147pt too wide) in paragraph at lines 94--122
+[]\OML/cmm/m/it/10 heta[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (118.87416pt too wide) in paragraph at lines 115--143
-[]\OML/cmm/m/it/10 hi[]qi[]$$axis;$$[]$
+Overfull \hbox (136.01483pt too wide) in paragraph at lines 94--122
+[]\OML/cmm/m/it/10 hi[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 115--143
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 94--122
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 115--143
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 94--122
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 115--143
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 94--122
 \OML/cmm/m/it/10 z$
  []
 
 ! Undefined control sequence.
-l.144 \subsection
+l.124 \subsubsection
+                    {$H_\infty$ Controller}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no C in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+
+Overfull \hbox (36.78474pt too wide) in paragraph at lines 124--125
+[]$\OML/cmm/m/it/10 H[]$
+ []
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126 \begin{figure}
+                    [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no ] in font nullfont!
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.127 \begin{subfigure}
+                       {.5\linewidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.127 \begin{subfigure}{.5\linewidth}
+                                     
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.127 \begin{subfigure}{.5\linewidth}
+                                     
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.129 \includegraphics
+                      [width=7.0cm]{althold_z_h_imp}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no d in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.129 \includegraphics[width=7.0cm]{althold_
+                                            z_h_imp}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Double subscript.
+l.129 \includegraphics[width=7.0cm]{althold_z_
+                                              h_imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.129 \includegraphics[width=7.0cm]{althold_z_h_
+                                                imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Extra }, or forgotten $.
+l.129 ...udegraphics[width=7.0cm]{althold_z_h_imp}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 \caption
+              {Rotation about $x$ axis, $J_{xx}$ experiment}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.130 \caption{Rotation about $
+                               x$ axis, $J_{xx}$ experiment}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no x in font nullfont!
+Missing character: There is no J in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.130 \caption{Rotation about $x$ axis, $J_
+                                           {xx}$ experiment}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132 \end{subfigure}
+                     %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 \begin{subfigure}
+                       {.5\linewidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.133 \begin{subfigure}{.5\linewidth}
+                                     
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.133 \begin{subfigure}{.5\linewidth}
+                                     
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.135 \includegraphics
+                      [width=7.0cm]{althold_psi_h_imp}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no d in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.135 \includegraphics[width=7.0cm]{althold_
+                                            psi_h_imp}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Double subscript.
+l.135 \includegraphics[width=7.0cm]{althold_psi_h_
+                                                  imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Extra }, or forgotten $.
+l.135 ...egraphics[width=7.0cm]{althold_psi_h_imp}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 \caption
+              {Rotation about $y$ axis, $J_{yy}$ experiment}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.136 \caption{Rotation about $
+                               y$ axis, $J_{yy}$ experiment}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no y in font nullfont!
+Missing character: There is no J in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.136 \caption{Rotation about $y$ axis, $J_
+                                           {yy}$ experiment}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 \end{subfigure}
+                     \\[1ex]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 \begin{subfigure}
+                       {0.5\linewidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.139 \begin{subfigure}{0.5\linewidth}
+                                      
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.139 \begin{subfigure}{0.5\linewidth}
+                                      
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.141 \includegraphics
+                      [width=7.0cm]{althold_theta_h_imp}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no d in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.141 \includegraphics[width=7.0cm]{althold_
+                                            theta_h_imp}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Double subscript.
+l.141 ...udegraphics[width=7.0cm]{althold_theta_h_
+                                                  imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Extra }, or forgotten $.
+l.141 ...raphics[width=7.0cm]{althold_theta_h_imp}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 \caption
+              {Rotation about $z$ axis, $J_{zz}$ experiment}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.142 \caption{Rotation about $
+                               z$ axis, $J_{zz}$ experiment}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no z in font nullfont!
+Missing character: There is no J in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.142 \caption{Rotation about $z$ axis, $J_
+                                           {zz}$ experiment}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 \end{subfigure}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \begin{subfigure}
+                       {0.5\linewidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.145 \begin{subfigure}{0.5\linewidth}
+                                      
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.145 \begin{subfigure}{0.5\linewidth}
+                                      
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.147 \includegraphics
+                      [width=7.0cm]{althold_phi_h_imp}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no d in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.147 \includegraphics[width=7.0cm]{althold_
+                                            phi_h_imp}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Double subscript.
+l.147 \includegraphics[width=7.0cm]{althold_phi_h_
+                                                  imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Extra }, or forgotten $.
+l.147 ...egraphics[width=7.0cm]{althold_phi_h_imp}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 \caption
+              {Rotation about $z$ axis, $J_{zz}$ experiment}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.148 \caption{Rotation about $
+                               z$ axis, $J_{zz}$ experiment}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no z in font nullfont!
+Missing character: There is no J in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.148 \caption{Rotation about $z$ axis, $J_
+                                           {zz}$ experiment}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.150 \end{subfigure}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.151 \caption
+              {Rotation about $x$, $y$ and $z$ axes during the bifilar pendu...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no R in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 \end{figure}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 126--154
+[]
+ []
+
+
+Overfull \hbox (121.4918pt too wide) in paragraph at lines 126--154
+[][][]\OML/cmm/m/it/10 mp[]$$axis;$$[]$
+ []
+
+
+Overfull \hbox (129.18314pt too wide) in paragraph at lines 126--154
+[]\OML/cmm/m/it/10 si[][]mp[]$$axis;$$[]$
+ []
+
+
+Overfull \hbox (138.86572pt too wide) in paragraph at lines 126--154
+[]\OML/cmm/m/it/10 heta[][]mp[]$$axis;$$[]$
+ []
+
+
+Overfull \hbox (129.85909pt too wide) in paragraph at lines 126--154
+[]\OML/cmm/m/it/10 hi[][]mp[]$$axis;$$[]$
+ []
+
+
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 126--154
+\OML/cmm/m/it/10 x$
+ []
+
+
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 126--154
+\OML/cmm/m/it/10 y$
+ []
+
+
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 126--154
+\OML/cmm/m/it/10 z$
+ []
+
+! Undefined control sequence.
+l.157 \subsection
                  {GNSS-Dependent Mode}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3177,12 +3317,12 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 144--145
+Overfull \hbox (20.0pt too wide) in paragraph at lines 157--158
 []
  []
 
 ! Undefined control sequence.
-l.146 \subsubsection
+l.159 \subsubsection
                     {LQI Controller}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3204,7 +3344,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 146--147
+Overfull \hbox (20.0pt too wide) in paragraph at lines 159--160
 []
  []
 
@@ -3215,7 +3355,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.148 \begin{figure}
+l.161 \begin{figure}
                     [h]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3225,13 +3365,13 @@ Missing character: There is no [ in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no ] in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 148--149
+Overfull \hbox (20.0pt too wide) in paragraph at lines 161--162
 [] 
  []
 
 ! Undefined control sequence.
-l.150 	\includegraphics
-                       [width=0.8\textwidth]{auto_xyz_lqi}
+l.163 	\includegraphics
+                       [width=0.8\textwidth]{auto_xyz_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3251,8 +3391,8 @@ Missing character: There is no 8 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    ]
-l.150 	\includegraphics[width=0.8\textwidth]
-                                            {auto_xyz_lqi}
+l.163 	\includegraphics[width=0.8\textwidth]
+                                            {auto_xyz_lqi_imp}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
@@ -3260,8 +3400,8 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    ]
-l.150 	\includegraphics[width=0.8\textwidth]
-                                            {auto_xyz_lqi}
+l.163 	\includegraphics[width=0.8\textwidth]
+                                            {auto_xyz_lqi_imp}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -3277,13 +3417,13 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.150 	\includegraphics[width=0.8\textwidth]{auto_
-                                                  xyz_lqi}
+l.163 	\includegraphics[width=0.8\textwidth]{auto_
+                                                  xyz_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.150 ...aphics[width=0.8\textwidth]{auto_xyz_lqi}
+l.163 ...cs[width=0.8\textwidth]{auto_xyz_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3298,7 +3438,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 	\caption
+l.164 	\caption
                {Closed-loop of the controlled system with an $H_{\infty}$ co...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -3307,7 +3447,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.151 ...d-loop of the controlled system with an $
+l.164 ...d-loop of the controlled system with an $
                                                   H_{\infty}$ controller.}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3319,7 +3459,7 @@ Missing character: There is no H in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.151 ...loop of the controlled system with an $H_
+l.164 ...loop of the controlled system with an $H_
                                                   {\infty}$ controller.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3336,8 +3476,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (228.0379pt too wide) in paragraph at lines 150--153
- []\OML/cmm/m/it/10 yz[]qi[]$$[]$ 
+Overfull \hbox (245.17857pt too wide) in paragraph at lines 163--166
+ []\OML/cmm/m/it/10 yz[]qi[]mp[]$$[]$ 
  []
 
 
@@ -3347,7 +3487,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.154 	\end{figure}
+l.167 	\end{figure}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3360,7 +3500,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.156 \begin{figure}
+l.169 \begin{figure}
                     [H]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3376,7 +3516,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.157 \begin{subfigure}
+l.170 \begin{subfigure}
                        {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3387,7 +3527,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.157 \begin{subfigure}{.5\linewidth}
+l.170 \begin{subfigure}{.5\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3396,7 +3536,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.157 \begin{subfigure}{.5\linewidth}
+l.170 \begin{subfigure}{.5\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3406,8 +3546,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.159 \includegraphics
-                      [width=7.0cm]{auto_psi_lqi}
+l.172 \includegraphics
+                      [width=7.0cm]{auto_psi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3434,14 +3574,14 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.159 \includegraphics[width=7.0cm]{auto_
-                                         psi_lqi}
+l.172 \includegraphics[width=7.0cm]{auto_
+                                         psi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.159 \includegraphics[width=7.0cm]{auto_psi_lqi}
-                                                 
+l.172 ...degraphics[width=7.0cm]{auto_psi_lqi_imp}
+                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -3455,7 +3595,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 \caption
+l.173 \caption
               {Rotation about $x$ axis, $J_{xx}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3463,7 +3603,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.160 \caption{Rotation about $
+l.173 \caption{Rotation about $
                                x$ axis, $J_{xx}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3476,7 +3616,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.160 \caption{Rotation about $x$ axis, $J_
+l.173 \caption{Rotation about $x$ axis, $J_
                                            {xx}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3498,7 +3638,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.162 \end{subfigure}
+l.175 \end{subfigure}
                      %
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3511,7 +3651,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.163 \begin{subfigure}
+l.176 \begin{subfigure}
                        {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3522,7 +3662,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.163 \begin{subfigure}{.5\linewidth}
+l.176 \begin{subfigure}{.5\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3531,7 +3671,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.163 \begin{subfigure}{.5\linewidth}
+l.176 \begin{subfigure}{.5\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3541,8 +3681,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.165 \includegraphics
-                      [width=7.0cm]{auto_theta_lqi}
+l.178 \includegraphics
+                      [width=7.0cm]{auto_theta_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3569,13 +3709,13 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.165 \includegraphics[width=7.0cm]{auto_
-                                         theta_lqi}
+l.178 \includegraphics[width=7.0cm]{auto_
+                                         theta_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.165 ...ludegraphics[width=7.0cm]{auto_theta_lqi}
+l.178 ...graphics[width=7.0cm]{auto_theta_lqi_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3590,7 +3730,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.166 \caption
+l.179 \caption
               {Rotation about $y$ axis, $J_{yy}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3598,7 +3738,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.166 \caption{Rotation about $
+l.179 \caption{Rotation about $
                                y$ axis, $J_{yy}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3611,7 +3751,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.166 \caption{Rotation about $y$ axis, $J_
+l.179 \caption{Rotation about $y$ axis, $J_
                                            {yy}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3633,7 +3773,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.168 \end{subfigure}
+l.181 \end{subfigure}
                      \\[1ex]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3646,7 +3786,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.169 \begin{subfigure}
+l.182 \begin{subfigure}
                        {\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3655,7 +3795,7 @@ or  <return>  to continue without it.
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.169 \begin{subfigure}{\linewidth}
+l.182 \begin{subfigure}{\linewidth}
                                    
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3664,7 +3804,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.169 \begin{subfigure}{\linewidth}
+l.182 \begin{subfigure}{\linewidth}
                                    
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3674,8 +3814,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.171 \includegraphics
-                      [width=7.0cm]{auto_phi_lqi}
+l.184 \includegraphics
+                      [width=7.0cm]{auto_phi_lqi_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3702,14 +3842,14 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.171 \includegraphics[width=7.0cm]{auto_
-                                         phi_lqi}
+l.184 \includegraphics[width=7.0cm]{auto_
+                                         phi_lqi_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.171 \includegraphics[width=7.0cm]{auto_phi_lqi}
-                                                 
+l.184 ...degraphics[width=7.0cm]{auto_phi_lqi_imp}
+                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -3723,7 +3863,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.172 \caption
+l.185 \caption
               {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3731,7 +3871,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.172 \caption{Rotation about $
+l.185 \caption{Rotation about $
                                z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3744,7 +3884,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.172 \caption{Rotation about $z$ axis, $J_
+l.185 \caption{Rotation about $z$ axis, $J_
                                            {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3766,7 +3906,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.174 \end{subfigure}
+l.187 \end{subfigure}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3779,7 +3919,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 \caption
+l.188 \caption
               {Rotation about $x$, $y$ and $z$ axes during the bifilar pendu...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -3848,49 +3988,49 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 \end{figure}
+l.190 \end{figure}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 156--178
+Overfull \hbox (20.0pt too wide) in paragraph at lines 169--191
 []
  []
 
 
-Overfull \hbox (118.65417pt too wide) in paragraph at lines 156--178
-[]\OML/cmm/m/it/10 si[]qi[]$$axis;$$[]$
+Overfull \hbox (135.79485pt too wide) in paragraph at lines 169--191
+[]\OML/cmm/m/it/10 si[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (128.27893pt too wide) in paragraph at lines 156--178
-[]\OML/cmm/m/it/10 heta[]qi[]$$axis;$$[]$
+Overfull \hbox (145.4196pt too wide) in paragraph at lines 169--191
+[]\OML/cmm/m/it/10 heta[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (118.87416pt too wide) in paragraph at lines 156--178
-[]\OML/cmm/m/it/10 hi[]qi[]$$axis;$$[]$
+Overfull \hbox (136.01483pt too wide) in paragraph at lines 169--191
+[]\OML/cmm/m/it/10 hi[]qi[]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 156--178
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 169--191
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 156--178
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 169--191
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 156--178
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 169--191
 \OML/cmm/m/it/10 z$
  []
 
 ! Undefined control sequence.
-l.179 \subsubsection
+l.193 \subsubsection
                     {$H_\infty$ Controller}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3909,7 +4049,7 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (36.78474pt too wide) in paragraph at lines 179--180
+Overfull \hbox (36.78474pt too wide) in paragraph at lines 193--194
 []$\OML/cmm/m/it/10 H[]$
  []
 
@@ -3920,7 +4060,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181 \begin{figure}
+l.195 \begin{figure}
                     [h]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3930,13 +4070,13 @@ Missing character: There is no [ in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no ] in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 181--182
+Overfull \hbox (20.0pt too wide) in paragraph at lines 195--196
 [] 
  []
 
 ! Undefined control sequence.
-l.183 	\includegraphics
-                       [width=0.8\textwidth]{auto_xyz_lqi}
+l.197 	\includegraphics
+                       [width=0.8\textwidth]{auto_xyz_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3956,8 +4096,8 @@ Missing character: There is no 8 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    ]
-l.183 	\includegraphics[width=0.8\textwidth]
-                                            {auto_xyz_lqi}
+l.197 	\includegraphics[width=0.8\textwidth]
+                                            {auto_xyz_h_imp}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
@@ -3965,8 +4105,8 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    ]
-l.183 	\includegraphics[width=0.8\textwidth]
-                                            {auto_xyz_lqi}
+l.197 	\includegraphics[width=0.8\textwidth]
+                                            {auto_xyz_h_imp}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -3982,13 +4122,18 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.183 	\includegraphics[width=0.8\textwidth]{auto_
-                                                  xyz_lqi}
+l.197 	\includegraphics[width=0.8\textwidth]{auto_
+                                                  xyz_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+! Double subscript.
+l.197 ...graphics[width=0.8\textwidth]{auto_xyz_h_
+                                                  imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
 ! Extra }, or forgotten $.
-l.183 ...aphics[width=0.8\textwidth]{auto_xyz_lqi}
+l.197 ...hics[width=0.8\textwidth]{auto_xyz_h_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -4003,7 +4148,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184 	\caption
+l.198 	\caption
                {Closed-loop of the controlled system with an $H_{\infty}$ co...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -4012,7 +4157,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.184 ...d-loop of the controlled system with an $
+l.198 ...d-loop of the controlled system with an $
                                                   H_{\infty}$ controller.}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4024,7 +4169,7 @@ Missing character: There is no H in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.184 ...loop of the controlled system with an $H_
+l.198 ...loop of the controlled system with an $H_
                                                   {\infty}$ controller.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4041,8 +4186,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (228.0379pt too wide) in paragraph at lines 183--186
- []\OML/cmm/m/it/10 yz[]qi[]$$[]$ 
+Overfull \hbox (239.02283pt too wide) in paragraph at lines 197--200
+ []\OML/cmm/m/it/10 yz[][]mp[]$$[]$ 
  []
 
 
@@ -4052,7 +4197,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 	\end{figure}
+l.201 	\end{figure}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4065,7 +4210,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.189 \begin{figure}
+l.203 \begin{figure}
                     [H]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4081,7 +4226,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.190 \begin{subfigure}
+l.204 \begin{subfigure}
                        {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4092,7 +4237,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.190 \begin{subfigure}{.5\linewidth}
+l.204 \begin{subfigure}{.5\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4101,7 +4246,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.190 \begin{subfigure}{.5\linewidth}
+l.204 \begin{subfigure}{.5\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -4111,8 +4256,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.192 \includegraphics
-                      [width=7.0cm]{auto_psi_lqi}
+l.206 \includegraphics
+                      [width=7.0cm]{auto_psi_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -4139,14 +4284,19 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.192 \includegraphics[width=7.0cm]{auto_
-                                         psi_lqi}
+l.206 \includegraphics[width=7.0cm]{auto_
+                                         psi_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+! Double subscript.
+l.206 \includegraphics[width=7.0cm]{auto_psi_h_
+                                               imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
 ! Extra }, or forgotten $.
-l.192 \includegraphics[width=7.0cm]{auto_psi_lqi}
-                                                 
+l.206 ...ludegraphics[width=7.0cm]{auto_psi_h_imp}
+                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -4160,7 +4310,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.193 \caption
+l.207 \caption
               {Rotation about $x$ axis, $J_{xx}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4168,7 +4318,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.193 \caption{Rotation about $
+l.207 \caption{Rotation about $
                                x$ axis, $J_{xx}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4181,7 +4331,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.193 \caption{Rotation about $x$ axis, $J_
+l.207 \caption{Rotation about $x$ axis, $J_
                                            {xx}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4203,7 +4353,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.195 \end{subfigure}
+l.209 \end{subfigure}
                      %
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4216,7 +4366,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.196 \begin{subfigure}
+l.210 \begin{subfigure}
                        {.5\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4227,7 +4377,7 @@ Missing character: There is no 5 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.196 \begin{subfigure}{.5\linewidth}
+l.210 \begin{subfigure}{.5\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4236,7 +4386,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.196 \begin{subfigure}{.5\linewidth}
+l.210 \begin{subfigure}{.5\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -4246,8 +4396,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.198 \includegraphics
-                      [width=7.0cm]{auto_theta_lqi}
+l.212 \includegraphics
+                      [width=7.0cm]{auto_theta_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -4274,13 +4424,18 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.198 \includegraphics[width=7.0cm]{auto_
-                                         theta_lqi}
+l.212 \includegraphics[width=7.0cm]{auto_
+                                         theta_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+! Double subscript.
+l.212 \includegraphics[width=7.0cm]{auto_theta_h_
+                                                 imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
 ! Extra }, or forgotten $.
-l.198 ...ludegraphics[width=7.0cm]{auto_theta_lqi}
+l.212 ...degraphics[width=7.0cm]{auto_theta_h_imp}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -4295,7 +4450,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.199 \caption
+l.213 \caption
               {Rotation about $y$ axis, $J_{yy}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4303,7 +4458,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.199 \caption{Rotation about $
+l.213 \caption{Rotation about $
                                y$ axis, $J_{yy}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4316,7 +4471,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.199 \caption{Rotation about $y$ axis, $J_
+l.213 \caption{Rotation about $y$ axis, $J_
                                            {yy}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4338,7 +4493,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.201 \end{subfigure}
+l.215 \end{subfigure}
                      \\[1ex]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4351,7 +4506,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.202 \begin{subfigure}
+l.216 \begin{subfigure}
                        {\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4360,7 +4515,7 @@ or  <return>  to continue without it.
 ! Missing number, treated as zero.
 <to be read again> 
                    }
-l.202 \begin{subfigure}{\linewidth}
+l.216 \begin{subfigure}{\linewidth}
                                    
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4369,7 +4524,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.202 \begin{subfigure}{\linewidth}
+l.216 \begin{subfigure}{\linewidth}
                                    
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -4379,8 +4534,8 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 ! Undefined control sequence.
-l.204 \includegraphics
-                      [width=7.0cm]{auto_phi_lqi}
+l.218 \includegraphics
+                      [width=7.0cm]{auto_phi_h_imp}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -4407,14 +4562,19 @@ Missing character: There is no o in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.204 \includegraphics[width=7.0cm]{auto_
-                                         phi_lqi}
+l.218 \includegraphics[width=7.0cm]{auto_
+                                         phi_h_imp}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+! Double subscript.
+l.218 \includegraphics[width=7.0cm]{auto_phi_h_
+                                               imp}
+I treat `x_1_2' essentially like `x_1{}_2'.
+
 ! Extra }, or forgotten $.
-l.204 \includegraphics[width=7.0cm]{auto_phi_lqi}
-                                                 
+l.218 ...ludegraphics[width=7.0cm]{auto_phi_h_imp}
+                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -4428,7 +4588,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 \caption
+l.219 \caption
               {Rotation about $z$ axis, $J_{zz}$ experiment}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4436,7 +4596,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.205 \caption{Rotation about $
+l.219 \caption{Rotation about $
                                z$ axis, $J_{zz}$ experiment}
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4449,7 +4609,7 @@ Missing character: There is no J in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.205 \caption{Rotation about $z$ axis, $J_
+l.219 \caption{Rotation about $z$ axis, $J_
                                            {zz}$ experiment}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4471,7 +4631,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207 \end{subfigure}
+l.221 \end{subfigure}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4484,7 +4644,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.208 \caption
+l.222 \caption
               {Rotation about $x$, $y$ and $z$ axes during the bifilar pendu...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -4553,49 +4713,49 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.210 \end{figure}
+l.224 \end{figure}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 189--211
+Overfull \hbox (20.0pt too wide) in paragraph at lines 203--225
 []
  []
 
 
-Overfull \hbox (118.65417pt too wide) in paragraph at lines 189--211
-[]\OML/cmm/m/it/10 si[]qi[]$$axis;$$[]$
+Overfull \hbox (129.6391pt too wide) in paragraph at lines 203--225
+[]\OML/cmm/m/it/10 si[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (128.27893pt too wide) in paragraph at lines 189--211
-[]\OML/cmm/m/it/10 heta[]qi[]$$axis;$$[]$
+Overfull \hbox (139.26385pt too wide) in paragraph at lines 203--225
+[]\OML/cmm/m/it/10 heta[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (118.87416pt too wide) in paragraph at lines 189--211
-[]\OML/cmm/m/it/10 hi[]qi[]$$axis;$$[]$
+Overfull \hbox (129.85909pt too wide) in paragraph at lines 203--225
+[]\OML/cmm/m/it/10 hi[][]mp[]$$axis;$$[]$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 189--211
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 203--225
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 189--211
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 203--225
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 189--211
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 203--225
 \OML/cmm/m/it/10 z$
  []
 
 ! Undefined control sequence.
-l.215 \section
+l.229 \section
               {Conclusions}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
