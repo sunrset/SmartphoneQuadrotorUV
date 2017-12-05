@@ -351,7 +351,6 @@ public class MissionGUI extends javax.swing.JFrame {
         jButtonControlLB = new javax.swing.JButton();
         jButtonControlLT = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanelTests = new javax.swing.JPanel();
         jLabelUVlogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -1177,19 +1176,6 @@ public class MissionGUI extends javax.swing.JFrame {
 
         jTabbed1.addTab("Communication", jPanelComm);
 
-        javax.swing.GroupLayout jPanelTestsLayout = new javax.swing.GroupLayout(jPanelTests);
-        jPanelTests.setLayout(jPanelTestsLayout);
-        jPanelTestsLayout.setHorizontalGroup(
-            jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        jPanelTestsLayout.setVerticalGroup(
-            jPanelTestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
-        );
-
-        jTabbed1.addTab("Tests", jPanelTests);
-
         jLabelUVlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uvlogo.jpg"))); // NOI18N
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gicilogo.jpg"))); // NOI18N
@@ -1220,121 +1206,44 @@ public class MissionGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_startConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_startConnectionActionPerformed
+    private void bt_setWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_setWaypointsActionPerformed
         // TODO add your handling code here:
-        MissionControllerUV.startConnection();
-    }//GEN-LAST:event_bt_startConnectionActionPerformed
+        if(!waypointsSet){
+            magnaWaypointsSet = magnaWaypoints;
+            jTextAreaConsole.append("Waypoints set\n");
+            waypointsSet = true;
+            bt_updateWaypoints.setEnabled(!waypointsSet);
+            jTextPaneWaypoints.setFocusable(!waypointsSet);
+            bt_setWaypoints.setText("Edit");
+            tf_missionAltitude.setEnabled(!waypointsSet);
+            tf_missionYaw.setEnabled(!waypointsSet);
+            float missionAltitude = Float.valueOf(tf_missionAltitude.getText());
+            float missionYaw = Float.valueOf(tf_missionYaw.getText());
 
-    private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to stop the connection with the Quadrotor?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            stopConnectionWithServer();
-        }
-        
-    }//GEN-LAST:event_bt_stopConnectionActionPerformed
-
-    private void bt_stabilizeModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stabilizeModeActionPerformed
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Stabilize mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
             try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("Stabilize");
+                sendWaypointList(magnaWaypointsSet, missionAltitude, missionYaw);
             } catch (IOException ex) {
                 Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_bt_stabilizeModeActionPerformed
+        else {
+            waypointsSet = false;
+            magnaWaypointsSet.clear();
+            magnaWaypoints.clear();
+            bt_updateWaypoints.setEnabled(!waypointsSet);
+            jTextPaneWaypoints.setFocusable(!waypointsSet);
+            tf_missionAltitude.setEnabled(!waypointsSet);
+            tf_missionYaw.setEnabled(!waypointsSet);
+            bt_setWaypoints.setText("Set");
+            bt_setWaypoints.setEnabled(waypointsSet);
 
-    private void bt_AltHoldModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AltHoldModeActionPerformed
-        // TODO add your handling code here:
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Altitude Hold mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
             try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("AltHold");
+                resetWaypointList();
             } catch (IOException ex) {
                 Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_bt_AltHoldModeActionPerformed
-
-    private void bt_LoiterModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LoiterModeActionPerformed
-        // TODO add your handling code here:
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Loiter mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("Loiter");
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_bt_LoiterModeActionPerformed
-
-    private void bt_RTLmodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RTLmodeActionPerformed
-        // TODO add your handling code here:
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Return To Launch mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("RTL");
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_bt_RTLmodeActionPerformed
-
-    private void bt_AutoModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AutoModeActionPerformed
-        // TODO add your handling code here:
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Auto mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("Auto");
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_bt_AutoModeActionPerformed
-
-    private void bt_LandModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LandModeActionPerformed
-        // TODO add your handling code here:
-        int selectedOption = JOptionPane.showConfirmDialog(null, 
-                                  "Do you want to select Land mode?", 
-                                  "Choose", 
-                                  JOptionPane.YES_NO_OPTION); 
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            try {
-                // TODO add your handling code here:
-                MissionControllerUV.requestModeChange("Land");
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_bt_LandModeActionPerformed
-
-    private void bt_clearConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearConsoleActionPerformed
-        // TODO add your handling code here:
-        jTextAreaConsole.setText(null);
-    }//GEN-LAST:event_bt_clearConsoleActionPerformed
+    }//GEN-LAST:event_bt_setWaypointsActionPerformed
 
     private void bt_updateWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updateWaypointsActionPerformed
         try {
@@ -1342,8 +1251,8 @@ public class MissionGUI extends javax.swing.JFrame {
             waypoints.clear();
             magnaWaypointsSet.clear();
             magnaWaypoints.clear();
-            track.clear();          
-            
+            track.clear();
+
             String waypointsDoc = jTextPaneWaypoints.getDocument().getText(0, jTextPaneWaypoints.getDocument().getLength());
             jTextPaneWaypoints.setText("");
             String[] wps = waypointsDoc.split("\n");
@@ -1367,54 +1276,6 @@ public class MissionGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_updateWaypointsActionPerformed
 
-    private void bt_setWaypointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_setWaypointsActionPerformed
-        // TODO add your handling code here:
-        if(!waypointsSet){
-            magnaWaypointsSet = magnaWaypoints;
-            jTextAreaConsole.append("Waypoints set\n");
-            waypointsSet = true;
-            bt_updateWaypoints.setEnabled(!waypointsSet);
-            jTextPaneWaypoints.setFocusable(!waypointsSet);
-            bt_setWaypoints.setText("Edit");
-            tf_missionAltitude.setEnabled(!waypointsSet);
-            tf_missionYaw.setEnabled(!waypointsSet);
-            float missionAltitude = Float.valueOf(tf_missionAltitude.getText());
-            float missionYaw = Float.valueOf(tf_missionYaw.getText());
-            
-            try {
-                sendWaypointList(magnaWaypointsSet, missionAltitude, missionYaw);
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else {
-            waypointsSet = false;
-            magnaWaypointsSet.clear();
-            magnaWaypoints.clear();
-            bt_updateWaypoints.setEnabled(!waypointsSet);
-            jTextPaneWaypoints.setFocusable(!waypointsSet);
-            tf_missionAltitude.setEnabled(!waypointsSet);
-            tf_missionYaw.setEnabled(!waypointsSet);
-            bt_setWaypoints.setText("Set");
-            bt_setWaypoints.setEnabled(waypointsSet);
-            
-            try {
-                resetWaypointList();
-            } catch (IOException ex) {
-                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_bt_setWaypointsActionPerformed
-
-    private void bt_armActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_armActionPerformed
-        try {
-            // TODO add your handling code here:
-            missionControllerUV.armMotors(true);
-        } catch (IOException ex) {
-            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_bt_armActionPerformed
-
     private void bt_disarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_disarmActionPerformed
         try {
             // TODO add your handling code here:
@@ -1426,6 +1287,131 @@ public class MissionGUI extends javax.swing.JFrame {
             Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bt_disarmActionPerformed
+
+    private void bt_armActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_armActionPerformed
+        try {
+            // TODO add your handling code here:
+            missionControllerUV.armMotors(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bt_armActionPerformed
+
+    private void bt_clearConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearConsoleActionPerformed
+        // TODO add your handling code here:
+        jTextAreaConsole.setText(null);
+    }//GEN-LAST:event_bt_clearConsoleActionPerformed
+
+    private void bt_LoiterModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LoiterModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Loiter mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Loiter");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_LoiterModeActionPerformed
+
+    private void bt_LandModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LandModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Land mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Land");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_LandModeActionPerformed
+
+    private void bt_AutoModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AutoModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Auto mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Auto");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_AutoModeActionPerformed
+
+    private void bt_RTLmodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RTLmodeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Return To Launch mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("RTL");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_RTLmodeActionPerformed
+
+    private void bt_AltHoldModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AltHoldModeActionPerformed
+        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Altitude Hold mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("AltHold");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_AltHoldModeActionPerformed
+
+    private void bt_stabilizeModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stabilizeModeActionPerformed
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to select Stabilize mode?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            try {
+                // TODO add your handling code here:
+                MissionControllerUV.requestModeChange("Stabilize");
+            } catch (IOException ex) {
+                Logger.getLogger(MissionGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_bt_stabilizeModeActionPerformed
+
+    private void bt_stopConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_stopConnectionActionPerformed
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Do you want to stop the connection with the Quadrotor?",
+            "Choose",
+            JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            stopConnectionWithServer();
+        }
+
+    }//GEN-LAST:event_bt_stopConnectionActionPerformed
+
+    private void bt_startConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_startConnectionActionPerformed
+        // TODO add your handling code here:
+        MissionControllerUV.startConnection();
+    }//GEN-LAST:event_bt_startConnectionActionPerformed
     
     public void armMotorsFromRC(){
         try {
@@ -1454,32 +1440,32 @@ public class MissionGUI extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton bt_AltHoldMode;
-    public javax.swing.JButton bt_AutoMode;
-    public javax.swing.JButton bt_LandMode;
-    public javax.swing.JButton bt_LoiterMode;
-    public javax.swing.JButton bt_RTLmode;
-    public javax.swing.JButton bt_arm;
+    private javax.swing.JButton bt_AltHoldMode;
+    private javax.swing.JButton bt_AutoMode;
+    private javax.swing.JButton bt_LandMode;
+    private javax.swing.JButton bt_LoiterMode;
+    private javax.swing.JButton bt_RTLmode;
+    private javax.swing.JButton bt_arm;
     private javax.swing.JButton bt_clearConsole;
-    public javax.swing.JButton bt_disarm;
-    public javax.swing.JButton bt_setWaypoints;
-    public javax.swing.JButton bt_stabilizeMode;
-    public javax.swing.JButton bt_startConnection;
-    public javax.swing.JButton bt_stopConnection;
-    public javax.swing.JButton bt_updateWaypoints;
+    private javax.swing.JButton bt_disarm;
+    private javax.swing.JButton bt_setWaypoints;
+    private javax.swing.JButton bt_stabilizeMode;
+    private javax.swing.JButton bt_startConnection;
+    private javax.swing.JButton bt_stopConnection;
+    private javax.swing.JButton bt_updateWaypoints;
     private javax.swing.JComboBox<String> cb_QuadList;
-    public javax.swing.JButton jButtonControlA;
-    public javax.swing.JButton jButtonControlB;
-    public javax.swing.JButton jButtonControlBack;
-    public javax.swing.JButton jButtonControlLB;
-    public javax.swing.JButton jButtonControlLJ;
-    public javax.swing.JButton jButtonControlLT;
-    public javax.swing.JButton jButtonControlRB;
-    public javax.swing.JButton jButtonControlRJ;
-    public javax.swing.JButton jButtonControlRT;
-    public javax.swing.JButton jButtonControlStart;
-    public javax.swing.JButton jButtonControlX;
-    public javax.swing.JButton jButtonControlY;
+    private javax.swing.JButton jButtonControlA;
+    private javax.swing.JButton jButtonControlB;
+    private javax.swing.JButton jButtonControlBack;
+    private javax.swing.JButton jButtonControlLB;
+    private javax.swing.JButton jButtonControlLJ;
+    private javax.swing.JButton jButtonControlLT;
+    private javax.swing.JButton jButtonControlRB;
+    private javax.swing.JButton jButtonControlRJ;
+    private javax.swing.JButton jButtonControlRT;
+    private javax.swing.JButton jButtonControlStart;
+    private javax.swing.JButton jButtonControlX;
+    private javax.swing.JButton jButtonControlY;
     private javax.swing.JComboBox<String> jComboBox_controllers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1503,7 +1489,7 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelArmed;
-    public javax.swing.JLabel jLabelDPad;
+    private javax.swing.JLabel jLabelDPad;
     private javax.swing.JLabel jLabelTitleComm;
     private javax.swing.JLabel jLabelTitleController;
     private javax.swing.JLabel jLabelUVlogo;
@@ -1517,11 +1503,10 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMap;
     private javax.swing.JPanel jPanelMission;
     private javax.swing.JPanel jPanelModes;
-    private javax.swing.JPanel jPanelTests;
-    public javax.swing.JProgressBar jProgressBarX;
-    public javax.swing.JProgressBar jProgressBarY;
-    public javax.swing.JProgressBar jProgressBarZ;
-    public javax.swing.JProgressBar jProgressBarZrot;
+    private javax.swing.JProgressBar jProgressBarX;
+    private javax.swing.JProgressBar jProgressBarY;
+    private javax.swing.JProgressBar jProgressBarZ;
+    private javax.swing.JProgressBar jProgressBarZrot;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -1531,22 +1516,22 @@ public class MissionGUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    public javax.swing.JTextField jTF_ip1;
+    private javax.swing.JTextField jTF_ip1;
     private javax.swing.JTabbedPane jTabbed1;
-    public javax.swing.JTextArea jTextAreaConsole;
-    public javax.swing.JTextPane jTextPaneWaypoints;
-    public javax.swing.JLabel tf_armed;
-    public javax.swing.JLabel tf_currentflightmode;
-    public javax.swing.JTextField tf_missionAltitude;
-    public javax.swing.JTextField tf_missionYaw;
-    public javax.swing.JLabel tv_eastQuad;
-    public javax.swing.JLabel tv_elevationQuad;
-    public javax.swing.JLabel tv_northQuad;
-    public javax.swing.JLabel tv_phoneBatt;
-    public javax.swing.JLabel tv_pitchQuad;
-    public javax.swing.JLabel tv_quadBatt;
-    public javax.swing.JLabel tv_rollQuad;
-    public javax.swing.JLabel tv_yawQuad;
+    private javax.swing.JTextArea jTextAreaConsole;
+    private javax.swing.JTextPane jTextPaneWaypoints;
+    private javax.swing.JLabel tf_armed;
+    private javax.swing.JLabel tf_currentflightmode;
+    private javax.swing.JTextField tf_missionAltitude;
+    private javax.swing.JTextField tf_missionYaw;
+    private javax.swing.JLabel tv_eastQuad;
+    private javax.swing.JLabel tv_elevationQuad;
+    private javax.swing.JLabel tv_northQuad;
+    private javax.swing.JLabel tv_phoneBatt;
+    private javax.swing.JLabel tv_pitchQuad;
+    private javax.swing.JLabel tv_quadBatt;
+    private javax.swing.JLabel tv_rollQuad;
+    private javax.swing.JLabel tv_yawQuad;
     // End of variables declaration//GEN-END:variables
 
 }

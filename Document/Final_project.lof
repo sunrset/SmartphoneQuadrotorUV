@@ -1,61 +1,82 @@
 \select@language {english}
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Skywalker X8 Fixed-wing UAV}}{2}{figure.caption.6}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Altavian Octorotor Rotary-wing UAV}}{3}{figure.caption.7}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Quadrotor aircraft X650}}{4}{figure.caption.8}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Smartphone-based ball tracking robot}}{8}{figure.caption.9}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces UPenn's smartphone-based quadrotor}}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Skywalker X8 Fixed-wing UAV}}{4}{figure.caption.6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Altavian Octorotor Rotary-wing UAV}}{5}{figure.caption.7}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Quadrotor aircraft X650}}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Smartphone-based ball tracking robot}}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces UPenn's smartphone-based quadrotor}}{11}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadrotor geometry in `+' configuration\relax }}{14}{figure.caption.14}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Quadrotor geometry in `X' configuration\relax }}{17}{figure.caption.16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Quadrotor geometry in `+' configuration\relax }}{16}{figure.caption.14}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Quadrotor geometry in `X' configuration\relax }}{19}{figure.caption.16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Quadrotor prototype's hardware overview\relax }}{29}{figure.caption.19}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces LJI 500-X4 carbon fiber frame}}{30}{figure.caption.20}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces LG Nexus 5X, smartphone used as flight controller}}{31}{figure.caption.21}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Motors and ESC used in the Quadrotor\footnotemark \relax }}{33}{figure.caption.23}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Arduino Mega ADK}}{34}{figure.caption.24}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces LiPo battery that powers the Quadrotor}}{35}{figure.caption.26}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Smartphone support\relax }}{36}{figure.caption.28}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Arduino Mega ADK and EMAX 4in1 ESCs designed supports\relax }}{36}{figure.caption.30}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces 3D Designed Dome\relax }}{37}{figure.caption.32}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{38}{figure.caption.33}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{40}{figure.caption.35}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{41}{figure.caption.36}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Thrust test configuration\relax }}{42}{figure.caption.38}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{43}{figure.caption.39}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Motors torque experiment configuration\relax }}{44}{figure.caption.40}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Motors torque experiment results\relax }}{45}{figure.caption.41}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Quadrotor prototype's hardware overview\relax }}{31}{figure.caption.19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces LJI 500-X4 carbon fiber frame}}{32}{figure.caption.20}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces LG Nexus 5X, smartphone used as flight controller}}{33}{figure.caption.21}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Motors and ESC used in the Quadrotor\footnotemark \relax }}{35}{figure.caption.23}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Arduino Mega ADK}}{36}{figure.caption.24}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces LiPo battery that powers the Quadrotor}}{37}{figure.caption.26}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Smartphone support\relax }}{38}{figure.caption.28}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Arduino Mega ADK and EMAX 4in1 ESCs designed supports\relax }}{38}{figure.caption.30}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 3D Designed Dome\relax }}{39}{figure.caption.32}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{40}{figure.caption.33}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{42}{figure.caption.35}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{43}{figure.caption.36}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Thrust test configuration\relax }}{44}{figure.caption.38}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{45}{figure.caption.39}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Motors torque experiment configuration\relax }}{46}{figure.caption.40}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Motors torque experiment results\relax }}{47}{figure.caption.41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{52}{figure.caption.44}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{53}{figure.caption.46}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{54}{figure.caption.47}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{57}{figure.caption.51}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode\relax }}{58}{figure.caption.53}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces HSV energy histogram of $K_H$ in stabilize mode\relax }}{59}{figure.caption.54}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{60}{figure.caption.55}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{62}{figure.caption.58}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode\relax }}{63}{figure.caption.60}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces HSV energy histogram of $K_H$ in altitude hold mode\relax }}{64}{figure.caption.61}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{64}{figure.caption.62}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.65}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.66}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes\relax }}{68}{figure.caption.68}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{69}{figure.caption.69}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.70}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.71}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Static test of the smartphone GNSS receiver and barometer\relax }}{73}{figure.caption.72}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{54}{figure.caption.44}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{55}{figure.caption.46}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{56}{figure.caption.47}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{59}{figure.caption.51}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode\relax }}{60}{figure.caption.53}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces HSV energy histogram of $K_H$ in stabilize mode\relax }}{61}{figure.caption.54}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{62}{figure.caption.55}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{64}{figure.caption.58}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode\relax }}{65}{figure.caption.60}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces HSV energy histogram of $K_H$ in altitude hold mode\relax }}{66}{figure.caption.61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{66}{figure.caption.62}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{69}{figure.caption.65}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{69}{figure.caption.66}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes\relax }}{70}{figure.caption.68}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{71}{figure.caption.69}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{72}{figure.caption.70}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{72}{figure.caption.71}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Static test of the smartphone GNSS receiver and barometer\relax }}{75}{figure.caption.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{76}{figure.caption.73}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{77}{figure.caption.74}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{78}{figure.caption.75}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{79}{figure.caption.76}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{80}{figure.caption.77}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{80}{figure.caption.78}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{81}{figure.caption.79}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{82}{figure.caption.80}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{83}{figure.caption.81}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{84}{figure.caption.82}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{85}{figure.caption.83}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{85}{figure.caption.84}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{77}{figure.caption.73}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{78}{figure.caption.74}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{79}{figure.caption.76}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{80}{figure.caption.78}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{81}{figure.caption.80}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{82}{figure.caption.82}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{83}{figure.caption.84}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{84}{figure.caption.85}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{85}{figure.caption.87}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{85}{figure.caption.88}
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{94}{figure.caption.91}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{95}{figure.caption.92}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{96}{figure.caption.93}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{97}{figure.caption.95}
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.96}
+\contentsline {figure}{\numberline {C.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.97}
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{100}{figure.caption.100}
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{101}{figure.caption.101}
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{102}{figure.caption.102}
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{103}{figure.caption.104}
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{104}{figure.caption.105}
+\contentsline {figure}{\numberline {C.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{105}{figure.caption.106}
+\contentsline {figure}{\numberline {C.13}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{106}{figure.caption.109}
+\contentsline {figure}{\numberline {C.14}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{106}{figure.caption.110}
+\contentsline {figure}{\numberline {C.15}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{107}{figure.caption.111}
+\contentsline {figure}{\numberline {C.16}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{108}{figure.caption.112}
+\contentsline {figure}{\numberline {C.17}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{109}{figure.caption.114}
+\contentsline {figure}{\numberline {C.18}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{109}{figure.caption.115}
+\contentsline {figure}{\numberline {C.19}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{110}{figure.caption.116}
+\contentsline {figure}{\numberline {C.20}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{111}{figure.caption.117}
