@@ -91,19 +91,29 @@ In order to obtain a wide range of wireless communication between the Android ap
 The complete UAS built in this project is shown in Fig. \ref{fig:UAS}. This UAS is composed by a smartphone-based quadrotor UAV, a GCS executing a java application for monitoring and remote control, and a WLAN-based communication channel between both of them.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=\textwidth]{UAS.jpg}  
+\includegraphics[width=0.75\textwidth]{UAS.jpg}  
 \caption{Complete implemented Smartphone-based UAS} 
 \label{fig:UAS}
 \end{center}
 \end{figure}
 
 \section{Flight Tests} \label{sec:tests}
-The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation}, are implemented in the Android application that is executed in the smartphone on board the quadrotor. Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. The results of these tests are shown in this section.
+The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation}, are implemented in the Android application that is executed in the smartphone on board the quadrotor. Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. The results of these tests are shown in this section. The control signals $\mathbf{U} = \begin{bmatrix}
+T_u & \tau_\psi & \tau_\theta & \tau_\phi
+\end{bmatrix}^{T}$, and the \textit{PWM} signals, logged during each of the tests, are shown in Appendix \ref{controlsignals}.
 
 \subsection{Stabilize Mode}
+The smartphone-based quadrotor, in its stabilizing flight mode, is subjected to tests, in which a test bench based on a tripod and a ball head is used. The stabilize mode test bench, shown in Fig. \ref{fig:tripod}, was designed and built within the framework of this project. This test bench allows only rotational movements of the quadrotor, blocking its translational movements.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{tripod.jpg}  
+\caption{Stabilize mode test bench} 
+\label{fig:tripod}
+\end{center}
+\end{figure}
 
 \subsubsection{LQI Controller}
-
+The LQI controller in stabilize mode was tested by manually applying disturbances in the form of torques about the $x$, $y$ and $z$ axes, and successive reference changes from the remote controller.
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -126,10 +136,10 @@ The control and estimation algorithms designed in Chapter \ref{ch:controlandesti
 \caption{Closed-loop response of stabilize mode controlled by a LQI controller}
 \label{fig:stabilize_lqi_imp}
 \end{figure}
-
+In Fig. \ref{fig:stabilize_lqi_imp}, the quadrotor response to the tests in stabilize mode, is shown. The yaw angle $\psi$ is subjected to a disturbance at $t = 34\ s$, and a slow reference change between $t = 53\ s$, to $t = 64\ s$. In the case of the roll angle $\theta$, the reference change is done momentarily, after $t = 8\ s$, and a disturbance is applied at $t = 67\ s$. On the other hand, at $t = 72\ s$, a disturbance in the torque $\tau_\phi$ is applied, and at $t = 24\ s$ the pitch angle $\phi$ reference is changed.
 
 \subsubsection{$H_\infty$ Controller}
-
+The same test, as with the LQI controller, is developed with the $H_\infty$ controller.
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -152,12 +162,37 @@ The control and estimation algorithms designed in Chapter \ref{ch:controlandesti
 \caption{Closed-loop response of stabilize mode controlled by a $H_\infty$ controller}
 \label{fig:stabilize_h_imp}
 \end{figure}
+In this case, as seen in Fig. \ref{fig:stabilize_h_imp}, the disturbances are applied at $t = 11\ s$ for $\psi$, $t = 23\ s$ for $\phi$, and $t = 32\ s$ for $\theta$. However, the reference of $\psi$ is changed between $t = 41\ s$ and $t = 53\ s$, while the references change in $\theta$ and $\phi$ are applied at $t = 71\ s$ and $t = 86\ s$ respectively.
 
-
+\subsubsection{Performance}
+Both of the controllers were capable of stabilize the quadrotor attitude dynamics. For the stabilize mode tests, the performance of the controllers is evaluated taking into account the setting time and overshoot of the controlled signals. These indices are shown in Table \ref{tb:stabilize_index}.
+\begin{table}[H]
+\small
+\begin{center}
+\caption{Performance indices - Stabilize mode tests}\label{tb:stabilize_index}
+\begin{tabular}{c|c|c|c}\hline
+\rule{0pt}{3ex} Controller & Controlled variable & Setting time $[s]$ & Overshoot $[\%]$ \\\hline\hline
+\rule{0pt}{3ex} 
+\multirow{3}{*}{LQI} 
+ & $\psi$ & $1.39$ & $10.52$ \\
+ & $\theta$ & $1.16$ & $17.39$ \\
+ & $\phi$ & $1.12$ & $13.81$\\ \hline
+\multirow{3}{*}{$H_\infty$} 
+ & $\psi$ & $1.18$ & $9.84$ \\
+ & $\theta$ & $1.03$ & $8.40$ \\
+ & $\phi$ & $1.29$ & $5.67$ \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+The performance indices for the stabilize mode tests show that both the LQI and $H_\infty$ controllers designed for the stabilize flight mode, have similar setting time, but different overshoot percentage. The $H_\infty$ controller is the one with the lower overshoot and setting time, except for the setting time of the $\phi$ signal, which is lower when using the LQI controller.
+\\\\
 \subsection{Altitude Hold Mode}
+The altitude flight mode tests were performed on a football field of the Universidad del Valle. This place was chosen because it is an open space free of obstacles, where the quadrotor has total freedom to move without being at risk of colliding with something or somebody.
+\\\\
+In these tests, the only variable that was intentionally affected was the quadrotor altitude $z$. Hence, the references regarding the roll, pitch and yaw angles, are left in zero during the tests.
 
 \subsubsection{LQI Controller}
-
+As seen in Fig. \ref{fig:althold_lqi_imp}, the quadrotor altitude reference was changed at $t = 33\ s$. A disturbance was applied by manually pulling the quadrotor down with a rope at $t = 42\ s$.
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -189,7 +224,9 @@ The control and estimation algorithms designed in Chapter \ref{ch:controlandesti
 
 
 \subsubsection{$H_\infty$ Controller}
-
+Under approximately the same environmental conditions, the altitude hold mode test is developed with the $H_\infty$ controller being executed in the smartphone on board the quadrotor.
+\\\\
+In Fig. \ref{fig:althold_h_imp} is seen that the disturbance was applied, pulling the rope, at $t = 49\ s$, while the altitude reference was changed at $t = 42\ s$.
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -219,77 +256,134 @@ The control and estimation algorithms designed in Chapter \ref{ch:controlandesti
 \label{fig:althold_h_imp}
 \end{figure}
 
-
-
-\subsection{GNSS-Dependent Mode}
+\subsubsection{Performance}
+The quadrotor altitude control is achieved when implementing both the LQI and $H_\infty$ controllers.
+The position error is calculated as the Euclidean distance between the quadrotor position and the reference position in each time step. The quadrotor achieves errors less than $0.4\ m$ during constant reference tracking, with both controllers. However, as shown in Fig. \ref{fig:althold_errorpos_imp}, during the reference change, the error is lower when executing the $H_\infty$ controller.
+\\\\
+In Table \ref{tb:althold_index}, the overshoot and setting time indices of the tests developed in the altitude hold mode, are shown. Regarding these indices, the $H_\infty$ controller presents slightly better results compared with the LQI controller.
+\begin{figure}[hh]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_errorpos_lqi_imp}
+\caption{Position error with LQI controller}
+\label{fig:althold_errorpos_lqi_imp}
+\end{subfigure}%
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=7.0cm]{althold_errorpos_h_imp}
+\caption{Position error with $H_\infty$ controller}
+\label{fig:althold_errorpos_h_imp}
+\end{subfigure}
+\caption{Position errors in altitude hold mode}
+\label{fig:althold_errorpos_imp}
+\end{figure}
+\begin{table}[h]
+\small
+\begin{center}
+\caption{Performance indices - Altitude holde mode tests}\label{tb:althold_index}
+\begin{tabular}{c|c|c|c}\hline
+\rule{0pt}{3ex} Controller & Controlled variable & Setting time $[s]$ & Overshoot $[\%]$ \\\hline\hline
+\rule{0pt}{3ex} 
+\multirow{1}{*}{LQI} 
+ & $z$ & $5.21$ & $8.71$ \\ \hline
+\multirow{1}{*}{$H_\infty$} 
+ & $z$ & $4.49$ & $5.36$ \\ \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+\\\\
+\subsection{GNSS-Dependent Modes}
+The tests regarding the GNSS-Dependent flight modes, are executed in the same scenario as the altitude hold mode tests. In this case, the variables of interest for the tests are the $ x $, $y $ and $ z $ positions.
+\\\\
+The references used in these tests are selected in a way that the same signal excursions as those used in Section \ref{sec:controldesign} are described. The performance of the controllers in the GNSS-Dependent modes is evaluated using the position error signal.
 
 \subsubsection{LQI Controller}
-
+This test was developed on the same soccer field as the altitude hold mode tests. During the execution of the test, there was no considerable presence of wind. In
+Fig. \ref{fig:auto_xyz_lqi_imp}, the results of the LQI controller test for GNSS-Dependent modes, are shown. As detailed in Section \ref{sec:controldesign}, the reference trajectory describes a square of two meters on each side, with constant altitude.
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{auto_xyz_lqi_imp}
+	\includegraphics[width=0.7\textwidth]{auto_xyz_lqi_imp}
 	\caption{Position response of the GNSS-Dependent modes with a LQI controller}
 	\label{fig:auto_xyz_lqi_imp}
 	\end{center}
 	\end{figure}
 	
-\begin{figure}[H]
-\begin{subfigure}{.5\linewidth}
-\centering
-\includegraphics[width=7.0cm]{auto_psi_lqi_imp}
-\caption{Yaw angle response}
-\label{fig:auto_psi_lqi_imp}
-\end{subfigure}%
-\begin{subfigure}{.5\linewidth}
-\centering
-\includegraphics[width=7.0cm]{auto_theta_lqi_imp}
-\caption{Roll angle response}
-\label{fig:auto_theta_lqi_imp}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{\linewidth}
-\centering
-\includegraphics[width=7.0cm]{auto_phi_lqi_imp}
-\caption{Pitch angle response}
-\label{fig:auto_psi_lqi_imp}
-\end{subfigure}
-\caption{Attitude response of the GNSS-Dependent modes with a LQI controller}
-\label{fig:auto_lqi_imp}
-\end{figure}
+%\begin{figure}[H]
+%\begin{subfigure}{.5\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_psi_lqi_imp}
+%\caption{Yaw angle response}
+%\label{fig:auto_psi_lqi_imp}
+%\end{subfigure}%
+%\begin{subfigure}{.5\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_theta_lqi_imp}
+%\caption{Roll angle response}
+%\label{fig:auto_theta_lqi_imp}
+%\end{subfigure}\\[1ex]
+%\begin{subfigure}{\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_phi_lqi_imp}
+%\caption{Pitch angle response}
+%\label{fig:auto_psi_lqi_imp}
+%\end{subfigure}
+%\caption{Attitude response of the GNSS-Dependent modes with a LQI controller}
+%\label{fig:auto_lqi_imp}
+%\end{figure}
 
 
 \subsubsection{$H_\infty$ Controller}
-
+The $H_\infty$ controller test, in GNSS-Dependent modes, was developed approximately $60$ minutes after the LQI controller test, with similar weather conditions.
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{auto_xyz_h_imp}
+	\includegraphics[width=0.7\textwidth]{auto_xyz_h_imp}
 	\caption{Position response of the GNSS-Dependent modes with a $H_\infty$ controller}
 	\label{fig:auto_xyz_h_imp}
 	\end{center}
 	\end{figure}
-	
-\begin{figure}[H]
+%	
+%\begin{figure}[H]
+%\begin{subfigure}{.5\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_psi_h_imp}
+%\caption{Yaw angle response}
+%\label{fig:auto_psi_h_imp}
+%\end{subfigure}%
+%\begin{subfigure}{.5\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_theta_h_imp}
+%\caption{Roll angle response}
+%\label{fig:auto_theta_h_imp}
+%\end{subfigure}\\[1ex]
+%\begin{subfigure}{\linewidth}
+%\centering
+%\includegraphics[width=7.0cm]{auto_phi_h_imp}
+%\caption{Pitch angle response}
+%\label{fig:auto_psi_h_imp}
+%\end{subfigure}
+%\caption{Attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
+%\label{fig:auto_h_imp}
+%\end{figure}
+
+
+\subsubsection{Performance}
+
+\begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{auto_psi_h_imp}
-\caption{Yaw angle response}
-\label{fig:auto_psi_h_imp}
+\includegraphics[width=7.0cm]{auto_errorpos_lqi_imp}
+\caption{Position error with LQI controller}
+\label{fig:auto_errorpos_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{auto_theta_h_imp}
-\caption{Roll angle response}
-\label{fig:auto_theta_h_imp}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{\linewidth}
-\centering
-\includegraphics[width=7.0cm]{auto_phi_h_imp}
-\caption{Pitch angle response}
-\label{fig:auto_psi_h_imp}
+\includegraphics[width=7.0cm]{auto_errorpos_h_imp}
+\caption{Position error with $H_\infty$ controller}
+\label{fig:auto_errorpos_h_imp}
 \end{subfigure}
-\caption{Attitude response of the GNSS-Dependent modes with a $H_\infty$ controller}
-\label{fig:auto_h_imp}
+\caption{Position errors in GNSS-Dependent mode}
+\label{fig:auto_errorpos_imp}
 \end{figure}
-
 
 
 

@@ -61,40 +61,40 @@ set(h,{'LineWidth'},{1})
 ylabel('PWM $M_1$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 140 180])
+axis([0 70 120 220])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_pwm1_lqi_imp.eps
-
+%%
 figure(9);
 h = plot(Scope_PWM2.time, Scope_PWM2.signals.values(:,1),'b')
 set(h,{'LineWidth'},{1})
 ylabel('PWM $M_2$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 140 170])
+axis([0 70 110 230])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_pwm2_lqi_imp.eps
-
+%%
 figure(10);
 h = plot(Scope_PWM3.time, Scope_PWM3.signals.values(:,1),'b')
 set(h,{'LineWidth'},{1})
 ylabel('PWM $M_3$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 140 180])
+axis([0 70 105 215])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_pwm3_lqi_imp.eps
-
+%%
 figure(11);
 h = plot(Scope_PWM4.time, Scope_PWM4.signals.values(:,1),'b')
 set(h,{'LineWidth'},{1})
 ylabel('PWM $M_4$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 140 170])
+axis([0 70 105 205])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_pwm4_lqi_imp.eps
@@ -106,7 +106,7 @@ set(h,{'LineWidth'},{1})
 ylabel('$T_u$ $[N]$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 13.5 17])
+axis([0 70 13.5 23])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_u_lqi_imp.eps
@@ -128,7 +128,7 @@ set(h,{'LineWidth'},{1})
 ylabel('$\tau_\theta$ $[N\cdot m]$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 -0.08 0.08])
+axis([0 70 -0.36 0.36])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_tautheta_lqi_imp.eps
@@ -139,7 +139,7 @@ set(h,{'LineWidth'},{1})
 ylabel('$\tau_\phi$ $[N\cdot m]$','FontSize',12,'Interpreter','latex');
 xlabel('$Time$ $[s]$','FontSize',12,'Interpreter','latex');
 grid on
-axis([0 70 -0.1 0.1])
+axis([0 70 -0.25 0.25])
 a = get(gca,'XTickLabel');
 set(gca,'TickLabelInterpreter', 'latex','fontsize',18)
 print -depsc2 althold_tauphi_lqi_imp.eps

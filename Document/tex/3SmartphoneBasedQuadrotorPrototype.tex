@@ -230,7 +230,7 @@ J_{xx} & 0 & 0 \\
 0 & 0 & J_{zz}
 \end{bmatrix}.
 \end{equation}
-The $J_{xx}$, $J_{yy}$ and $J_{zz}$ values can be obtained using multiple methods including: using a CAD model of the quadrotor and obtaining the inertia values from a 3D design software (\cite{Khodja2017}), approximating the shape of the quadrotor components to cylinders, cubes and other basic shapes to simplify the mathematical calculation of inertia (\cite{Tomas2011}), and developing the bifilar pendulum experiment on the quadrotor (\cite{Garcia2017}). For this project, it was decided to obtain the quadrotor parameters experimentally, so the bifiliar pendulum experiment was developed.
+The $J_{xx}$, $J_{yy}$ and $J_{zz}$ values can be obtained using multiple methods including: using a CAD model of the quadrotor and obtaining the inertia values from a 3D design software \cite{Khodja2017}, approximating the shape of the quadrotor components to cylinders, cubes and other basic shapes to simplify the mathematical calculation of inertia \cite{Tomas2011}, and developing the bifilar pendulum experiment on the quadrotor \cite{Garcia2017}. For this project, it was decided to obtain the quadrotor parameters experimentally, so the bifiliar pendulum experiment was developed.
 \\\\
 In the bifilar pendulum experiment, an object is hung from two parallel ropes of length $r$ and separated by a distance $2l$, being allowed to rotate freely around a the axis that is parallel to the ropes. In Fig. \ref{fig:bifilar}, the geometry of the experiment to get  $J_{zz}$, is shown. For the $J_{xx}$ and $J_{yy}$ inertias experiment, it is necessary to place the quadrotor hanging in such a way that the $x$ and $y$ axes are pointing paraller to the ropes, respectively.
 \begin{figure}[h]
@@ -246,7 +246,7 @@ The moment of inertia is then calculated using the bifiliar equation
 \begin{equation}
 J.. = \dfrac{mgT_{osc}^{2}l^{2}}{4\pi^{2}r}\ [kg\cdot m^{2}],
 \end{equation}
-where $m = 1.568\ kg$ is the quadrotor's total mass and $g = 9.807\ m/s^{2}$ is the gravity acceleration magnitude (\cite{Mustapa2016}).
+where $m = 1.568\ kg$ is the quadrotor's total mass and $g = 9.807\ m/s^{2}$ is the gravity acceleration magnitude \cite{Mustapa2016}.
 \\\\
 In Fig. \ref{fig:inertiatest}, it is shown the excursion of the rotation angles, $\phi$, $\theta$ and $\psi$, about the $x$, $y$ and $z$ axes respectively, while performing the bifilar pendulum experiment separately.
 \begin{figure}[H]

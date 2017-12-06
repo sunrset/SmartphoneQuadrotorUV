@@ -50,35 +50,28 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Ground Control System main interface\relax }}{79}{figure.caption.83}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Controller settings in GCS\relax }}{81}{figure.caption.91}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Complete implemented Smartphone-based UAS\relax }}{82}{figure.caption.92}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{83}{figure.caption.94}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{84}{figure.caption.96}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{85}{figure.caption.98}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{86}{figure.caption.100}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{87}{figure.caption.102}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{88}{figure.caption.103}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{89}{figure.caption.105}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{89}{figure.caption.106}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Stabilize mode test bench\relax }}{83}{figure.caption.93}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{83}{figure.caption.95}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{84}{figure.caption.97}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{86}{figure.caption.101}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{87}{figure.caption.103}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Position errors in altitude hold mode\relax }}{88}{figure.caption.105}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{89}{figure.caption.108}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{90}{figure.caption.110}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Position errors in GNSS-Dependent mode\relax }}{90}{figure.caption.112}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.109}
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.110}
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{100}{figure.caption.111}
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{101}{figure.caption.113}
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{102}{figure.caption.114}
-\contentsline {figure}{\numberline {C.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{103}{figure.caption.115}
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{104}{figure.caption.118}
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{105}{figure.caption.119}
-\contentsline {figure}{\numberline {C.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{106}{figure.caption.120}
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{107}{figure.caption.122}
-\contentsline {figure}{\numberline {C.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{108}{figure.caption.123}
-\contentsline {figure}{\numberline {C.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{109}{figure.caption.124}
-\contentsline {figure}{\numberline {C.13}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{110}{figure.caption.127}
-\contentsline {figure}{\numberline {C.14}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{110}{figure.caption.128}
-\contentsline {figure}{\numberline {C.15}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{111}{figure.caption.129}
-\contentsline {figure}{\numberline {C.16}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{112}{figure.caption.130}
-\contentsline {figure}{\numberline {C.17}{\ignorespaces Closed-loop of the controlled system with an $H_{\infty }$ controller.\relax }}{113}{figure.caption.132}
-\contentsline {figure}{\numberline {C.18}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{113}{figure.caption.133}
-\contentsline {figure}{\numberline {C.19}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{114}{figure.caption.134}
-\contentsline {figure}{\numberline {C.20}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{115}{figure.caption.135}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.115}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.118}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.116}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.119}
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{100}{figure.caption.122}
+\contentsline {figure}{\numberline {C.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{101}{figure.caption.123}
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{102}{figure.caption.125}
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{103}{figure.caption.126}
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{104}{figure.caption.129}
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{105}{figure.caption.130}
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{106}{figure.caption.132}
+\contentsline {figure}{\numberline {C.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{107}{figure.caption.133}
