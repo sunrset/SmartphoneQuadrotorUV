@@ -5,12 +5,13 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces Sample Rates of the Sensors in the Smartphone\relax }}{32}{table.caption.22}
 \contentsline {table}{\numberline {3.2}{\ignorespaces Maximum Power Consumption of the Quadrotor's Components\relax }}{35}{table.caption.25}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Mass values of all the Quadrotor's components\relax }}{39}{table.caption.34}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Mass values of all the Quadrotor's components\relax }}{38}{table.caption.34}
 \contentsline {table}{\numberline {3.4}{\ignorespaces Bifilar pendulum experiment results\relax }}{41}{table.caption.37}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Performance indices - Stabilize mode tests\relax }}{85}{table.caption.99}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Performance indices - Altitude holde mode tests\relax }}{88}{table.caption.106}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Performance indices - Stabilize mode tests\relax }}{83}{table.caption.99}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Performance indices - Altitude hold mode tests\relax }}{86}{table.caption.106}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Error mean - GNSS-Dependent modes tests\relax }}{88}{table.caption.113}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

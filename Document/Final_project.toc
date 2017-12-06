@@ -5,16 +5,16 @@
 \contentsline {chapter}{List of Figures}{xiii}{chapter*.4}
 \contentsline {chapter}{List of Tables}{xvii}{chapter*.5}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Unmanned Aircraft Vehicles (UAV)}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Fixed-Wing UAVs}{2}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Rotary-Wing UAVs}{3}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Literature Review}{4}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Control Strategies and State Estimation in Quadrotors}{4}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Quadrotor Flight Modes}{6}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Smartphones in Control Systems}{7}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Smartphone-based Quadrotors}{8}{subsection.1.2.4}
-\contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{9}{section*.11}
-\contentsline {section}{\numberline {1.3}Motivation}{10}{section.1.3}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Unmanned Aircraft Vehicles (UAV)}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Fixed-Wing UAVs}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Rotary-Wing UAVs}{3}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Literature Review}{5}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Control Strategies and State Estimation in Quadrotors}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Quadrotor Flight Modes}{7}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Smartphones in Control Systems}{8}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Smartphone-based Quadrotors}{9}{subsection.1.3.4}
+\contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{10}{section*.11}
 \contentsline {section}{\numberline {1.4}Research Problem}{11}{section.1.4}
 \contentsline {section}{\numberline {1.5}Objectives}{11}{section.1.5}
 \contentsline {subsubsection}{General Objective}{11}{section*.12}
@@ -48,67 +48,69 @@
 \contentsline {subsection}{\numberline {3.1.7}Assembled Smartphone-based Quadrotor}{37}{subsection.3.1.7}
 \contentsline {section}{\numberline {3.2}Quadrotor Parameters}{38}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Mass}{38}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Moments of Inertia}{39}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Motors Thrust}{42}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Motors Torque}{43}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Conclusions}{45}{section.3.3}
-\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Concept and Generalities}{48}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{48}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{48}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Control Strategies}{49}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral (LQI) Controller}{50}{subsection.4.2.1}
-\contentsline {subsubsection}{Optimal Problem Solution}{50}{section*.42}
-\contentsline {subsubsection}{Reference Tracking}{51}{section*.43}
-\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{53}{subsection.4.2.2}
-\contentsline {subsubsection}{$H_\infty $ Synthesis for Controller Design}{53}{section*.45}
-\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{54}{section*.48}
-\contentsline {section}{\numberline {4.3}Controllers Design and Simulation}{55}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{55}{subsection.4.3.1}
-\contentsline {subsubsection}{Dynamic Model}{55}{section*.49}
-\contentsline {subsubsection}{LQI Controller}{56}{section*.50}
-\contentsline {subsubsection}{$H_\infty $ Controller}{57}{section*.52}
-\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{59}{subsection.4.3.2}
-\contentsline {subsubsection}{Dynamic Model}{60}{section*.56}
-\contentsline {subsubsection}{LQI Controller}{61}{section*.57}
-\contentsline {subsubsection}{$H_\infty $ Controller}{62}{section*.59}
-\contentsline {subsection}{\numberline {4.3.3}GNSS-Dependent Flight Modes}{65}{subsection.4.3.3}
-\contentsline {subsubsection}{Dynamic Model}{65}{section*.63}
-\contentsline {subsubsection}{LQI Controller}{66}{section*.64}
-\contentsline {subsubsection}{$H_\infty $ Controller}{68}{section*.67}
-\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{71}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{71}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Position Measurement}{72}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}States Estimation}{72}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Conclusions}{74}{section.4.5}
-\contentsline {chapter}{\numberline {5}Implementation and Results}{75}{chapter.5}
-\contentsline {section}{\numberline {5.1}Android Application}{75}{section.5.1}
-\contentsline {subsubsection}{Launch Activity}{77}{section*.74}
-\contentsline {subsubsection}{Main Activity}{77}{section*.75}
-\contentsline {subsubsection}{Mission Activity}{77}{section*.76}
-\contentsline {subsubsection}{Information Activity}{78}{section*.77}
-\contentsline {subsubsection}{Tests Activity}{78}{section*.78}
-\contentsline {subsubsection}{Communication Test Activity}{78}{section*.79}
-\contentsline {subsubsection}{Position Test Activity}{78}{section*.80}
-\contentsline {subsubsection}{Attitude Test Activity}{78}{section*.81}
-\contentsline {subsubsection}{Motors Test Activity}{78}{section*.82}
-\contentsline {section}{\numberline {5.2}Ground Control Station (GCS)}{79}{section.5.2}
-\contentsline {section}{\numberline {5.3}Flight Tests}{82}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Stabilize Mode}{82}{subsection.5.3.1}
-\contentsline {subsubsection}{LQI Controller}{82}{section*.94}
-\contentsline {subsubsection}{$H_\infty $ Controller}{84}{section*.96}
-\contentsline {subsubsection}{Performance}{85}{section*.98}
-\contentsline {subsection}{\numberline {5.3.2}Altitude Hold Mode}{85}{subsection.5.3.2}
-\contentsline {subsubsection}{LQI Controller}{85}{section*.100}
-\contentsline {subsubsection}{$H_\infty $ Controller}{86}{section*.102}
-\contentsline {subsubsection}{Performance}{87}{section*.104}
-\contentsline {subsection}{\numberline {5.3.3}GNSS-Dependent Modes}{88}{subsection.5.3.3}
-\contentsline {subsubsection}{LQI Controller}{88}{section*.107}
-\contentsline {subsubsection}{$H_\infty $ Controller}{89}{section*.109}
-\contentsline {subsubsection}{Performance}{89}{section*.111}
+\contentsline {subsection}{\numberline {3.2.2}Moments of Inertia}{38}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Motor Thrust}{41}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Motor Torque}{43}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Conclusions}{44}{section.3.3}
+\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{45}{chapter.4}
+\contentsline {section}{\numberline {4.1}Concept and Generalities}{46}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{46}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{46}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Control Strategies}{47}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral (LQI) Controller}{48}{subsection.4.2.1}
+\contentsline {subsubsection}{Optimal Problem Solution}{48}{section*.42}
+\contentsline {subsubsection}{Reference Tracking}{49}{section*.43}
+\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{51}{subsection.4.2.2}
+\contentsline {subsubsection}{$H_\infty $ Synthesis for Controller Design}{51}{section*.45}
+\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{52}{section*.48}
+\contentsline {section}{\numberline {4.3}Controllers Design and Simulation}{53}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{53}{subsection.4.3.1}
+\contentsline {subsubsection}{Dynamic Model}{53}{section*.49}
+\contentsline {subsubsection}{LQI Controller}{54}{section*.50}
+\contentsline {subsubsection}{$H_\infty $ Controller}{55}{section*.52}
+\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{57}{subsection.4.3.2}
+\contentsline {subsubsection}{Dynamic Model}{58}{section*.56}
+\contentsline {subsubsection}{LQI Controller}{59}{section*.57}
+\contentsline {subsubsection}{$H_\infty $ Controller}{60}{section*.59}
+\contentsline {subsection}{\numberline {4.3.3}GNSS-Dependent Flight Modes}{63}{subsection.4.3.3}
+\contentsline {subsubsection}{Dynamic Model}{63}{section*.63}
+\contentsline {subsubsection}{LQI Controller}{64}{section*.64}
+\contentsline {subsubsection}{$H_\infty $ Controller}{66}{section*.67}
+\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{69}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{69}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Position Measurement}{70}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}States Estimation}{70}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Conclusions}{72}{section.4.5}
+\contentsline {chapter}{\numberline {5}Implementation and Results}{73}{chapter.5}
+\contentsline {section}{\numberline {5.1}Android Application}{73}{section.5.1}
+\contentsline {subsubsection}{Launch Activity}{75}{section*.74}
+\contentsline {subsubsection}{Main Activity}{75}{section*.75}
+\contentsline {subsubsection}{Mission Activity}{75}{section*.76}
+\contentsline {subsubsection}{Information Activity}{76}{section*.77}
+\contentsline {subsubsection}{Tests Activity}{76}{section*.78}
+\contentsline {subsubsection}{Communication Test Activity}{76}{section*.79}
+\contentsline {subsubsection}{Position Test Activity}{76}{section*.80}
+\contentsline {subsubsection}{Attitude Test Activity}{76}{section*.81}
+\contentsline {subsubsection}{Motors Test Activity}{76}{section*.82}
+\contentsline {section}{\numberline {5.2}Ground Control Station (GCS)}{77}{section.5.2}
+\contentsline {section}{\numberline {5.3}Flight Tests}{80}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Stabilize Mode}{80}{subsection.5.3.1}
+\contentsline {subsubsection}{LQI Controller}{80}{section*.94}
+\contentsline {subsubsection}{$H_\infty $ Controller}{82}{section*.96}
+\contentsline {subsubsection}{Performance}{83}{section*.98}
+\contentsline {subsection}{\numberline {5.3.2}Altitude Hold Mode}{83}{subsection.5.3.2}
+\contentsline {subsubsection}{LQI Controller}{83}{section*.100}
+\contentsline {subsubsection}{$H_\infty $ Controller}{84}{section*.102}
+\contentsline {subsubsection}{Performance}{85}{section*.104}
+\contentsline {subsection}{\numberline {5.3.3}GNSS-Dependent Modes}{86}{subsection.5.3.3}
+\contentsline {subsubsection}{LQI Controller}{86}{section*.107}
+\contentsline {subsubsection}{$H_\infty $ Controller}{87}{section*.109}
+\contentsline {subsubsection}{Performance}{87}{section*.111}
 \contentsline {section}{\numberline {5.4}Conclusions}{89}{section.5.4}
 \contentsline {chapter}{\numberline {6}Conclusions and Outlook }{91}{chapter.6}
-\contentsline {chapter}{Appendix \numberline {A}Publications}{93}{Appendix.a.A}
-\contentsline {chapter}{Appendix \numberline {B}Supplementary Material}{95}{Appendix.a.B}
-\contentsline {chapter}{Appendix \numberline {C}Control Signals in Flight Tests}{97}{Appendix.a.C}
-\contentsline {chapter}{Bibliography}{109}{appendix*.134}
+\contentsline {section}{\numberline {6.1}Conclusions}{91}{section.6.1}
+\contentsline {section}{\numberline {6.2}Outlook}{92}{section.6.2}
+\contentsline {chapter}{Appendix \numberline {A}Publications}{95}{Appendix.a.A}
+\contentsline {chapter}{Appendix \numberline {B}Supplementary Material}{97}{Appendix.a.B}
+\contentsline {chapter}{Appendix \numberline {C}Control Signals in Flight Tests}{99}{Appendix.a.C}
+\contentsline {chapter}{Bibliography}{113}{appendix*.135}

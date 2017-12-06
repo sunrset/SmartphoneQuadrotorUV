@@ -1,17 +1,15 @@
 \chapter{Control Strategies and State Estimation} \label{ch:controlandestimation}
-This project seeks to evaluate control strategies designed for a quadrotor, test its performance in simulation, and then implement them in the smartphone-based quadrotor prototype. In this chapter, the design procedure of the control and estimation algorithms for the quadrotor is shown. This algorithms are based on the linearized model of the quadrotor, detailed in Section \ref{sec:linearized}. Also, all the simulations carried out in MATLAB to verify the proper functioning of the designed algorithms are exposed.
+This project has the aim to evaluate control strategies designed for a quadrotor, test its performance in simulation, and then implement them in the smartphone-based quadrotor prototype. In this chapter, the design procedure of the control and estimation algorithms for the quadrotor is shown. This algorithms are based on the linearized model of the quadrotor, detailed in Section \ref{sec:linearized}. Also, all the simulations were carried out in MATLAB to verify the proper functioning of the designed algorithms.
 \\\\
-The state-space representation of the system, and the concept of controllability and observability, are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. This controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
+The state-space representation of the system, and the concept of controllability and observability, are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. These controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
 \\\\
-Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode. All the simulations are done using the non-linear dynamics model of the quadrotor.
-\\\\
-Finally, the state estimation algorithm developed mainly for the case of the LQI controller, is detailed in Section \ref{sec:stateestimation}.
+Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode. All the simulations are done using the non-linear dynamics model of the quadrotor. Finally, the state estimation algorithm is detailed in Section \ref{sec:stateestimation}.
 
 \section{Concept and Generalities}
 \label{sec:generalities}
 
 \subsection{State Space Representation}
-Recalling from Section \ref{sec:linearized}, the dynamic model of the quadrotor, based on its six $DoF$, is represented by the linear state-space model
+Recalling from Section \ref{sec:linearized}, the quadrotor model has 6 $DoF$ and it can be represented by
 \begin{align}
 \label{ec:statespace}
 \begin{split}
@@ -31,7 +29,7 @@ For simplicity, the state-space model representation shown in (\ref{ec:statespac
 \end{array}
 \mright],
 \end{equation}
-For the design of each controller, only the dynamics that are required to control, according to the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
+For the design of each controller, only the dynamics that are required to control, depending on the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
 \\\\
 Since the control system is implemented in a smartphone, whose algorithms are executed with a sample time of $t_{k} = 0.01\ s$, the system $\mathcal{G}$ is discretized. The discrete system $\mathcal{G}_k$ is got using the Zero Order Hold (ZOH) equivalent method, and the sample time $t_{k} = 0.01\ s$. The discrete state-space model $\mathcal{G}_k$ is represented by
 \begin{align}
@@ -92,11 +90,11 @@ In this case, if the matrices $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ are positi
 
 \section{Control Strategies}
 \label{sec:controlstrategies}
-This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic integral controller is described. It includes a regulator and an estimator, in addition to a gain compensator, allowing the system to track a trajectory. The design process of a $H_{\infty}$ controller is shown, taking into account some weighting sensitivities.
+This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic regulator with integral feedback (linear quadratic integral controller) is described. The design process of a $H_{\infty}$ controller is also shown, taking into account weighting sensitivities.
 
 \subsection{Linear Quadratic Integral (LQI) Controller}
 \subsubsection{Optimal Problem Solution}
-The design of optimal controllers seeks that a dynamic system can be controlled achieving a minimum cost. The cost function is determined by the control designer \cite{Steinbuch2007}. Designing an finite-time regulator, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $\mathcal{V}$ as
+The design of optimal controllers seeks that a dynamic system can be controlled achieving a minimum cost. The cost function is determined by the control designer \cite{Steinbuch2007}. With a finite horizon, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $\mathcal{V}$ as
 \begin{equation}
 \label{eqn:cost}
 \mathcal{V} = \int_{0}^{T}\mathcal{L}(\mathbf{x},\mathbf{u},t)\ dt + \Psi(\mathbf{x},\mathbf{u},t),
@@ -128,7 +126,7 @@ is the Hamiltonian function, with $\lambda_\mathcal{P}$ being the vector of co-s
 0 & = \dfrac{\partial \mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)}{\partial \mathbf{u}} = \mathcal{R}\mathbf{u}(t) + \lambda_\mathcal{P}^{T}(t)B.
 \end{split}
 \end{align}
-Thereby, from (\ref{eqn:hamilt}), the optimal solution to $\mathbf{u}$ that minimizes $\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)$, and by Pontryagin maximum principle, the cost function $\mathcal{V}$, is
+Thereby, from (\ref{eqn:hamilt}), considering the Pontryagin maximum principle, the optimal solution of $\mathbf{u}$ that minimizes $\mathcal{H}(\mathbf{x},\mathbf{u},\lambda_\mathcal{P},t)$ and the cost function $\mathcal{V}$, is
 \begin{equation}
 \mathbf{u}^{*}(t) = -\mathcal{R}^{-1}B^{T}\lambda_\mathcal{P}(t).
 \end{equation}
@@ -163,7 +161,7 @@ When the desired state value $\mathbf{x_{des}}$ is different from zero, these re
 due to the fact that the error $\mathbf{e_x} = \mathbf{x} - \mathbf{x_{des}}$ is used as the feedback vector of the LQR.
 
 \subsubsection{Reference Tracking}
-For the quadrotor position control, a controller capable of reference tracking is necessary. However, the LQR controller is not made for reference tracking, but just for regulation. This is overcame making use of a Linear Quadratic Integral (LQI) controller, which is a LQR with an additional integral feedback. The integral action ensures that a zero steady-state error is achieved. 
+For the quadrotor position control, a controller capable of reference tracking is needed. However, the LQR controller is not made for reference tracking, but just for regulation. This is overcame making use of a Linear Quadratic Integral (LQI) controller, which is a LQR with an additional integral feedback. The integral action ensures that a zero steady-state error is achieved. 
 \\\\
 The approach of using integral feedback with a LQR to provide tracking capabilities to the control system, is based on the augmentation of the state vector $\mathbf{x}$ with a vector
 \begin{equation}
@@ -887,5 +885,5 @@ This algorithm is executed once every sampling period, after which, the controll
 
 
 \section{Conclusions}
-The control and state estimation algorithms design procedure is presented in this chapter. The concepts of representation of a system as a state space model, controllability and observability, were introduced in the first part. Given the need to achieve trajectory tracking with the quadrotor, a LQR controller with integral feedback LQI is designed. This controller ensures zero steady-state error. Also, it is designed a controller based on the $H_\infty$ synthesis. The performance of these controllers acting with the non-linear dynamic model of the quadrotor, is simulated. In simulations, the $H_\infty$ controller showed a better performance when subjected to exactly the same disturbances and reference changes as the LQI controller.
+The control and state estimation algorithms design procedure is presented in this chapter. The concepts of representation of a system as a state space model, controllability and observability, were introduced in the first part. Given the need to achieve trajectory tracking with the quadrotor, a LQR controller with integral feedback LQI is designed. This controller ensures zero steady-state error. Also, a controller based on the $H_\infty$ synthesis is designed. The performance of these controllers is simulated acting with the non-linear dynamic model of the quadrotor. As a result of these simulations, the $H_\infty$ controller showed a better performance when subjected to exactly the same disturbances and reference changes as the LQI controller.
 Finally, due to the principle of separation, a state estimator based on a Kalman filter is designed taking into account the accuracy of the smartphone measurements.

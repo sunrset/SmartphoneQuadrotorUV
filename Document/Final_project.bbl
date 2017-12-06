@@ -21,6 +21,44 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Liu2015}
+H.~Liu and X.~Wang, ``{Quaternion-based robust attitude control for
+  quadrotors},'' in \emph{2015 International Conference on Unmanned Aircraft
+  Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
+  920--925.
+
+\bibitem{Lopez2015}
+R.~Lopez, I.~Gonzalez-Hernandez, S.~Salazar, A.~E. Rodriguez, J.~J. Ordaz, and
+  A.~Osorio, ``{Disturbance rejection for a Quadrotor aircraft through a robust
+  control},'' in \emph{2015 International Conference on Unmanned Aircraft
+  Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
+  409--415.
+
+\bibitem{Jung2014}
+J.~Jung, Y.~Jung, D.~You, and D.~H. Shim, ``{A flight control system design for
+  highly unstable unmanned combat aerial vehicles},'' in \emph{2014
+  International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1117--1125.
+
+\bibitem{Kohno2014}
+S.~Kohno and K.~Uchiyama, ``{Design of robust controller of fixed-wing UAV for
+  transition flight},'' in \emph{2014 International Conference on Unmanned
+  Aircraft Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, may
+  2014, pp. 1111--1116.
+
+\bibitem{Shang2016}
+B.~Shang, J.~Liu, T.~Zhao, and Y.~Chen, ``{Fractional order robust visual
+  servoing control of a quadrotor UAV with larger sampling period},'' in
+  \emph{2016 International Conference on Unmanned Aircraft Systems (ICUAS)},
+  vol.~1, no. 209.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2016, pp.
+  1228--1234.
+
+\bibitem{Salazar2014}
+S.~Salazar, I.~Gonzalez-Hernandez, R.~Lopez, and R.~Lozano, ``{Simulation and
+  robust trajectory-tracking for a Quadrotor UAV},'' in \emph{2014
+  International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1167--1174.
+
 \bibitem{Bouabdallah2007}
 S.~Bouabdallah, ``{Design and Control of Quadrotors With Application To
   Autonomous Flying},'' Ph.D. dissertation, {\'{E}}cole Polytechnique
@@ -347,44 +385,6 @@ P.~Bryant, G.~Gradwell, and D.~Claveau, ``{Autonomous UAS controlled by onboard
   smartphone},'' in \emph{2015 International Conference on Unmanned Aircraft
   Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
   451--454.
-
-\bibitem{Liu2015}
-H.~Liu and X.~Wang, ``{Quaternion-based robust attitude control for
-  quadrotors},'' in \emph{2015 International Conference on Unmanned Aircraft
-  Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  920--925.
-
-\bibitem{Lopez2015}
-R.~Lopez, I.~Gonzalez-Hernandez, S.~Salazar, A.~E. Rodriguez, J.~J. Ordaz, and
-  A.~Osorio, ``{Disturbance rejection for a Quadrotor aircraft through a robust
-  control},'' in \emph{2015 International Conference on Unmanned Aircraft
-  Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2015, pp.
-  409--415.
-
-\bibitem{Jung2014}
-J.~Jung, Y.~Jung, D.~You, and D.~H. Shim, ``{A flight control system design for
-  highly unstable unmanned combat aerial vehicles},'' in \emph{2014
-  International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1117--1125.
-
-\bibitem{Kohno2014}
-S.~Kohno and K.~Uchiyama, ``{Design of robust controller of fixed-wing UAV for
-  transition flight},'' in \emph{2014 International Conference on Unmanned
-  Aircraft Systems (ICUAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, may
-  2014, pp. 1111--1116.
-
-\bibitem{Shang2016}
-B.~Shang, J.~Liu, T.~Zhao, and Y.~Chen, ``{Fractional order robust visual
-  servoing control of a quadrotor UAV with larger sampling period},'' in
-  \emph{2016 International Conference on Unmanned Aircraft Systems (ICUAS)},
-  vol.~1, no. 209.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jun 2016, pp.
-  1228--1234.
-
-\bibitem{Salazar2014}
-S.~Salazar, I.~Gonzalez-Hernandez, R.~Lopez, and R.~Lozano, ``{Simulation and
-  robust trajectory-tracking for a Quadrotor UAV},'' in \emph{2014
-  International Conference on Unmanned Aircraft Systems (ICUAS)}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, may 2014, pp. 1167--1174.
 
 \bibitem{Bresciani2008}
 T.~Bresciani, ``{Modelling, Identification and Control of a Quadrotor

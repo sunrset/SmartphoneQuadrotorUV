@@ -17,66 +17,66 @@ All supplementary material including the Android app code, GCS code, Arduino cod
 
 
 \chapter{Control Signals in Flight Tests}\label{controlsignals}
-Some text
+
 \section*{Stabilize Mode}
 
 \subsection*{LQI Controller}
 
-\begin{figure}[h]
-\begin{subfigure}{.4\linewidth}
+\begin{figure}[H]
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_u_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:stabilize_u_lqi_imp}
 \end{subfigure}%
-\begin{subfigure}{.4\linewidth}
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_taupsi_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:stabilize_taupsi_lqi_imp}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{0.4\linewidth}
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_tautheta_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:stabilize_tautheta_lqi_imp}
 \end{subfigure}
-\begin{subfigure}{0.4\linewidth}
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_tauphi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:stabilize_tauphi_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in LQI control test for stabilize mode}
 \label{fig:stabilize_control_lqi}
 \end{figure}
 
-\begin{figure}[h]
-\begin{subfigure}{.4\linewidth}
+\begin{figure}[H]
+\begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm1_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:stabilize_pwm_lqi_imp}
 \end{subfigure}%
-\begin{subfigure}{.4\linewidth}
+\begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm2_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:stabilize_pwm2_lqi_imp}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{0.4\linewidth}
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm3_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:stabilize_pwm3_lqi_imp}
 \end{subfigure}
-\begin{subfigure}{0.4\linewidth}
+\begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm4_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:stabilize_pwm4_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in LQI control test for stabilize mode}
 \label{fig:stabilize_pwm_lqi}
 \end{figure}
 
@@ -86,28 +86,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_u_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:stabilize_u_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_taupsi_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:stabilize_taupsi_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_tautheta_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:stabilize_tautheta_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_tauphi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:stabilize_tauphi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in $H_\infty$ control test for stabilize mode}
 \label{fig:stabilize_control_h}
 \end{figure}
 
@@ -115,62 +115,60 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm1_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:stabilize_pwm_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm2_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:stabilize_pwm2_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm3_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:stabilize_pwm3_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{stabilize_pwm4_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:stabilize_pwm4_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in $H_\infty$ control test for stabilize mode}
 \label{fig:stabilize_pwm_h}
 \end{figure}
 
 
 \section*{Altitude Hold Mode}
-
 \subsection*{LQI Controller}
-
 \begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_u_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:althold_u_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_taupsi_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:althold_taupsi_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_tautheta_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:althold_tautheta_lqi_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_tauphi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:althold_tauphi_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in LQI control test for altitude hold mode}
 \label{fig:althold_control_lqi}
 \end{figure}
 
@@ -178,28 +176,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm1_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:althold_pwm_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm2_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:althold_pwm2_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm3_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:althold_pwm3_lqi_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm4_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:althold_pwm4_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in LQI control test for altitude hold mode}
 \label{fig:althold_pwm_lqi}
 \end{figure}
 
@@ -209,28 +207,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_u_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:althold_u_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_taupsi_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:althold_taupsi_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_tautheta_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:althold_tautheta_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_tauphi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:althold_tauphi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in $H_\infty$ control test for altitude hold mode}
 \label{fig:althold_control_h}
 \end{figure}
 
@@ -238,28 +236,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm1_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:althold_pwm_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm2_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:althold_pwm2_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm3_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:althold_pwm3_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{althold_pwm4_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:althold_pwm4_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in $H_\infty$ control test for altitude hold mode}
 \label{fig:althold_pwm_h}
 \end{figure}
 
@@ -271,28 +269,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_u_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:auto_u_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_taupsi_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:auto_taupsi_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_tautheta_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:auto_tautheta_lqi_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_tauphi_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:auto_tauphi_h_lqi}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in LQI control test for GNSS-Dependent modes}
 \label{fig:auto_control_lqi}
 \end{figure}
 
@@ -300,28 +298,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm1_lqi_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:auto_pwm_lqi_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm2_lqi_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:auto_pwm2_lqi_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm3_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:auto_pwm3_lqi_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm4_lqi_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:auto_pwm4_lqi_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in LQI control test for GNSS-Dependent modes}
 \label{fig:auto_pwm_lqi}
 \end{figure}
 
@@ -333,28 +331,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_u_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{Thrust}
 \label{fig:auto_u_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_taupsi_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{Yaw torque}
 \label{fig:auto_taupsi_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_tautheta_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Roll torque}
 \label{fig:auto_tautheta_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_tauphi_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{Pitch torque}
 \label{fig:auto_tauphi_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{Control signals in $H_\infty$ control test for GNSS-Dependent modes}
 \label{fig:auto_control_h}
 \end{figure}
 
@@ -362,28 +360,28 @@ Some text
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm1_h_imp}
-\caption{Rotation about $x$ axis, $J_{xx}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_1$}
 \label{fig:auto_pwm_h_imp}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm2_h_imp}
-\caption{Rotation about $y$ axis, $J_{yy}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_2$}
 \label{fig:auto_pwm2_h_imp}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm3_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_3$}
 \label{fig:auto_pwm3_h_imp}
 \end{subfigure}
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_pwm4_h_imp}
-\caption{Rotation about $z$ axis, $J_{zz}$ experiment}
+\caption{\textit{PWM} signal in Motor $M_4$}
 \label{fig:auto_pwm4_h_imp}
 \end{subfigure}
-\caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
+\caption{\textit{PWM} signals in $H_\infty$ control test for GNSS-Dependent modes}
 \label{fig:auto_pwm_h}
 \end{figure}
 

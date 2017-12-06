@@ -280,7 +280,7 @@ In Table \ref{tb:althold_index}, the overshoot and setting time indices of the t
 \begin{table}[h]
 \small
 \begin{center}
-\caption{Performance indices - Altitude holde mode tests}\label{tb:althold_index}
+\caption{Performance indices - Altitude hold mode tests}\label{tb:althold_index}
 \begin{tabular}{c|c|c|c}\hline
 \rule{0pt}{3ex} Controller & Controlled variable & Setting time $[s]$ & Overshoot $[\%]$ \\\hline\hline
 \rule{0pt}{3ex} 
@@ -298,8 +298,9 @@ The tests regarding the GNSS-Dependent flight modes, are executed in the same sc
 The references used in these tests are selected in a way that the same signal excursions as those used in Section \ref{sec:controldesign} are described. The performance of the controllers in the GNSS-Dependent modes is evaluated using the position error signal.
 
 \subsubsection{LQI Controller}
-This test was developed on the same soccer field as the altitude hold mode tests. During the execution of the test, there was no considerable presence of wind. In
-Fig. \ref{fig:auto_xyz_lqi_imp}, the results of the LQI controller test for GNSS-Dependent modes, are shown. As detailed in Section \ref{sec:controldesign}, the reference trajectory describes a square of two meters on each side, with constant altitude.
+This test was developed on the same football field as the altitude hold mode tests. During the execution of the test, there was no considerable presence of wind.
+\\\\
+In Fig. \ref{fig:auto_xyz_lqi_imp}, the results of the LQI controller test for GNSS-Dependent modes, are shown. As detailed in Section \ref{sec:controldesign}, the cyclic reference trajectory describes a square of two meters on each side, with constant altitude. 
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{auto_xyz_lqi_imp}
@@ -333,7 +334,7 @@ Fig. \ref{fig:auto_xyz_lqi_imp}, the results of the LQI controller test for GNSS
 
 
 \subsubsection{$H_\infty$ Controller}
-The $H_\infty$ controller test, in GNSS-Dependent modes, was developed approximately $60$ minutes after the LQI controller test, with similar weather conditions.
+The $H_\infty$ controller test, in GNSS-Dependent modes, was developed approximately $60$ minutes after the LQI controller test, with similar weather conditions, and the same reference trajectory. The results of these test are shown in Fig. \ref{fig:auto_xyz_h_imp}.
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{auto_xyz_h_imp}
@@ -367,8 +368,13 @@ The $H_\infty$ controller test, in GNSS-Dependent modes, was developed approxima
 
 
 \subsubsection{Performance}
-
-\begin{figure}[h]
+Both the $H_\infty$ and the LQI controller manage to make the quadrotor successfully follow a three-dimensional trajectory.\\\\
+To compare the performance of both controllers, the measurement of the Euclidean distance between the position of the quadrotor and the instantaneous reference, is used again. This Euclidean distance defines the error in the control system.
+\\\\
+As seen in Fig. \ref{fig:auto_errorpos_imp}, the error in the LQI controller test is slightly greater than the one in the $H_\infty$ test. The error means, of each controller test, are shown in Table \ref{tb:error_mean}.
+\\\\
+Based on the mean position error in each test, the $H_\infty$ controller has a better performance when compared to the LQI controller in GNSS-Dependent modes.
+\begin{figure}[H]
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{auto_errorpos_lqi_imp}
@@ -384,8 +390,19 @@ The $H_\infty$ controller test, in GNSS-Dependent modes, was developed approxima
 \caption{Position errors in GNSS-Dependent mode}
 \label{fig:auto_errorpos_imp}
 \end{figure}
-
+\begin{table}[H]
+\small
+\begin{center}
+\caption{Error mean - GNSS-Dependent modes tests}\label{tb:error_mean}
+\begin{tabular}{c|c}\hline
+\rule{0pt}{3ex} Controller & Error mean [$m$] \\\hline\hline
+\rule{0pt}{3ex} 
+LQI  & $0.234$ \\[3px] \hline\rule{0pt}{3ex}
+$H_\infty$ & $0.177$ \\[3px] \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 
 \section{Conclusions}
-rgrgrgtrgrtgr
+This chapter presents the implementation of the controllers designed for the quadrotor prototype. The flight controller, which executes the control and estimation algorithms, is implemented as an Android application that is executed in the smartphone on board the quadrotor. The unmanned aircraft system is complemented with a ground control station which is wirelessly connected to the smartphone using a packet-based communication. Using the ground control station, the user is allowed to configure and monitor the status of the quadrotor during the flight, being able to change the flight mode, and the reference signals of the control system. The results of the execution of the two control algorithms, $H_\infty$ and LQI, for each flight mode are exposed. The feedback of the output signals and the states of the system is carried out using the signals estimated by the Kalman filter. The flight mode tests, using both controllers, show that they are able to stabilize the quadrotor and make it follow a given reference, being the $H_\infty$ controller, the one that performs best in terms of error, overshoot and setting time.

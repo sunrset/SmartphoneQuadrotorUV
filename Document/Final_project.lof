@@ -1,11 +1,11 @@
 \select@language {english}
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Skywalker X8 Fixed-wing UAV}}{2}{figure.caption.6}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Altavian Octorotor Rotary-wing UAV}}{3}{figure.caption.7}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Skywalker X8 Fixed-wing UAV}}{3}{figure.caption.6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Altavian Octorotor Rotary-wing UAV}}{4}{figure.caption.7}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Quadrotor aircraft X650}}{4}{figure.caption.8}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Smartphone-based ball tracking robot}}{8}{figure.caption.9}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces UPenn's smartphone-based quadrotor}}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Smartphone-based ball tracking robot}}{9}{figure.caption.9}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces UPenn's smartphone-based quadrotor}}{10}{figure.caption.10}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Quadrotor geometry in `+' configuration\relax }}{14}{figure.caption.14}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Quadrotor geometry in `X' configuration\relax }}{17}{figure.caption.16}
@@ -19,59 +19,59 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Smartphone support\relax }}{36}{figure.caption.28}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Arduino Mega ADK and EMAX 4in1 ESCs designed supports\relax }}{36}{figure.caption.30}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces 3D Designed Dome\relax }}{37}{figure.caption.32}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{38}{figure.caption.33}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{40}{figure.caption.35}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{41}{figure.caption.36}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Assembled Smartphone-based Quadrotor Prototype\relax }}{37}{figure.caption.33}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Bifilar pendulum experiment geometry for inertia identification\relax }}{39}{figure.caption.35}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{40}{figure.caption.36}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Thrust test configuration\relax }}{42}{figure.caption.38}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{43}{figure.caption.39}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Motors torque experiment configuration\relax }}{44}{figure.caption.40}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Motors torque experiment results\relax }}{45}{figure.caption.41}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Motors thrust test results\relax }}{42}{figure.caption.39}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Motor torque experiment configuration\relax }}{43}{figure.caption.40}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Motors torque experiment results\relax }}{44}{figure.caption.41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{52}{figure.caption.44}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{53}{figure.caption.46}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{54}{figure.caption.47}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Simulated closed-loop response of stabilize mode controlled by a LQI controller\relax }}{57}{figure.caption.51}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode\relax }}{58}{figure.caption.53}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces HSV energy histogram of $K_H$ in stabilize mode\relax }}{59}{figure.caption.54}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Simulated closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{60}{figure.caption.55}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Simulated closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{62}{figure.caption.58}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode\relax }}{63}{figure.caption.60}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces HSV energy histogram of $K_H$ in altitude hold mode\relax }}{64}{figure.caption.61}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Simulated closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{64}{figure.caption.62}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Simulated position response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.65}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Simulated attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{67}{figure.caption.66}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes\relax }}{68}{figure.caption.68}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{69}{figure.caption.69}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Simulated position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.70}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Simulated attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{70}{figure.caption.71}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Static test of the smartphone GNSS receiver and barometer\relax }}{73}{figure.caption.72}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Closed-loop system with LQI controller for reference tracking\relax }}{50}{figure.caption.44}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Control loop with generalized plant\relax }}{51}{figure.caption.46}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Generalized plant with the weighting filters $W_s$ and $W_k$.\relax }}{52}{figure.caption.47}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Simulated closed-loop response of stabilize mode controlled by a LQI controller\relax }}{55}{figure.caption.51}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in stabilize mode\relax }}{56}{figure.caption.53}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces HSV energy histogram of $K_H$ in stabilize mode\relax }}{57}{figure.caption.54}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Simulated closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{58}{figure.caption.55}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Simulated closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{60}{figure.caption.58}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in altitude hold mode\relax }}{61}{figure.caption.60}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces HSV energy histogram of $K_H$ in altitude hold mode\relax }}{62}{figure.caption.61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Simulated closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{62}{figure.caption.62}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Simulated position response of the GNSS-Dependent modes with a LQI controller\relax }}{65}{figure.caption.65}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Simulated attitude response of the GNSS-Dependent modes with a LQI controller\relax }}{65}{figure.caption.66}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Upper bounded singular values of $S$ and $K_{H}S$ in GNSS-Dependent modes\relax }}{66}{figure.caption.68}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces HSV energy histogram of $K_H$ in GNSS-Dependent modes\relax }}{67}{figure.caption.69}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Simulated position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{68}{figure.caption.70}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Simulated attitude response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{68}{figure.caption.71}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Static test of the smartphone GNSS receiver and barometer\relax }}{71}{figure.caption.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Activities diagram in the Android application\relax }}{76}{figure.caption.73}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Ground Control System main interface\relax }}{79}{figure.caption.83}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Controller settings in GCS\relax }}{81}{figure.caption.91}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Complete implemented Smartphone-based UAS\relax }}{82}{figure.caption.92}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Stabilize mode test bench\relax }}{83}{figure.caption.93}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{83}{figure.caption.95}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{84}{figure.caption.97}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{86}{figure.caption.101}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{87}{figure.caption.103}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Position errors in altitude hold mode\relax }}{88}{figure.caption.105}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{89}{figure.caption.108}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{90}{figure.caption.110}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Position errors in GNSS-Dependent mode\relax }}{90}{figure.caption.112}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Activities diagram in the Android application\relax }}{74}{figure.caption.73}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Ground Control System main interface\relax }}{77}{figure.caption.83}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Controller settings in GCS\relax }}{79}{figure.caption.91}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Complete implemented Smartphone-based UAS\relax }}{80}{figure.caption.92}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Stabilize mode test bench\relax }}{81}{figure.caption.93}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Closed-loop response of stabilize mode controlled by a LQI controller\relax }}{81}{figure.caption.95}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Closed-loop response of stabilize mode controlled by a $H_\infty $ controller\relax }}{82}{figure.caption.97}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Closed-loop response of altitude hold mode controlled by a LQI controller\relax }}{84}{figure.caption.101}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Closed-loop response of altitude hold mode controlled by a $H_\infty $ controller\relax }}{85}{figure.caption.103}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Position errors in altitude hold mode\relax }}{86}{figure.caption.105}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Position response of the GNSS-Dependent modes with a LQI controller\relax }}{87}{figure.caption.108}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Position response of the GNSS-Dependent modes with a $H_\infty $ controller\relax }}{88}{figure.caption.110}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Position errors in GNSS-Dependent mode\relax }}{88}{figure.caption.112}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.115}
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{98}{figure.caption.118}
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.116}
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{99}{figure.caption.119}
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{100}{figure.caption.122}
-\contentsline {figure}{\numberline {C.6}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{101}{figure.caption.123}
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{102}{figure.caption.125}
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{103}{figure.caption.126}
-\contentsline {figure}{\numberline {C.9}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{104}{figure.caption.129}
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{105}{figure.caption.130}
-\contentsline {figure}{\numberline {C.11}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{106}{figure.caption.132}
-\contentsline {figure}{\numberline {C.12}{\ignorespaces Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments\relax }}{107}{figure.caption.133}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Control signals in LQI control test for stabilize mode\relax }}{100}{figure.caption.116}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces \textit {PWM} signals in LQI control test for stabilize mode\relax }}{101}{figure.caption.117}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Control signals in $H_\infty $ control test for stabilize mode\relax }}{102}{figure.caption.119}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces \textit {PWM} signals in $H_\infty $ control test for stabilize mode\relax }}{103}{figure.caption.120}
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Control signals in LQI control test for altitude hold mode\relax }}{104}{figure.caption.123}
+\contentsline {figure}{\numberline {C.6}{\ignorespaces \textit {PWM} signals in LQI control test for altitude hold mode\relax }}{105}{figure.caption.124}
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Control signals in $H_\infty $ control test for altitude hold mode\relax }}{106}{figure.caption.126}
+\contentsline {figure}{\numberline {C.8}{\ignorespaces \textit {PWM} signals in $H_\infty $ control test for altitude hold mode\relax }}{107}{figure.caption.127}
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Control signals in LQI control test for GNSS-Dependent modes\relax }}{108}{figure.caption.130}
+\contentsline {figure}{\numberline {C.10}{\ignorespaces \textit {PWM} signals in LQI control test for GNSS-Dependent modes\relax }}{109}{figure.caption.131}
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Control signals in $H_\infty $ control test for GNSS-Dependent modes\relax }}{110}{figure.caption.133}
+\contentsline {figure}{\numberline {C.12}{\ignorespaces \textit {PWM} signals in $H_\infty $ control test for GNSS-Dependent modes\relax }}{111}{figure.caption.134}

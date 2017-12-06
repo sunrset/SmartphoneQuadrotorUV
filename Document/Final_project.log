@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 03:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 07:27
 entering extended mode
 **./Final_project.tex
 (Final_project.tex
@@ -1549,7 +1549,7 @@ LaTeX Info: Redefining \nameref on input line 84.
 \openout7 = `Final_project.out'.
 
  (tex/OwnTitle.tex
-<./figures/univallelogo.pdf, id=291, 481.8pt x 361.35pt>
+<./figures/univallelogo.pdf, id=299, 481.8pt x 361.35pt>
 File: ./figures/univallelogo.pdf Graphic file (type pdf)
 
 <use ./figures/univallelogo.pdf>
@@ -1567,7 +1567,7 @@ converted-to.pdf ./figures/logotipogici.eps>
 (epstopdf)             \includegraphics on input line 20.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/logotipogici-eps-converted-to.pdf, id=292, 205.76875pt x 110.4125pt>
+<./figures/logotipogici-eps-converted-to.pdf, id=300, 205.76875pt x 110.4125pt>
 File: ./figures/logotipogici-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/logotipogici-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/logotipogici-eps-converted-to.pdf used on in
@@ -1614,11 +1614,31 @@ File: uesvect.fd
 [4]
 \openout2 = `tex/abstract.aux'.
 
- (tex/abstract.tex [5
+ (tex/abstract.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--9
+
+ []
+
+[5
 
 
 
-] [6]) [7
+] [6])
+Underfull \hbox (badness 10000) in paragraph at lines 18--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--112
+
+ []
+
+[7
 
 ] [8
 
@@ -1627,14 +1647,14 @@ File: uesvect.fd
 \tf@toc=\write8
 \openout8 = `Final_project.toc'.
 
- [11]
-[12
+ [11] [12
 
 ] (Final_project.lof [13] [14])
 \tf@lof=\write9
 \openout9 = `Final_project.lof'.
 
- [15] [16
+
+[15] [16
 
 ] (Final_project.lot)
 \tf@lot=\write10
@@ -1645,225 +1665,253 @@ File: uesvect.fd
 ]
 \openout2 = `tex/1Introduction.aux'.
 
-
-(tex/1Introduction.tex
+ (tex/1Introduction.tex
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--9
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--9
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
 
  []
 
 [1
 
 
-] <./figures/fixedwinguav.jpg, id=645, 501.875pt x 250.9375pt>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+
+ []
+
+<./figures/fixedwinguav.jpg, id=664, 501.875pt x 250.9375pt>
 File: ./figures/fixedwinguav.jpg Graphic file (type jpg)
 
 <use ./figures/fixedwinguav.jpg>
-Package pdftex.def Info: ./figures/fixedwinguav.jpg used on input line 14.
-(pdftex.def)             Requested size: 244.69386pt x 122.3478pt.
+Package pdftex.def Info: ./figures/fixedwinguav.jpg used on input line 20.
+(pdftex.def)             Requested size: 273.14662pt x 136.58017pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--23
+Underfull \hbox (badness 10000) in paragraph at lines 17--29
 
  []
 
-<./figures/rotarywinguav.jpg, id=650, 1164.35pt x 731.73375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--29
+
+ []
+
+[2] <./figures/rotarywinguav.jpg, id=679, 1164.35pt x 731.73375pt>
 File: ./figures/rotarywinguav.jpg Graphic file (type jpg)
 
 <use ./figures/rotarywinguav.jpg>
-Package pdftex.def Info: ./figures/rotarywinguav.jpg used on input line 28.
-(pdftex.def)             Requested size: 244.69386pt x 153.7691pt.
+Package pdftex.def Info: ./figures/rotarywinguav.jpg used on input line 34.
+(pdftex.def)             Requested size: 227.62204pt x 143.03922pt.
 
-<./figures/quadrotor.jpg, id=655, 226.59656pt x 157.33781pt>
+<./figures/quadrotor.jpg, id=683, 226.59656pt x 157.33781pt>
 File: ./figures/quadrotor.jpg Graphic file (type jpg)
 
 <use ./figures/quadrotor.jpg>
-Package pdftex.def Info: ./figures/quadrotor.jpg used on input line 41.
-(pdftex.def)             Requested size: 244.69386pt x 169.90309pt.
+Package pdftex.def Info: ./figures/quadrotor.jpg used on input line 45.
+(pdftex.def)             Requested size: 227.62204pt x 158.05045pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--48
+Underfull \hbox (badness 10000) in paragraph at lines 31--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--48
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- []
-
-[2 <./figures/fixedwinguav.jpg>] [3 <./figures/rotarywinguav.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+[3 <./figures/fixedwinguav.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+
+ []
+
+[4 <./figures/rotarywinguav.jpg> <./figures/quadrotor.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--78
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
 
  []
 
-[4 <./figures/quadrotor.jpg>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--72
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 75--78
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
+Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--96
+Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--96
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 97--105
+Underfull \hbox (badness 10000) in paragraph at lines 91--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--105
+Underfull \hbox (badness 10000) in paragraph at lines 91--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--105
+Underfull \hbox (badness 10000) in paragraph at lines 91--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--105
+Underfull \hbox (badness 10000) in paragraph at lines 91--99
 
  []
 
-<./figures/soccerrobot.jpg, id=745, 284.56313pt x 324.46219pt>
+[7] <./figures/soccerrobot.jpg, id=775, 284.56313pt x 324.46219pt>
 File: ./figures/soccerrobot.jpg Graphic file (type jpg)
 
 <use ./figures/soccerrobot.jpg>
-Package pdftex.def Info: ./figures/soccerrobot.jpg used on input line 116.
+Package pdftex.def Info: ./figures/soccerrobot.jpg used on input line 110.
 (pdftex.def)             Requested size: 184.9429pt x 210.88306pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--123
-
- []
-
-[7] <./figures/penn.jpg, id=770, 476.53032pt x 344.78813pt>
-File: ./figures/penn.jpg Graphic file (type jpg)
-
-<use ./figures/penn.jpg>
-Package pdftex.def Info: ./figures/penn.jpg used on input line 130.
-(pdftex.def)             Requested size: 227.62204pt x 164.69673pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--139
-
- []
-
-[8 <./figures/soccerrobot.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
-
- []
-
-[9 <./figures/penn.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 146--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
+Underfull \hbox (badness 10000) in paragraph at lines 104--114
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10])
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+ [8]
+<./figures/penn.jpg, id=800, 476.53032pt x 344.78813pt>
+File: ./figures/penn.jpg Graphic file (type jpg)
+
+<use ./figures/penn.jpg>
+Package pdftex.def Info: ./figures/penn.jpg used on input line 124.
+(pdftex.def)             Requested size: 227.62204pt x 164.69673pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--133
+
+ []
+
+[9 <./figures/soccerrobot.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+ []
+
+[10 <./figures/penn.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
+
+ []
+
+[11])
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--131
+Underfull \hbox (badness 10000) in paragraph at lines 158--133
 
  []
 
-[11] [12]
+[12]
 \openout2 = `tex/2QuadcopterModel.aux'.
 
  (tex/2QuadcopterModel.tex
@@ -1895,7 +1943,7 @@ s-converted-to.pdf ./figures/quadcopterplus.eps>
 (epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopterplus-eps-converted-to.pdf, id=851, 309.155pt x 165.61874pt
+<./figures/quadcopterplus-eps-converted-to.pdf, id=864, 309.155pt x 165.61874pt
 >
 File: ./figures/quadcopterplus-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadcopterplus-eps-converted-to.pdf>
@@ -1962,7 +2010,7 @@ onverted-to.pdf ./figures/quadcopter1.eps>
 (epstopdf)             \includegraphics on input line 113.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopter1-eps-converted-to.pdf, id=905, 353.32pt x 178.6675pt>
+<./figures/quadcopter1-eps-converted-to.pdf, id=918, 353.32pt x 178.6675pt>
 File: ./figures/quadcopter1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/quadcopter1-eps-converted-to.pdf>
@@ -2087,7 +2135,7 @@ eps-converted-to.pdf ./figures/hardwareOverview.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hardwareOverview-eps-converted-to.pdf, id=1059, 346.29375pt x 152.57
+<./figures/hardwareOverview-eps-converted-to.pdf, id=1072, 346.29375pt x 152.57
 pt>
 File: ./figures/hardwareOverview-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hardwareOverview-eps-converted-to.pdf>
@@ -2107,7 +2155,7 @@ Underfull \vbox (badness 1418) has occurred while \output is active []
 
 
  <./figures/hardwareOverview-eps-converted-to.pdf>]
-<./figures/lji500x4.jpg, id=1086, 376.40625pt x 228.10219pt>
+<./figures/lji500x4.jpg, id=1099, 376.40625pt x 228.10219pt>
 File: ./figures/lji500x4.jpg Graphic file (type jpg)
 
 <use ./figures/lji500x4.jpg>
@@ -2119,7 +2167,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--30
  []
 
 [30 <./figures/lji500x4.jpg>]
-<./figures/nexus5x.jpg, id=1097, 285.31593pt x 332.74312pt>
+<./figures/nexus5x.jpg, id=1110, 285.31593pt x 332.74312pt>
 File: ./figures/nexus5x.jpg Graphic file (type jpg)
 
 <use ./figures/nexus5x.jpg>
@@ -2149,14 +2197,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--64
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [31 <./figures/nexus5x.jpg>]
-<./figures/emax2216II2.png, id=1109, 400.49625pt x 335.00156pt>
+<./figures/emax2216II2.png, id=1122, 400.49625pt x 335.00156pt>
 File: ./figures/emax2216II2.png Graphic file (type png)
 
 <use ./figures/emax2216II2.png>
 Package pdftex.def Info: ./figures/emax2216II2.png used on input line 72.
 (pdftex.def)             Requested size: 159.3356pt x 133.2775pt.
 
-<./figures/emax4in1.jpg, id=1111, 319.1925pt x 218.8175pt>
+<./figures/emax4in1.jpg, id=1124, 319.1925pt x 218.8175pt>
 File: ./figures/emax4in1.jpg Graphic file (type jpg)
 
 <use ./figures/emax4in1.jpg>
@@ -2176,7 +2224,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--84
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32]
-<./figures/megaADK.jpg, id=1123, 451.6875pt x 329.73187pt>
+<./figures/megaADK.jpg, id=1136, 451.6875pt x 329.73187pt>
 File: ./figures/megaADK.jpg Graphic file (type jpg)
 
 <use ./figures/megaADK.jpg>
@@ -2192,18 +2240,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
 
-<./figures/floureon.jpg, id=1134, 1003.75pt x 300.12125pt>
+<./figures/floureon.jpg, id=1148, 1003.75pt x 300.12125pt>
 File: ./figures/floureon.jpg Graphic file (type jpg)
 
 <use ./figures/floureon.jpg>
 Package pdftex.def Info: ./figures/floureon.jpg used on input line 125.
 (pdftex.def)             Requested size: 256.0748pt x 76.56424pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 106--129
+
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [34 <./figures/megaADK.jpg>]
-<./figures/phonesupport2.png, id=1144, 516.42938pt x 295.85532pt>
+<./figures/phonesupport2.png, id=1158, 516.42938pt x 295.85532pt>
 File: ./figures/phonesupport2.png Graphic file (type png)
 
 <use ./figures/phonesupport2.png>
@@ -2213,21 +2265,21 @@ Package pdftex.def Info: ./figures/phonesupport2.png used on input line 139.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/megasupport2.png, id=1146, 521.69907pt x 280.79906pt>
+<./figures/megasupport2.png, id=1160, 521.69907pt x 280.79906pt>
 File: ./figures/megasupport2.png Graphic file (type png)
 
 <use ./figures/megasupport2.png>
 Package pdftex.def Info: ./figures/megasupport2.png used on input line 150.
 (pdftex.def)             Requested size: 199.16928pt x 107.20177pt.
 
-<./figures/escsupport2.png, id=1147, 539.76656pt x 201.00093pt>
+<./figures/escsupport2.png, id=1161, 539.76656pt x 201.00093pt>
 File: ./figures/escsupport2.png Graphic file (type png)
 
 <use ./figures/escsupport2.png>
 Package pdftex.def Info: ./figures/escsupport2.png used on input line 156.
 (pdftex.def)             Requested size: 199.16928pt x 74.16675pt.
 
-<./figures/megaandescsupport2.png, id=1148, 518.6878pt x 281.55188pt>
+<./figures/megaandescsupport2.png, id=1162, 518.6878pt x 281.55188pt>
 File: ./figures/megaandescsupport2.png Graphic file (type png)
 
 <use ./figures/megaandescsupport2.png>
@@ -2235,7 +2287,7 @@ Package pdftex.def Info: ./figures/megaandescsupport2.png used on input line 16
 2.
 (pdftex.def)             Requested size: 199.16928pt x 108.1121pt.
  [35 <./figures/floureon.jpg>]
-<./figures/dome2.png, id=1157, 517.935pt x 346.29375pt>
+<./figures/dome2.png, id=1171, 517.935pt x 346.29375pt>
 File: ./figures/dome2.png Graphic file (type png)
 
 <use ./figures/dome2.png>
@@ -2243,27 +2295,21 @@ Package pdftex.def Info: ./figures/dome2.png used on input line 174.
 (pdftex.def)             Requested size: 244.69386pt x 163.60352pt.
  [36 <./figures/phonesupport2.png> <./figures/megasupport2.png> <./figures/escs
 upport2.png> <./figures/megaandescsupport2.png>]
-<./figures/complete.jpg, id=1168, 4047.12pt x 3035.34pt>
+<./figures/complete.jpg, id=1182, 4047.12pt x 3035.34pt>
 File: ./figures/complete.jpg Graphic file (type jpg)
 
 <use ./figures/complete.jpg>
 Package pdftex.def Info: ./figures/complete.jpg used on input line 184.
-(pdftex.def)             Requested size: 398.33858pt x 298.73497pt.
+(pdftex.def)             Requested size: 312.9803pt x 234.72694pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37 <./figures/dome2.png>]
+ [37 <./figures/dome2.png> <./figures/complete.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 193--216
 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38 <./figures/complete.jpg>]
+[38]
 Package epstopdf Info: Source file: <./figures/quadrotorInertia1.eps>
 (epstopdf)                    date: 2017-11-14 10:32:25
 (epstopdf)                    size: 49648 bytes
@@ -2276,7 +2322,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorInertia1-eps-converted-to.pdf, id=1185, 174.6525pt x 177.66
+<./figures/quadrotorInertia1-eps-converted-to.pdf, id=1201, 174.6525pt x 177.66
 376pt>
 File: ./figures/quadrotorInertia1-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorInertia1-eps-converted-to.pdf>
@@ -2293,7 +2339,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--246
 
  []
 
-[39]
 Package epstopdf Info: Source file: <./figures/Ixx.eps>
 (epstopdf)                    date: 2017-11-15 16:25:26
 (epstopdf)                    size: 43393 bytes
@@ -2304,7 +2349,7 @@ Package epstopdf Info: Source file: <./figures/Ixx.eps>
 -to.pdf ./figures/Ixx.eps>
 (epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
- <./figures/Ixx-eps-converted-to.pdf, id=1198, 380.42125pt x 292.09125pt>
+<./figures/Ixx-eps-converted-to.pdf, id=1204, 380.42125pt x 292.09125pt>
 File: ./figures/Ixx-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Ixx-eps-converted-to.pdf>
@@ -2322,7 +2367,7 @@ Package epstopdf Info: Source file: <./figures/Iyy.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Iyy-eps-converted-to.pdf, id=1199, 380.42125pt x 293.095pt>
+<./figures/Iyy-eps-converted-to.pdf, id=1205, 380.42125pt x 293.095pt>
 File: ./figures/Iyy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Iyy-eps-converted-to.pdf>
@@ -2340,7 +2385,7 @@ Package epstopdf Info: Source file: <./figures/Izz.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Izz-eps-converted-to.pdf, id=1200, 388.45125pt x 292.09125pt>
+<./figures/Izz-eps-converted-to.pdf, id=1206, 388.45125pt x 292.09125pt>
 File: ./figures/Izz-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Izz-eps-converted-to.pdf>
@@ -2352,10 +2397,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--273
 
  []
 
-
+[39 <./figures/quadrotorInertia1-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40 <./figures/quadrotorInertia1-eps-converted-to.pdf>]
+ [40 <./figures/Ixx-eps-converted-to.pdf> <./figures/Iyy-eps-converted-to.pdf> 
+<./figures/Izz-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/thrustTest.eps>
 (epstopdf)                    date: 2017-11-16 19:46:58
 (epstopdf)                    size: 46213 bytes
@@ -2368,7 +2414,7 @@ nverted-to.pdf ./figures/thrustTest.eps>
 (epstopdf)             \includegraphics on input line 296.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/thrustTest-eps-converted-to.pdf, id=1220, 72.27pt x 72.27pt>
+<./figures/thrustTest-eps-converted-to.pdf, id=1240, 72.27pt x 72.27pt>
 File: ./figures/thrustTest-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/thrustTest-eps-converted-to.pdf>
@@ -2386,10 +2432,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 289--302
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 289--302
 
- [41 <./figures/Ixx-eps-converted-to.pdf> <./figures/Iyy-eps-converted-to.pdf> 
-<./figures/Izz-eps-converted-to.pdf>]
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package epstopdf Info: Source file: <./figures/motorNvsPWM.eps>
 (epstopdf)                    date: 2017-11-13 14:50:10
 (epstopdf)                    size: 49176 bytes
@@ -2401,8 +2450,7 @@ Package epstopdf Info: Source file: <./figures/motorNvsPWM.eps>
 onverted-to.pdf ./figures/motorNvsPWM.eps>
 (epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
-
-<./figures/motorNvsPWM-eps-converted-to.pdf, id=1232, 373.395pt x 299.1175pt>
+<./figures/motorNvsPWM-eps-converted-to.pdf, id=1242, 373.395pt x 299.1175pt>
 File: ./figures/motorNvsPWM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorNvsPWM-eps-converted-to.pdf>
@@ -2421,7 +2469,7 @@ onverted-to.pdf ./figures/motorPWMvsN.eps>
 (epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/motorPWMvsN-eps-converted-to.pdf, id=1233, 383.4325pt x 295.1025pt>
+<./figures/motorPWMvsN-eps-converted-to.pdf, id=1243, 383.4325pt x 295.1025pt>
 File: ./figures/motorPWMvsN-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorPWMvsN-eps-converted-to.pdf>
@@ -2429,9 +2477,9 @@ Package pdftex.def Info: ./figures/motorPWMvsN-eps-converted-to.pdf used on inp
 ut line 315.
 (pdftex.def)             Requested size: 199.16928pt x 153.28757pt.
 
-Underfull \vbox (badness 1221) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42 <./figures/thrustTest-eps-converted-to.pdf>]
+ [41]
 Underfull \hbox (badness 10000) in paragraph at lines 322--325
 
  []
@@ -2448,7 +2496,7 @@ ps-converted-to.pdf ./figures/quadrotorTorque.eps>
 (epstopdf)             \includegraphics on input line 342.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorTorque-eps-converted-to.pdf, id=1256, 159.59625pt x 186.697
+<./figures/quadrotorTorque-eps-converted-to.pdf, id=1254, 159.59625pt x 186.697
 5pt>
 File: ./figures/quadrotorTorque-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorTorque-eps-converted-to.pdf>
@@ -2465,8 +2513,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 335--346
 
  []
 
-[43 <./figures/motorNvsPWM-eps-converted-to.pdf> <./figures/motorPWMvsN-eps-con
-verted-to.pdf>]
+[42 <./figures/thrustTest-eps-converted-to.pdf> <./figures/motorNvsPWM-eps-conv
+erted-to.pdf> <./figures/motorPWMvsN-eps-converted-to.pdf>] [43 <./figures/quad
+rotorTorque-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/torque_id.eps>
 (epstopdf)                    date: 2017-11-13 14:51:55
 (epstopdf)                    size: 47621 bytes
@@ -2478,70 +2527,61 @@ verted-to.pdf ./figures/torque_id.eps>
 (epstopdf)             \includegraphics on input line 354.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/torque_id-eps-converted-to.pdf, id=1271, 378.41376pt x 293.095pt>
+<./figures/torque_id-eps-converted-to.pdf, id=1303, 378.41376pt x 293.095pt>
 File: ./figures/torque_id-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/torque_id-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/torque_id-eps-converted-to.pdf used on input
  line 354.
 (pdftex.def)             Requested size: 270.30118pt x 209.36008pt.
+) [44 <./figures/torque_id-eps-converted-to.pdf>]
+\openout2 = `tex/4ControlStrategiesAndEstimation.aux'.
+
+ (tex/4ControlStrategiesAndEstimation.tex
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44 <./figures/quadrotorTorque-eps-converted-to.pdf>]) [45 <./figures/torque_i
-d-eps-converted-to.pdf>]
-\openout2 = `tex/4ControlStrategiesAndEstimation.aux'.
-
- (tex/4ControlStrategiesAndEstimation.tex [46
+ [45
 
 
 
 ]
-Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2--9
+Underfull \hbox (badness 10000) in paragraph at lines 19--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--9
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--9
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47]
-Underfull \hbox (badness 10000) in paragraph at lines 21--25
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--37
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--61
+[47] [48]
+Underfull \hbox (badness 10000) in paragraph at lines 164--167
 
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
-
- []
-
-[49] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 166--169
-
- []
-
-[51]
+[49]
 Package epstopdf Info: Source file: <./figures/lqi.eps>
 (epstopdf)                    date: 2017-12-03 17:31:32
 (epstopdf)                    size: 78251 bytes
@@ -2550,31 +2590,31 @@ Package epstopdf Info: Source file: <./figures/lqi.eps>
 (epstopdf)                    size: 8749 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/lqi-eps-converted
 -to.pdf ./figures/lqi.eps>
-(epstopdf)             \includegraphics on input line 220.
+(epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
- <./figures/lqi-eps-converted-to.pdf, id=1369, 322.20375pt x 89.33376pt>
+ <./figures/lqi-eps-converted-to.pdf, id=1375, 322.20375pt x 89.33376pt>
 File: ./figures/lqi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/lqi-eps-converted-to.pdf used on input line 
-220.
+218.
 (pdftex.def)             Requested size: 298.75394pt x 82.83553pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 227.
+(hyperref)                removing `math shift' on input line 225.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 227.
+(hyperref)                removing `subscript' on input line 225.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 227.
+(hyperref)                removing `\infty' on input line 225.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 227.
+(hyperref)                removing `math shift' on input line 225.
 
 Package epstopdf Info: Source file: <./figures/generalized.eps>
 (epstopdf)                    date: 2017-12-03 17:59:30
@@ -2585,21 +2625,21 @@ Package epstopdf Info: Source file: <./figures/generalized.eps>
 (epstopdf)                    size: 6651 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/generalized-eps-c
 onverted-to.pdf ./figures/generalized.eps>
-(epstopdf)             \includegraphics on input line 232.
+(epstopdf)             \includegraphics on input line 230.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/generalized-eps-converted-to.pdf, id=1371, 109.40875pt x 88.33pt>
+<./figures/generalized-eps-converted-to.pdf, id=1377, 109.40875pt x 88.33pt>
 File: ./figures/generalized-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/generalized-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/generalized-eps-converted-to.pdf used on inp
-ut line 232.
+ut line 230.
 (pdftex.def)             Requested size: 128.0374pt x 103.37128pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--238
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
 
  []
 
-[52 <./figures/lqi-eps-converted-to.pdf>]
+[50 <./figures/lqi-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/augmentedPlant.eps>
 (epstopdf)                    date: 2017-09-01 11:03:14
 (epstopdf)                    size: 22779 bytes
@@ -2609,23 +2649,23 @@ pdf>
 (epstopdf)                    size: 5642 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/augmentedPlant-ep
 s-converted-to.pdf ./figures/augmentedPlant.eps>
-(epstopdf)             \includegraphics on input line 252.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/augmentedPlant-eps-converted-to.pdf, id=1403, 187.70125pt x 105.3937
+<./figures/augmentedPlant-eps-converted-to.pdf, id=1409, 187.70125pt x 105.3937
 5pt>
 File: ./figures/augmentedPlant-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/augmentedPlant-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/augmentedPlant-eps-converted-to.pdf used on 
-input line 252.
+input line 250.
 (pdftex.def)             Requested size: 184.9429pt x 103.85123pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--260
+Underfull \hbox (badness 10000) in paragraph at lines 242--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--260
+Underfull \hbox (badness 10000) in paragraph at lines 242--258
 
  []
 
@@ -2633,31 +2673,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 244--260
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--272
+Underfull \hbox (badness 10000) in paragraph at lines 266--270
 
  []
 
-[53 <./figures/generalized-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 277--283
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--283
+[51 <./figures/generalized-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 275--281
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--289
+Underfull \hbox (badness 10000) in paragraph at lines 275--281
 
  []
 
-[54 <./figures/augmentedPlant-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 291--295
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--287
 
  []
 
-[55]
+[52 <./figures/augmentedPlant-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 289--293
+
+ []
+
+[53]
 Package epstopdf Info: Source file: <./figures/stabilize_psi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:19:37
 (epstopdf)                    size: 101370 bytes
@@ -2667,15 +2707,15 @@ to.pdf>
 (epstopdf)                    size: 30785 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_psi_lqi
 -eps-converted-to.pdf ./figures/stabilize_psi_lqi.eps>
-(epstopdf)             \includegraphics on input line 363.
+(epstopdf)             \includegraphics on input line 361.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_lqi-eps-converted-to.pdf, id=1454, 388.45125pt x 292.0
+<./figures/stabilize_psi_lqi-eps-converted-to.pdf, id=1459, 388.45125pt x 292.0
 9125pt>
 File: ./figures/stabilize_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_psi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_psi_lqi-eps-converted-to.pdf used 
-on input line 363.
+on input line 361.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/stabilize_theta_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:19:37
@@ -2686,16 +2726,16 @@ d-to.pdf>
 (epstopdf)                    size: 32117 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_theta_l
 qi-eps-converted-to.pdf ./figures/stabilize_theta_lqi.eps>
-(epstopdf)             \includegraphics on input line 369.
+(epstopdf)             \includegraphics on input line 367.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_lqi-eps-converted-to.pdf, id=1455, 388.45125pt x 299
+<./figures/stabilize_theta_lqi-eps-converted-to.pdf, id=1460, 388.45125pt x 299
 .1175pt>
 File: ./figures/stabilize_theta_lqi-eps-converted-to.pdf Graphic file (type pdf
 )
  <use ./figures/stabilize_theta_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_theta_lqi-eps-converted-to.pdf use
-d on input line 369.
+d on input line 367.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 Package epstopdf Info: Source file: <./figures/stabilize_phi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:19:38
@@ -2706,27 +2746,27 @@ to.pdf>
 (epstopdf)                    size: 31434 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_phi_lqi
 -eps-converted-to.pdf ./figures/stabilize_phi_lqi.eps>
-(epstopdf)             \includegraphics on input line 375.
+(epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_lqi-eps-converted-to.pdf, id=1456, 388.45125pt x 299.1
+<./figures/stabilize_phi_lqi-eps-converted-to.pdf, id=1461, 388.45125pt x 299.1
 175pt>
 File: ./figures/stabilize_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_phi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_phi_lqi-eps-converted-to.pdf used 
-on input line 375.
+on input line 373.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--383
+Underfull \hbox (badness 10000) in paragraph at lines 354--381
 
  []
 
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 384--386
+[54]
+Underfull \hbox (badness 10000) in paragraph at lines 382--384
 
  []
 
-[57 <./figures/stabilize_psi_lqi-eps-converted-to.pdf> <./figures/stabilize_the
+[55 <./figures/stabilize_psi_lqi-eps-converted-to.pdf> <./figures/stabilize_the
 ta_lqi-eps-converted-to.pdf> <./figures/stabilize_phi_lqi-eps-converted-to.pdf>
 ]
 Package epstopdf Info: Source file: <./figures/sv_stabilize_hinf.eps>
@@ -2738,15 +2778,15 @@ to.pdf>
 (epstopdf)                    size: 14103 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/sv_stabilize_hinf
 -eps-converted-to.pdf ./figures/sv_stabilize_hinf.eps>
-(epstopdf)             \includegraphics on input line 402.
+(epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_stabilize_hinf-eps-converted-to.pdf, id=1477, 421.575pt x 316.181
+<./figures/sv_stabilize_hinf-eps-converted-to.pdf, id=1483, 421.575pt x 316.181
 24pt>
 File: ./figures/sv_stabilize_hinf-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/sv_stabilize_hinf-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/sv_stabilize_hinf-eps-converted-to.pdf used 
-on input line 402.
+on input line 400.
 (pdftex.def)             Requested size: 293.06346pt x 219.8008pt.
 Package epstopdf Info: Source file: <./figures/hsv_stabilize_h.eps>
 (epstopdf)                    date: 2017-12-04 00:09:18
@@ -2757,15 +2797,15 @@ Package epstopdf Info: Source file: <./figures/hsv_stabilize_h.eps>
 (epstopdf)                    size: 3917 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/hsv_stabilize_h-e
 ps-converted-to.pdf ./figures/hsv_stabilize_h.eps>
-(epstopdf)             \includegraphics on input line 411.
+(epstopdf)             \includegraphics on input line 409.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_stabilize_h-eps-converted-to.pdf, id=1480, 421.575pt x 316.18124
+<./figures/hsv_stabilize_h-eps-converted-to.pdf, id=1486, 421.575pt x 316.18124
 pt>
 File: ./figures/hsv_stabilize_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hsv_stabilize_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/hsv_stabilize_h-eps-converted-to.pdf used on
- input line 411.
+ input line 409.
 (pdftex.def)             Requested size: 307.28984pt x 230.47267pt.
 Package epstopdf Info: Source file: <./figures/stabilize_psi_h.eps>
 (epstopdf)                    date: 2017-12-04 00:26:45
@@ -2776,15 +2816,15 @@ Package epstopdf Info: Source file: <./figures/stabilize_psi_h.eps>
 (epstopdf)                    size: 31369 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_psi_h-e
 ps-converted-to.pdf ./figures/stabilize_psi_h.eps>
-(epstopdf)             \includegraphics on input line 423.
+(epstopdf)             \includegraphics on input line 421.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_h-eps-converted-to.pdf, id=1483, 388.45125pt x 292.091
+<./figures/stabilize_psi_h-eps-converted-to.pdf, id=1489, 388.45125pt x 292.091
 25pt>
 File: ./figures/stabilize_psi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_psi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_psi_h-eps-converted-to.pdf used on
- input line 423.
+ input line 421.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/stabilize_theta_h.eps>
 (epstopdf)                    date: 2017-12-04 00:26:46
@@ -2795,15 +2835,15 @@ to.pdf>
 (epstopdf)                    size: 32757 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_theta_h
 -eps-converted-to.pdf ./figures/stabilize_theta_h.eps>
-(epstopdf)             \includegraphics on input line 429.
+(epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_h-eps-converted-to.pdf, id=1484, 388.45125pt x 292.0
+<./figures/stabilize_theta_h-eps-converted-to.pdf, id=1490, 388.45125pt x 292.0
 9125pt>
 File: ./figures/stabilize_theta_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_theta_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_theta_h-eps-converted-to.pdf used 
-on input line 429.
+on input line 427.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/stabilize_phi_h.eps>
 (epstopdf)                    date: 2017-12-04 00:26:47
@@ -2814,52 +2854,52 @@ Package epstopdf Info: Source file: <./figures/stabilize_phi_h.eps>
 (epstopdf)                    size: 29127 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/stabilize_phi_h-e
 ps-converted-to.pdf ./figures/stabilize_phi_h.eps>
-(epstopdf)             \includegraphics on input line 435.
+(epstopdf)             \includegraphics on input line 433.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_h-eps-converted-to.pdf, id=1485, 379.4175pt x 292.0912
+<./figures/stabilize_phi_h-eps-converted-to.pdf, id=1491, 379.4175pt x 292.0912
 5pt>
 File: ./figures/stabilize_phi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_phi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/stabilize_phi_h-eps-converted-to.pdf used on
- input line 435.
+ input line 433.
 (pdftex.def)             Requested size: 199.16928pt x 153.33235pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--443
+Underfull \hbox (badness 10000) in paragraph at lines 396--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--443
+Underfull \hbox (badness 10000) in paragraph at lines 396--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--443
+Underfull \hbox (badness 10000) in paragraph at lines 396--441
 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[58 <./figures/sv_stabilize_hinf-eps-converted-to.pdf>]
+[56 <./figures/sv_stabilize_hinf-eps-converted-to.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59 <./figures/hsv_stabilize_h-eps-converted-to.pdf>]
+ [57 <./figures/hsv_stabilize_h-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [60 <./figures/stabilize_psi_h-eps-converted-to.pdf> <./figures/stabilize_thet
+ [58 <./figures/stabilize_psi_h-eps-converted-to.pdf> <./figures/stabilize_thet
 a_h-eps-converted-to.pdf> <./figures/stabilize_phi_h-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 488--491
+Underfull \hbox (badness 10000) in paragraph at lines 486--489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--491
+Underfull \hbox (badness 10000) in paragraph at lines 486--489
 
  []
 
@@ -2872,15 +2912,15 @@ df>
 (epstopdf)                    size: 31631 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_z_lqi-eps
 -converted-to.pdf ./figures/althold_z_lqi.eps>
-(epstopdf)             \includegraphics on input line 508.
+(epstopdf)             \includegraphics on input line 506.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_lqi-eps-converted-to.pdf, id=1516, 388.45125pt x 299.1175p
+<./figures/althold_z_lqi-eps-converted-to.pdf, id=1522, 388.45125pt x 299.1175p
 t>
 File: ./figures/althold_z_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_z_lqi-eps-converted-to.pdf used on i
-nput line 508.
+nput line 506.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 Package epstopdf Info: Source file: <./figures/althold_psi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:59:03
@@ -2891,15 +2931,15 @@ Package epstopdf Info: Source file: <./figures/althold_psi_lqi.eps>
 (epstopdf)                    size: 29533 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_psi_lqi-e
 ps-converted-to.pdf ./figures/althold_psi_lqi.eps>
-(epstopdf)             \includegraphics on input line 514.
+(epstopdf)             \includegraphics on input line 512.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_lqi-eps-converted-to.pdf, id=1517, 373.395pt x 292.09125
+<./figures/althold_psi_lqi-eps-converted-to.pdf, id=1523, 373.395pt x 292.09125
 pt>
 File: ./figures/althold_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_psi_lqi-eps-converted-to.pdf used on
- input line 514.
+ input line 512.
 (pdftex.def)             Requested size: 199.16928pt x 155.80151pt.
 Package epstopdf Info: Source file: <./figures/althold_theta_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:59:03
@@ -2910,15 +2950,15 @@ to.pdf>
 (epstopdf)                    size: 31302 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_theta_lqi
 -eps-converted-to.pdf ./figures/althold_theta_lqi.eps>
-(epstopdf)             \includegraphics on input line 520.
+(epstopdf)             \includegraphics on input line 518.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_lqi-eps-converted-to.pdf, id=1518, 388.45125pt x 299.1
+<./figures/althold_theta_lqi-eps-converted-to.pdf, id=1524, 388.45125pt x 299.1
 175pt>
 File: ./figures/althold_theta_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_theta_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_theta_lqi-eps-converted-to.pdf used 
-on input line 520.
+on input line 518.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 Package epstopdf Info: Source file: <./figures/althold_phi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:59:04
@@ -2929,25 +2969,25 @@ Package epstopdf Info: Source file: <./figures/althold_phi_lqi.eps>
 (epstopdf)                    size: 32919 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_phi_lqi-e
 ps-converted-to.pdf ./figures/althold_phi_lqi.eps>
-(epstopdf)             \includegraphics on input line 526.
+(epstopdf)             \includegraphics on input line 524.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_lqi-eps-converted-to.pdf, id=1519, 388.45125pt x 292.091
+<./figures/althold_phi_lqi-eps-converted-to.pdf, id=1525, 388.45125pt x 292.091
 25pt>
 File: ./figures/althold_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_phi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_phi_lqi-eps-converted-to.pdf used on
- input line 526.
+ input line 524.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 506--530
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 504--528
 []$ $[]$ 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[61]
+[59]
 Package epstopdf Info: Source file: <./figures/sv_althold_hinf.eps>
 (epstopdf)                    date: 2017-12-04 04:53:01
 (epstopdf)                    size: 140406 bytes
@@ -2957,15 +2997,15 @@ Package epstopdf Info: Source file: <./figures/sv_althold_hinf.eps>
 (epstopdf)                    size: 40415 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/sv_althold_hinf-e
 ps-converted-to.pdf ./figures/sv_althold_hinf.eps>
-(epstopdf)             \includegraphics on input line 547.
+(epstopdf)             \includegraphics on input line 545.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_althold_hinf-eps-converted-to.pdf, id=1530, 363.3575pt x 294.0987
+<./figures/sv_althold_hinf-eps-converted-to.pdf, id=1535, 363.3575pt x 294.0987
 5pt>
 File: ./figures/sv_althold_hinf-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/sv_althold_hinf-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/sv_althold_hinf-eps-converted-to.pdf used on
- input line 547.
+ input line 545.
 (pdftex.def)             Requested size: 293.06346pt x 237.20897pt.
 Package epstopdf Info: Source file: <./figures/hsv_althold_h.eps>
 (epstopdf)                    date: 2017-12-03 23:57:14
@@ -2976,32 +3016,32 @@ df>
 (epstopdf)                    size: 3941 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/hsv_althold_h-eps
 -converted-to.pdf ./figures/hsv_althold_h.eps>
-(epstopdf)             \includegraphics on input line 555.
+(epstopdf)             \includegraphics on input line 553.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_althold_h-eps-converted-to.pdf, id=1531, 421.575pt x 316.18124pt
+<./figures/hsv_althold_h-eps-converted-to.pdf, id=1536, 421.575pt x 316.18124pt
 >
 File: ./figures/hsv_althold_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hsv_althold_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/hsv_althold_h-eps-converted-to.pdf used on i
-nput line 555.
+nput line 553.
 (pdftex.def)             Requested size: 307.28984pt x 230.47267pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--563
+Underfull \hbox (badness 10000) in paragraph at lines 541--561
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--563
+Underfull \hbox (badness 10000) in paragraph at lines 541--561
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--563
+Underfull \hbox (badness 10000) in paragraph at lines 541--561
 
  []
 
-[62 <./figures/althold_z_lqi-eps-converted-to.pdf> <./figures/althold_psi_lqi-e
+[60 <./figures/althold_z_lqi-eps-converted-to.pdf> <./figures/althold_psi_lqi-e
 ps-converted-to.pdf> <./figures/althold_theta_lqi-eps-converted-to.pdf> <./figu
 res/althold_phi_lqi-eps-converted-to.pdf>]
 
@@ -3016,15 +3056,15 @@ Package epstopdf Info: Source file: <./figures/althold_z_h.eps>
 (epstopdf)                    size: 34313 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_z_h-eps-c
 onverted-to.pdf ./figures/althold_z_h.eps>
-(epstopdf)             \includegraphics on input line 567.
+(epstopdf)             \includegraphics on input line 565.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_h-eps-converted-to.pdf, id=1548, 388.45125pt x 292.09125pt
+<./figures/althold_z_h-eps-converted-to.pdf, id=1553, 388.45125pt x 292.09125pt
 >
 File: ./figures/althold_z_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_z_h-eps-converted-to.pdf used on inp
-ut line 567.
+ut line 565.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/althold_psi_h.eps>
 (epstopdf)                    date: 2017-12-04 00:03:39
@@ -3035,15 +3075,15 @@ df>
 (epstopdf)                    size: 32722 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_psi_h-eps
 -converted-to.pdf ./figures/althold_psi_h.eps>
-(epstopdf)             \includegraphics on input line 573.
+(epstopdf)             \includegraphics on input line 571.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_h-eps-converted-to.pdf, id=1549, 388.45125pt x 292.09125
+<./figures/althold_psi_h-eps-converted-to.pdf, id=1554, 388.45125pt x 292.09125
 pt>
 File: ./figures/althold_psi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_psi_h-eps-converted-to.pdf used on i
-nput line 573.
+nput line 571.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/althold_theta_h.eps>
 (epstopdf)                    date: 2017-12-04 00:03:40
@@ -3054,15 +3094,15 @@ Package epstopdf Info: Source file: <./figures/althold_theta_h.eps>
 (epstopdf)                    size: 33384 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_theta_h-e
 ps-converted-to.pdf ./figures/althold_theta_h.eps>
-(epstopdf)             \includegraphics on input line 579.
+(epstopdf)             \includegraphics on input line 577.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_h-eps-converted-to.pdf, id=1550, 388.45125pt x 292.091
+<./figures/althold_theta_h-eps-converted-to.pdf, id=1555, 388.45125pt x 292.091
 25pt>
 File: ./figures/althold_theta_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_theta_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_theta_h-eps-converted-to.pdf used on
- input line 579.
+ input line 577.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/althold_phi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 18:59:04
@@ -3073,33 +3113,33 @@ Package epstopdf Info: Source file: <./figures/althold_phi_lqi.eps>
 (epstopdf)                    size: 32919 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_phi_lqi-e
 ps-converted-to.pdf ./figures/althold_phi_lqi.eps>
-(epstopdf)             \includegraphics on input line 585.
+(epstopdf)             \includegraphics on input line 583.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/althold_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/althold_phi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_phi_lqi-eps-converted-to.pdf used on
- input line 585.
+ input line 583.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 565--589
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 563--587
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63 <./figures/sv_althold_hinf-eps-converted-to.pdf>]
+ [61 <./figures/sv_althold_hinf-eps-converted-to.pdf>]
 Overfull \vbox (43.61943pt too high) has occurred while \output is active []
 
 
-[64 <./figures/hsv_althold_h-eps-converted-to.pdf> <./figures/althold_z_h-eps-c
+[62 <./figures/hsv_althold_h-eps-converted-to.pdf> <./figures/althold_z_h-eps-c
 onverted-to.pdf> <./figures/althold_psi_h-eps-converted-to.pdf> <./figures/alth
 old_theta_h-eps-converted-to.pdf>]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
- [65]
-Overfull \hbox (19.83876pt too wide) in paragraph at lines 661--661
+ [63]
+Overfull \hbox (19.83876pt too wide) in paragraph at lines 659--659
 [] 
  []
 
@@ -3112,15 +3152,15 @@ f>
 (epstopdf)                    size: 194811 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_xyz_lqi-eps-
 converted-to.pdf ./figures/auto_xyz_lqi.eps>
-(epstopdf)             \includegraphics on input line 667.
+(epstopdf)             \includegraphics on input line 665.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_lqi-eps-converted-to.pdf, id=1586, 407.5225pt x 292.09125pt
+<./figures/auto_xyz_lqi-eps-converted-to.pdf, id=1592, 407.5225pt x 292.09125pt
 >
 File: ./figures/auto_xyz_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_xyz_lqi-eps-converted-to.pdf used on in
-put line 667.
+put line 665.
 (pdftex.def)             Requested size: 298.55334pt x 213.99586pt.
 Package epstopdf Info: Source file: <./figures/auto_psi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 22:11:01
@@ -3131,15 +3171,15 @@ f>
 (epstopdf)                    size: 38534 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_psi_lqi-eps-
 converted-to.pdf ./figures/auto_psi_lqi.eps>
-(epstopdf)             \includegraphics on input line 675.
+(epstopdf)             \includegraphics on input line 673.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_psi_lqi-eps-converted-to.pdf, id=1587, 388.45125pt x 292.09125p
+<./figures/auto_psi_lqi-eps-converted-to.pdf, id=1593, 388.45125pt x 292.09125p
 t>
 File: ./figures/auto_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_psi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_psi_lqi-eps-converted-to.pdf used on in
-put line 675.
+put line 673.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/auto_theta_lqi.eps>
 (epstopdf)                    date: 2017-12-02 22:10:54
@@ -3150,15 +3190,15 @@ pdf>
 (epstopdf)                    size: 58664 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_theta_lqi-ep
 s-converted-to.pdf ./figures/auto_theta_lqi.eps>
-(epstopdf)             \includegraphics on input line 681.
+(epstopdf)             \includegraphics on input line 679.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_theta_lqi-eps-converted-to.pdf, id=1588, 381.425pt x 292.09125p
+<./figures/auto_theta_lqi-eps-converted-to.pdf, id=1594, 381.425pt x 292.09125p
 t>
 File: ./figures/auto_theta_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_theta_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_theta_lqi-eps-converted-to.pdf used on 
-input line 681.
+input line 679.
 (pdftex.def)             Requested size: 199.16928pt x 152.5212pt.
 Package epstopdf Info: Source file: <./figures/auto_phi_lqi.eps>
 (epstopdf)                    date: 2017-12-02 22:10:43
@@ -3169,17 +3209,17 @@ f>
 (epstopdf)                    size: 61025 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_phi_lqi-eps-
 converted-to.pdf ./figures/auto_phi_lqi.eps>
-(epstopdf)             \includegraphics on input line 687.
+(epstopdf)             \includegraphics on input line 685.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_phi_lqi-eps-converted-to.pdf, id=1589, 381.425pt x 292.09125pt>
+<./figures/auto_phi_lqi-eps-converted-to.pdf, id=1595, 381.425pt x 292.09125pt>
 File: ./figures/auto_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/auto_phi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_phi_lqi-eps-converted-to.pdf used on in
-put line 687.
+put line 685.
 (pdftex.def)             Requested size: 199.16928pt x 152.5212pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 661--693
+Underfull \hbox (badness 10000) in paragraph at lines 659--691
 
  []
 
@@ -3189,11 +3229,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66]
+ [64]
 Overfull \vbox (47.15141pt too high) has occurred while \output is active []
 
 
-[67 <./figures/auto_xyz_lqi-eps-converted-to.pdf> <./figures/auto_psi_lqi-eps-c
+[65 <./figures/auto_xyz_lqi-eps-converted-to.pdf> <./figures/auto_psi_lqi-eps-c
 onverted-to.pdf> <./figures/auto_theta_lqi-eps-converted-to.pdf> <./figures/aut
 o_phi_lqi-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/sv_auto_hinf.eps>
@@ -3205,14 +3245,14 @@ f>
 (epstopdf)                    size: 41851 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/sv_auto_hinf-eps-
 converted-to.pdf ./figures/sv_auto_hinf.eps>
-(epstopdf)             \includegraphics on input line 706.
+(epstopdf)             \includegraphics on input line 704.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_auto_hinf-eps-converted-to.pdf, id=1612, 357.335pt x 294.09875pt>
+<./figures/sv_auto_hinf-eps-converted-to.pdf, id=1617, 357.335pt x 294.09875pt>
 File: ./figures/sv_auto_hinf-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/sv_auto_hinf-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/sv_auto_hinf-eps-converted-to.pdf used on in
-put line 706.
+put line 704.
 (pdftex.def)             Requested size: 293.06346pt x 241.21188pt.
 Package epstopdf Info: Source file: <./figures/hsv_auto_h.eps>
 (epstopdf)                    date: 2017-12-03 23:29:00
@@ -3223,15 +3263,15 @@ Package epstopdf Info: Source file: <./figures/hsv_auto_h.eps>
 (epstopdf)                    size: 3929 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/hsv_auto_h-eps-co
 nverted-to.pdf ./figures/hsv_auto_h.eps>
-(epstopdf)             \includegraphics on input line 714.
+(epstopdf)             \includegraphics on input line 712.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_auto_h-eps-converted-to.pdf, id=1614, 383.4325pt x 297.11pt>
+<./figures/hsv_auto_h-eps-converted-to.pdf, id=1619, 383.4325pt x 297.11pt>
 File: ./figures/hsv_auto_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/hsv_auto_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/hsv_auto_h-eps-converted-to.pdf used on inpu
-t line 714.
+t line 712.
 (pdftex.def)             Requested size: 307.28984pt x 238.12354pt.
 Package epstopdf Info: Source file: <./figures/auto_xyz_h.eps>
 (epstopdf)                    date: 2017-12-03 23:52:13
@@ -3242,15 +3282,15 @@ Package epstopdf Info: Source file: <./figures/auto_xyz_h.eps>
 (epstopdf)                    size: 199623 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_xyz_h-eps-co
 nverted-to.pdf ./figures/auto_xyz_h.eps>
-(epstopdf)             \includegraphics on input line 724.
+(epstopdf)             \includegraphics on input line 722.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_h-eps-converted-to.pdf, id=1616, 409.53pt x 292.09125pt>
+<./figures/auto_xyz_h-eps-converted-to.pdf, id=1621, 409.53pt x 292.09125pt>
 File: ./figures/auto_xyz_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_xyz_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_xyz_h-eps-converted-to.pdf used on inpu
-t line 724.
+t line 722.
 (pdftex.def)             Requested size: 298.55334pt x 212.95294pt.
 Package epstopdf Info: Source file: <./figures/auto_psi_h.eps>
 (epstopdf)                    date: 2017-12-03 23:53:07
@@ -3261,14 +3301,14 @@ Package epstopdf Info: Source file: <./figures/auto_psi_h.eps>
 (epstopdf)                    size: 39113 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_psi_h-eps-co
 nverted-to.pdf ./figures/auto_psi_h.eps>
-(epstopdf)             \includegraphics on input line 732.
+(epstopdf)             \includegraphics on input line 730.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_psi_h-eps-converted-to.pdf, id=1617, 388.45125pt x 292.09125pt>
+<./figures/auto_psi_h-eps-converted-to.pdf, id=1622, 388.45125pt x 292.09125pt>
 File: ./figures/auto_psi_h-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/auto_psi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_psi_h-eps-converted-to.pdf used on inpu
-t line 732.
+t line 730.
 (pdftex.def)             Requested size: 199.16928pt x 149.7668pt.
 Package epstopdf Info: Source file: <./figures/auto_theta_h.eps>
 (epstopdf)                    date: 2017-12-03 23:52:50
@@ -3279,15 +3319,15 @@ f>
 (epstopdf)                    size: 60791 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_theta_h-eps-
 converted-to.pdf ./figures/auto_theta_h.eps>
-(epstopdf)             \includegraphics on input line 738.
+(epstopdf)             \includegraphics on input line 736.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_theta_h-eps-converted-to.pdf, id=1618, 381.425pt x 299.1175pt>
+<./figures/auto_theta_h-eps-converted-to.pdf, id=1623, 381.425pt x 299.1175pt>
 File: ./figures/auto_theta_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_theta_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_theta_h-eps-converted-to.pdf used on in
-put line 738.
+put line 736.
 (pdftex.def)             Requested size: 199.16928pt x 156.1901pt.
 Package epstopdf Info: Source file: <./figures/auto_phi_h.eps>
 (epstopdf)                    date: 2017-12-03 23:52:45
@@ -3298,50 +3338,50 @@ Package epstopdf Info: Source file: <./figures/auto_phi_h.eps>
 (epstopdf)                    size: 58436 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_phi_h-eps-co
 nverted-to.pdf ./figures/auto_phi_h.eps>
-(epstopdf)             \includegraphics on input line 744.
+(epstopdf)             \includegraphics on input line 742.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_phi_h-eps-converted-to.pdf, id=1619, 381.425pt x 292.09125pt>
+<./figures/auto_phi_h-eps-converted-to.pdf, id=1624, 381.425pt x 292.09125pt>
 File: ./figures/auto_phi_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_phi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_phi_h-eps-converted-to.pdf used on inpu
-t line 744.
+t line 742.
 (pdftex.def)             Requested size: 199.16928pt x 152.5212pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--750
+Underfull \hbox (badness 10000) in paragraph at lines 700--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--750
+Underfull \hbox (badness 10000) in paragraph at lines 700--748
 
  []
 
-[68 <./figures/sv_auto_hinf-eps-converted-to.pdf>]
+[66 <./figures/sv_auto_hinf-eps-converted-to.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69 <./figures/hsv_auto_h-eps-converted-to.pdf>]
+ [67 <./figures/hsv_auto_h-eps-converted-to.pdf>]
 Overfull \vbox (49.77739pt too high) has occurred while \output is active []
 
 
-[70 <./figures/auto_xyz_h-eps-converted-to.pdf> <./figures/auto_psi_h-eps-conve
+[68 <./figures/auto_xyz_h-eps-converted-to.pdf> <./figures/auto_psi_h-eps-conve
 rted-to.pdf> <./figures/auto_theta_h-eps-converted-to.pdf> <./figures/auto_phi_
 h-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 799--805
+Underfull \hbox (badness 10000) in paragraph at lines 797--803
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--805
+Underfull \hbox (badness 10000) in paragraph at lines 797--803
 
  []
 
-[71]
+[69]
 Package epstopdf Info: Source file: <./figures/pos_test.eps>
 (epstopdf)                    date: 2017-12-03 21:42:40
 (epstopdf)                    size: 788903 bytes
@@ -3350,15 +3390,15 @@ Package epstopdf Info: Source file: <./figures/pos_test.eps>
 (epstopdf)                    size: 45229 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/pos_test-eps-conv
 erted-to.pdf ./figures/pos_test.eps>
-(epstopdf)             \includegraphics on input line 814.
+(epstopdf)             \includegraphics on input line 812.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/pos_test-eps-converted-to.pdf, id=1674, 374.39874pt x 292.09125pt>
+<./figures/pos_test-eps-converted-to.pdf, id=1680, 374.39874pt x 292.09125pt>
 File: ./figures/pos_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/pos_test-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/pos_test-eps-converted-to.pdf used on input 
-line 814.
+line 812.
 (pdftex.def)             Requested size: 199.16928pt x 155.38701pt.
 Package epstopdf Info: Source file: <./figures/att_test.eps>
 (epstopdf)                    date: 2017-12-03 21:47:39
@@ -3368,15 +3408,15 @@ Package epstopdf Info: Source file: <./figures/att_test.eps>
 (epstopdf)                    size: 112201 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/att_test-eps-conv
 erted-to.pdf ./figures/att_test.eps>
-(epstopdf)             \includegraphics on input line 820.
+(epstopdf)             \includegraphics on input line 818.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/att_test-eps-converted-to.pdf, id=1675, 397.485pt x 299.1175pt>
+<./figures/att_test-eps-converted-to.pdf, id=1681, 397.485pt x 299.1175pt>
 File: ./figures/att_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/att_test-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/att_test-eps-converted-to.pdf used on input 
-line 820.
+line 818.
 (pdftex.def)             Requested size: 199.16928pt x 149.88243pt.
 Package epstopdf Info: Source file: <./figures/gpsacc_test.eps>
 (epstopdf)                    date: 2017-12-03 21:42:41
@@ -3387,38 +3427,38 @@ Package epstopdf Info: Source file: <./figures/gpsacc_test.eps>
 (epstopdf)                    size: 29895 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/gpsacc_test-eps-c
 onverted-to.pdf ./figures/gpsacc_test.eps>
-(epstopdf)             \includegraphics on input line 826.
+(epstopdf)             \includegraphics on input line 824.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/gpsacc_test-eps-converted-to.pdf, id=1676, 377.41pt x 292.09125pt>
+<./figures/gpsacc_test-eps-converted-to.pdf, id=1682, 377.41pt x 292.09125pt>
 File: ./figures/gpsacc_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/gpsacc_test-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/gpsacc_test-eps-converted-to.pdf used on inp
-ut line 826.
+ut line 824.
 (pdftex.def)             Requested size: 199.16928pt x 154.14352pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--837
+Underfull \hbox (badness 10000) in paragraph at lines 805--835
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--837
+Underfull \hbox (badness 10000) in paragraph at lines 805--835
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--837
+Underfull \hbox (badness 10000) in paragraph at lines 805--835
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--837
+Underfull \hbox (badness 10000) in paragraph at lines 805--835
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--837
+Underfull \hbox (badness 10000) in paragraph at lines 805--835
 
  []
 
@@ -3426,17 +3466,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 807--837
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--845
+Underfull \hbox (badness 10000) in paragraph at lines 836--843
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--845
+Underfull \hbox (badness 10000) in paragraph at lines 836--843
 
  []
 
-[72] [73 <./figures/pos_test-eps-converted-to.pdf> <./figures/att_test-eps-conv
-erted-to.pdf> <./figures/gpsacc_test-eps-converted-to.pdf>]) [74]
+[70] [71 <./figures/pos_test-eps-converted-to.pdf> <./figures/att_test-eps-conv
+erted-to.pdf> <./figures/gpsacc_test-eps-converted-to.pdf>]) [72]
 \openout2 = `tex/5Implementation.aux'.
 
 
@@ -3464,7 +3504,7 @@ s-converted-to.pdf ./figures/mainActivities.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/mainActivities-eps-converted-to.pdf, id=1713, 475.7775pt x 748.7975p
+<./figures/mainActivities-eps-converted-to.pdf, id=1718, 475.7775pt x 748.7975p
 t>
 File: ./figures/mainActivities-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/mainActivities-eps-converted-to.pdf>
@@ -3474,7 +3514,7 @@ input line 12.
 
 Underfull \vbox (badness 1107) has occurred while \output is active []
 
- [75
+ [73
 
 
 
@@ -3482,7 +3522,7 @@ Underfull \vbox (badness 1107) has occurred while \output is active []
 Overfull \vbox (37.49998pt too high) has occurred while \output is active []
 
 
-[76 <./figures/mainActivities-eps-converted-to.pdf>]
+[74 <./figures/mainActivities-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 26--31
 
  []
@@ -3495,8 +3535,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
 
 Underfull \vbox (badness 5203) has occurred while \output is active []
 
- [77]
-<./figures/missionGCS.jpg, id=1747, 878.53218pt x 521.69907pt>
+ [75]
+<./figures/missionGCS.jpg, id=1753, 878.53218pt x 521.69907pt>
 File: ./figures/missionGCS.jpg Graphic file (type jpg)
 
 <use ./figures/missionGCS.jpg>
@@ -3517,15 +3557,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--66
 
  []
 
-[78] [79 <./figures/missionGCS.jpg>] [80]
-<./figures/commGCS.jpg, id=1773, 233.37187pt x 402.00188pt>
+[76] [77 <./figures/missionGCS.jpg>] [78]
+<./figures/commGCS.jpg, id=1778, 233.37187pt x 402.00188pt>
 File: ./figures/commGCS.jpg Graphic file (type jpg)
 
 <use ./figures/commGCS.jpg>
 Package pdftex.def Info: ./figures/commGCS.jpg used on input line 83.
 (pdftex.def)             Requested size: 127.9533pt x 220.40855pt.
 
-<./figures/UAS.jpg, id=1775, 4175.6pt x 1744.5175pt>
+<./figures/UAS.jpg, id=1780, 4175.6pt x 1744.5175pt>
 File: ./figures/UAS.jpg Graphic file (type jpg)
  <use ./figures/UAS.jpg>
 Package pdftex.def Info: ./figures/UAS.jpg used on input line 94.
@@ -3540,8 +3580,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--99
 
  []
 
-[81 <./figures/commGCS.jpg>]
-<./figures/tripod.jpg, id=1785, 1706.62593pt x 2882.51906pt>
+[79 <./figures/commGCS.jpg>]
+<./figures/tripod.jpg, id=1791, 1706.62593pt x 2882.51906pt>
 File: ./figures/tripod.jpg Graphic file (type jpg)
 
 <use ./figures/tripod.jpg>
@@ -3563,7 +3603,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_psi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 120.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf, id=1786, 393.47pt x 292.
+<./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf, id=1792, 393.47pt x 292.
 09125pt>
 File: ./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3583,7 +3623,7 @@ qi_imp-eps-converted-to.pdf ./figures/stabilize_theta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf, id=1787, 384.43625pt x
+<./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf, id=1793, 384.43625pt x
  292.09125pt>
 File: ./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf Graphic file (type
  pdf)
@@ -3603,7 +3643,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_phi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf, id=1788, 384.43625pt x 2
+<./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf, id=1794, 384.43625pt x 2
 99.1175pt>
 File: ./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3611,11 +3651,11 @@ df)
 Package pdftex.def Info: ./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf u
 sed on input line 132.
 (pdftex.def)             Requested size: 199.16928pt x 154.97147pt.
- [82 <./figures/UAS.jpg>]
+ [80 <./figures/UAS.jpg>]
 Overfull \vbox (21.50745pt too high) has occurred while \output is active []
 
 
-[83 <./figures/tripod.jpg> <./figures/stabilize_psi_lqi_imp-eps-converted-to.pd
+[81 <./figures/tripod.jpg> <./figures/stabilize_psi_lqi_imp-eps-converted-to.pd
 f> <./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf> <./figures/stabiliz
 e_phi_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/stabilize_psi_h_imp.eps>
@@ -3630,7 +3670,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_psi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_h_imp-eps-converted-to.pdf, id=1805, 393.47pt x 292.09
+<./figures/stabilize_psi_h_imp-eps-converted-to.pdf, id=1811, 393.47pt x 292.09
 125pt>
 File: ./figures/stabilize_psi_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3650,7 +3690,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_theta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_h_imp-eps-converted-to.pdf, id=1806, 393.47pt x 292.
+<./figures/stabilize_theta_h_imp-eps-converted-to.pdf, id=1812, 393.47pt x 292.
 09125pt>
 File: ./figures/stabilize_theta_h_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3670,7 +3710,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_phi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 158.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_h_imp-eps-converted-to.pdf, id=1807, 384.43625pt x 299
+<./figures/stabilize_phi_h_imp-eps-converted-to.pdf, id=1813, 384.43625pt x 299
 .1175pt>
 File: ./figures/stabilize_phi_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3678,7 +3718,7 @@ File: ./figures/stabilize_phi_h_imp-eps-converted-to.pdf Graphic file (type pdf
 Package pdftex.def Info: ./figures/stabilize_phi_h_imp-eps-converted-to.pdf use
 d on input line 158.
 (pdftex.def)             Requested size: 199.16928pt x 154.97147pt.
- [84 <./figures/stabilize_psi_h_imp-eps-converted-to.pdf> <./figures/stabilize_
+ [82 <./figures/stabilize_psi_h_imp-eps-converted-to.pdf> <./figures/stabilize_
 theta_h_imp-eps-converted-to.pdf> <./figures/stabilize_phi_h_imp-eps-converted-
 to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 187--189
@@ -3707,7 +3747,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_lqi_imp-eps-converted-to.pdf, id=1822, 381.425pt x 299.117
+<./figures/althold_z_lqi_imp-eps-converted-to.pdf, id=1828, 381.425pt x 299.117
 5pt>
 File: ./figures/althold_z_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_lqi_imp-eps-converted-to.pdf>
@@ -3726,7 +3766,7 @@ mp-eps-converted-to.pdf ./figures/althold_psi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 205.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_lqi_imp-eps-converted-to.pdf, id=1823, 388.45125pt x 299
+<./figures/althold_psi_lqi_imp-eps-converted-to.pdf, id=1829, 388.45125pt x 299
 .1175pt>
 File: ./figures/althold_psi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3746,7 +3786,7 @@ _imp-eps-converted-to.pdf ./figures/althold_theta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_lqi_imp-eps-converted-to.pdf, id=1824, 381.425pt x 299
+<./figures/althold_theta_lqi_imp-eps-converted-to.pdf, id=1830, 381.425pt x 299
 .1175pt>
 File: ./figures/althold_theta_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3766,7 +3806,7 @@ mp-eps-converted-to.pdf ./figures/althold_phi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 217.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_lqi_imp-eps-converted-to.pdf, id=1825, 381.425pt x 299.1
+<./figures/althold_phi_lqi_imp-eps-converted-to.pdf, id=1831, 381.425pt x 299.1
 175pt>
 File: ./figures/althold_phi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3779,7 +3819,7 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 197--221
 []$ $[]$ 
  []
 
-[85]
+[83]
 Package epstopdf Info: Source file: <./figures/althold_z_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:10:50
 (epstopdf)                    size: 271369 bytes
@@ -3792,7 +3832,7 @@ ps-converted-to.pdf ./figures/althold_z_h_imp.eps>
 (epstopdf)             \includegraphics on input line 233.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_h_imp-eps-converted-to.pdf, id=1834, 381.425pt x 299.1175p
+<./figures/althold_z_h_imp-eps-converted-to.pdf, id=1839, 381.425pt x 299.1175p
 t>
 File: ./figures/althold_z_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_h_imp-eps-converted-to.pdf>
@@ -3811,7 +3851,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 239.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_h_imp-eps-converted-to.pdf, id=1835, 388.45125pt x 299.1
+<./figures/althold_psi_h_imp-eps-converted-to.pdf, id=1840, 388.45125pt x 299.1
 175pt>
 File: ./figures/althold_psi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_h_imp-eps-converted-to.pdf>
@@ -3830,7 +3870,7 @@ mp-eps-converted-to.pdf ./figures/althold_theta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 245.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_h_imp-eps-converted-to.pdf, id=1836, 381.425pt x 299.1
+<./figures/althold_theta_h_imp-eps-converted-to.pdf, id=1841, 381.425pt x 299.1
 175pt>
 File: ./figures/althold_theta_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3850,7 +3890,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_h_imp-eps-converted-to.pdf, id=1837, 381.425pt x 299.117
+<./figures/althold_phi_h_imp-eps-converted-to.pdf, id=1842, 381.425pt x 299.117
 5pt>
 File: ./figures/althold_phi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_phi_h_imp-eps-converted-to.pdf>
@@ -3870,7 +3910,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--257
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [86 <./figures/althold_z_lqi_imp-eps-converted-to.pdf> <./figures/althold_psi_
+ [84 <./figures/althold_z_lqi_imp-eps-converted-to.pdf> <./figures/althold_psi_
 lqi_imp-eps-converted-to.pdf> <./figures/althold_theta_lqi_imp-eps-converted-to
 .pdf> <./figures/althold_phi_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/althold_errorpos_lqi_imp.eps>
@@ -3885,7 +3925,7 @@ lqi_imp-eps-converted-to.pdf ./figures/althold_errorpos_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf, id=1853, 388.45125pt 
+<./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf, id=1858, 388.45125pt 
 x 299.1175pt>
 File: ./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -3905,7 +3945,7 @@ h_imp-eps-converted-to.pdf ./figures/althold_errorpos_h_imp.eps>
 (epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_errorpos_h_imp-eps-converted-to.pdf, id=1854, 388.45125pt x 
+<./figures/althold_errorpos_h_imp-eps-converted-to.pdf, id=1859, 388.45125pt x 
 299.1175pt>
 File: ./figures/althold_errorpos_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -3942,7 +3982,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 296--299
 
 Underfull \vbox (badness 2277) has occurred while \output is active []
 
- [87 <./figures/althold_z_h_imp-eps-converted-to.pdf> <./figures/althold_psi_h_
+ [85 <./figures/althold_z_h_imp-eps-converted-to.pdf> <./figures/althold_psi_h_
 imp-eps-converted-to.pdf> <./figures/althold_theta_h_imp-eps-converted-to.pdf> 
 <./figures/althold_phi_h_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/auto_xyz_lqi_imp.eps>
@@ -3954,16 +3994,20 @@ o.pdf>
 (epstopdf)                    size: 209293 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_xyz_lqi_imp-
 eps-converted-to.pdf ./figures/auto_xyz_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 305.
+(epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_lqi_imp-eps-converted-to.pdf, id=1871, 407.5225pt x 292.091
+<./figures/auto_xyz_lqi_imp-eps-converted-to.pdf, id=1877, 407.5225pt x 292.091
 25pt>
 File: ./figures/auto_xyz_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_xyz_lqi_imp-eps-converted-to.pdf used o
-n input line 305.
+n input line 306.
 (pdftex.def)             Requested size: 298.55334pt x 213.99586pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--311
+
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -3977,20 +4021,20 @@ pdf>
 (epstopdf)                    size: 211130 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_xyz_h_imp-ep
 s-converted-to.pdf ./figures/auto_xyz_h_imp.eps>
-(epstopdf)             \includegraphics on input line 339.
+(epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_h_imp-eps-converted-to.pdf, id=1872, 407.5225pt x 291.0875p
+<./figures/auto_xyz_h_imp-eps-converted-to.pdf, id=1879, 407.5225pt x 291.0875p
 t>
 File: ./figures/auto_xyz_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_xyz_h_imp-eps-converted-to.pdf used on 
-input line 339.
+input line 340.
 (pdftex.def)             Requested size: 298.55334pt x 213.2605pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3417) has occurred while \output is active []
 
- [88 <./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf> <./figures/altho
+ [86 <./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf> <./figures/altho
 ld_errorpos_h_imp-eps-converted-to.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -4004,16 +4048,16 @@ ted-to.pdf>
 (epstopdf)                    size: 69571 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_errorpos_lqi
 _imp-eps-converted-to.pdf ./figures/auto_errorpos_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 374.
+(epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf, id=1882, 388.45125pt x 2
+<./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf, id=1891, 388.45125pt x 2
 99.1175pt>
 File: ./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
  <use ./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf u
-sed on input line 374.
+sed on input line 380.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 Package epstopdf Info: Source file: <./figures/auto_errorpos_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:37:45
@@ -4024,38 +4068,98 @@ d-to.pdf>
 (epstopdf)                    size: 67735 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_errorpos_h_i
 mp-eps-converted-to.pdf ./figures/auto_errorpos_h_imp.eps>
-(epstopdf)             \includegraphics on input line 380.
+(epstopdf)             \includegraphics on input line 386.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_errorpos_h_imp-eps-converted-to.pdf, id=1883, 388.45125pt x 299
+<./figures/auto_errorpos_h_imp-eps-converted-to.pdf, id=1892, 388.45125pt x 299
 .1175pt>
 File: ./figures/auto_errorpos_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
  <use ./figures/auto_errorpos_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_errorpos_h_imp-eps-converted-to.pdf use
-d on input line 380.
+d on input line 386.
 (pdftex.def)             Requested size: 199.16928pt x 153.36945pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 371--392
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+ []
 
-) [89 <./figures/auto_xyz_lqi_imp-eps-converted-to.pdf>] [90 <./figures/auto_xy
-z_h_imp-eps-converted-to.pdf> <./figures/auto_errorpos_lqi_imp-eps-converted-to
-.pdf> <./figures/auto_errorpos_h_imp-eps-converted-to.pdf>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--392
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87 <./figures/auto_xyz_lqi_imp-eps-converted-to.pdf>])
+Underfull \vbox (badness 1127) has occurred while \output is active []
+
+ [88 <./figures/auto_xyz_h_imp-eps-converted-to.pdf> <./figures/auto_errorpos_l
+qi_imp-eps-converted-to.pdf> <./figures/auto_errorpos_h_imp-eps-converted-to.pd
+f>] [89]
 \openout2 = `tex/conclusions.aux'.
 
 
-(tex/conclusions.tex
-Chapter 6.
-) [91
+(tex/conclusions.tex [90
 
 
 
 ]
+Chapter 6.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91])
+Underfull \hbox (badness 10000) in paragraph at lines 18--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--139
+
+ []
+
+[92] [93]
 No file Final_project.ind.
 \openout2 = `tex/appendices.aux'.
 
-(tex/appendices.tex [92
+(tex/appendices.tex [94
 
 
 
@@ -4071,11 +4175,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--12
 
  []
 
-[93] [94
+[95] [96
 
 ]
 Appendix B.
-[95] [96
+[97] [98
 
 ]
 Appendix C.
@@ -4091,7 +4195,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_u_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 28.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_u_lqi_imp-eps-converted-to.pdf, id=1930, 393.47pt x 299.11
+<./figures/stabilize_u_lqi_imp-eps-converted-to.pdf, id=1956, 393.47pt x 299.11
 75pt>
 File: ./figures/stabilize_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -4099,11 +4203,6 @@ File: ./figures/stabilize_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 Package pdftex.def Info: ./figures/stabilize_u_lqi_imp-eps-converted-to.pdf use
 d on input line 28.
 (pdftex.def)             Requested size: 199.16928pt x 151.40686pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 28--29
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_taupsi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:52:00
 (epstopdf)                    size: 219131 bytes
@@ -4116,7 +4215,7 @@ lqi_imp-eps-converted-to.pdf ./figures/stabilize_taupsi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 34.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf, id=1931, 393.47pt x 2
+<./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf, id=1957, 393.47pt x 2
 99.1175pt>
 File: ./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4124,11 +4223,6 @@ e pdf)
 Package pdftex.def Info: ./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pd
 f used on input line 34.
 (pdftex.def)             Requested size: 199.16928pt x 151.40686pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 34--35
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_tautheta_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:52:01
 (epstopdf)                    size: 218892 bytes
@@ -4141,7 +4235,7 @@ a_lqi_imp-eps-converted-to.pdf ./figures/stabilize_tautheta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 40.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf, id=1932, 384.43625p
+<./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf, id=1958, 384.43625p
 t x 292.09125pt>
 File: ./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -4150,11 +4244,6 @@ ype pdf)
 Package pdftex.def Info: ./figures/stabilize_tautheta_lqi_imp-eps-converted-to.
 pdf used on input line 40.
 (pdftex.def)             Requested size: 199.16928pt x 151.33119pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 40--41
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_tauphi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:52:01
 (epstopdf)                    size: 223810 bytes
@@ -4167,7 +4256,7 @@ lqi_imp-eps-converted-to.pdf ./figures/stabilize_tauphi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 46.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf, id=1933, 393.47pt x 2
+<./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf, id=1959, 393.47pt x 2
 92.09125pt>
 File: ./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4176,13 +4265,20 @@ Package pdftex.def Info: ./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pd
 f used on input line 46.
 (pdftex.def)             Requested size: 199.16928pt x 147.85031pt.
 
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 46--47
- [][] 
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 26--50
+[]$ $[]$ 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [99]
+Overfull \vbox (26.5467pt too high) has occurred while \output is active []
+
+
+[100 <./figures/stabilize_u_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_
+taupsi_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_tautheta_lqi_imp-eps-
+converted-to.pdf> <./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/stabilize_pwm1_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:51:59
 (epstopdf)                    size: 218905 bytes
@@ -4195,7 +4291,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm1_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 57.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf, id=1934, 392.46625pt x 
+<./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf, id=1978, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4203,11 +4299,6 @@ pdf)
 Package pdftex.def Info: ./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf 
 used on input line 57.
 (pdftex.def)             Requested size: 199.16928pt x 148.23361pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 57--58
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_pwm2_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:51:59
 (epstopdf)                    size: 219751 bytes
@@ -4220,7 +4311,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm2_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf, id=1935, 392.46625pt x 
+<./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf, id=1979, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4228,11 +4319,6 @@ pdf)
 Package pdftex.def Info: ./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf 
 used on input line 63.
 (pdftex.def)             Requested size: 199.16928pt x 148.23361pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 63--64
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_pwm3_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:51:59
 (epstopdf)                    size: 220296 bytes
@@ -4245,7 +4331,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm3_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf, id=1936, 392.46625pt x 
+<./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf, id=1980, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4253,11 +4339,6 @@ pdf)
 Package pdftex.def Info: ./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf 
 used on input line 69.
 (pdftex.def)             Requested size: 199.16928pt x 148.23361pt.
-
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 69--70
- [][] 
- []
-
 Package epstopdf Info: Source file: <./figures/stabilize_pwm4_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:52:00
 (epstopdf)                    size: 219116 bytes
@@ -4270,7 +4351,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm4_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf, id=1937, 392.46625pt x 
+<./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf, id=1981, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4279,12 +4360,9 @@ Package pdftex.def Info: ./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf
 used on input line 75.
 (pdftex.def)             Requested size: 199.16928pt x 148.23361pt.
 
-Overfull \hbox (28.56923pt too wide) in paragraph at lines 75--76
- [][] 
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 55--79
+[]$ $[]$ 
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package epstopdf Info: Source file: <./figures/stabilize_u_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 02:11:57
@@ -4298,7 +4376,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 88.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_u_h_imp-eps-converted-to.pdf, id=1938, 393.47pt x 299.1175
+<./figures/stabilize_u_h_imp-eps-converted-to.pdf, id=1982, 393.47pt x 299.1175
 pt>
 File: ./figures/stabilize_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_u_h_imp-eps-converted-to.pdf>
@@ -4317,7 +4395,7 @@ h_imp-eps-converted-to.pdf ./figures/stabilize_taupsi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 94.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf, id=1939, 393.47pt x 292
+<./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf, id=1983, 393.47pt x 292
 .09125pt>
 File: ./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4337,7 +4415,7 @@ a_h_imp-eps-converted-to.pdf ./figures/stabilize_tautheta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 100.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf, id=1940, 393.47pt x 2
+<./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf, id=1984, 393.47pt x 2
 99.1175pt>
 File: ./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4357,7 +4435,7 @@ h_imp-eps-converted-to.pdf ./figures/stabilize_tauphi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf, id=1941, 393.47pt x 292
+<./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf, id=1985, 393.47pt x 292
 .09125pt>
 File: ./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4373,16 +4451,9 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 86--110
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [97]
-Overfull \vbox (264.156pt too high) has occurred while \output is active []
-
-
-[98 <./figures/stabilize_u_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_t
-aupsi_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_tautheta_lqi_imp-eps-c
-onverted-to.pdf> <./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf> <./f
-igures/stabilize_u_h_imp-eps-converted-to.pdf> <./figures/stabilize_taupsi_h_im
-p-eps-converted-to.pdf> <./figures/stabilize_tautheta_h_imp-eps-converted-to.pd
-f> <./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf>]
+ [101 <./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/stabil
+ize_pwm2_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_pwm3_lqi_imp-eps-co
+nverted-to.pdf> <./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/stabilize_pwm1_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 02:11:56
 (epstopdf)                    size: 221435 bytes
@@ -4395,7 +4466,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm1_h_imp.eps>
 (epstopdf)             \includegraphics on input line 117.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf, id=1970, 392.46625pt x 29
+<./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf, id=1999, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4415,7 +4486,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm2_h_imp.eps>
 (epstopdf)             \includegraphics on input line 123.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf, id=1971, 392.46625pt x 29
+<./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf, id=2000, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4435,7 +4506,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm3_h_imp.eps>
 (epstopdf)             \includegraphics on input line 129.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf, id=1972, 392.46625pt x 29
+<./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf, id=2001, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4455,7 +4526,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm4_h_imp.eps>
 (epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf, id=1973, 392.46625pt x 29
+<./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf, id=2002, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4469,15 +4540,11 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 115--139
  []
 
 
-Overfull \vbox (158.7458pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-[99 <./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/stabiliz
-e_pwm2_lqi_imp-eps-converted-to.pdf> <./figures/stabilize_pwm3_lqi_imp-eps-conv
-erted-to.pdf> <./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf> <./figure
-s/stabilize_pwm1_h_imp-eps-converted-to.pdf> <./figures/stabilize_pwm2_h_imp-ep
-s-converted-to.pdf> <./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf> <./fi
-gures/stabilize_pwm4_h_imp-eps-converted-to.pdf>]
+ [102 <./figures/stabilize_u_h_imp-eps-converted-to.pdf> <./figures/stabilize_t
+aupsi_h_imp-eps-converted-to.pdf> <./figures/stabilize_tautheta_h_imp-eps-conve
+rted-to.pdf> <./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/althold_u_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-06 01:53:22
 (epstopdf)                    size: 162109 bytes
@@ -4487,15 +4554,15 @@ to.pdf>
 (epstopdf)                    size: 62974 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_u_lqi_imp
 -eps-converted-to.pdf ./figures/althold_u_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 151.
+(epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_u_lqi_imp-eps-converted-to.pdf, id=1994, 376.40625pt x 292.0
+<./figures/althold_u_lqi_imp-eps-converted-to.pdf, id=2016, 376.40625pt x 292.0
 9125pt>
 File: ./figures/althold_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_u_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_u_lqi_imp-eps-converted-to.pdf used 
-on input line 151.
+on input line 149.
 (pdftex.def)             Requested size: 199.16928pt x 154.55801pt.
 Package epstopdf Info: Source file: <./figures/althold_taupsi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:00:25
@@ -4506,16 +4573,16 @@ rted-to.pdf>
 (epstopdf)                    size: 64898 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_taupsi_lq
 i_imp-eps-converted-to.pdf ./figures/althold_taupsi_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 157.
+(epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf, id=1995, 380.42125pt x 
+<./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf, id=2017, 380.42125pt x 
 299.1175pt>
 File: ./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use ./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf 
-used on input line 157.
+used on input line 155.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 Package epstopdf Info: Source file: <./figures/althold_tautheta_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:00:25
@@ -4526,16 +4593,16 @@ verted-to.pdf>
 (epstopdf)                    size: 62450 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_tautheta_
 lqi_imp-eps-converted-to.pdf ./figures/althold_tautheta_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 163.
+(epstopdf)             \includegraphics on input line 161.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf, id=1996, 380.42125pt 
+<./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf, id=2018, 380.42125pt 
 x 292.09125pt>
 File: ./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
  <use ./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_tautheta_lqi_imp-eps-converted-to.pd
-f used on input line 163.
+f used on input line 161.
 (pdftex.def)             Requested size: 199.16928pt x 152.92677pt.
 Package epstopdf Info: Source file: <./figures/althold_tauphi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:00:25
@@ -4546,22 +4613,28 @@ rted-to.pdf>
 (epstopdf)                    size: 62916 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_tauphi_lq
 i_imp-eps-converted-to.pdf ./figures/althold_tauphi_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 169.
+(epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf, id=1997, 380.42125pt x 
+<./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf, id=2019, 380.42125pt x 
 299.1175pt>
 File: ./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use ./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf 
-used on input line 169.
+used on input line 167.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 149--173
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 147--171
 []$ $[]$ 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103 <./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf> <./figures/stabiliz
+e_pwm2_h_imp-eps-converted-to.pdf> <./figures/stabilize_pwm3_h_imp-eps-converte
+d-to.pdf> <./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/althold_pwm1_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-06 01:54:24
 (epstopdf)                    size: 165002 bytes
@@ -4571,16 +4644,16 @@ ed-to.pdf>
 (epstopdf)                    size: 64282 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm1_lqi_
 imp-eps-converted-to.pdf ./figures/althold_pwm1_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 180.
+(epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf, id=1998, 379.4175pt x 299
+<./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf, id=2033, 379.4175pt x 299
 .1175pt>
 File: ./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf us
-ed on input line 180.
+ed on input line 178.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm2_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-06 01:54:37
@@ -4591,16 +4664,16 @@ ed-to.pdf>
 (epstopdf)                    size: 64131 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm2_lqi_
 imp-eps-converted-to.pdf ./figures/althold_pwm2_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 186.
+(epstopdf)             \includegraphics on input line 184.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf, id=1999, 379.4175pt x 292
+<./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf, id=2034, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf us
-ed on input line 186.
+ed on input line 184.
 (pdftex.def)             Requested size: 199.16928pt x 153.33235pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm3_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-06 01:55:11
@@ -4611,16 +4684,16 @@ ed-to.pdf>
 (epstopdf)                    size: 64013 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm3_lqi_
 imp-eps-converted-to.pdf ./figures/althold_pwm3_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 192.
+(epstopdf)             \includegraphics on input line 190.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf, id=2000, 379.4175pt x 292
+<./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf, id=2035, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf us
-ed on input line 192.
+ed on input line 190.
 (pdftex.def)             Requested size: 199.16928pt x 153.33235pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm4_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-06 01:55:26
@@ -4631,26 +4704,26 @@ ed-to.pdf>
 (epstopdf)                    size: 63200 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm4_lqi_
 imp-eps-converted-to.pdf ./figures/althold_pwm4_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 198.
+(epstopdf)             \includegraphics on input line 196.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf, id=2001, 379.4175pt x 292
+<./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf, id=2036, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf us
-ed on input line 198.
+ed on input line 196.
 (pdftex.def)             Requested size: 199.16928pt x 153.33235pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 178--202
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 176--200
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [100 <./figures/althold_u_lqi_imp-eps-converted-to.pdf> <./figures/althold_tau
+ [104 <./figures/althold_u_lqi_imp-eps-converted-to.pdf> <./figures/althold_tau
 psi_lqi_imp-eps-converted-to.pdf> <./figures/althold_tautheta_lqi_imp-eps-conve
 rted-to.pdf> <./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/althold_u_h_imp.eps>
@@ -4662,15 +4735,15 @@ Package epstopdf Info: Source file: <./figures/althold_u_h_imp.eps>
 (epstopdf)                    size: 61497 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_u_h_imp-e
 ps-converted-to.pdf ./figures/althold_u_h_imp.eps>
-(epstopdf)             \includegraphics on input line 211.
+(epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_u_h_imp-eps-converted-to.pdf, id=2016, 366.36874pt x 299.117
+<./figures/althold_u_h_imp-eps-converted-to.pdf, id=2051, 366.36874pt x 299.117
 5pt>
 File: ./figures/althold_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_u_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_u_h_imp-eps-converted-to.pdf used on
- input line 211.
+ input line 209.
 (pdftex.def)             Requested size: 199.16928pt x 162.61186pt.
 Package epstopdf Info: Source file: <./figures/althold_taupsi_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:10:06
@@ -4681,16 +4754,16 @@ ed-to.pdf>
 (epstopdf)                    size: 65272 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_taupsi_h_
 imp-eps-converted-to.pdf ./figures/althold_taupsi_h_imp.eps>
-(epstopdf)             \includegraphics on input line 217.
+(epstopdf)             \includegraphics on input line 215.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_taupsi_h_imp-eps-converted-to.pdf, id=2017, 380.42125pt x 29
+<./figures/althold_taupsi_h_imp-eps-converted-to.pdf, id=2052, 380.42125pt x 29
 9.1175pt>
 File: ./figures/althold_taupsi_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_taupsi_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_taupsi_h_imp-eps-converted-to.pdf us
-ed on input line 217.
+ed on input line 215.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 Package epstopdf Info: Source file: <./figures/althold_tautheta_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:10:19
@@ -4701,16 +4774,16 @@ rted-to.pdf>
 (epstopdf)                    size: 63329 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_tautheta_
 h_imp-eps-converted-to.pdf ./figures/althold_tautheta_h_imp.eps>
-(epstopdf)             \includegraphics on input line 223.
+(epstopdf)             \includegraphics on input line 221.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tautheta_h_imp-eps-converted-to.pdf, id=2018, 380.42125pt x 
+<./figures/althold_tautheta_h_imp-eps-converted-to.pdf, id=2053, 380.42125pt x 
 292.09125pt>
 File: ./figures/althold_tautheta_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use ./figures/althold_tautheta_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_tautheta_h_imp-eps-converted-to.pdf 
-used on input line 223.
+used on input line 221.
 (pdftex.def)             Requested size: 199.16928pt x 152.92677pt.
 Package epstopdf Info: Source file: <./figures/althold_tauphi_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:10:27
@@ -4721,26 +4794,26 @@ ed-to.pdf>
 (epstopdf)                    size: 63226 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_tauphi_h_
 imp-eps-converted-to.pdf ./figures/althold_tauphi_h_imp.eps>
-(epstopdf)             \includegraphics on input line 229.
+(epstopdf)             \includegraphics on input line 227.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tauphi_h_imp-eps-converted-to.pdf, id=2019, 380.42125pt x 29
+<./figures/althold_tauphi_h_imp-eps-converted-to.pdf, id=2054, 380.42125pt x 29
 2.09125pt>
 File: ./figures/althold_tauphi_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
  <use ./figures/althold_tauphi_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_tauphi_h_imp-eps-converted-to.pdf us
-ed on input line 229.
+ed on input line 227.
 (pdftex.def)             Requested size: 199.16928pt x 152.92677pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 209--233
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 207--231
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [101 <./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/althold_
+ [105 <./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/althold_
 pwm2_lqi_imp-eps-converted-to.pdf> <./figures/althold_pwm3_lqi_imp-eps-converte
 d-to.pdf> <./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/althold_pwm1_h_imp.eps>
@@ -4752,16 +4825,16 @@ Package epstopdf Info: Source file: <./figures/althold_pwm1_h_imp.eps>
 (epstopdf)                    size: 65553 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm1_h_im
 p-eps-converted-to.pdf ./figures/althold_pwm1_h_imp.eps>
-(epstopdf)             \includegraphics on input line 240.
+(epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm1_h_imp-eps-converted-to.pdf, id=2032, 379.4175pt x 299.1
+<./figures/althold_pwm1_h_imp-eps-converted-to.pdf, id=2067, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
  <use ./figures/althold_pwm1_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm1_h_imp-eps-converted-to.pdf used
- on input line 240.
+ on input line 238.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm2_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:09:55
@@ -4772,16 +4845,16 @@ Package epstopdf Info: Source file: <./figures/althold_pwm2_h_imp.eps>
 (epstopdf)                    size: 63310 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm2_h_im
 p-eps-converted-to.pdf ./figures/althold_pwm2_h_imp.eps>
-(epstopdf)             \includegraphics on input line 246.
+(epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm2_h_imp-eps-converted-to.pdf, id=2033, 379.4175pt x 299.1
+<./figures/althold_pwm2_h_imp-eps-converted-to.pdf, id=2068, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
  <use ./figures/althold_pwm2_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm2_h_imp-eps-converted-to.pdf used
- on input line 246.
+ on input line 244.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm3_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:09:55
@@ -4792,16 +4865,16 @@ Package epstopdf Info: Source file: <./figures/althold_pwm3_h_imp.eps>
 (epstopdf)                    size: 64829 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm3_h_im
 p-eps-converted-to.pdf ./figures/althold_pwm3_h_imp.eps>
-(epstopdf)             \includegraphics on input line 252.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm3_h_imp-eps-converted-to.pdf, id=2034, 379.4175pt x 299.1
+<./figures/althold_pwm3_h_imp-eps-converted-to.pdf, id=2069, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
  <use ./figures/althold_pwm3_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm3_h_imp-eps-converted-to.pdf used
- on input line 252.
+ on input line 250.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/althold_pwm4_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 01:09:56
@@ -4812,26 +4885,26 @@ Package epstopdf Info: Source file: <./figures/althold_pwm4_h_imp.eps>
 (epstopdf)                    size: 62843 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/althold_pwm4_h_im
 p-eps-converted-to.pdf ./figures/althold_pwm4_h_imp.eps>
-(epstopdf)             \includegraphics on input line 258.
+(epstopdf)             \includegraphics on input line 256.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm4_h_imp-eps-converted-to.pdf, id=2035, 379.4175pt x 299.1
+<./figures/althold_pwm4_h_imp-eps-converted-to.pdf, id=2070, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
  <use ./figures/althold_pwm4_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/althold_pwm4_h_imp-eps-converted-to.pdf used
- on input line 258.
+ on input line 256.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 238--262
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 236--260
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [102 <./figures/althold_u_h_imp-eps-converted-to.pdf> <./figures/althold_taups
+ [106 <./figures/althold_u_h_imp-eps-converted-to.pdf> <./figures/althold_taups
 i_h_imp-eps-converted-to.pdf> <./figures/althold_tautheta_h_imp-eps-converted-t
 o.pdf> <./figures/althold_tauphi_h_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/auto_u_lqi_imp.eps>
@@ -4843,15 +4916,15 @@ pdf>
 (epstopdf)                    size: 61735 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_u_lqi_imp-ep
 s-converted-to.pdf ./figures/auto_u_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 273.
+(epstopdf)             \includegraphics on input line 271.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_u_lqi_imp-eps-converted-to.pdf, id=2049, 366.36874pt x 299.1175
+<./figures/auto_u_lqi_imp-eps-converted-to.pdf, id=2084, 366.36874pt x 299.1175
 pt>
 File: ./figures/auto_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_u_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_u_lqi_imp-eps-converted-to.pdf used on 
-input line 273.
+input line 271.
 (pdftex.def)             Requested size: 199.16928pt x 162.61186pt.
 Package epstopdf Info: Source file: <./figures/auto_taupsi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:50
@@ -4862,16 +4935,16 @@ d-to.pdf>
 (epstopdf)                    size: 64896 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_taupsi_lqi_i
 mp-eps-converted-to.pdf ./figures/auto_taupsi_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 279.
+(epstopdf)             \includegraphics on input line 277.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf, id=2050, 380.42125pt x 299
+<./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf, id=2085, 380.42125pt x 299
 .1175pt>
 File: ./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
  <use ./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf use
-d on input line 279.
+d on input line 277.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 Package epstopdf Info: Source file: <./figures/auto_tautheta_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:51
@@ -4882,16 +4955,16 @@ ted-to.pdf>
 (epstopdf)                    size: 63929 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_tautheta_lqi
 _imp-eps-converted-to.pdf ./figures/auto_tautheta_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 285.
+(epstopdf)             \includegraphics on input line 283.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf, id=2051, 380.42125pt x 2
+<./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf, id=2086, 380.42125pt x 2
 92.09125pt>
 File: ./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
  <use ./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf u
-sed on input line 285.
+sed on input line 283.
 (pdftex.def)             Requested size: 199.16928pt x 152.92677pt.
 Package epstopdf Info: Source file: <./figures/auto_tauphi_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:51
@@ -4902,26 +4975,26 @@ d-to.pdf>
 (epstopdf)                    size: 62985 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_tauphi_lqi_i
 mp-eps-converted-to.pdf ./figures/auto_tauphi_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 291.
+(epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf, id=2052, 380.42125pt x 299
+<./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf, id=2087, 380.42125pt x 299
 .1175pt>
 File: ./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
  <use ./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf use
-d on input line 291.
+d on input line 289.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 271--295
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 269--293
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [103 <./figures/althold_pwm1_h_imp-eps-converted-to.pdf> <./figures/althold_pw
+ [107 <./figures/althold_pwm1_h_imp-eps-converted-to.pdf> <./figures/althold_pw
 m2_h_imp-eps-converted-to.pdf> <./figures/althold_pwm3_h_imp-eps-converted-to.p
 df> <./figures/althold_pwm4_h_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/auto_pwm1_lqi_imp.eps>
@@ -4933,15 +5006,15 @@ to.pdf>
 (epstopdf)                    size: 63905 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm1_lqi_imp
 -eps-converted-to.pdf ./figures/auto_pwm1_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 302.
+(epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf, id=2066, 379.4175pt x 299.11
+<./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf, id=2100, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf used 
-on input line 302.
+on input line 300.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm2_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:49
@@ -4952,15 +5025,15 @@ to.pdf>
 (epstopdf)                    size: 63476 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm2_lqi_imp
 -eps-converted-to.pdf ./figures/auto_pwm2_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 308.
+(epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf, id=2067, 379.4175pt x 299.11
+<./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf, id=2101, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf used 
-on input line 308.
+on input line 306.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm3_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:49
@@ -4971,15 +5044,15 @@ to.pdf>
 (epstopdf)                    size: 64910 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm3_lqi_imp
 -eps-converted-to.pdf ./figures/auto_pwm3_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 314.
+(epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf, id=2068, 379.4175pt x 299.11
+<./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf, id=2102, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf used 
-on input line 314.
+on input line 312.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm4_lqi_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:41:50
@@ -4990,25 +5063,25 @@ to.pdf>
 (epstopdf)                    size: 63104 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm4_lqi_imp
 -eps-converted-to.pdf ./figures/auto_pwm4_lqi_imp.eps>
-(epstopdf)             \includegraphics on input line 320.
+(epstopdf)             \includegraphics on input line 318.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf, id=2069, 379.4175pt x 299.11
+<./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf, id=2103, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf used 
-on input line 320.
+on input line 318.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 300--324
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 298--322
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [104 <./figures/auto_u_lqi_imp-eps-converted-to.pdf> <./figures/auto_taupsi_lq
+ [108 <./figures/auto_u_lqi_imp-eps-converted-to.pdf> <./figures/auto_taupsi_lq
 i_imp-eps-converted-to.pdf> <./figures/auto_tautheta_lqi_imp-eps-converted-to.p
 df> <./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/auto_u_h_imp.eps>
@@ -5020,15 +5093,15 @@ f>
 (epstopdf)                    size: 63473 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_u_h_imp-eps-
 converted-to.pdf ./figures/auto_u_h_imp.eps>
-(epstopdf)             \includegraphics on input line 335.
+(epstopdf)             \includegraphics on input line 333.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_u_h_imp-eps-converted-to.pdf, id=2084, 380.42125pt x 299.1175pt
+<./figures/auto_u_h_imp-eps-converted-to.pdf, id=2118, 380.42125pt x 299.1175pt
 >
 File: ./figures/auto_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_u_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_u_h_imp-eps-converted-to.pdf used on in
-put line 335.
+put line 333.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 Package epstopdf Info: Source file: <./figures/auto_taupsi_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:13
@@ -5039,15 +5112,15 @@ to.pdf>
 (epstopdf)                    size: 64430 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_taupsi_h_imp
 -eps-converted-to.pdf ./figures/auto_taupsi_h_imp.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 339.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_taupsi_h_imp-eps-converted-to.pdf, id=2085, 380.42125pt x 299.1
+<./figures/auto_taupsi_h_imp-eps-converted-to.pdf, id=2119, 380.42125pt x 299.1
 175pt>
 File: ./figures/auto_taupsi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_taupsi_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_taupsi_h_imp-eps-converted-to.pdf used 
-on input line 341.
+on input line 339.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 Package epstopdf Info: Source file: <./figures/auto_tautheta_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:14
@@ -5058,16 +5131,16 @@ d-to.pdf>
 (epstopdf)                    size: 64823 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_tautheta_h_i
 mp-eps-converted-to.pdf ./figures/auto_tautheta_h_imp.eps>
-(epstopdf)             \includegraphics on input line 347.
+(epstopdf)             \includegraphics on input line 345.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tautheta_h_imp-eps-converted-to.pdf, id=2086, 380.42125pt x 292
+<./figures/auto_tautheta_h_imp-eps-converted-to.pdf, id=2120, 380.42125pt x 292
 .09125pt>
 File: ./figures/auto_tautheta_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
  <use ./figures/auto_tautheta_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_tautheta_h_imp-eps-converted-to.pdf use
-d on input line 347.
+d on input line 345.
 (pdftex.def)             Requested size: 199.16928pt x 152.92677pt.
 Package epstopdf Info: Source file: <./figures/auto_tauphi_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:14
@@ -5078,25 +5151,25 @@ to.pdf>
 (epstopdf)                    size: 63735 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_tauphi_h_imp
 -eps-converted-to.pdf ./figures/auto_tauphi_h_imp.eps>
-(epstopdf)             \includegraphics on input line 353.
+(epstopdf)             \includegraphics on input line 351.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tauphi_h_imp-eps-converted-to.pdf, id=2087, 380.42125pt x 299.1
+<./figures/auto_tauphi_h_imp-eps-converted-to.pdf, id=2121, 380.42125pt x 299.1
 175pt>
 File: ./figures/auto_tauphi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_tauphi_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_tauphi_h_imp-eps-converted-to.pdf used 
-on input line 353.
+on input line 351.
 (pdftex.def)             Requested size: 199.16928pt x 156.60544pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 333--357
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 331--355
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [105 <./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/auto_pwm2_l
+ [109 <./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf> <./figures/auto_pwm2_l
 qi_imp-eps-converted-to.pdf> <./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf>
  <./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/auto_pwm1_h_imp.eps>
@@ -5108,15 +5181,15 @@ Package epstopdf Info: Source file: <./figures/auto_pwm1_h_imp.eps>
 (epstopdf)                    size: 62670 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm1_h_imp-e
 ps-converted-to.pdf ./figures/auto_pwm1_h_imp.eps>
-(epstopdf)             \includegraphics on input line 364.
+(epstopdf)             \includegraphics on input line 362.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm1_h_imp-eps-converted-to.pdf, id=2100, 379.4175pt x 299.1175
+<./figures/auto_pwm1_h_imp-eps-converted-to.pdf, id=2135, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm1_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm1_h_imp-eps-converted-to.pdf used on
- input line 364.
+ input line 362.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm2_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:12
@@ -5127,15 +5200,15 @@ Package epstopdf Info: Source file: <./figures/auto_pwm2_h_imp.eps>
 (epstopdf)                    size: 61776 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm2_h_imp-e
 ps-converted-to.pdf ./figures/auto_pwm2_h_imp.eps>
-(epstopdf)             \includegraphics on input line 370.
+(epstopdf)             \includegraphics on input line 368.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm2_h_imp-eps-converted-to.pdf, id=2101, 379.4175pt x 299.1175
+<./figures/auto_pwm2_h_imp-eps-converted-to.pdf, id=2136, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm2_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm2_h_imp-eps-converted-to.pdf used on
- input line 370.
+ input line 368.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm3_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:13
@@ -5146,15 +5219,15 @@ Package epstopdf Info: Source file: <./figures/auto_pwm3_h_imp.eps>
 (epstopdf)                    size: 63582 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm3_h_imp-e
 ps-converted-to.pdf ./figures/auto_pwm3_h_imp.eps>
-(epstopdf)             \includegraphics on input line 376.
+(epstopdf)             \includegraphics on input line 374.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm3_h_imp-eps-converted-to.pdf, id=2102, 379.4175pt x 299.1175
+<./figures/auto_pwm3_h_imp-eps-converted-to.pdf, id=2137, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm3_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm3_h_imp-eps-converted-to.pdf used on
- input line 376.
+ input line 374.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 Package epstopdf Info: Source file: <./figures/auto_pwm4_h_imp.eps>
 (epstopdf)                    date: 2017-12-05 00:06:13
@@ -5165,102 +5238,104 @@ Package epstopdf Info: Source file: <./figures/auto_pwm4_h_imp.eps>
 (epstopdf)                    size: 61353 bytes
 (epstopdf)             Command: <epstopdf --outfile=./figures/auto_pwm4_h_imp-e
 ps-converted-to.pdf ./figures/auto_pwm4_h_imp.eps>
-(epstopdf)             \includegraphics on input line 382.
+(epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm4_h_imp-eps-converted-to.pdf, id=2103, 379.4175pt x 299.1175
+<./figures/auto_pwm4_h_imp-eps-converted-to.pdf, id=2138, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm4_h_imp-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_pwm4_h_imp-eps-converted-to.pdf used on
- input line 382.
+ input line 380.
 (pdftex.def)             Requested size: 199.16928pt x 157.02077pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 362--386
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 360--384
 []$ $[]$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [106 <./figures/auto_u_h_imp-eps-converted-to.pdf> <./figures/auto_taupsi_h_im
+ [110 <./figures/auto_u_h_imp-eps-converted-to.pdf> <./figures/auto_taupsi_h_im
 p-eps-converted-to.pdf> <./figures/auto_tautheta_h_imp-eps-converted-to.pdf> <.
-/figures/auto_tauphi_h_imp-eps-converted-to.pdf>]) [107 <./figures/auto_pwm1_h_
+/figures/auto_tauphi_h_imp-eps-converted-to.pdf>]) [111 <./figures/auto_pwm1_h_
 imp-eps-converted-to.pdf> <./figures/auto_pwm2_h_imp-eps-converted-to.pdf> <./f
 igures/auto_pwm3_h_imp-eps-converted-to.pdf> <./figures/auto_pwm4_h_imp-eps-con
-verted-to.pdf>] [108
+verted-to.pdf>] [112
 
 
-] (Final_project.bbl [109
-
-] [110] [111] [112] [113]
-Underfull \hbox (badness 1231) in paragraph at lines 352--356
+] (Final_project.bbl
+Underfull \hbox (badness 1231) in paragraph at lines 25--29
 \OT1/cmr/m/n/12 tors,'' in \OT1/cmr/m/it/12 2015 In-ter-na-tional Con-fer-ence 
 on Un-manned Air-craft Sys-tems
  []
 
-[114] [115]
+[113
+
+] [114] [115] [116] [117] [118] [119]
 Underfull \hbox (badness 2894) in paragraph at lines 492--495
 []\OT1/cmr/m/n/12 K. S. Lauszus, ``Flight Con-troller for Quad Ro-tor He-li-cop
 ter in X-
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
- [116]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 169.
+ [120]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 169.
  (Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
 (tex/2QuadcopterModel.aux) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
 (tex/4ControlStrategiesAndEstimation.aux) (tex/5Implementation.aux)
 (tex/conclusions.aux) (tex/appendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 167.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 169.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 169.
 Package rerunfilecheck Info: File `Final_project.out' has not changed.
-(rerunfilecheck)             Checksum: 173C7B744E565FC9F13F150A20F2B496;5045.
+(rerunfilecheck)             Checksum: 0A3030E02C6D546761719897534C078B;5157.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 167.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
  ) 
 Here is how much of TeX's memory you used:
- 27739 strings out of 493333
- 500242 string characters out of 3139198
- 611458 words of memory out of 3000000
- 30032 multiletter control sequences out of 15000+200000
- 554486 words of font info for 119 fonts, out of 3000000 for 9000
- 1186 hyphenation exceptions out of 8191
- 53i,27n,92p,10362b,769s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27755 strings out of 493333
+ 500419 string characters out of 3139198
+ 608936 words of memory out of 3000000
+ 30038 multiletter control sequences out of 15000+200000
+ 554845 words of font info for 120 fonts, out of 3000000 for 9000
+ 1188 hyphenation exceptions out of 8191
+ 53i,27n,92p,10362b,773s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
  <C:\Users\Asus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcr
 m1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Asus/AppData/Roa
-ming/MiKTeX/2.9/fonts/type1/public/esvect/vect10.pfb><C:/Users/Asus/AppData/Roa
-ming/MiKTeX/2.9/fonts/type1/public/esvect/vect8.pfb>
-Output written on Final_project.pdf (134 pages, 14270657 bytes).
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/2.
+9/fonts/type1/public/esvect/vect10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/2.
+9/fonts/type1/public/esvect/vect8.pfb>
+Output written on Final_project.pdf (138 pages, 14261298 bytes).
 PDF statistics:
- 2368 PDF objects out of 2487 (max. 8388607)
- 544 named destinations out of 1000 (max. 500000)
- 1262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2409 PDF objects out of 2487 (max. 8388607)
+ 551 named destinations out of 1000 (max. 500000)
+ 1278 words of extra memory for PDF output out of 10000 (max. 10000000)
 
