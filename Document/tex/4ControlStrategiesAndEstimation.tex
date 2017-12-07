@@ -3,7 +3,7 @@ This project has the aim to evaluate control strategies designed for a quadrotor
 \\\\
 The state-space representation of the system, and the concept of controllability and observability, are briefly introduced in Section \ref{sec:generalities}. Then, Section \ref{sec:controlstrategies} shows the theoretical basis required for the design of the controllers used in this project. These controllers are the Linear Quadratic Integral (LQI) controller and the $H_\infty$ controller.
 \\\\
-Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode. All the simulations are done using the non-linear dynamics model of the quadrotor. Finally, the state estimation algorithm is detailed in Section \ref{sec:stateestimation}.
+Section \ref{sec:controldesign} presents the considerations made for the design of the two types of controllers according to the flight mode of the quadrotor. In addition, this section shows the simulated response of the quadrotor being controlled by both types of controllers in each flight mode. All the simulations are done using the non-linear dynamic model of the quadrotor. Finally, the state estimation algorithm is detailed in Section \ref{sec:stateestimation}.
 
 \section{Concept and Generalities}
 \label{sec:generalities}
@@ -27,11 +27,11 @@ For simplicity, the state-space model representation shown in (\ref{ec:statespac
   \hline
   C & D
 \end{array}
-\mright],
+\mright].
 \end{equation}
 For the design of each controller, only the dynamics that are required to control, depending on the flight mode in which the quadrotor is set, are taken into account. Therefore, system $\mathcal{G}$ will vary for each flight mode.
 \\\\
-Since the control system is implemented in a smartphone, whose algorithms are executed with a sample time of $t_{k} = 0.01\ s$, the system $\mathcal{G}$ is discretized. The discrete system $\mathcal{G}_k$ is got using the Zero Order Hold (ZOH) equivalent method, and the sample time $t_{k} = 0.01\ s$. The discrete state-space model $\mathcal{G}_k$ is represented by
+Since the control system is implemented in a smartphone, whose algorithms are executed with a sample time of $t_{k} = 0.01\ s$, the system $\mathcal{G}$ is discretized. The discrete system $\mathcal{G}_k$ is obtained using the Zero Order Hold (ZOH) equivalent method, and the sample time $t_{k} = 0.01\ s$. The discrete state-space model $\mathcal{G}_k$ is represented by
 \begin{align}
 \label{ec:statespace}
 \begin{split}
@@ -90,9 +90,9 @@ In this case, if the matrices $\mathcal{W}_{c}$ and $\mathcal{W}_{o}$ are positi
 
 \section{Control Strategies}
 \label{sec:controlstrategies}
-This section exposes the controllers design procedure. Here, the mathematical procedure to design a linear quadratic regulator with integral feedback (linear quadratic integral controller) is described. The design process of a $H_{\infty}$ controller is also shown, taking into account weighting sensitivities.
+This section exposes the controller design procedures. Here, the mathematical procedure to design a linear quadratic regulator with integral feedback (linear quadratic integral controller) is described. The design process of a $H_{\infty}$ controller is also shown, taking into account weighting sensitivities.
 
-\subsection{Linear Quadratic Integral (LQI) Controller}
+\subsection{Linear Quadratic Integral Controller}
 \subsubsection{Optimal Problem Solution}
 The design of optimal controllers seeks that a dynamic system can be controlled achieving a minimum cost. The cost function is determined by the control designer \cite{Steinbuch2007}. With a finite horizon, a linear quadratic regulator (LQR) is set while looking for the minimization of the cost function $\mathcal{V}$ as
 \begin{equation}
@@ -201,7 +201,7 @@ C & \mathbf{0_{\mathit{n_y}\times \mathit{n_y}}}
 \end{bmatrix}.
 \end{split}
 \end{align}
-Given the augmented system in (\ref{eqn:augmentedLQI}), the controller is designed using the Optimal Problem Solution detailed before, obtaining a control law of the form
+Given the augmented system in equation (\ref{eqn:augmentedLQI}), the controller is designed using the Optimal Problem Solution detailed before, obtaining a control law of the form
 \begin{align}
 \begin{split}
 \mathbf{u} & = \mathbf{K_{lqi}}\mathbf{x_{lqi}} =\begin{bmatrix}
@@ -379,7 +379,7 @@ Based on the penalization matrices from (\ref{eqn:QR_stabilize}), the feedback g
 \end{figure}
 \\Here, the system shows responses with a setting time of less than $1.5\ s$ and overshoot of less than $5$ \%.
 \subsubsection{$H_\infty$ Controller}
-The design of the $H_\infty$ controller is based on the weighting filters $W_s$ and $W_k$, which are set so that (\ref{eqn:hinf}) is satisfied.\\\\
+The design of the $H_\infty$ controller is based on the weighting filters $W_s$ and $W_k$, which are set so equation (\ref{eqn:hinf}) is satisfied.\\\\
 In the case of the stabilize mode, the filters are set as 
 \begin{align}
 \begin{split}
@@ -805,7 +805,7 @@ z_{m} = 44330\left(1-\frac{p_k}{p_{0}}^{1/5.255}\right)\ [m],
 \end{equation}
 where $p_{0}$ is the atmospheric pressure at sea level \cite{Lauszus2015}.
 \\\\
-The smartphone GNSS receiver and barometer were tested statically, leaving the phone in a stable position for 100 minutes, with an ambient temperature of $22\ ^{\circ}C$ and a UV index of $3$. The results of the test are shown in Fig. \ref{fig:sensorstest}
+The smartphone GNSS receiver and barometer were tested statically, leaving the phone in a stable position for 100 minutes, with an ambient temperature of $22\ ^{\circ}C$ and a UV index of $3$. The results of the test are shown in Fig. \ref{fig:sensorstest}.
 \begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -832,7 +832,7 @@ The smartphone GNSS receiver and barometer were tested statically, leaving the p
 \\\\
 Despite being under a clear sky, where the smartphone could have visibility of more than six satellites of the GPS and GLONASS constellations, the GNSS accuracy value, delivered by the receiver in the smartphone, is always more than $9\ m$ as seen in Fig. \ref{fig:gpsacc_test}. 
 \\\\
-\subsection{States Estimation}
+\subsection{State Estimation}
 In order to estimate all the components of the state vector $\mathbf{x}$, a Kalman filter is designed. The Kalman filter is an iterative algorithm that estimates the observable (and not measurable) states of a system, using the measurable variables, the inputs and the variances of the noises that affect the system.
 \\\\
 This filter is designed using the linearized dynamic model of the quadrotor from Section \ref{sec:linearized}, where $\mathbf{x} =  \begin{bmatrix}
@@ -885,5 +885,5 @@ This algorithm is executed once every sampling period, after which, the controll
 
 
 \section{Conclusions}
-The control and state estimation algorithms design procedure is presented in this chapter. The concepts of representation of a system as a state space model, controllability and observability, were introduced in the first part. Given the need to achieve trajectory tracking with the quadrotor, a LQR controller with integral feedback LQI is designed. This controller ensures zero steady-state error. Also, a controller based on the $H_\infty$ synthesis is designed. The performance of these controllers is simulated acting with the non-linear dynamic model of the quadrotor. As a result of these simulations, the $H_\infty$ controller showed a better performance when subjected to exactly the same disturbances and reference changes as the LQI controller.
+The control and state estimation algorithms design procedure is presented in this chapter. The concepts of system representation as a state-space model, controllability and observability, were introduced in the first part. Given the need for achieving trajectory tracking with the quadrotor, a LQR controller with integral feedback (LQI) is designed. This controller ensures zero steady-state error. Also, a controller based on the $H_\infty$ synthesis is designed. The performance of these controllers is simulated acting with the non-linear dynamic model of the quadrotor. As a result of these simulations, the $H_\infty$ controller showed a better performance when subjected to exactly the same disturbances and reference changes as the LQI controller.
 Finally, due to the principle of separation, a state estimator based on a Kalman filter is designed taking into account the accuracy of the smartphone measurements.

@@ -1,4 +1,4 @@
-\chapter{Smartphone-based Quadrotor Prototype} \label{ch:prototype}
+\chapter{Quadrotor Components and Parameter Identification} \label{ch:prototype}
 In this chapter, the quadrotor prototype is presented. All the components that are used to build the prototype are described with the purpose of detailing the function that each component fulfils within the quadrotor. Furthermore, the specific parameters of the built quadrotor are shown, and the procedure carried out to find them experimentally is explained. This is of great importance for the design of the controllers that allow the flight of the built system.
 \\\\
 In Fig. \ref{fig:hardwareoverview}, a small overview of the hardware related to the electrical signals within the quadrotor is presented. This overview shows the interrelation between the main components detailed below.
@@ -12,11 +12,11 @@ In Fig. \ref{fig:hardwareoverview}, a small overview of the hardware related to 
 
 \section{Quadrotor Components}
 \label{sec:components}
-The hardware used to build the quadrotor prototype is detailed in this section. The main goal of this research project is to control a quadrotor using just a smartphone on-board. This smartphone executes the state estimation algorithms and defines the controls signals that will command the actuators. The control signals are processed in the smartphone and then sent, through a gateway, to the Electronic Speed Controllers (ESCs) that will set the angular speed of the motors depending on the control signal they receive.
+The hardware used to build the quadrotor prototype is detailed in this section. The main goal of this research project is to control a quadrotor using just the processing and sensing functionalities of a smartphone on board. This smartphone executes the state estimation algorithms and defines the control signals that will command the actuators. The control signals are processed in the smartphone and then sent, through a gateway, to the Electronic Speed Controllers (ESCs) that will set the angular speed of the motors depending on the control signal they receive.
 \subsection{Frame}
-The quadrotor's frame is responsible for carrying all the other components needed in the system. Additionally, it must be able to support the weight of any possible payload that the quadrotor will carry. The multirotors frames are usually built using fiberglass or carbon fiber as main material, being the carbon fiber frames stiffer and lighter than equally built fiberglass frames.
+The quadrotor frame is responsible for carrying all the other components needed in the system. Additionally, it must be able to support the weight of any possible payload. The multirotor frames are usually built using fiberglass or carbon fiber as main material, being the carbon fiber frames stiffer and lighter than equally built fiberglass frames.
 \\\\
-For this project, the requirement to build a quadrotor between $0.20$ and $0.30\ cm$ in radius was defined. This requirement is based on the fact that the quadrotor must carry a smartphone and possibly some mission-related payloads, which weight can be greater than $100\ g$. Taking that requirement and the literature review into account, in addition to the weight and stiffness advantages of the carbon fiber, a LJI 500-X4 carbon fiber frame was selected.
+For this project, the requirement to build a quadrotor between $0.20$ and $0.30\ cm$ in radius was defined. This requirement is based on the fact that the quadrotor must lift a smartphone and possibly some mission-related payloads, which weight can be greater than $100\ g$. Taking that requirement and the literature review into account, in addition to the weight and stiffness advantages of the carbon fiber, a LJI 500-X4 carbon fiber frame was selected.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8.6cm]{lji500x4.jpg}    
@@ -31,7 +31,7 @@ This frame (Fig. \ref{fig:quadframe}) has a weight of $431\ g$ and a radius $L$ 
 \subsection{Smartphone}
 In this project, the smartphone takes the place of the quadrotor's flight controller. The basic instrumentation needed for a flight controller includes a triaxial accelerometer, a triaxial gyroscope, a triaxial magnetometer, a barometer and a GNSS receiver that can process signals from the GPS and GLONASS satellites constellations. Additionally, the processor of a flight controller must be powerful enough to execute the control and estimation algorithms within the sample time of the control system.
 \\\\
-The LG Nexus 5X, shown in Fig. \ref{fig:nexus}, is a smartphone developed by Google and assembled by LG, released in 2015 with the Android 6.0.1 operating system. This phone has a Hexa-core Qualcomm MSM8992 Snapdragon 808 CPU that includes four Cortex-A53 and two Cortex-A57 cores with 1.4 GHz and 1.8 GHz clock rate respectively and an Adreno 418 GPU. Its features also include 2 GB of RAM memory, 32 GB of Flash memory, total mass of 136 g and a 12.3 MP camera.
+The LG Nexus 5X, shown in Fig. \ref{fig:nexus}, is a smartphone developed by Google and assembled by LG, released in 2015 with the Android 6.0.1 operating system. This phone has a Hexa-core Qualcomm MSM8992 Snapdragon 808 CPU that includes four Cortex-A53 and two Cortex-A57 cores with 1.4 GHz and 1.8 GHz clock rate respectively and an Adreno 418 GPU. The features also include 2 GB of RAM memory, 32 GB of Flash memory, total mass of 136 g and a 12.3 MP camera.
 \\
 \begin{figure}[H]
 \begin{center}
@@ -42,7 +42,7 @@ The LG Nexus 5X, shown in Fig. \ref{fig:nexus}, is a smartphone developed by Goo
  \end{figure}
  \footnotetext{LG Nexus 5X image taken from \url{https://goo.gl/RxyDJd}}
  \vspace{-0.5cm}
-This smartphone features all the needed instrumentation for a flight controller, specified previously. The maximum sample rates of the instrumentation contained in the LG Nexus 5X are described in Table \ref{tb:samplerates}.
+This smartphone contains all the previously specified needed instrumentation for a flight controller. The maximum sample rates of the instrumentation contained in the LG Nexus 5X are described in Table \ref{tb:samplerates}.
 \begin{table}[h]
 \small
 \begin{center}
@@ -58,9 +58,9 @@ GNSS &  $1$  \\[0.7ex]\hline
 \end{center}
 \end{table}
 \\\\
-The LG Nexus 5X smartphone was selected in this project mainly due to its computational and instrumentation capabilities in addition to its communication interfaces (Bluetooth 4.0, Wireless LAN, USB Type-C and GSM). Its powerful CPU handling a GPU enables the possibility of developments using the camera for visual odometry, and controllers whose execution represents a high computational load, which exceeds the limits of a standard microcontroller such as the ATmega 2560.
+The LG Nexus 5X smartphone was selected in this project mainly due to its computational and instrumentation capabilities in addition to its communication interfaces (Bluetooth 4.0, Wireless LAN, USB Type-C and GSM). The powerful CPU handling a GPU enables the possibility of developments using the camera for visual odometry, and controllers whose execution represents a high computational load, which exceeds the limits of a standard microcontroller such as the ATmega 2560.
 \\\\
-As the quadrotor's flight controller, the smartphone receives remote orders from the quadrotor's pilot using wireless communication, while executing the sensorial, estimation and control algorithms. After the control signals are calculated, they are sent to the actuators as a serial data frame using the USB interface between the smartphone and a gateway that converts the serial data into PWM signals.
+The smartphone receives remote orders from the quadrotor pilot using wireless communication, while executing the sensing, estimation and control algorithms. After the control signals are calculated, they are sent to the actuators as a serial data frame using the USB interface between the smartphone and a gateway that converts the serial data into PWM signals.
 
 \subsection{Motors and Electronic Speed Controllers}
 The actuation system of the quadrotor is composed by R/C-type brushless motors, propellers and ESCs. The LJI 500-X4 frame manufacturer recommends using motors with a RPM constant of $810\ KV$, which means that these motors can rotate at a speed of $810\ RPM$ for each Volt applied to it. This kind of motors are used from medium to big sized multirotors due to its thrust efficiency and thrust capacity.
@@ -83,12 +83,12 @@ Following this recommendation, the EMAX MT2216II motors were selected. These mot
 \label{fig:motorandesc}
 \end{figure}
 \footnotetext{Taken from \url{https://goo.gl/6qD6Qg} and \url{https://goo.gl/fDHiUp}}
-The quadrotor brushless motors are powered using a three-phase electric signal generated by the ESC. Each ESC sets one motor rotational velocity depending on a PWM signal input, and must be able to handle the maximum current consumption of the motor. Mainly due to the ease of handling and positioning within the frame, the EMAX 4in1 ESC was selected for this project (Fig. \ref{fig:emaxESC}). This 4in1 ESC contains four ESCs with a maximum current supply of $30\ A$ each. It also has a DC-DC converter that outputs an isolated $5\ V$ DC supply for any additional electronics. The power supply of the ESC is fully delivered by the quadrotor's battery.
+The quadrotor brushless motors are powered using a three-phase electric signal generated by the ESC. Each ESC sets one motor rotational velocity depending on a \textit{PWM} signal input, and must be able to handle the maximum current consumption of the motor. Mainly due to the ease of handling and positioning within the frame, the EMAX 4in1 ESC was selected for this project (Fig. \ref{fig:emaxESC}). This 4in1 ESC contains four ESCs with a maximum current supply of $30\ A$ each. It also has a DC-DC converter that outputs an isolated $5\ V$ DC supply for any additional electronics. The power supply of the ESC is fully delivered by the quadrotor's battery.
 
 \subsection{Smartphone-to-ESC Gateway}
-As the smartphone can not generate any PWM signal, and each ESC needs a PWM signal input to set the rotational velocity of a motor, a gateway between the smartphone and the ESCs must be used. In order to avoid interference in the electromagnetic spectrum and delays that could lead the control system to instability while using wireless communications, the smartphone wired serial bus (USB interface) is defined as the only channel of communication through which the control signals are sent to the gateway.
+Since the smartphone can not generate any PWM signal, and each ESC needs a PWM signal input to set the rotational velocity of a motor, a gateway between the smartphone and the ESCs must be used. Wireless communications are susceptible to interferences and delays, which could lead the control system to instability. The smartphone wired serial bus (USB interface) is defined as the only channel of communication through which the control signals are sent to the gateway.
 \\\\
-The Arduino Mega ADK, is shown in Fig. \ref{fig:megaadk}, is a development board based on the Atmel 8-bit AVR RISC-based ATmega2560 microcontroller.  This board supports the Android Open Accesory (AOA) protocol, which allows external hardware to exchange data with Android devices.
+The Arduino Mega ADK, shown in Fig. \ref{fig:megaadk}, is a development board based on the Atmel 8-bit AVR RISC-based ATmega2560 microcontroller.  This board supports the Android Open Accesory (AOA) protocol, which allows external hardware to exchange data with Android devices.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=7.6cm]{megaADK.jpg}    
@@ -98,9 +98,9 @@ The Arduino Mega ADK, is shown in Fig. \ref{fig:megaadk}, is a development board
  \end{figure}
  \footnotetext{Arduino Mega ADK image taken from \url{https://goo.gl/ejeQeX}}
 \vspace{-0.5cm}
-Although there are other boards that support the AOA protocol, as the IOIO board, the Arduino Mega ADK offers the possibility of executing tasks in the ATmega2560 microcontroller without any intervention of the Android device. This feature is very useful in case of future developments that include additional hardware to the smartphone-based quadrotor.
+Although there are other boards that support the AOA protocol, as the IOIO board, the Arduino Mega ADK offers the possibility of executing tasks in the ATmega2560 microcontroller without any intervention of the Android device. This feature is very useful in case of future developments that include additional hardware to the smartphone-based quadrotor. However, within the framework of this project, the Arduino Mega ADK is used only to produce \textit{PWM} signals after receiving data frames from the smartphone.
 \\\\
-The Arduino Mega ADK is selected as the smartphone-to-ESC gateway. The workflow of this board is set as follows: the microcontroller receives a serial data frame from the smartphone through the USB port, each of the four PWM signal widths is extracted from the data frame, the PWM signals are sent to the ESCs, finally the cycle starts again. This workflow is executed each $2\ ms$ and if the gateway does not receive any updated data frame from the smartphone, it keeps the last PWM signals set.
+The Arduino Mega ADK is selected as the smartphone-to-ESC gateway. The workflow of this board is set as follows: the microcontroller receives a serial data frame from the smartphone through the USB port, each of the four \textit{PWM} signal widths is extracted from the data frame, the \textit{PWM} signals are sent to the ESCs, finally the cycle starts again. This workflow is executed each $2\ ms$ and if the gateway does not receive any updated data frame from the smartphone, it keeps the last \textit{PWM} signals set.
 
 \subsection{Battery}
 The quadrotor's battery must supply power to all the active components in the quadrotor. The maximum power consumption of these components, considering the nominal voltage value of a 3-cells lithium-ion polymer (LiPo) battery ($11.1\ V$), is shown in Table \ref{tb:power}.\\
@@ -136,7 +136,7 @@ The smartphone, the Arduino Mega ADK and the 4in1 ESC need to be easily placed a
 In order to place the smartphone near the $CoG$ in the quadrotor and enable the possibility of capturing nadir photos or videos, the smartphone support was designed in such a way that it can be placed under the quadrotor's $CoG$ but above the landing gear of the frame. Additionally, the support includes a free area that allows to use the complete field of view of the camera without being obstructed by it. The smartphone support is shown in Fig. \ref{fig:phonesupport}.
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=8.6cm]{phonesupport2.png}    
+		\includegraphics[width=6.6cm]{phonesupport2.png}    
 		\caption{Smartphone support} 
 		\label{fig:phonesupport}
 	\end{center}
@@ -147,19 +147,19 @@ The Arduino Mega ADK and the Emax 4in1 ESC are placed on the frame, above the qu
 \begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{megasupport2.png}
+\includegraphics[width=6.0cm]{megasupport2.png}
 \caption{Arduino Mega ADK support} 
 \label{fig:megasupport}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
-\includegraphics[width=7.0cm]{escsupport2.png}
+\includegraphics[width=6.0cm]{escsupport2.png}
 \caption{ESCs support} 
 \label{fig:escsupport}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=7.0cm]{megaandescsupport2.png}
+\includegraphics[width=6.0cm]{megaandescsupport2.png}
 \caption{Arrangement of the Gateway and ESCs Support as a Whole} 
 \label{fig:megaandescsupport}
 \end{subfigure}
@@ -168,10 +168,10 @@ The Arduino Mega ADK and the Emax 4in1 ESC are placed on the frame, above the qu
 \end{figure}
 
 \subsubsection{Dome}
-A dome that covers and encloses the Arduino Mega ADK and the ESCs, is designed. This dome, shown in Fig. \ref{fig:dome}, totally encloses the Mega ADK and ESCs supports restricting their movement and protecting them in case of a shock or hit.
+A dome that covers and encloses the Arduino Mega ADK and the ESCs is designed. This dome, shown in Fig. \ref{fig:dome}, totally encloses the Mega ADK and ESCs supports restricting their movement and protecting them in case of a shock or hit.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=8.6cm]{dome2.png}    
+		\includegraphics[width=7.6cm]{dome2.png}    
 		\caption{3D designed dome} 
 		\label{fig:dome}
 	\end{center}
@@ -188,9 +188,9 @@ The smartphone-based quadrotor prototype is assembled using all the components e
 \end{figure}
 
 \section{Quadrotor Parameters} \label{sec:parameters}
-In this section, the quadrotor parameters are detailed. These parameters define the specific dynamic model for the smartphone-based quadrotor prototype and the conversion of control signals to correctly set the motors thrust.
+In this section, the quadrotor parameters are detailed. These parameters define the specific dynamic model for the smartphone-based quadrotor prototype and the conversion of control signals to correctly set the motor thrust.
 \subsection{Mass}
-The mass of each quadrotor's component is measured using a kitchen scale that has an uncertainty of $\pm 1\ g$. The results are shown in Table \ref{tb:mass}.
+The mass of each quadrotor component is measured using a kitchen scale that has an uncertainty of $\pm 1\ g$. The results are shown in Table \ref{tb:mass}.
 \begin{table}[h]
 \small
 \begin{center}
@@ -212,7 +212,7 @@ Dome &  $0.130$ \\[0.7ex]\hline
 \end{tabular}
 \end{center}
 \end{table}
-\\\\The total mass of the quadrotor $m$ is then calculated as the sum of the weight of each of the components in the quadrotor, being $m = 1.568\ kg$.
+\\\\The total mass of the quadrotor $m$ is then calculated as the sum of the quadrotor component weights, being $m = 1.568\ kg$.
 \subsection{Moments of Inertia}
 As exposed by \cite{Lee2011}, in a quadrotor, the moment of inertia matrix $\mathbf{J}$ is set as
 \begin{equation}
@@ -232,7 +232,7 @@ J_{xx} & 0 & 0 \\
 \end{equation}
 The $J_{xx}$, $J_{yy}$ and $J_{zz}$ values can be obtained using multiple methods including: using a CAD model of the quadrotor and obtaining the inertia values from a 3D design software \cite{Khodja2017}. This is done, approximating the shape of the quadrotor components to cylinders, cubes and other basic shapes to simplify the mathematical calculation of inertia \cite{Tomas2011}, and developing the bifilar pendulum experiment on the quadrotor \cite{Garcia2017}. For this project, it was decided to obtain the quadrotor parameters experimentally, so the bifiliar pendulum experiment was developed.
 \\\\
-In the bifilar pendulum experiment, an object is hung from two parallel ropes of length $r$ and separated by a distance $2l$, being allowed to rotate freely around a the axis that is parallel to the ropes. In Fig. \ref{fig:bifilar}, the geometry of the experiment to get  $J_{zz}$, is shown. For the $J_{xx}$ and $J_{yy}$ inertias experiment, it is necessary to place the quadrotor hanging in such a way that the $x$ and $y$ axes are pointing paraller to the ropes, respectively.
+In the bifilar pendulum experiment, an object is hung from two parallel ropes of length $r$ and separated by a distance $2l$, being allowed to rotate freely around a the axis that is parallel to the ropes. In Fig. \ref{fig:bifilar}, the experiment geometry used to identify $J_{zz}$, is shown. For the $J_{xx}$ and $J_{yy}$ inertias experiment, it is necessary to place the quadrotor hanging in such a way that the $x$ and $y$ axes are pointing parallel to the ropes, respectively.
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=6.0cm]{quadrotorInertia1}    
@@ -271,7 +271,7 @@ In Fig. \ref{fig:inertiatest}, it is shown the excursion of the rotation angles,
 \caption{Rotation about $x$, $y$ and $z$ axes during the bifilar pendulum experiments}
 \label{fig:inertiatest}
 \end{figure}
-The resulting data got after the execution of the experiment around the three components of the quadrotor body frame, are shown in Table \ref{tb:inertiaexperiment}.
+The resulting data obtained after the execution of the experiment around the three components of the quadrotor body frame, are shown in Table \ref{tb:inertiaexperiment}.
 \begin{table}[H]
 \small
 \begin{center}
@@ -286,7 +286,7 @@ $z$ &  $1.025$ & $0.265$ & $1.122$ & $J_{zz} = 0.0336$ \\[0.7ex]\hline
 \end{table}
 
 \subsection{Motor Thrust}
-As seen in Section \ref{sec:components}, the motors rotational velocity $\omega_{i}$ is set by the ESC, which receives a $PWM$ signal input. However, the inputs of the quadrotor ($T_u$, $\tau_\psi$, $\tau_\theta$, and $\tau_\phi$) depend on the thrust force $F_{M_{i}}$ applied by each quadrotor motor, as exposed in Section \ref{sec:configurations}.
+As seen in Section \ref{sec:components}, the motor rotational velocities $\omega_{i}$ are set by the ESC, which receives a \textit{PWM} signal input. However, the inputs of the quadrotor ($T_u$, $\tau_\psi$, $\tau_\theta$, and $\tau_\phi$) depend on the thrust force $F_{M_{i}}$ applied by each quadrotor motor, as exposed in Section \ref{sec:configurations}.
 \\\\
 In order to correctly set the desired force $F_{M_{i}}$ in each motor during a flight, it is necessary to characterize the motor; and thus know how the force applied by the motor behaves with respect to the input $PWM$ signal. This characterization is carried out by means of a thrust test.
 \\\\
@@ -307,13 +307,13 @@ This test was developed twice with each motor and its results are shown in Fig. 
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{motorNvsPWM}
-\caption{Motors characterization}
+\caption{Motor characterization}
 \label{fig:motor}
 \end{subfigure}%
 \begin{subfigure}{.5\linewidth}
 \centering
 \includegraphics[width=7.0cm]{motorPWMvsN}
-\caption{Inverse motors characterization}
+\caption{Inverse motor characterization}
 \label{fig:inversemotor}
 \end{subfigure}
 \caption{Motors thrust test results}
@@ -344,7 +344,7 @@ The constant $K_{m}$ can be found through a steady-state torque experiment, as s
 		\label{fig:quadrotortorque}
 	\end{center}
 \end{figure}
-Taking into account that when the motor rotates clockwise, the quadrotor will tend to rotate counter-clockwise and vice versa, a scale is located to indirectly obtain the generated force $F_{s}$. This is done using the reading of the weight $m_s$ as $F_{s} = m_{s}|\vec{g}|\ [N]$. Using (\ref{eqn:thrustvspwm}) and the \textit{PWM} width steps used in the motors thrust experiment, multiple $F_{M_i}$-dependent $F_s$ readings are obtained. The torques $\tau_M$ are then calculated by
+Taking into account that when the motor rotates clockwise, the quadrotor will tend to rotate counter-clockwise and vice versa, a scale is located to indirectly obtain the generated force $F_{s}$. This is done using the reading of the weight $m_s$ as $F_{s} = m_{s}|\vec{g}|\ [N]$. Using equation (\ref{eqn:thrustvspwm}) and the \textit{PWM} width steps used in the motor thrust experiment, multiple $F_{M_i}$-dependent $F_s$ readings are obtained. The torques $\tau_M$ are then calculated by
 \begin{equation}
 \tau_{M} = F_{s}L\ [N\cdot m],
 \end{equation}
@@ -352,7 +352,7 @@ and their results are shown in Fig. \ref{fig:torque_id}.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=9.5cm]{torque_id}    
-		\caption{Motors torque experiment results} 
+		\caption{Motor torque experiment results} 
 		\label{fig:torque_id}
 	\end{center}
 \end{figure}
@@ -362,4 +362,4 @@ K_{m} = 0.021\ [m].
 \end{equation}
 
 \section{Conclusions}
-This chapter presented the physical composition and parametrization of the smart- phone-based quadrotor prototype. In the first part, all the components of the quadrotor are detailed. A medium-size carbon fiber frame is used to support the complete quadrotor system. The LG Nexus 5X is selected as the smartphone where the control and estimation algorithms will be executed, which sends the control signals to an Arduino Mega ADK in order to generate \textit{PWM} signals that set the motors rotational velocities through the ESC. These components are supported and protected by 3D-printed objects that are attached to the carbon fiber frame. On the other hand, the system is parameterized in its entirety using experimental methods. Here, the total mass and moments of inertia of the system are defined using a scale and the bifilar pendulum experiment respectively, while the motor's thrust and torque about the $z$-axis are found applying multiple \textit{PWM} signals to the ESCs and obtaining the corresponding variable with the help of the scale.
+This chapter presented the physical composition and parametrization of the smart- phone-based quadrotor prototype. In the first part, all the components of the quadrotor are detailed. A medium-size carbon fiber frame is used to support the complete quadrotor system. The LG Nexus 5X is selected as the smartphone where the control and estimation algorithms will be executed, which sends the control signals to an Arduino Mega ADK in order to generate \textit{PWM} signals that set the motor rotational velocities through the ESC. These components are supported and protected by 3D-printed objects that are attached to the carbon fiber frame. On the other hand, the system is parameterized in its entirety using experimental methods. Here, the total mass and moments of inertia of the system are defined using a scale and the bifilar pendulum experiment respectively, while the motor's thrust and torque about the $z$-axis are found applying multiple \textit{PWM} signals to the ESCs and obtaining the corresponding variable with the help of the scale.

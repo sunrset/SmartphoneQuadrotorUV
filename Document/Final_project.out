@@ -12,63 +12,64 @@
 \BOOKMARK [2][-]{subsection.1.3.2}{Quadrotor Flight Modes}{section.1.3}% 12
 \BOOKMARK [2][-]{subsection.1.3.3}{Smartphones in Control Systems}{section.1.3}% 13
 \BOOKMARK [2][-]{subsection.1.3.4}{Smartphone-based Quadrotors}{section.1.3}% 14
-\BOOKMARK [1][-]{section.1.4}{Research Problem}{chapter.1}% 15
-\BOOKMARK [1][-]{section.1.5}{Objectives}{chapter.1}% 16
-\BOOKMARK [1][-]{section.1.6}{Outline}{chapter.1}% 17
-\BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 18
-\BOOKMARK [1][-]{section.2.1}{Quadrotors Configurations}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.1.1}{The `+' Configuration}{section.2.1}% 20
-\BOOKMARK [2][-]{subsection.2.1.2}{The `X' Configuration}{section.2.1}% 21
-\BOOKMARK [1][-]{section.2.2}{Non-linear Model}{chapter.2}% 22
-\BOOKMARK [2][-]{subsection.2.2.1}{Newton-Euler Approach}{section.2.2}% 23
-\BOOKMARK [2][-]{subsection.2.2.2}{Euler-Lagrange Approach}{section.2.2}% 24
-\BOOKMARK [1][-]{section.2.3}{Linearized Model}{chapter.2}% 25
-\BOOKMARK [2][-]{subsection.2.3.1}{Jacobian Linearization}{section.2.3}% 26
-\BOOKMARK [2][-]{subsection.2.3.2}{Thrust Compensation}{section.2.3}% 27
-\BOOKMARK [1][-]{section.2.4}{Conclusions}{chapter.2}% 28
-\BOOKMARK [0][-]{chapter.3}{Smartphone-based Quadrotor Prototype}{}% 29
-\BOOKMARK [1][-]{section.3.1}{Quadrotor Components}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.1.1}{Frame}{section.3.1}% 31
-\BOOKMARK [2][-]{subsection.3.1.2}{Smartphone}{section.3.1}% 32
-\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers}{section.3.1}% 33
-\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-to-ESC Gateway}{section.3.1}% 34
-\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 35
-\BOOKMARK [2][-]{subsection.3.1.6}{3D-printed Parts}{section.3.1}% 36
-\BOOKMARK [2][-]{subsection.3.1.7}{Assembled Smartphone-based Quadrotor}{section.3.1}% 37
-\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 38
-\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 39
-\BOOKMARK [2][-]{subsection.3.2.2}{Moments of Inertia}{section.3.2}% 40
-\BOOKMARK [2][-]{subsection.3.2.3}{Motor Thrust}{section.3.2}% 41
-\BOOKMARK [2][-]{subsection.3.2.4}{Motor Torque}{section.3.2}% 42
-\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 43
-\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 44
-\BOOKMARK [1][-]{section.4.1}{Concept and Generalities}{chapter.4}% 45
-\BOOKMARK [2][-]{subsection.4.1.1}{State Space Representation}{section.4.1}% 46
-\BOOKMARK [2][-]{subsection.4.1.2}{Controllability and Observability}{section.4.1}% 47
-\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 48
-\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Integral \(LQI\) Controller}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 50
-\BOOKMARK [1][-]{section.4.3}{Controllers Design and Simulation}{chapter.4}% 51
-\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 52
-\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 53
-\BOOKMARK [2][-]{subsection.4.3.3}{GNSS-Dependent Flight Modes}{section.4.3}% 54
-\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 55
-\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 56
-\BOOKMARK [2][-]{subsection.4.4.2}{Position Measurement}{section.4.4}% 57
-\BOOKMARK [2][-]{subsection.4.4.3}{States Estimation}{section.4.4}% 58
-\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 59
-\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 60
-\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.2}{Ground Control Station \(GCS\)}{chapter.5}% 62
-\BOOKMARK [1][-]{section.5.3}{Flight Tests}{chapter.5}% 63
-\BOOKMARK [2][-]{subsection.5.3.1}{Stabilize Mode}{section.5.3}% 64
-\BOOKMARK [2][-]{subsection.5.3.2}{Altitude Hold Mode}{section.5.3}% 65
-\BOOKMARK [2][-]{subsection.5.3.3}{GNSS-Dependent Modes}{section.5.3}% 66
-\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 67
-\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 68
-\BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 69
-\BOOKMARK [1][-]{section.6.2}{Outlook}{chapter.6}% 70
-\BOOKMARK [0][-]{Appendix.a.A}{Appendix Publications}{}% 71
-\BOOKMARK [0][-]{Appendix.a.B}{Appendix Supplementary Material}{}% 72
-\BOOKMARK [0][-]{Appendix.a.C}{Appendix Control Signals in Flight Tests}{}% 73
-\BOOKMARK [0][-]{appendix*.135}{Bibliography}{}% 74
+\BOOKMARK [2][-]{subsection.1.3.5}{Contribution of this Work}{section.1.3}% 15
+\BOOKMARK [1][-]{section.1.4}{Research Problem}{chapter.1}% 16
+\BOOKMARK [1][-]{section.1.5}{Objectives}{chapter.1}% 17
+\BOOKMARK [1][-]{section.1.6}{Outline}{chapter.1}% 18
+\BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 19
+\BOOKMARK [1][-]{section.2.1}{Quadrotors Configurations}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.1.1}{The `+' Configuration}{section.2.1}% 21
+\BOOKMARK [2][-]{subsection.2.1.2}{The `X' Configuration}{section.2.1}% 22
+\BOOKMARK [1][-]{section.2.2}{Non-linear Model}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.1}{Newton-Euler Approach}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.2}{Euler-Lagrange Approach}{section.2.2}% 25
+\BOOKMARK [1][-]{section.2.3}{Linearized Model}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.3.1}{Jacobian Linearization}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.2}{Thrust Compensation}{section.2.3}% 28
+\BOOKMARK [1][-]{section.2.4}{Conclusions}{chapter.2}% 29
+\BOOKMARK [0][-]{chapter.3}{Quadrotor Components and Parameter Identification}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Quadrotor Components}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.1.1}{Frame}{section.3.1}% 32
+\BOOKMARK [2][-]{subsection.3.1.2}{Smartphone}{section.3.1}% 33
+\BOOKMARK [2][-]{subsection.3.1.3}{Motors and Electronic Speed Controllers}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.4}{Smartphone-to-ESC Gateway}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.5}{Battery}{section.3.1}% 36
+\BOOKMARK [2][-]{subsection.3.1.6}{3D-printed Parts}{section.3.1}% 37
+\BOOKMARK [2][-]{subsection.3.1.7}{Assembled Smartphone-based Quadrotor}{section.3.1}% 38
+\BOOKMARK [1][-]{section.3.2}{Quadrotor Parameters}{chapter.3}% 39
+\BOOKMARK [2][-]{subsection.3.2.1}{Mass}{section.3.2}% 40
+\BOOKMARK [2][-]{subsection.3.2.2}{Moments of Inertia}{section.3.2}% 41
+\BOOKMARK [2][-]{subsection.3.2.3}{Motor Thrust}{section.3.2}% 42
+\BOOKMARK [2][-]{subsection.3.2.4}{Motor Torque}{section.3.2}% 43
+\BOOKMARK [1][-]{section.3.3}{Conclusions}{chapter.3}% 44
+\BOOKMARK [0][-]{chapter.4}{Control Strategies and State Estimation}{}% 45
+\BOOKMARK [1][-]{section.4.1}{Concept and Generalities}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.1.1}{State Space Representation}{section.4.1}% 47
+\BOOKMARK [2][-]{subsection.4.1.2}{Controllability and Observability}{section.4.1}% 48
+\BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 49
+\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Integral Controller}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 51
+\BOOKMARK [1][-]{section.4.3}{Design and Simulation of Controllers}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 53
+\BOOKMARK [2][-]{subsection.4.3.2}{Altitude Hold Mode}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.3}{GNSS-Dependent Flight Modes}{section.4.3}% 55
+\BOOKMARK [1][-]{section.4.4}{State Estimation Through Kalman Filter}{chapter.4}% 56
+\BOOKMARK [2][-]{subsection.4.4.1}{Attitude Estimation}{section.4.4}% 57
+\BOOKMARK [2][-]{subsection.4.4.2}{Position Measurement}{section.4.4}% 58
+\BOOKMARK [2][-]{subsection.4.4.3}{State Estimation}{section.4.4}% 59
+\BOOKMARK [1][-]{section.4.5}{Conclusions}{chapter.4}% 60
+\BOOKMARK [0][-]{chapter.5}{Implementation and Results}{}% 61
+\BOOKMARK [1][-]{section.5.1}{Android Application}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.2}{Ground Control Station}{chapter.5}% 63
+\BOOKMARK [1][-]{section.5.3}{Flight Tests}{chapter.5}% 64
+\BOOKMARK [2][-]{subsection.5.3.1}{Stabilize Mode}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.2}{Altitude Hold Mode}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.3}{GNSS-Dependent Modes}{section.5.3}% 67
+\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 68
+\BOOKMARK [0][-]{chapter.6}{Conclusions and Outlook }{}% 69
+\BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 70
+\BOOKMARK [1][-]{section.6.2}{Outlook}{chapter.6}% 71
+\BOOKMARK [0][-]{Appendix.a.A}{Appendix Publications}{}% 72
+\BOOKMARK [0][-]{Appendix.a.B}{Appendix Supplementary Material}{}% 73
+\BOOKMARK [0][-]{Appendix.a.C}{Appendix Control Signals in Flight Tests}{}% 74
+\BOOKMARK [0][-]{appendix*.137}{Bibliography}{}% 75

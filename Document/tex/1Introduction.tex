@@ -3,7 +3,7 @@ In recent years, the interest in unmanned aircraft vehicles (UAVs) research has 
 \\\\
 \section{Motivation}
 Quadrotor control is a difficult and interesting problem. As established by \cite{Liu2015} and \cite{Lopez2015}, quadrotor dynamics are affected by nonlinearity, parameters perturbations, uncertainties and disturbances: these include unknown and variable payloads, aerodynamical parameters of the system, wind changes, and sensors inaccuracies. Numerous studies have been developed in designing optimal and robust controllers that allow UAVs to fly and accomplish missions rejecting disturbances and being robust to parameter uncertainties as seen in \cite{Jung2014, Kohno2014, Shang2016, Salazar2014}.\\\\
-Although there are embedded systems with high computational capacity that can serve as controllers of a quadrotor, smartphones are available, easily accessible for people and also have a large computational capacity, hence multiple instrumentation and communication elements integrated in the same device. In the last years, computing capacity and sensor technology in smartphones have decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadrotor flight controllers for autonomous flights following specific missions, taking advantage of the fact that the phones today are very powerful computers that include elements of sensing, processing and signal communication.
+Although there are embedded systems with high computational capacity that can serve as controllers of a quadrotor, smartphones are available, easily accessible for people and also have a large computational capacity, hence multiple instrumentation and communication elements integrated in the same device. In the last years, computing capacity and sensor technology in smartphones have decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadrotor flight controllers for autonomous flights following specific missions, considering that the phones today are powerful computers that include elements for sensing, processing and communication.
 \\\\
 This research project aims to design and implement algorithms that will be executed in a smartphone to estimate and control the dynamics of a quadrotor. This project confronts several challenges such as using a smartphone as a hardware development platform, trying to use a non real-time operating system for real-time applications, designing optimal and high order controllers using Java, and executing that controllers in a smartphone. 
 \\\\
@@ -32,11 +32,11 @@ Rotary-wing UAVs consist of one or multiple propellers attached to an airframe, 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8.0cm]{rotarywinguav.jpg}    
-\caption[Altavian octorotor rotary-wing UAV]{Altavian octorotor rotary-wing UAV\protect\footnotemark} 
+\caption[Octorotor rotary-wing UAV]{Octorotor rotary-wing UAV\protect\footnotemark} 
 \label{fig:rotarywing}
 \end{center}
 \end{figure}
-\footnotetext{Rotary-wing UAV image taken from \url{https://goo.gl/WPVYAg}}
+\footnotetext{Rotary-wing UAV image taken from \url{https://goo.gl/hJeFtN}}
 \\The main advantage of the rotary-wing UAVs is that they do not need to be constantly moving forward in order to have enough lift that sustain the aircraft in flight, as their propellers rotation generates the lift force by itself. This make the UAV capable of sustaining itself in a desired position.
 \\\\
 Rotary-wing UAVs do not have control surfaces that change the direction of the air flow in order to control its six $DoF$. Instead, it uses the unbalance of thrust exerted by its motors and propellers to control the rotations of the rigid body and indirectly control its horizontal translational movement. As the motors thrust is always pushing the airframe vertically, the vertical translational movement is independently controlled by the total thrust exerted by all the UAVs motors.
@@ -53,22 +53,22 @@ Due to the simplicity in its construction, the most common small-size rotary-win
 \section{Literature Review}
 
 \subsection{Control Strategies and State Estimation in Quadrotors}
-Since UAVs represent a challenge for the modelling and design of controllers, from basic to advanced, these aircrafts are widely used in the teaching and research of control systems theory. For instance, \cite{Argentim2013} implemented a PID controller (with two tuning methods) and a Linear-Quadratic regulator (LQR) for altitude control in a quadrotor, comparing them and establishing the advantages of using a PID controller tuned using the LQR equations. Moreover, \cite{Silva2016} exposes the develop of a low cost quadrotor attitude controler based on a PID control strategy with saturation constraints, achieving the quadrotor attitude stabilization with set-points of less than $0.23\ rad$. Another comparison between PID and LQR control strategies is done in \cite{Liu2016}. In this case, both controllers are used for trajectory tracking in a Qball-X4 quadcopter, getting smoother results with the LQR implementation.
+Since UAVs represent a challenge for the modelling and design of controllers, from basic to advanced, these aircrafts are widely used in the teaching and research of control systems. For instance, \cite{Argentim2013} implemented a PID controller (with two tuning methods) and a Linear-Quadratic regulator (LQR) for altitude control in a quadrotor, comparing them and establishing the advantages of using a PID controller tuned using the LQR equations. Moreover, \cite{Silva2016} exposes the develop of a low cost quadrotor attitude controler based on a PID control strategy with saturation constraints, achieving the quadrotor attitude stabilization with set-points of less than $0.23\ rad$. Another comparison between PID and LQR control strategies is done in \cite{Liu2016}. In this case, both controllers are used for trajectory tracking in a Qball-X4 quadcopter, getting smoother results with the LQR implementation.
 \\\\
 In \cite{Reyes-Valeria2013}, a quaternion-based LQR gain scheduling controller is designed and simulated, successfully achieving six $DoF$ control of the quadrotor. A position and heading regulation system using a LQR is also presented in \cite{Dong2015}. Here, the implementation of the designed controller is carried out, in which the altitude regulation with oscillations of $0.1\ m$ is observed. On the other hand, \cite{Fan2017} designed a feed-forwarding LQR, which achieve to control quadrotor attitude with errors of less than $0.08\ rad$.
 \\\\
-A trajectory tracking controller based on a LQR and an Extended Kalman Filter (EKF) is shown in \cite{Zhang2016}. This approach use the non-linear quadrotor dynamics model to estimate the quadrotor states and calculte the control signals based on the estimations.
+A trajectory tracking controller based on a LQR and an Extended Kalman Filter (EKF) is shown in \cite{Zhang2016}. This approach uses the non-linear quadrotor dynamics model to estimate the quadrotor states and calculte the control signals based on the estimations.
 \\\\
 Another quadrotor control strategy found in literature is the Model Predictive Control (MPC). In \cite{Configuration2017}, a MPC controller for trajectory tracking is compared to a PID controller, getting an improvement in setting time and overshoot. \cite{Castillo201603a} proposed a non-linear quaternion based control law complemented with an active disturbance rejection strategy that attempts to control the attitude of a quadrotor.
 \\\\
 In \cite{Ameho2013}, a Linear Parameter-Varying (LPV) control strategy is developed. Here, an adaptive control is implemented in order to control independently a family of multi-sized quadrotors using the same controller approach. On the other hand, \cite{Gao2015} proposes a fuzzy adaptive sliding mode
-controller that aims to overcome actuators fault within the quadrotor attitude control system. Another adaptive control strategy was developed in \cite{Wang2017a}, \cite{Emran2015} and \cite{Wang2017}, where parameters uncertainties were taken into account in order to control variable payload quadrotors.
+controller that aims to overcome actuators fault within the quadrotor attitude control system. Another adaptive control strategy was developed in \cite{Wang2017a}, \cite{Emran2015} and \cite{Wang2017}, where parameters uncertainties were taken into account in order to control the variable payload quadrotors.
 \\\\
-Finally, in \cite{Prayitno2016} and \cite{Ortiz2016}, the authors designed $H_{\infty}$ controllers for reference tracking in quadrotors, evidencing the advantages of the implementation of this controller in terms of robustness.
+Finally, in \cite{Prayitno2016} and \cite{Ortiz2016}, the authors designed $H_{\infty}$ controllers for reference tracking in quadrotors, evidencing the implementation advantages of this controller in terms of robustness.
 \\\\
-Regarding about state estimation in quadrotors, after carrying out the literary review, it was found that the Kalman filter (KF) is a widely used estimation algorithm in all its different variants. For instance, in\cite{Munoz2017}, a KF for altitude estimation based on the model of a moving particle was developed. A two stage KF for both quadrotor state and parameter estimation is presented in \cite{Moghadam2015}. This KF is designed in order to detect and identify faults in the quadrotor actuators. As the quadrotor dynamic model is strictly non-linear, the EKF is a popular variation of the KF used in multiple ongoing research, such as\cite{Goodarzi2016}, \cite{Oh2015}, and \cite{Sebesta2014}. Other variation of the KF is the Unscented Kalman Filter (UKF) which uses a deterministic sampling approach in order to estimate the state of a non-linear model. In \cite{Goslinski2013}, an UKF is used to estimate the orientation of a quadrotor on a test bench, comparing its estimations with the measurements of an incremental encoder and the estimations of a standard KF. The results of this comparison show that the UKF estimations are more similar to the measured orientation, than the estimates of KF.
+Regarding about state estimation in quadrotors, after a literary review, it was found that the Kalman filter (KF) is a widely used estimation algorithm in all its different variants. For instance, in\cite{Munoz2017}, a KF for altitude estimation based on the model of a moving particle was developed. A two stage KF for both quadrotor state and parameter estimation is presented in \cite{Moghadam2015}. This KF is designed in order to detect and identify faults in the quadrotor actuators. As the quadrotor dynamic model is strictly non-linear, the EKF is a popular variation of the KF used in multiple ongoing research, such as\cite{Goodarzi2016}, \cite{Oh2015}, and \cite{Sebesta2014}. Other variation of the KF is the Unscented Kalman Filter (UKF) which uses a deterministic sampling approach in order to estimate the state of a non-linear model. In \cite{Goslinski2013}, an UKF is used to estimate the orientation of a quadrotor on a test bench, comparing its estimations with the measurements of an incremental encoder and the estimations of a standard KF. The results of this comparison show that the UKF estimations are more similar to the measured orientation, than the estimates of KF.
 \\\\
-In \cite{AlYounes2015} a model-free technique implemented within a Thau observer is presented. This state estimator aims to compensate uncertainties and unmodeled dynamics. Also, other projects have used on-board cameras, for the acquisition of extra data that improve the state estimation, as seen in \cite{Xie2016}, \cite{Yu2017} and \cite{Liu2017}, demonstrating that the use of vision-based odometry improves the quadrotor state estimation despite depending on inaccurate sensors.
+In \cite{AlYounes2015}, a model-free technique implemented within a Thau observer is presented. This state estimator aims to compensate uncertainties and unmodeled dynamics. Also, other projects have used on-board cameras, for the acquisition of extra data that improve the state estimation, as seen in \cite{Xie2016}, \cite{Yu2017} and \cite{Liu2017}, demonstrating that the use of vision-based odometry improves the quadrotor state estimation despite depending on inaccurate sensors.
 
 \subsection{Quadrotor Flight Modes}
 %\url{http://ardupilot.org/copter/docs/flight-modes.html}
@@ -81,19 +81,19 @@ The main flight modes, widely used in commercial flight controllers, are describ
 This mode allows the pilot to fly the quadrotor manually while the flight controller self-levels the quadrotor attitude and regulate its current heading. Thus, the stabilize mode attempts to control three $DoF$ of the quadrotor.\\\\
 The attitude references can be set or changed by the pilot using the remote control, but their default value is $0\ rad$. On the other hand, the quadrotor heading is simply set to be regulated in its current state, enabling its rate using the remote control.
 \\\\
-As the stabilize mode do not take into account the control of the quadrotor position, the pilot needs to regularly change the attitude references manually to keep the quadrotor in a desired position, as it is affected by wind disturbances. Also, the pilot needs to regularly adjust the quadrotor thrust, so a desired altitude is maintained.
+Since the stabilize mode do not take into account the control of the quadrotor position, the pilot needs to regularly change the attitude references manually to keep the quadrotor in a desired position, as it is affected by wind disturbances. Also, the pilot needs to regularly adjust the quadrotor thrust, so a desired altitude is maintained.
 
 \item \textbf{Altitude Hold Mode}\\\\
-The altitude hold mode adds automatic altitude control to the Stabilize mode. This way, in addition to controlling the attitude, the quadrotor thrust is set by the flight controller in order to maintain the quadrotor in a desired altitude, getting four controlled $DoF$.
+The altitude hold mode adds automatic altitude control to the stabilize mode. This way, the quadrotor thrust is set by the flight controller in order to maintain the quadrotor in a desired altitude, attaining four controlled $DoF$.
 \\\\
-In this mode, the pilot can remotely control the rate of change of the altitude (with a default value of $0\ m/s$), as well as the attitude references.
+In this mode, the pilot can remotely control the rate of altitude change (with a default value of $0\ m/s$), as well as the attitude references.
 
 \item \textbf{GNSS-Dependent Flight Modes}\\\\
 The Global Navigation Satellite System (GNSS)-Dependent flight modes, are those that automatically attempt to regulate the six $DoF$ of the quadrotor in order to maintain a desired position, heading and altitude during a flight. The main GNSS-Dependent Flight Modes are: Loiter mode, Auto Mode, and Return-To-Launch (RTL) Mode.
 \\\\
 In Loiter mode, the quadrotor attitude is self-leveled, while the position and altitude reference can be modified by the pilot using the remote controller. The position and altitude references are initialized using the current quadrotor position and altitude when this mode is set. 
 \\\\
-The Auto mode attempts to make a quadrotor follow automatically a pre-programmed path connecting multiple position and heading waypoints. This mode use the same controller as the Loiter mode, but its references are set automatically following a waypoints list. 
+The Auto mode attempts to make a quadrotor follow automatically a pre-programmed path connecting multiple position and heading waypoints. This mode use the same controller as the Loiter mode, but its references are set automatically following a list of waypoints. 
 \\\\
 During a flight mission, the home location is set as the position and altitude where the quadrotor took off. The RTL mode is used in case of emergency or when a the last waypoint is reached within a flight mission. This mode is equivalent to the Auto mode, but only has two waypoints. The first waypoint consists in the position of the home location with a previously set security altitude ($RTL$ altitude) greater than the take-off altitude. When this waypoint is reached, the home location is set as the following waypoint so the quadrotor starts its landing, while keeping the position controlled.
 \end{itemize}
@@ -113,7 +113,7 @@ In \cite{DeABarbosa2015}, it is proposed a low cost differential robot controlle
 \end{center}
 \end{figure}
 \footnotetext{Smartphone-based ball tracking robot image taken from \cite{Tetzlaff2013}}
-There are many ongoing research related to the possibility of using smartphones to implement control strategies, such as \cite{Drumea2013a}, as configuration and monitoring interfaces in control systems as seen in \cite{Lin2014a,Truong2012a, Lu2017}, and as a tool in both education and design of control strategies seen in \cite{Aristizabal2014a,WuWu2013a}. Following this trend, in the Universidad del Valle, it was developed a smartphone-based platform for monitoring, control and communication in portable laboratories, where a controller for a pendulum, based in the Lego Mindstorms EV3 platform, was implemented \cite {GarciaTellez2015}.
+There are many ongoing research related to the possibility of using smartphones to implement control strategies \cite{Drumea2013a}, as configuration and monitoring interfaces in control systems \cite{Lin2014a,Truong2012a, Lu2017}, and as a tool in both education and design of control strategies \cite{Aristizabal2014a,WuWu2013a}. Following this trend, in the Universidad del Valle, it was developed a smartphone-based platform for monitoring, control and communication in portable laboratories, where a controller for a pendulum, based in the Lego Mindstorms EV3 platform, was implemented \cite {GarciaTellez2015}.
 
 \subsection{Smartphone-based Quadrotors}
 Multiple attempts to unite the technologies of quadrotors and smartphones have been made. Some of this attempts are described below.
@@ -135,6 +135,8 @@ Finally, \cite{Aldrovandi2015} developed a non-linear complementary filter for p
 The idea of using a smartphone as flight controller in an UAV opens the possibility of a quick and inexpensive development \cite{Aldrovandi2015}. A smartphone offers other advantages compared with off-the-shelf flight controllers, for instance its powerful quad, hexa or octa-core processors and communications interfaces. However, smartphones and the Android operating system have some limitations that set challenges when implementing a control system in it.\\\\
 Android is not a real-time operating system and therefore, can not assure execution of algorithms, like estimation and control, with a constant sample time. Furthermore, the sensors embedded in commercial smartphones are made for applications that do not have high requirements of accuracy nor precision, and therefore may not be appropriate for sensing quadrotor dynamics. Nonetheless, as explained by \cite{Bryant2015}, due to its computing capabilities, smartphones can overcome this limitations while using a temporized thread to execute the control system algorithms and implementing a sensor fusion technique to improve the states estimation reliability. This thread must be executed with a lower sample time compared to the one of the sensors embedded in the smartphone. This will ensure that the execution is not delayed by the sensors acquisition process.
 
+\subsection{Contribution of this Work}
+falta un párrafo o una sección donde se indique cuál es el aporte que se hace en este proyecto con respecto a la literatura revisada. Que hace la diferencia?
 
 \section{Research Problem}
 The existing research challenges include how to develop and implement efficient control algorithms for smartphones using the Android operating system, and assess, adapt and develop the appropriate communication, sensing and performance technologies with smartphones in the execution of missions using quadrotors.
@@ -156,14 +158,14 @@ Design and implement algorithms for control and estimation of flight dynamics ex
 
 \section{Outline}
 This thesis is organized as follows.\\\\
-In Chapter \ref{ch:introduction}, the definition and classification of UAVs are given. After that, a short literature review regarding control and estimation in quadrotors, flight modes, and smartphones in control systems, is detailed. Finally, the motivation and scope of this project are presented.
+In Chapter \ref{ch:introduction}, the motivation and scope of this project are presented. After that, the definition and classification of UAVs are given. Finally, a short literature review regarding control and estimation in quadrotors, flight modes, and smartphones in control systems, is detailed.
 \\\\
-The dynamic model of the quadrotor is described in Chapter \ref{ch:model}. Here, the non-linear and linearized quadrotor model are obtained taking into account the main quadrotor geometry configurations and their inputs setting. 
+The dynamic model of the quadrotor is described in Chapter \ref{ch:model}. Here, the non-linear and linearized quadrotor model are obtained taking into account the main quadrotor geometry configurations and their input setting. 
 \\\\
 Chapter \ref{ch:prototype} focuses on the smartphone-based quadrotor prototype description, detailing all its components and their interactions, as well as the specific parameters of the prototype.
 \\\\
-The control and estimation algorithms design is presented in Chapter \ref{ch:controlandestimation}. In this chapter, specific controllers for each quadrotor flight mode are designed and simulated.
+The design of the control and estimation algorithms is presented in Chapter \ref{ch:controlandestimation}. In this chapter, specific controllers for each quadrotor flight mode are designed and simulated.
 \\\\
-In Chapter \ref{ch:implementation}, the results of the implementation of the control and estimation algorithms, as well as the description of the Android application and the GCS are detailed.
+In Chapter \ref{ch:implementation}, the implementation results of the control and estimation algorithms, as well as the description of the Android application and the GCS are detailed.
 \\\\
 Finally, in Chapter \ref{ch:conclusions}, the thesis conclusions and suggestions for future developments and improvements, are shown.
