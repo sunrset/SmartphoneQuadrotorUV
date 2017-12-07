@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 07:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 19:21
 entering extended mode
 **./Final_project.tex
 (Final_project.tex
@@ -1710,7 +1710,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--15
 
  []
 
-<./figures/fixedwinguav.jpg, id=664, 501.875pt x 250.9375pt>
+<./figures/fixedwinguav.jpg, id=661, 501.875pt x 250.9375pt>
 File: ./figures/fixedwinguav.jpg Graphic file (type jpg)
 
 <use ./figures/fixedwinguav.jpg>
@@ -1726,14 +1726,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--29
 
  []
 
-[2] <./figures/rotarywinguav.jpg, id=679, 1164.35pt x 731.73375pt>
+[2] <./figures/rotarywinguav.jpg, id=676, 1164.35pt x 731.73375pt>
 File: ./figures/rotarywinguav.jpg Graphic file (type jpg)
 
 <use ./figures/rotarywinguav.jpg>
 Package pdftex.def Info: ./figures/rotarywinguav.jpg used on input line 34.
 (pdftex.def)             Requested size: 227.62204pt x 143.03922pt.
 
-<./figures/quadrotor.jpg, id=683, 226.59656pt x 157.33781pt>
+<./figures/quadrotor.jpg, id=680, 226.59656pt x 157.33781pt>
 File: ./figures/quadrotor.jpg Graphic file (type jpg)
 
 <use ./figures/quadrotor.jpg>
@@ -1845,7 +1845,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--99
 
  []
 
-[7] <./figures/soccerrobot.jpg, id=775, 284.56313pt x 324.46219pt>
+[7] <./figures/soccerrobot.jpg, id=773, 284.56313pt x 324.46219pt>
 File: ./figures/soccerrobot.jpg Graphic file (type jpg)
 
 <use ./figures/soccerrobot.jpg>
@@ -1860,7 +1860,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--114
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-<./figures/penn.jpg, id=800, 476.53032pt x 344.78813pt>
+<./figures/penn.jpg, id=798, 476.53032pt x 344.78813pt>
 File: ./figures/penn.jpg Graphic file (type jpg)
 
 <use ./figures/penn.jpg>
@@ -1943,7 +1943,7 @@ s-converted-to.pdf ./figures/quadcopterplus.eps>
 (epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopterplus-eps-converted-to.pdf, id=864, 309.155pt x 165.61874pt
+<./figures/quadcopterplus-eps-converted-to.pdf, id=862, 309.155pt x 165.61874pt
 >
 File: ./figures/quadcopterplus-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadcopterplus-eps-converted-to.pdf>
@@ -2010,7 +2010,7 @@ onverted-to.pdf ./figures/quadcopter1.eps>
 (epstopdf)             \includegraphics on input line 113.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadcopter1-eps-converted-to.pdf, id=918, 353.32pt x 178.6675pt>
+<./figures/quadcopter1-eps-converted-to.pdf, id=916, 353.32pt x 178.6675pt>
 File: ./figures/quadcopter1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/quadcopter1-eps-converted-to.pdf>
@@ -2135,7 +2135,7 @@ eps-converted-to.pdf ./figures/hardwareOverview.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hardwareOverview-eps-converted-to.pdf, id=1072, 346.29375pt x 152.57
+<./figures/hardwareOverview-eps-converted-to.pdf, id=1070, 346.29375pt x 152.57
 pt>
 File: ./figures/hardwareOverview-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hardwareOverview-eps-converted-to.pdf>
@@ -2155,7 +2155,7 @@ Underfull \vbox (badness 1418) has occurred while \output is active []
 
 
  <./figures/hardwareOverview-eps-converted-to.pdf>]
-<./figures/lji500x4.jpg, id=1099, 376.40625pt x 228.10219pt>
+<./figures/lji500x4.jpg, id=1097, 376.40625pt x 228.10219pt>
 File: ./figures/lji500x4.jpg Graphic file (type jpg)
 
 <use ./figures/lji500x4.jpg>
@@ -2167,7 +2167,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--30
  []
 
 [30 <./figures/lji500x4.jpg>]
-<./figures/nexus5x.jpg, id=1110, 285.31593pt x 332.74312pt>
+<./figures/nexus5x.jpg, id=1108, 285.31593pt x 332.74312pt>
 File: ./figures/nexus5x.jpg Graphic file (type jpg)
 
 <use ./figures/nexus5x.jpg>
@@ -2197,14 +2197,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--64
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [31 <./figures/nexus5x.jpg>]
-<./figures/emax2216II2.png, id=1122, 400.49625pt x 335.00156pt>
+<./figures/emax2216II2.png, id=1120, 400.49625pt x 335.00156pt>
 File: ./figures/emax2216II2.png Graphic file (type png)
 
 <use ./figures/emax2216II2.png>
 Package pdftex.def Info: ./figures/emax2216II2.png used on input line 72.
 (pdftex.def)             Requested size: 159.3356pt x 133.2775pt.
 
-<./figures/emax4in1.jpg, id=1124, 319.1925pt x 218.8175pt>
+<./figures/emax4in1.jpg, id=1122, 319.1925pt x 218.8175pt>
 File: ./figures/emax4in1.jpg Graphic file (type jpg)
 
 <use ./figures/emax4in1.jpg>
@@ -2224,7 +2224,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--84
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32]
-<./figures/megaADK.jpg, id=1136, 451.6875pt x 329.73187pt>
+<./figures/megaADK.jpg, id=1134, 451.6875pt x 329.73187pt>
 File: ./figures/megaADK.jpg Graphic file (type jpg)
 
 <use ./figures/megaADK.jpg>
@@ -2240,7 +2240,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
 
-<./figures/floureon.jpg, id=1148, 1003.75pt x 300.12125pt>
+<./figures/floureon.jpg, id=1146, 1003.75pt x 300.12125pt>
 File: ./figures/floureon.jpg Graphic file (type jpg)
 
 <use ./figures/floureon.jpg>
@@ -2255,7 +2255,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--129
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [34 <./figures/megaADK.jpg>]
-<./figures/phonesupport2.png, id=1158, 516.42938pt x 295.85532pt>
+<./figures/phonesupport2.png, id=1156, 516.42938pt x 295.85532pt>
 File: ./figures/phonesupport2.png Graphic file (type png)
 
 <use ./figures/phonesupport2.png>
@@ -2265,21 +2265,21 @@ Package pdftex.def Info: ./figures/phonesupport2.png used on input line 139.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/megasupport2.png, id=1160, 521.69907pt x 280.79906pt>
+<./figures/megasupport2.png, id=1158, 521.69907pt x 280.79906pt>
 File: ./figures/megasupport2.png Graphic file (type png)
 
 <use ./figures/megasupport2.png>
 Package pdftex.def Info: ./figures/megasupport2.png used on input line 150.
 (pdftex.def)             Requested size: 199.16928pt x 107.20177pt.
 
-<./figures/escsupport2.png, id=1161, 539.76656pt x 201.00093pt>
+<./figures/escsupport2.png, id=1159, 539.76656pt x 201.00093pt>
 File: ./figures/escsupport2.png Graphic file (type png)
 
 <use ./figures/escsupport2.png>
 Package pdftex.def Info: ./figures/escsupport2.png used on input line 156.
 (pdftex.def)             Requested size: 199.16928pt x 74.16675pt.
 
-<./figures/megaandescsupport2.png, id=1162, 518.6878pt x 281.55188pt>
+<./figures/megaandescsupport2.png, id=1160, 518.6878pt x 281.55188pt>
 File: ./figures/megaandescsupport2.png Graphic file (type png)
 
 <use ./figures/megaandescsupport2.png>
@@ -2287,7 +2287,7 @@ Package pdftex.def Info: ./figures/megaandescsupport2.png used on input line 16
 2.
 (pdftex.def)             Requested size: 199.16928pt x 108.1121pt.
  [35 <./figures/floureon.jpg>]
-<./figures/dome2.png, id=1171, 517.935pt x 346.29375pt>
+<./figures/dome2.png, id=1169, 517.935pt x 346.29375pt>
 File: ./figures/dome2.png Graphic file (type png)
 
 <use ./figures/dome2.png>
@@ -2295,7 +2295,7 @@ Package pdftex.def Info: ./figures/dome2.png used on input line 174.
 (pdftex.def)             Requested size: 244.69386pt x 163.60352pt.
  [36 <./figures/phonesupport2.png> <./figures/megasupport2.png> <./figures/escs
 upport2.png> <./figures/megaandescsupport2.png>]
-<./figures/complete.jpg, id=1182, 4047.12pt x 3035.34pt>
+<./figures/complete.jpg, id=1180, 4047.12pt x 3035.34pt>
 File: ./figures/complete.jpg Graphic file (type jpg)
 
 <use ./figures/complete.jpg>
@@ -2322,7 +2322,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorInertia1-eps-converted-to.pdf, id=1201, 174.6525pt x 177.66
+<./figures/quadrotorInertia1-eps-converted-to.pdf, id=1199, 174.6525pt x 177.66
 376pt>
 File: ./figures/quadrotorInertia1-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorInertia1-eps-converted-to.pdf>
@@ -2349,7 +2349,7 @@ Package epstopdf Info: Source file: <./figures/Ixx.eps>
 -to.pdf ./figures/Ixx.eps>
 (epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/Ixx-eps-converted-to.pdf, id=1204, 380.42125pt x 292.09125pt>
+<./figures/Ixx-eps-converted-to.pdf, id=1202, 380.42125pt x 292.09125pt>
 File: ./figures/Ixx-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Ixx-eps-converted-to.pdf>
@@ -2367,7 +2367,7 @@ Package epstopdf Info: Source file: <./figures/Iyy.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Iyy-eps-converted-to.pdf, id=1205, 380.42125pt x 293.095pt>
+<./figures/Iyy-eps-converted-to.pdf, id=1203, 380.42125pt x 293.095pt>
 File: ./figures/Iyy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Iyy-eps-converted-to.pdf>
@@ -2385,7 +2385,7 @@ Package epstopdf Info: Source file: <./figures/Izz.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/Izz-eps-converted-to.pdf, id=1206, 388.45125pt x 292.09125pt>
+<./figures/Izz-eps-converted-to.pdf, id=1204, 388.45125pt x 292.09125pt>
 File: ./figures/Izz-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/Izz-eps-converted-to.pdf>
@@ -2414,7 +2414,7 @@ nverted-to.pdf ./figures/thrustTest.eps>
 (epstopdf)             \includegraphics on input line 296.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/thrustTest-eps-converted-to.pdf, id=1240, 72.27pt x 72.27pt>
+<./figures/thrustTest-eps-converted-to.pdf, id=1238, 72.27pt x 72.27pt>
 File: ./figures/thrustTest-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/thrustTest-eps-converted-to.pdf>
@@ -2450,7 +2450,7 @@ Package epstopdf Info: Source file: <./figures/motorNvsPWM.eps>
 onverted-to.pdf ./figures/motorNvsPWM.eps>
 (epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/motorNvsPWM-eps-converted-to.pdf, id=1242, 373.395pt x 299.1175pt>
+<./figures/motorNvsPWM-eps-converted-to.pdf, id=1240, 373.395pt x 299.1175pt>
 File: ./figures/motorNvsPWM-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorNvsPWM-eps-converted-to.pdf>
@@ -2469,7 +2469,7 @@ onverted-to.pdf ./figures/motorPWMvsN.eps>
 (epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/motorPWMvsN-eps-converted-to.pdf, id=1243, 383.4325pt x 295.1025pt>
+<./figures/motorPWMvsN-eps-converted-to.pdf, id=1241, 383.4325pt x 295.1025pt>
 File: ./figures/motorPWMvsN-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/motorPWMvsN-eps-converted-to.pdf>
@@ -2496,7 +2496,7 @@ ps-converted-to.pdf ./figures/quadrotorTorque.eps>
 (epstopdf)             \includegraphics on input line 342.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/quadrotorTorque-eps-converted-to.pdf, id=1254, 159.59625pt x 186.697
+<./figures/quadrotorTorque-eps-converted-to.pdf, id=1252, 159.59625pt x 186.697
 5pt>
 File: ./figures/quadrotorTorque-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/quadrotorTorque-eps-converted-to.pdf>
@@ -2527,7 +2527,7 @@ verted-to.pdf ./figures/torque_id.eps>
 (epstopdf)             \includegraphics on input line 354.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/torque_id-eps-converted-to.pdf, id=1303, 378.41376pt x 293.095pt>
+<./figures/torque_id-eps-converted-to.pdf, id=1301, 378.41376pt x 293.095pt>
 File: ./figures/torque_id-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/torque_id-eps-converted-to.pdf>
@@ -2592,7 +2592,7 @@ Package epstopdf Info: Source file: <./figures/lqi.eps>
 -to.pdf ./figures/lqi.eps>
 (epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
- <./figures/lqi-eps-converted-to.pdf, id=1375, 322.20375pt x 89.33376pt>
+ <./figures/lqi-eps-converted-to.pdf, id=1373, 322.20375pt x 89.33376pt>
 File: ./figures/lqi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/lqi-eps-converted-to.pdf>
@@ -2627,7 +2627,7 @@ Package epstopdf Info: Source file: <./figures/generalized.eps>
 onverted-to.pdf ./figures/generalized.eps>
 (epstopdf)             \includegraphics on input line 230.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/generalized-eps-converted-to.pdf, id=1377, 109.40875pt x 88.33pt>
+<./figures/generalized-eps-converted-to.pdf, id=1375, 109.40875pt x 88.33pt>
 File: ./figures/generalized-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/generalized-eps-converted-to.pdf>
@@ -2652,7 +2652,7 @@ s-converted-to.pdf ./figures/augmentedPlant.eps>
 (epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/augmentedPlant-eps-converted-to.pdf, id=1409, 187.70125pt x 105.3937
+<./figures/augmentedPlant-eps-converted-to.pdf, id=1407, 187.70125pt x 105.3937
 5pt>
 File: ./figures/augmentedPlant-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/augmentedPlant-eps-converted-to.pdf>
@@ -2710,7 +2710,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 361.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_lqi-eps-converted-to.pdf, id=1459, 388.45125pt x 292.0
+<./figures/stabilize_psi_lqi-eps-converted-to.pdf, id=1457, 388.45125pt x 292.0
 9125pt>
 File: ./figures/stabilize_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_psi_lqi-eps-converted-to.pdf>
@@ -2729,7 +2729,7 @@ qi-eps-converted-to.pdf ./figures/stabilize_theta_lqi.eps>
 (epstopdf)             \includegraphics on input line 367.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_lqi-eps-converted-to.pdf, id=1460, 388.45125pt x 299
+<./figures/stabilize_theta_lqi-eps-converted-to.pdf, id=1458, 388.45125pt x 299
 .1175pt>
 File: ./figures/stabilize_theta_lqi-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -2749,7 +2749,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_lqi-eps-converted-to.pdf, id=1461, 388.45125pt x 299.1
+<./figures/stabilize_phi_lqi-eps-converted-to.pdf, id=1459, 388.45125pt x 299.1
 175pt>
 File: ./figures/stabilize_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_phi_lqi-eps-converted-to.pdf>
@@ -2781,7 +2781,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_stabilize_hinf-eps-converted-to.pdf, id=1483, 421.575pt x 316.181
+<./figures/sv_stabilize_hinf-eps-converted-to.pdf, id=1481, 421.575pt x 316.181
 24pt>
 File: ./figures/sv_stabilize_hinf-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/sv_stabilize_hinf-eps-converted-to.pdf>
@@ -2800,7 +2800,7 @@ ps-converted-to.pdf ./figures/hsv_stabilize_h.eps>
 (epstopdf)             \includegraphics on input line 409.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_stabilize_h-eps-converted-to.pdf, id=1486, 421.575pt x 316.18124
+<./figures/hsv_stabilize_h-eps-converted-to.pdf, id=1484, 421.575pt x 316.18124
 pt>
 File: ./figures/hsv_stabilize_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hsv_stabilize_h-eps-converted-to.pdf>
@@ -2819,7 +2819,7 @@ ps-converted-to.pdf ./figures/stabilize_psi_h.eps>
 (epstopdf)             \includegraphics on input line 421.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_h-eps-converted-to.pdf, id=1489, 388.45125pt x 292.091
+<./figures/stabilize_psi_h-eps-converted-to.pdf, id=1487, 388.45125pt x 292.091
 25pt>
 File: ./figures/stabilize_psi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_psi_h-eps-converted-to.pdf>
@@ -2838,7 +2838,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_h-eps-converted-to.pdf, id=1490, 388.45125pt x 292.0
+<./figures/stabilize_theta_h-eps-converted-to.pdf, id=1488, 388.45125pt x 292.0
 9125pt>
 File: ./figures/stabilize_theta_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_theta_h-eps-converted-to.pdf>
@@ -2857,7 +2857,7 @@ ps-converted-to.pdf ./figures/stabilize_phi_h.eps>
 (epstopdf)             \includegraphics on input line 433.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_h-eps-converted-to.pdf, id=1491, 379.4175pt x 292.0912
+<./figures/stabilize_phi_h-eps-converted-to.pdf, id=1489, 379.4175pt x 292.0912
 5pt>
 File: ./figures/stabilize_phi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_phi_h-eps-converted-to.pdf>
@@ -2915,7 +2915,7 @@ df>
 (epstopdf)             \includegraphics on input line 506.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_lqi-eps-converted-to.pdf, id=1522, 388.45125pt x 299.1175p
+<./figures/althold_z_lqi-eps-converted-to.pdf, id=1520, 388.45125pt x 299.1175p
 t>
 File: ./figures/althold_z_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_lqi-eps-converted-to.pdf>
@@ -2934,7 +2934,7 @@ ps-converted-to.pdf ./figures/althold_psi_lqi.eps>
 (epstopdf)             \includegraphics on input line 512.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_lqi-eps-converted-to.pdf, id=1523, 373.395pt x 292.09125
+<./figures/althold_psi_lqi-eps-converted-to.pdf, id=1521, 373.395pt x 292.09125
 pt>
 File: ./figures/althold_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_lqi-eps-converted-to.pdf>
@@ -2953,7 +2953,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 518.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_lqi-eps-converted-to.pdf, id=1524, 388.45125pt x 299.1
+<./figures/althold_theta_lqi-eps-converted-to.pdf, id=1522, 388.45125pt x 299.1
 175pt>
 File: ./figures/althold_theta_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_theta_lqi-eps-converted-to.pdf>
@@ -2972,7 +2972,7 @@ ps-converted-to.pdf ./figures/althold_phi_lqi.eps>
 (epstopdf)             \includegraphics on input line 524.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_lqi-eps-converted-to.pdf, id=1525, 388.45125pt x 292.091
+<./figures/althold_phi_lqi-eps-converted-to.pdf, id=1523, 388.45125pt x 292.091
 25pt>
 File: ./figures/althold_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_phi_lqi-eps-converted-to.pdf>
@@ -3000,7 +3000,7 @@ ps-converted-to.pdf ./figures/sv_althold_hinf.eps>
 (epstopdf)             \includegraphics on input line 545.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_althold_hinf-eps-converted-to.pdf, id=1535, 363.3575pt x 294.0987
+<./figures/sv_althold_hinf-eps-converted-to.pdf, id=1533, 363.3575pt x 294.0987
 5pt>
 File: ./figures/sv_althold_hinf-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/sv_althold_hinf-eps-converted-to.pdf>
@@ -3019,7 +3019,7 @@ df>
 (epstopdf)             \includegraphics on input line 553.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_althold_h-eps-converted-to.pdf, id=1536, 421.575pt x 316.18124pt
+<./figures/hsv_althold_h-eps-converted-to.pdf, id=1534, 421.575pt x 316.18124pt
 >
 File: ./figures/hsv_althold_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/hsv_althold_h-eps-converted-to.pdf>
@@ -3059,7 +3059,7 @@ onverted-to.pdf ./figures/althold_z_h.eps>
 (epstopdf)             \includegraphics on input line 565.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_h-eps-converted-to.pdf, id=1553, 388.45125pt x 292.09125pt
+<./figures/althold_z_h-eps-converted-to.pdf, id=1551, 388.45125pt x 292.09125pt
 >
 File: ./figures/althold_z_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_h-eps-converted-to.pdf>
@@ -3078,7 +3078,7 @@ df>
 (epstopdf)             \includegraphics on input line 571.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_h-eps-converted-to.pdf, id=1554, 388.45125pt x 292.09125
+<./figures/althold_psi_h-eps-converted-to.pdf, id=1552, 388.45125pt x 292.09125
 pt>
 File: ./figures/althold_psi_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_h-eps-converted-to.pdf>
@@ -3097,7 +3097,7 @@ ps-converted-to.pdf ./figures/althold_theta_h.eps>
 (epstopdf)             \includegraphics on input line 577.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_h-eps-converted-to.pdf, id=1555, 388.45125pt x 292.091
+<./figures/althold_theta_h-eps-converted-to.pdf, id=1553, 388.45125pt x 292.091
 25pt>
 File: ./figures/althold_theta_h-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_theta_h-eps-converted-to.pdf>
@@ -3155,7 +3155,7 @@ converted-to.pdf ./figures/auto_xyz_lqi.eps>
 (epstopdf)             \includegraphics on input line 665.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_lqi-eps-converted-to.pdf, id=1592, 407.5225pt x 292.09125pt
+<./figures/auto_xyz_lqi-eps-converted-to.pdf, id=1590, 407.5225pt x 292.09125pt
 >
 File: ./figures/auto_xyz_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_lqi-eps-converted-to.pdf>
@@ -3174,7 +3174,7 @@ converted-to.pdf ./figures/auto_psi_lqi.eps>
 (epstopdf)             \includegraphics on input line 673.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_psi_lqi-eps-converted-to.pdf, id=1593, 388.45125pt x 292.09125p
+<./figures/auto_psi_lqi-eps-converted-to.pdf, id=1591, 388.45125pt x 292.09125p
 t>
 File: ./figures/auto_psi_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_psi_lqi-eps-converted-to.pdf>
@@ -3193,7 +3193,7 @@ s-converted-to.pdf ./figures/auto_theta_lqi.eps>
 (epstopdf)             \includegraphics on input line 679.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_theta_lqi-eps-converted-to.pdf, id=1594, 381.425pt x 292.09125p
+<./figures/auto_theta_lqi-eps-converted-to.pdf, id=1592, 381.425pt x 292.09125p
 t>
 File: ./figures/auto_theta_lqi-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_theta_lqi-eps-converted-to.pdf>
@@ -3212,7 +3212,7 @@ converted-to.pdf ./figures/auto_phi_lqi.eps>
 (epstopdf)             \includegraphics on input line 685.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_phi_lqi-eps-converted-to.pdf, id=1595, 381.425pt x 292.09125pt>
+<./figures/auto_phi_lqi-eps-converted-to.pdf, id=1593, 381.425pt x 292.09125pt>
 File: ./figures/auto_phi_lqi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/auto_phi_lqi-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_phi_lqi-eps-converted-to.pdf used on in
@@ -3248,7 +3248,7 @@ converted-to.pdf ./figures/sv_auto_hinf.eps>
 (epstopdf)             \includegraphics on input line 704.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/sv_auto_hinf-eps-converted-to.pdf, id=1617, 357.335pt x 294.09875pt>
+<./figures/sv_auto_hinf-eps-converted-to.pdf, id=1615, 357.335pt x 294.09875pt>
 File: ./figures/sv_auto_hinf-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/sv_auto_hinf-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/sv_auto_hinf-eps-converted-to.pdf used on in
@@ -3266,7 +3266,7 @@ nverted-to.pdf ./figures/hsv_auto_h.eps>
 (epstopdf)             \includegraphics on input line 712.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/hsv_auto_h-eps-converted-to.pdf, id=1619, 383.4325pt x 297.11pt>
+<./figures/hsv_auto_h-eps-converted-to.pdf, id=1617, 383.4325pt x 297.11pt>
 File: ./figures/hsv_auto_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/hsv_auto_h-eps-converted-to.pdf>
@@ -3285,7 +3285,7 @@ nverted-to.pdf ./figures/auto_xyz_h.eps>
 (epstopdf)             \includegraphics on input line 722.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_h-eps-converted-to.pdf, id=1621, 409.53pt x 292.09125pt>
+<./figures/auto_xyz_h-eps-converted-to.pdf, id=1619, 409.53pt x 292.09125pt>
 File: ./figures/auto_xyz_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_xyz_h-eps-converted-to.pdf>
@@ -3304,7 +3304,7 @@ nverted-to.pdf ./figures/auto_psi_h.eps>
 (epstopdf)             \includegraphics on input line 730.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_psi_h-eps-converted-to.pdf, id=1622, 388.45125pt x 292.09125pt>
+<./figures/auto_psi_h-eps-converted-to.pdf, id=1620, 388.45125pt x 292.09125pt>
 File: ./figures/auto_psi_h-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/auto_psi_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/auto_psi_h-eps-converted-to.pdf used on inpu
@@ -3322,7 +3322,7 @@ converted-to.pdf ./figures/auto_theta_h.eps>
 (epstopdf)             \includegraphics on input line 736.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_theta_h-eps-converted-to.pdf, id=1623, 381.425pt x 299.1175pt>
+<./figures/auto_theta_h-eps-converted-to.pdf, id=1621, 381.425pt x 299.1175pt>
 File: ./figures/auto_theta_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_theta_h-eps-converted-to.pdf>
@@ -3341,7 +3341,7 @@ nverted-to.pdf ./figures/auto_phi_h.eps>
 (epstopdf)             \includegraphics on input line 742.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_phi_h-eps-converted-to.pdf, id=1624, 381.425pt x 292.09125pt>
+<./figures/auto_phi_h-eps-converted-to.pdf, id=1622, 381.425pt x 292.09125pt>
 File: ./figures/auto_phi_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/auto_phi_h-eps-converted-to.pdf>
@@ -3393,7 +3393,7 @@ erted-to.pdf ./figures/pos_test.eps>
 (epstopdf)             \includegraphics on input line 812.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/pos_test-eps-converted-to.pdf, id=1680, 374.39874pt x 292.09125pt>
+<./figures/pos_test-eps-converted-to.pdf, id=1678, 374.39874pt x 292.09125pt>
 File: ./figures/pos_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/pos_test-eps-converted-to.pdf>
@@ -3411,7 +3411,7 @@ erted-to.pdf ./figures/att_test.eps>
 (epstopdf)             \includegraphics on input line 818.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/att_test-eps-converted-to.pdf, id=1681, 397.485pt x 299.1175pt>
+<./figures/att_test-eps-converted-to.pdf, id=1679, 397.485pt x 299.1175pt>
 File: ./figures/att_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/att_test-eps-converted-to.pdf>
@@ -3430,7 +3430,7 @@ onverted-to.pdf ./figures/gpsacc_test.eps>
 (epstopdf)             \includegraphics on input line 824.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/gpsacc_test-eps-converted-to.pdf, id=1682, 377.41pt x 292.09125pt>
+<./figures/gpsacc_test-eps-converted-to.pdf, id=1680, 377.41pt x 292.09125pt>
 File: ./figures/gpsacc_test-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figures/gpsacc_test-eps-converted-to.pdf>
@@ -3504,7 +3504,7 @@ s-converted-to.pdf ./figures/mainActivities.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/mainActivities-eps-converted-to.pdf, id=1718, 475.7775pt x 748.7975p
+<./figures/mainActivities-eps-converted-to.pdf, id=1716, 475.7775pt x 748.7975p
 t>
 File: ./figures/mainActivities-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/mainActivities-eps-converted-to.pdf>
@@ -3536,7 +3536,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
 Underfull \vbox (badness 5203) has occurred while \output is active []
 
  [75]
-<./figures/missionGCS.jpg, id=1753, 878.53218pt x 521.69907pt>
+<./figures/missionGCS.jpg, id=1751, 878.53218pt x 521.69907pt>
 File: ./figures/missionGCS.jpg Graphic file (type jpg)
 
 <use ./figures/missionGCS.jpg>
@@ -3558,30 +3558,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--66
  []
 
 [76] [77 <./figures/missionGCS.jpg>] [78]
-<./figures/commGCS.jpg, id=1778, 233.37187pt x 402.00188pt>
+<./figures/commGCS.jpg, id=1776, 230.36063pt x 285.31593pt>
 File: ./figures/commGCS.jpg Graphic file (type jpg)
 
 <use ./figures/commGCS.jpg>
 Package pdftex.def Info: ./figures/commGCS.jpg used on input line 83.
-(pdftex.def)             Requested size: 127.9533pt x 220.40855pt.
+(pdftex.def)             Requested size: 170.60005pt x 211.29591pt.
 
-<./figures/UAS.jpg, id=1780, 4175.6pt x 1744.5175pt>
+<./figures/UAS.jpg, id=1778, 3776.1075pt x 1856.9375pt>
 File: ./figures/UAS.jpg Graphic file (type jpg)
- <use ./figures/UAS.jpg>
-Package pdftex.def Info: ./figures/UAS.jpg used on input line 94.
-(pdftex.def)             Requested size: 319.87999pt x 133.62817pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--99
+<use ./figures/UAS.jpg>
+Package pdftex.def Info: ./figures/UAS.jpg used on input line 94.
+(pdftex.def)             Requested size: 341.20662pt x 167.76886pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--99
+Underfull \hbox (badness 10000) in paragraph at lines 80--100
 
  []
 
 [79 <./figures/commGCS.jpg>]
-<./figures/tripod.jpg, id=1791, 1706.62593pt x 2882.51906pt>
+<./figures/tripod.jpg, id=1789, 1706.62593pt x 2882.51906pt>
 File: ./figures/tripod.jpg Graphic file (type jpg)
 
 <use ./figures/tripod.jpg>
@@ -3603,7 +3604,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_psi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 120.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf, id=1792, 393.47pt x 292.
+<./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf, id=1790, 393.47pt x 292.
 09125pt>
 File: ./figures/stabilize_psi_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3623,7 +3624,7 @@ qi_imp-eps-converted-to.pdf ./figures/stabilize_theta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf, id=1793, 384.43625pt x
+<./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf, id=1791, 384.43625pt x
  292.09125pt>
 File: ./figures/stabilize_theta_lqi_imp-eps-converted-to.pdf Graphic file (type
  pdf)
@@ -3643,7 +3644,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_phi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf, id=1794, 384.43625pt x 2
+<./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf, id=1792, 384.43625pt x 2
 99.1175pt>
 File: ./figures/stabilize_phi_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3670,7 +3671,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_psi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_psi_h_imp-eps-converted-to.pdf, id=1811, 393.47pt x 292.09
+<./figures/stabilize_psi_h_imp-eps-converted-to.pdf, id=1809, 393.47pt x 292.09
 125pt>
 File: ./figures/stabilize_psi_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3690,7 +3691,7 @@ _imp-eps-converted-to.pdf ./figures/stabilize_theta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_theta_h_imp-eps-converted-to.pdf, id=1812, 393.47pt x 292.
+<./figures/stabilize_theta_h_imp-eps-converted-to.pdf, id=1810, 393.47pt x 292.
 09125pt>
 File: ./figures/stabilize_theta_h_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3710,7 +3711,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_phi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 158.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_phi_h_imp-eps-converted-to.pdf, id=1813, 384.43625pt x 299
+<./figures/stabilize_phi_h_imp-eps-converted-to.pdf, id=1811, 384.43625pt x 299
 .1175pt>
 File: ./figures/stabilize_phi_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3747,7 +3748,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_lqi_imp-eps-converted-to.pdf, id=1828, 381.425pt x 299.117
+<./figures/althold_z_lqi_imp-eps-converted-to.pdf, id=1826, 381.425pt x 299.117
 5pt>
 File: ./figures/althold_z_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_lqi_imp-eps-converted-to.pdf>
@@ -3766,7 +3767,7 @@ mp-eps-converted-to.pdf ./figures/althold_psi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 205.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_lqi_imp-eps-converted-to.pdf, id=1829, 388.45125pt x 299
+<./figures/althold_psi_lqi_imp-eps-converted-to.pdf, id=1827, 388.45125pt x 299
 .1175pt>
 File: ./figures/althold_psi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3786,7 +3787,7 @@ _imp-eps-converted-to.pdf ./figures/althold_theta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_lqi_imp-eps-converted-to.pdf, id=1830, 381.425pt x 299
+<./figures/althold_theta_lqi_imp-eps-converted-to.pdf, id=1828, 381.425pt x 299
 .1175pt>
 File: ./figures/althold_theta_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -3806,7 +3807,7 @@ mp-eps-converted-to.pdf ./figures/althold_phi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 217.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_lqi_imp-eps-converted-to.pdf, id=1831, 381.425pt x 299.1
+<./figures/althold_phi_lqi_imp-eps-converted-to.pdf, id=1829, 381.425pt x 299.1
 175pt>
 File: ./figures/althold_phi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3832,7 +3833,7 @@ ps-converted-to.pdf ./figures/althold_z_h_imp.eps>
 (epstopdf)             \includegraphics on input line 233.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_z_h_imp-eps-converted-to.pdf, id=1839, 381.425pt x 299.1175p
+<./figures/althold_z_h_imp-eps-converted-to.pdf, id=1837, 381.425pt x 299.1175p
 t>
 File: ./figures/althold_z_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_z_h_imp-eps-converted-to.pdf>
@@ -3851,7 +3852,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 239.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_psi_h_imp-eps-converted-to.pdf, id=1840, 388.45125pt x 299.1
+<./figures/althold_psi_h_imp-eps-converted-to.pdf, id=1838, 388.45125pt x 299.1
 175pt>
 File: ./figures/althold_psi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_psi_h_imp-eps-converted-to.pdf>
@@ -3870,7 +3871,7 @@ mp-eps-converted-to.pdf ./figures/althold_theta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 245.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_theta_h_imp-eps-converted-to.pdf, id=1841, 381.425pt x 299.1
+<./figures/althold_theta_h_imp-eps-converted-to.pdf, id=1839, 381.425pt x 299.1
 175pt>
 File: ./figures/althold_theta_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -3890,7 +3891,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_phi_h_imp-eps-converted-to.pdf, id=1842, 381.425pt x 299.117
+<./figures/althold_phi_h_imp-eps-converted-to.pdf, id=1840, 381.425pt x 299.117
 5pt>
 File: ./figures/althold_phi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_phi_h_imp-eps-converted-to.pdf>
@@ -3925,7 +3926,7 @@ lqi_imp-eps-converted-to.pdf ./figures/althold_errorpos_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf, id=1858, 388.45125pt 
+<./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf, id=1856, 388.45125pt 
 x 299.1175pt>
 File: ./figures/althold_errorpos_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -3945,7 +3946,7 @@ h_imp-eps-converted-to.pdf ./figures/althold_errorpos_h_imp.eps>
 (epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_errorpos_h_imp-eps-converted-to.pdf, id=1859, 388.45125pt x 
+<./figures/althold_errorpos_h_imp-eps-converted-to.pdf, id=1857, 388.45125pt x 
 299.1175pt>
 File: ./figures/althold_errorpos_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -3997,7 +3998,7 @@ eps-converted-to.pdf ./figures/auto_xyz_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_lqi_imp-eps-converted-to.pdf, id=1877, 407.5225pt x 292.091
+<./figures/auto_xyz_lqi_imp-eps-converted-to.pdf, id=1875, 407.5225pt x 292.091
 25pt>
 File: ./figures/auto_xyz_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_lqi_imp-eps-converted-to.pdf>
@@ -4024,7 +4025,7 @@ s-converted-to.pdf ./figures/auto_xyz_h_imp.eps>
 (epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_xyz_h_imp-eps-converted-to.pdf, id=1879, 407.5225pt x 291.0875p
+<./figures/auto_xyz_h_imp-eps-converted-to.pdf, id=1877, 407.5225pt x 291.0875p
 t>
 File: ./figures/auto_xyz_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_xyz_h_imp-eps-converted-to.pdf>
@@ -4051,7 +4052,7 @@ _imp-eps-converted-to.pdf ./figures/auto_errorpos_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf, id=1891, 388.45125pt x 2
+<./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf, id=1889, 388.45125pt x 2
 99.1175pt>
 File: ./figures/auto_errorpos_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -4071,7 +4072,7 @@ mp-eps-converted-to.pdf ./figures/auto_errorpos_h_imp.eps>
 (epstopdf)             \includegraphics on input line 386.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_errorpos_h_imp-eps-converted-to.pdf, id=1892, 388.45125pt x 299
+<./figures/auto_errorpos_h_imp-eps-converted-to.pdf, id=1890, 388.45125pt x 299
 .1175pt>
 File: ./figures/auto_errorpos_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -4195,7 +4196,7 @@ mp-eps-converted-to.pdf ./figures/stabilize_u_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 28.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_u_lqi_imp-eps-converted-to.pdf, id=1956, 393.47pt x 299.11
+<./figures/stabilize_u_lqi_imp-eps-converted-to.pdf, id=1954, 393.47pt x 299.11
 75pt>
 File: ./figures/stabilize_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -4215,7 +4216,7 @@ lqi_imp-eps-converted-to.pdf ./figures/stabilize_taupsi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 34.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf, id=1957, 393.47pt x 2
+<./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf, id=1955, 393.47pt x 2
 99.1175pt>
 File: ./figures/stabilize_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4235,7 +4236,7 @@ a_lqi_imp-eps-converted-to.pdf ./figures/stabilize_tautheta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 40.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf, id=1958, 384.43625p
+<./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf, id=1956, 384.43625p
 t x 292.09125pt>
 File: ./figures/stabilize_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -4256,7 +4257,7 @@ lqi_imp-eps-converted-to.pdf ./figures/stabilize_tauphi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 46.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf, id=1959, 393.47pt x 2
+<./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf, id=1957, 393.47pt x 2
 92.09125pt>
 File: ./figures/stabilize_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4291,7 +4292,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm1_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 57.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf, id=1978, 392.46625pt x 
+<./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf, id=1976, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4311,7 +4312,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm2_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf, id=1979, 392.46625pt x 
+<./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf, id=1977, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4331,7 +4332,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm3_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf, id=1980, 392.46625pt x 
+<./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf, id=1978, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4351,7 +4352,7 @@ i_imp-eps-converted-to.pdf ./figures/stabilize_pwm4_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf, id=1981, 392.46625pt x 
+<./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf, id=1979, 392.46625pt x 
 292.09125pt>
 File: ./figures/stabilize_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4376,7 +4377,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 88.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_u_h_imp-eps-converted-to.pdf, id=1982, 393.47pt x 299.1175
+<./figures/stabilize_u_h_imp-eps-converted-to.pdf, id=1980, 393.47pt x 299.1175
 pt>
 File: ./figures/stabilize_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/stabilize_u_h_imp-eps-converted-to.pdf>
@@ -4395,7 +4396,7 @@ h_imp-eps-converted-to.pdf ./figures/stabilize_taupsi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 94.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf, id=1983, 393.47pt x 292
+<./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf, id=1981, 393.47pt x 292
 .09125pt>
 File: ./figures/stabilize_taupsi_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4415,7 +4416,7 @@ a_h_imp-eps-converted-to.pdf ./figures/stabilize_tautheta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 100.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf, id=1984, 393.47pt x 2
+<./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf, id=1982, 393.47pt x 2
 99.1175pt>
 File: ./figures/stabilize_tautheta_h_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4435,7 +4436,7 @@ h_imp-eps-converted-to.pdf ./figures/stabilize_tauphi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf, id=1985, 393.47pt x 292
+<./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf, id=1983, 393.47pt x 292
 .09125pt>
 File: ./figures/stabilize_tauphi_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4466,7 +4467,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm1_h_imp.eps>
 (epstopdf)             \includegraphics on input line 117.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf, id=1999, 392.46625pt x 29
+<./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf, id=1997, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4486,7 +4487,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm2_h_imp.eps>
 (epstopdf)             \includegraphics on input line 123.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf, id=2000, 392.46625pt x 29
+<./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf, id=1998, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4506,7 +4507,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm3_h_imp.eps>
 (epstopdf)             \includegraphics on input line 129.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf, id=2001, 392.46625pt x 29
+<./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf, id=1999, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4526,7 +4527,7 @@ imp-eps-converted-to.pdf ./figures/stabilize_pwm4_h_imp.eps>
 (epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf, id=2002, 392.46625pt x 29
+<./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf, id=2000, 392.46625pt x 29
 9.1175pt>
 File: ./figures/stabilize_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4557,7 +4558,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_u_lqi_imp-eps-converted-to.pdf, id=2016, 376.40625pt x 292.0
+<./figures/althold_u_lqi_imp-eps-converted-to.pdf, id=2014, 376.40625pt x 292.0
 9125pt>
 File: ./figures/althold_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_u_lqi_imp-eps-converted-to.pdf>
@@ -4576,7 +4577,7 @@ i_imp-eps-converted-to.pdf ./figures/althold_taupsi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf, id=2017, 380.42125pt x 
+<./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf, id=2015, 380.42125pt x 
 299.1175pt>
 File: ./figures/althold_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4596,7 +4597,7 @@ lqi_imp-eps-converted-to.pdf ./figures/althold_tautheta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 161.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf, id=2018, 380.42125pt 
+<./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf, id=2016, 380.42125pt 
 x 292.09125pt>
 File: ./figures/althold_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (typ
 e pdf)
@@ -4616,7 +4617,7 @@ i_imp-eps-converted-to.pdf ./figures/althold_tauphi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf, id=2019, 380.42125pt x 
+<./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf, id=2017, 380.42125pt x 
 299.1175pt>
 File: ./figures/althold_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4647,7 +4648,7 @@ imp-eps-converted-to.pdf ./figures/althold_pwm1_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf, id=2033, 379.4175pt x 299
+<./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf, id=2031, 379.4175pt x 299
 .1175pt>
 File: ./figures/althold_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4667,7 +4668,7 @@ imp-eps-converted-to.pdf ./figures/althold_pwm2_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 184.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf, id=2034, 379.4175pt x 292
+<./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf, id=2032, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4687,7 +4688,7 @@ imp-eps-converted-to.pdf ./figures/althold_pwm3_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 190.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf, id=2035, 379.4175pt x 292
+<./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf, id=2033, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4707,7 +4708,7 @@ imp-eps-converted-to.pdf ./figures/althold_pwm4_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 196.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf, id=2036, 379.4175pt x 292
+<./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf, id=2034, 379.4175pt x 292
 .09125pt>
 File: ./figures/althold_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4738,7 +4739,7 @@ ps-converted-to.pdf ./figures/althold_u_h_imp.eps>
 (epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_u_h_imp-eps-converted-to.pdf, id=2051, 366.36874pt x 299.117
+<./figures/althold_u_h_imp-eps-converted-to.pdf, id=2049, 366.36874pt x 299.117
 5pt>
 File: ./figures/althold_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/althold_u_h_imp-eps-converted-to.pdf>
@@ -4757,7 +4758,7 @@ imp-eps-converted-to.pdf ./figures/althold_taupsi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 215.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_taupsi_h_imp-eps-converted-to.pdf, id=2052, 380.42125pt x 29
+<./figures/althold_taupsi_h_imp-eps-converted-to.pdf, id=2050, 380.42125pt x 29
 9.1175pt>
 File: ./figures/althold_taupsi_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4777,7 +4778,7 @@ h_imp-eps-converted-to.pdf ./figures/althold_tautheta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 221.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tautheta_h_imp-eps-converted-to.pdf, id=2053, 380.42125pt x 
+<./figures/althold_tautheta_h_imp-eps-converted-to.pdf, id=2051, 380.42125pt x 
 292.09125pt>
 File: ./figures/althold_tautheta_h_imp-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -4797,7 +4798,7 @@ imp-eps-converted-to.pdf ./figures/althold_tauphi_h_imp.eps>
 (epstopdf)             \includegraphics on input line 227.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_tauphi_h_imp-eps-converted-to.pdf, id=2054, 380.42125pt x 29
+<./figures/althold_tauphi_h_imp-eps-converted-to.pdf, id=2052, 380.42125pt x 29
 2.09125pt>
 File: ./figures/althold_tauphi_h_imp-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -4828,7 +4829,7 @@ p-eps-converted-to.pdf ./figures/althold_pwm1_h_imp.eps>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm1_h_imp-eps-converted-to.pdf, id=2067, 379.4175pt x 299.1
+<./figures/althold_pwm1_h_imp-eps-converted-to.pdf, id=2065, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -4848,7 +4849,7 @@ p-eps-converted-to.pdf ./figures/althold_pwm2_h_imp.eps>
 (epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm2_h_imp-eps-converted-to.pdf, id=2068, 379.4175pt x 299.1
+<./figures/althold_pwm2_h_imp-eps-converted-to.pdf, id=2066, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -4868,7 +4869,7 @@ p-eps-converted-to.pdf ./figures/althold_pwm3_h_imp.eps>
 (epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm3_h_imp-eps-converted-to.pdf, id=2069, 379.4175pt x 299.1
+<./figures/althold_pwm3_h_imp-eps-converted-to.pdf, id=2067, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -4888,7 +4889,7 @@ p-eps-converted-to.pdf ./figures/althold_pwm4_h_imp.eps>
 (epstopdf)             \includegraphics on input line 256.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/althold_pwm4_h_imp-eps-converted-to.pdf, id=2070, 379.4175pt x 299.1
+<./figures/althold_pwm4_h_imp-eps-converted-to.pdf, id=2068, 379.4175pt x 299.1
 175pt>
 File: ./figures/althold_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -4919,7 +4920,7 @@ s-converted-to.pdf ./figures/auto_u_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 271.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_u_lqi_imp-eps-converted-to.pdf, id=2084, 366.36874pt x 299.1175
+<./figures/auto_u_lqi_imp-eps-converted-to.pdf, id=2082, 366.36874pt x 299.1175
 pt>
 File: ./figures/auto_u_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_u_lqi_imp-eps-converted-to.pdf>
@@ -4938,7 +4939,7 @@ mp-eps-converted-to.pdf ./figures/auto_taupsi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 277.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf, id=2085, 380.42125pt x 299
+<./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf, id=2083, 380.42125pt x 299
 .1175pt>
 File: ./figures/auto_taupsi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -4958,7 +4959,7 @@ _imp-eps-converted-to.pdf ./figures/auto_tautheta_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 283.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf, id=2086, 380.42125pt x 2
+<./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf, id=2084, 380.42125pt x 2
 92.09125pt>
 File: ./figures/auto_tautheta_lqi_imp-eps-converted-to.pdf Graphic file (type p
 df)
@@ -4978,7 +4979,7 @@ mp-eps-converted-to.pdf ./figures/auto_tauphi_lqi_imp.eps>
 (epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf, id=2087, 380.42125pt x 299
+<./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf, id=2085, 380.42125pt x 299
 .1175pt>
 File: ./figures/auto_tauphi_lqi_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -5009,7 +5010,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf, id=2100, 379.4175pt x 299.11
+<./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf, id=2098, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm1_lqi_imp-eps-converted-to.pdf>
@@ -5028,7 +5029,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf, id=2101, 379.4175pt x 299.11
+<./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf, id=2099, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm2_lqi_imp-eps-converted-to.pdf>
@@ -5047,7 +5048,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf, id=2102, 379.4175pt x 299.11
+<./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf, id=2100, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm3_lqi_imp-eps-converted-to.pdf>
@@ -5066,7 +5067,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 318.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf, id=2103, 379.4175pt x 299.11
+<./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf, id=2101, 379.4175pt x 299.11
 75pt>
 File: ./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm4_lqi_imp-eps-converted-to.pdf>
@@ -5096,7 +5097,7 @@ converted-to.pdf ./figures/auto_u_h_imp.eps>
 (epstopdf)             \includegraphics on input line 333.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_u_h_imp-eps-converted-to.pdf, id=2118, 380.42125pt x 299.1175pt
+<./figures/auto_u_h_imp-eps-converted-to.pdf, id=2116, 380.42125pt x 299.1175pt
 >
 File: ./figures/auto_u_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_u_h_imp-eps-converted-to.pdf>
@@ -5115,7 +5116,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 339.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_taupsi_h_imp-eps-converted-to.pdf, id=2119, 380.42125pt x 299.1
+<./figures/auto_taupsi_h_imp-eps-converted-to.pdf, id=2117, 380.42125pt x 299.1
 175pt>
 File: ./figures/auto_taupsi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_taupsi_h_imp-eps-converted-to.pdf>
@@ -5134,7 +5135,7 @@ mp-eps-converted-to.pdf ./figures/auto_tautheta_h_imp.eps>
 (epstopdf)             \includegraphics on input line 345.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tautheta_h_imp-eps-converted-to.pdf, id=2120, 380.42125pt x 292
+<./figures/auto_tautheta_h_imp-eps-converted-to.pdf, id=2118, 380.42125pt x 292
 .09125pt>
 File: ./figures/auto_tautheta_h_imp-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -5154,7 +5155,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 351.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_tauphi_h_imp-eps-converted-to.pdf, id=2121, 380.42125pt x 299.1
+<./figures/auto_tauphi_h_imp-eps-converted-to.pdf, id=2119, 380.42125pt x 299.1
 175pt>
 File: ./figures/auto_tauphi_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_tauphi_h_imp-eps-converted-to.pdf>
@@ -5184,7 +5185,7 @@ ps-converted-to.pdf ./figures/auto_pwm1_h_imp.eps>
 (epstopdf)             \includegraphics on input line 362.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm1_h_imp-eps-converted-to.pdf, id=2135, 379.4175pt x 299.1175
+<./figures/auto_pwm1_h_imp-eps-converted-to.pdf, id=2133, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm1_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm1_h_imp-eps-converted-to.pdf>
@@ -5203,7 +5204,7 @@ ps-converted-to.pdf ./figures/auto_pwm2_h_imp.eps>
 (epstopdf)             \includegraphics on input line 368.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm2_h_imp-eps-converted-to.pdf, id=2136, 379.4175pt x 299.1175
+<./figures/auto_pwm2_h_imp-eps-converted-to.pdf, id=2134, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm2_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm2_h_imp-eps-converted-to.pdf>
@@ -5222,7 +5223,7 @@ ps-converted-to.pdf ./figures/auto_pwm3_h_imp.eps>
 (epstopdf)             \includegraphics on input line 374.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm3_h_imp-eps-converted-to.pdf, id=2137, 379.4175pt x 299.1175
+<./figures/auto_pwm3_h_imp-eps-converted-to.pdf, id=2135, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm3_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm3_h_imp-eps-converted-to.pdf>
@@ -5241,7 +5242,7 @@ ps-converted-to.pdf ./figures/auto_pwm4_h_imp.eps>
 (epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 
-<./figures/auto_pwm4_h_imp-eps-converted-to.pdf, id=2138, 379.4175pt x 299.1175
+<./figures/auto_pwm4_h_imp-eps-converted-to.pdf, id=2136, 379.4175pt x 299.1175
 pt>
 File: ./figures/auto_pwm4_h_imp-eps-converted-to.pdf Graphic file (type pdf)
  <use ./figures/auto_pwm4_h_imp-eps-converted-to.pdf>
@@ -5297,45 +5298,42 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
  ) 
 Here is how much of TeX's memory you used:
- 27755 strings out of 493333
- 500419 string characters out of 3139198
- 608936 words of memory out of 3000000
+ 27754 strings out of 493333
+ 500407 string characters out of 3139198
+ 608934 words of memory out of 3000000
  30038 multiletter control sequences out of 15000+200000
  554845 words of font info for 120 fonts, out of 3000000 for 9000
  1188 hyphenation exceptions out of 8191
  53i,27n,92p,10362b,773s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
-st, replaced by a fixed one
-
- <C:\Users\Asus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcr
-m1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/2.
-9/fonts/type1/public/esvect/vect10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/2.
-9/fonts/type1/public/esvect/vect8.pfb>
-Output written on Final_project.pdf (138 pages, 14261298 bytes).
+ <C:\Users\Asus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\t
+crm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/
+2.9/fonts/type1/public/esvect/vect10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/
+2.9/fonts/type1/public/esvect/vect8.pfb>
+Output written on Final_project.pdf (138 pages, 15639580 bytes).
 PDF statistics:
- 2409 PDF objects out of 2487 (max. 8388607)
- 551 named destinations out of 1000 (max. 500000)
+ 2407 PDF objects out of 2487 (max. 8388607)
+ 550 named destinations out of 1000 (max. 500000)
  1278 words of extra memory for PDF output out of 10000 (max. 10000000)
 

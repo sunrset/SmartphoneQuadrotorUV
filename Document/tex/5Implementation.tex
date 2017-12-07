@@ -80,7 +80,7 @@ The quadrotor state data is composed by the quadrotor position, the quadrotor at
 Additionally, the GCS interface have a Communication tab, which includes a Controller Settings Panel shown in Fig. \ref{fig:commGCS}. This panel shows the connection status of the GCS with the remote controller. Also, it presents the current value of the remote controller joysticks and its buttons state.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.3\textwidth]{commGCS.jpg}  
+\includegraphics[width=0.4\textwidth]{commGCS.jpg}  
 \caption{Controller settings in GCS} 
 \label{fig:commGCS}
 \end{center}
@@ -91,12 +91,12 @@ In order to obtain a wide range of wireless communication between the Android ap
 The complete UAS built in this project is shown in Fig. \ref{fig:UAS}. This UAS is composed by a smartphone-based quadrotor UAV, a GCS executing a java application for monitoring and remote control, and a WLAN-based communication channel between both of them.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=0.75\textwidth]{UAS.jpg}  
+\includegraphics[width=0.8\textwidth]{UAS.jpg}  
 \caption{Complete implemented Smartphone-based UAS} 
 \label{fig:UAS}
 \end{center}
 \end{figure}
-
+\vspace{-1.5cm}
 \section{Flight Tests} \label{sec:tests}
 The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation}, are implemented in the Android application that is executed in the smartphone on board the quadrotor. Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. The results of these tests are shown in this section. The control signals $\mathbf{U} = \begin{bmatrix}
 T_u & \tau_\psi & \tau_\theta & \tau_\phi

@@ -55,7 +55,7 @@ Due to the simplicity in its construction, the most common small-size rotary-win
 \subsection{Control Strategies and State Estimation in Quadrotors}
 Since UAVs represent a challenge for the modelling and design of controllers, from basic to advanced, these aircrafts are widely used in the teaching and research of control systems theory. For instance, \cite{Argentim2013} implemented a PID controller (with two tuning methods) and a Linear-Quadratic regulator (LQR) for altitude control in a quadrotor, comparing them and establishing the advantages of using a PID controller tuned using the LQR equations. Moreover, \cite{Silva2016} exposes the develop of a low cost quadrotor attitude controler based on a PID control strategy with saturation constraints, achieving the quadrotor attitude stabilization with set-points of less than $0.23\ rad$. Another comparison between PID and LQR control strategies is done in \cite{Liu2016}. In this case, both controllers are used for trajectory tracking in a Qball-X4 quadcopter, getting smoother results with the LQR implementation.
 \\\\
-In \cite{Reyes-Valeria2013}, a quaternion-based LQR gain scheduling controller is designed and simulated, successfully achieving six $DoF$ control of the quadrotor. A position and heading regulation system using a LQR is also presented in \cite{Dong2015}. Here, the implementation of the designed controller is carried out, in which the elevation regulation with oscillations of $0.1\ m$ is observed. On the other hand, \cite{Fan2017} designed a feed-forwarding LQR, which achieve to control quadrotor attitude with errors of less than $0.08\ rad$.
+In \cite{Reyes-Valeria2013}, a quaternion-based LQR gain scheduling controller is designed and simulated, successfully achieving six $DoF$ control of the quadrotor. A position and heading regulation system using a LQR is also presented in \cite{Dong2015}. Here, the implementation of the designed controller is carried out, in which the altitude regulation with oscillations of $0.1\ m$ is observed. On the other hand, \cite{Fan2017} designed a feed-forwarding LQR, which achieve to control quadrotor attitude with errors of less than $0.08\ rad$.
 \\\\
 A trajectory tracking controller based on a LQR and an Extended Kalman Filter (EKF) is shown in \cite{Zhang2016}. This approach use the non-linear quadrotor dynamics model to estimate the quadrotor states and calculte the control signals based on the estimations.
 \\\\
@@ -84,9 +84,9 @@ The attitude references can be set or changed by the pilot using the remote cont
 As the stabilize mode do not take into account the control of the quadrotor position, the pilot needs to regularly change the attitude references manually to keep the quadrotor in a desired position, as it is affected by wind disturbances. Also, the pilot needs to regularly adjust the quadrotor thrust, so a desired altitude is maintained.
 
 \item \textbf{Altitude Hold Mode}\\\\
-The altitude hold mode adds automatic elevation control to the Stabilize mode. This way, in addition to controlling the attitude, the quadrotor thrust is set by the flight controller in order to maintain the quadrotor in a desired altitude, getting four controlled $DoF$.
+The altitude hold mode adds automatic altitude control to the Stabilize mode. This way, in addition to controlling the attitude, the quadrotor thrust is set by the flight controller in order to maintain the quadrotor in a desired altitude, getting four controlled $DoF$.
 \\\\
-In this mode, the pilot can remotely control the rate of change of the elevation (with a default value of $0\ m/s$), as well as the attitude references.
+In this mode, the pilot can remotely control the rate of change of the altitude (with a default value of $0\ m/s$), as well as the attitude references.
 
 \item \textbf{GNSS-Dependent Flight Modes}\\\\
 The Global Navigation Satellite System (GNSS)-Dependent flight modes, are those that automatically attempt to regulate the six $DoF$ of the quadrotor in order to maintain a desired position, heading and altitude during a flight. The main GNSS-Dependent Flight Modes are: Loiter mode, Auto Mode, and Return-To-Launch (RTL) Mode.

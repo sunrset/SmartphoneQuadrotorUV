@@ -499,7 +499,7 @@ For the altitude hold mode, the penalization matrices $\mathcal{Q}$ and $\mathca
 \end{bmatrix}^{T},
 \end{split}
 \end{align}
-so that the state $z$ has the same penalization as the other outputs, while the penalization of the unmeasured states remains being lower. The integral error of the quadrotor elevation is penalized the same way as the error of yaw, with a not so big penalization, as the pitch and roll dynamics must be prioritized.
+so that the state $z$ has the same penalization as the other outputs, while the penalization of the unmeasured states remains being lower. The integral error of the quadrotor altitude is penalized the same way as the error of yaw, with a not so big penalization, as the pitch and roll dynamics must be prioritized.
 \begin{figure}[h]
 \begin{subfigure}{.5\linewidth}
 \centering
@@ -716,7 +716,7 @@ Wigh these weighting filters, $\gamma = 0.5976$. After one iteration, with norma
 \end{figure}
 \\The system $K_H$ has four unnoticeable states in terms of controllability and observability, as seen in Fig. \ref{fig:hsv_auto_h}. Therefore, the reduced order controller $K_{H}^{*}$ is the subsystem of $K_H$ which includes just the $16$ noticeable states.
 \\\\
-The simulation of the designed $H_\infty$ controller with the quadrotor non-linear dynamics, is also developed using a reference of waypoints describing a square with sides of $2\ m$, and a constant elevation.
+The simulation of the designed $H_\infty$ controller with the quadrotor non-linear dynamics, is also developed using a reference of waypoints describing a square with sides of $2\ m$, and a constant altitude.
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{auto_xyz_h}
