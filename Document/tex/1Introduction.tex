@@ -1,8 +1,8 @@
 \chapter{Introduction} \label{ch:introduction}
-In recent years, the interest in unmanned aircraft vehicles (UAVs) research, has increased substantially. This is due to the several potential new services that this type of robotic devices offers, such as search and rescue, observation, mapping, inspection, etc. On the other hand, smartphones have become essential devices for humans and easily acquirable development tools. The interaction between these two technologies allows the development of low cost aerial robots based on an everyday item such as smartphones, facilitating both the distribution of its control software and its implementation by other researchers.
+In recent years, the interest in unmanned aircraft vehicles (UAVs) research has increased substantially. This is due to the several potential new services that this type of robotic devices offers, such as search and rescue, observation, mapping, inspection, etc. On the other hand, smartphones have become essential devices for humans and easily acquirable development tools. The interaction between these two technologies allows the development of low cost aerial robots based on an everyday item such as smartphones, facilitating both the distribution of its control software and its implementation by other researchers.
 \\\\
 \section{Motivation}
-Quadrotor control is a difficult and interesting problem. As established by \cite{Liu2015} and \cite{Lopez2015}, quadrotor dynamics are affected by nonlinearity, parameters perturbations, uncertainties and disturbances: this include unknown and variable payloads, aerodynamical parameters of the system, wind changes, and sensors inaccuracies. Numerous studies have been developed in designing optimal and robust controllers that allow UAVs to fly and accomplish missions rejecting disturbances and being robust to parameter uncertainties as seen in \cite{Jung2014, Kohno2014, Shang2016, Salazar2014}.\\\\
+Quadrotor control is a difficult and interesting problem. As established by \cite{Liu2015} and \cite{Lopez2015}, quadrotor dynamics are affected by nonlinearity, parameters perturbations, uncertainties and disturbances: these include unknown and variable payloads, aerodynamical parameters of the system, wind changes, and sensors inaccuracies. Numerous studies have been developed in designing optimal and robust controllers that allow UAVs to fly and accomplish missions rejecting disturbances and being robust to parameter uncertainties as seen in \cite{Jung2014, Kohno2014, Shang2016, Salazar2014}.\\\\
 Although there are embedded systems with high computational capacity that can serve as controllers of a quadrotor, smartphones are available, easily accessible for people and also have a large computational capacity, hence multiple instrumentation and communication elements integrated in the same device. In the last years, computing capacity and sensor technology in smartphones have decreased in price but increased in performance. Smartphones have become an inexpensive tool capable of commanding an UAV. The challenge then, is to use smartphones as quadrotor flight controllers for autonomous flights following specific missions, taking advantage of the fact that the phones today are very powerful computers that include elements of sensing, processing and signal communication.
 \\\\
 This research project aims to design and implement algorithms that will be executed in a smartphone to estimate and control the dynamics of a quadrotor. This project confronts several challenges such as using a smartphone as a hardware development platform, trying to use a non real-time operating system for real-time applications, designing optimal and high order controllers using Java, and executing that controllers in a smartphone. 
@@ -18,7 +18,7 @@ A fixed-wing UAV is an aircraft which consists of an airframe attached to a rigi
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=9.6cm]{fixedwinguav.jpg}    
-\caption[Skywalker X8 Fixed-wing UAV]{Skywalker X8 Fixed-wing UAV\protect\footnotemark} 
+\caption[Skywalker X8 fixed-wing UAV]{Skywalker X8 fixed-wing UAV\protect\footnotemark} 
 \label{fig:fixedwing}
 \end{center}
 \end{figure}
@@ -32,7 +32,7 @@ Rotary-wing UAVs consist of one or multiple propellers attached to an airframe, 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8.0cm]{rotarywinguav.jpg}    
-\caption[Altavian Octorotor Rotary-wing UAV]{Altavian Octorotor Rotary-wing UAV\protect\footnotemark} 
+\caption[Altavian octorotor rotary-wing UAV]{Altavian octorotor rotary-wing UAV\protect\footnotemark} 
 \label{fig:rotarywing}
 \end{center}
 \end{figure}

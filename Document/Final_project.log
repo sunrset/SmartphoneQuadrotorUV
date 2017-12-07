@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 19:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.5.3)  6 DEC 2017 22:13
 entering extended mode
 **./Final_project.tex
 (Final_project.tex
@@ -1292,14 +1292,189 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count312
 \c@@ppsaveapp=\count313
 )
-(macros.tex
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\base\glossaries.
+sty
+Package: glossaries 2017/11/03 v4.34 (NLCT)
+ (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\mfirstuc\mfirstuc.sty
+Package: mfirstuc 2017/11/10 v2.05 (NLCT)
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count314
+)
+\@glsmfirst=\toks50
+\@glsmrest=\toks51
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\textcase\textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\xfor\xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\datatool\datatool-base.sty
+Package: datatool-base 2017/11/10 v2.28 (NLCT)
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\substr\substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count315
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\datatool\datatool-fp.sty
+Package: datatool-fp 2017/11/10 v2.28 (NLCT)
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count316
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count317
+\FP@xia=\count318
+\FP@xib=\count319
+\FP@xfa=\count320
+\FP@xfb=\count321
+\FP@rega=\count322
+\FP@regb=\count323
+\FP@regs=\count324
+\FP@times=\count325
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count326
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks52
+\@dtl@tmpcount=\count327
+\dtl@tmplength=\skip73
+\dtl@sortresult=\count328
+\@dtl@numgrpsepcount=\count329
+\@dtl@datatype=\count330
+\dtl@codeA=\count331
+\dtl@codeB=\count332
+\@dtl@foreach@level=\count333
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\base\glossaries-
+compatible-307.sty
+Package: glossaries-compatible-307 2017/11/03 v4.34 (NLCT)
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\tracklang\tracklang.sty
+Package: tracklang 2017/03/25 v1.3.4 (NLCT) Track Languages
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\generic\tracklang\tracklang.tex))
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\beamer\translator\translato
+r.sty
+Package: translator 2010/06/12 ver 1.10
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\beamer\translator\translato
+r-language-mappings.tex))
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries-english\glossari
+es-english.ldf
+File: glossaries-english.ldf 2014/11/23 v1.0
+)
+\gls@level=\count334
+\@gls@tmpb=\toks53
+\gls@tmplen=\skip74
+\glskeylisttok=\toks54
+\glslabeltok=\toks55
+\glsshorttok=\toks56
+\glslongtok=\toks57
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\styles\glossary-
+hypernav.sty
+Package: glossary-hypernav 2017/11/03 v4.34 (NLCT)
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\styles\glossary-
+list.sty
+Package: glossary-list 2017/11/03 v4.34 (NLCT)
+\glslistdottedwidth=\skip75
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\styles\glossary-
+long.sty
+Package: glossary-long 2017/11/03 v4.34 (NLCT)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip76
+\LTright=\skip77
+\LTpre=\skip78
+\LTpost=\skip79
+\LTchunksize=\count335
+\LTcapwidth=\dimen272
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@cols=\count336
+\LT@rows=\count337
+\c@LT@tables=\count338
+\c@LT@chunks=\count339
+\LT@p@ftn=\toks58
+)
+\glsdescwidth=\skip80
+\glspagelistwidth=\skip81
+)
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\styles\glossary-
+super.sty
+Package: glossary-super 2017/11/03 v4.34 (NLCT)
+
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\supertabular\supertabular.s
+ty
+Package: supertabular 2004/02/20 v4.1e the supertabular environment
+\c@tracingst=\count340
+\ST@wd=\dimen273
+\ST@rightskip=\skip82
+\ST@leftskip=\skip83
+\ST@parfillskip=\skip84
+\ST@pageleft=\dimen274
+\ST@headht=\dimen275
+\ST@tailht=\dimen276
+\ST@pagesofar=\dimen277
+\ST@pboxht=\dimen278
+\ST@lineht=\dimen279
+\ST@stretchht=\dimen280
+\ST@prevht=\dimen281
+\ST@toadd=\dimen282
+\ST@dimen=\dimen283
+\ST@pbox=\box57
+))
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\glossaries\styles\glossary-
+tree.sty
+Package: glossary-tree 2017/11/03 v4.34 (NLCT)
+\glstreeindent=\skip85
+)) (macros.tex
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\eqparbox\eqparbox.sty
 Package: eqparbox 2017/09/03 v4.1 Create equal-widthed boxes
-\eqp@tempdima=\skip73
-\eqp@tempdimb=\skip74
-\eqp@tabular@box=\box53
-\eqp@list@box=\box54
-\eqp@list@indent=\skip75
+\eqp@tempdima=\skip86
+\eqp@tempdimb=\skip87
+\eqp@tabular@box=\box58
+\eqp@list@box=\box59
+\eqp@list@indent=\skip88
 
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\environ\environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -1340,16 +1515,16 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package hobsub Info: Skipping package `refcount' (already loaded).
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-\@linkdim=\dimen272
-\Hy@linkcounter=\count314
-\Hy@pagecounter=\count315
+\@linkdim=\dimen284
+\Hy@linkcounter=\count341
+\Hy@pagecounter=\count342
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2016/06/24 v6.83q Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count316
+\Hy@SavedSpaceFactor=\count343
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1363,17 +1538,17 @@ Package hyperref Info: Plain pages OFF on input line 4501.
 Package hyperref Info: Backreferencing OFF on input line 4506.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4735.
-\c@Hy@tempcnt=\count317
+\c@Hy@tempcnt=\count344
 
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5088.
-\XeTeXLinkMargin=\dimen273
-\Fld@menulength=\count318
-\Field@Width=\dimen274
-\Fld@charsize=\dimen275
+\XeTeXLinkMargin=\dimen285
+\Fld@menulength=\count345
+\Field@Width=\dimen286
+\Fld@charsize=\dimen287
 Package hyperref Info: Hyper figures OFF on input line 6342.
 Package hyperref Info: Link nesting OFF on input line 6347.
 Package hyperref Info: Hyper index ON on input line 6350.
@@ -1383,49 +1558,46 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6367.
 Package hyperref Info: PDF/A mode OFF on input line 6372.
 LaTeX Info: Redefining \ref on input line 6412.
 LaTeX Info: Redefining \pageref on input line 6416.
-\Hy@abspage=\count319
-\c@Item=\count320
-\c@Hfootnote=\count321
+\Hy@abspage=\count346
+\c@Item=\count347
+\c@Hfootnote=\count348
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
-\Fld@listcount=\count322
-\c@bookmark@seq@number=\count323
+\Fld@listcount=\count349
+\c@bookmark@seq@number=\count350
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip76
+\Hy@SectionHShift=\skip89
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\hypcap.sty"
 Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
 )
-\c@theorem=\count324
-\c@proposition=\count325
-\c@lemma=\count326
-\c@corollary=\count327
-\c@example=\count328
-\c@definition=\count329
-\c@remark=\count330
-\c@problem=\count331
-\c@assumption=\count332
+\c@theorem=\count351
+\c@proposition=\count352
+\c@lemma=\count353
+\c@corollary=\count354
+\c@example=\count355
+\c@definition=\count356
+\c@remark=\count357
+\c@problem=\count358
+\c@assumption=\count359
 )
 \@indexfile=\write5
 \openout5 = `Final_project.idx'.
 
 
 Writing index file Final_project.idx
-\@nomenclaturefile=\write6
-\openout6 = `Final_project.nlo'.
-
-Writing nomenclature file Final_project.nlo
-(Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
-(tex/2QuadcopterModel.aux) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
+(Final_project.aux (tex/abstract.aux) (tex/abbreviation.aux)
+(tex/1Introduction.aux) (tex/2QuadcopterModel.aux)
+(tex/3SmartphoneBasedQuadrotorPrototype.aux)
 (tex/4ControlStrategiesAndEstimation.aux
 
 LaTeX Warning: Label `ec:statespace' multiply defined.
@@ -1464,41 +1636,41 @@ LaTeX Warning: Label `sub@fig:stabilize_psi_h_imp' multiply defined.
 ) (tex/conclusions.aux) (tex/appendices.aux))
 \openout1 = `Final_project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 79.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 (C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen276
-\scratchbox=\box55
-\nofMPsegments=\count334
-\nofMParguments=\count335
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen277
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count360
+\scratchdimen=\dimen288
+\scratchbox=\box60
+\nofMPsegments=\count361
+\nofMParguments=\count362
+\everyMPshowfont=\toks59
+\MPscratchCnt=\count363
+\MPscratchDim=\dimen289
+\MPnumerator=\count364
+\makeMPintoPDFobject=\count365
+\everyMPtoPDFconversion=\toks60
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1538,15 +1710,21 @@ LaTeX Font Info:    ... okay on input line 84.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: hypcap package is loaded.
+Package caption Info: longtable package is loaded.
+(C:\Users\Asus\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box56
-Package hyperref Info: Link coloring ON on input line 84.
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
+\AtBeginShipoutBox=\box61
+Package hyperref Info: Link coloring ON on input line 79.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
+
 (Final_project.out) (Final_project.out)
-\@outlinefile=\write7
-\openout7 = `Final_project.out'.
+\@outlinefile=\write6
+\openout6 = `Final_project.out'.
 
  (tex/OwnTitle.tex
 <./figures/univallelogo.pdf, id=299, 481.8pt x 361.35pt>
@@ -1629,36 +1807,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--9
 
 
 ] [6])
-Underfull \hbox (badness 10000) in paragraph at lines 18--112
+Underfull \hbox (badness 10000) in paragraph at lines 18--107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--112
+Underfull \hbox (badness 10000) in paragraph at lines 18--107
 
  []
 
 [7
 
-] [8
+]
+\openout2 = `tex/abbreviation.aux'.
+
+
+No file tex/abbreviation.tex.
+[8
+
+
 
 
 ] (Final_project.toc [9] [10])
-\tf@toc=\write8
-\openout8 = `Final_project.toc'.
+\tf@toc=\write7
+\openout7 = `Final_project.toc'.
 
  [11] [12
 
 ] (Final_project.lof [13] [14])
-\tf@lof=\write9
-\openout9 = `Final_project.lof'.
+\tf@lof=\write8
+\openout8 = `Final_project.lof'.
 
 
 [15] [16
 
 ] (Final_project.lot)
-\tf@lot=\write10
-\openout10 = `Final_project.lot'.
+\tf@lot=\write9
+\openout9 = `Final_project.lot'.
 
  [17] [18
 
@@ -1882,32 +2067,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--143
  []
 
 [11])
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--133
+Underfull \hbox (badness 10000) in paragraph at lines 158--127
 
  []
 
@@ -2295,12 +2480,12 @@ Package pdftex.def Info: ./figures/dome2.png used on input line 174.
 (pdftex.def)             Requested size: 244.69386pt x 163.60352pt.
  [36 <./figures/phonesupport2.png> <./figures/megasupport2.png> <./figures/escs
 upport2.png> <./figures/megaandescsupport2.png>]
-<./figures/complete.jpg, id=1180, 4047.12pt x 3035.34pt>
+<./figures/complete.jpg, id=1180, 3812.2425pt x 2682.02pt>
 File: ./figures/complete.jpg Graphic file (type jpg)
 
 <use ./figures/complete.jpg>
 Package pdftex.def Info: ./figures/complete.jpg used on input line 184.
-(pdftex.def)             Requested size: 312.9803pt x 234.72694pt.
+(pdftex.def)             Requested size: 312.9803pt x 220.1726pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -4142,17 +4327,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--15
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [91])
-Underfull \hbox (badness 10000) in paragraph at lines 18--139
+Underfull \hbox (badness 10000) in paragraph at lines 18--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--139
+Underfull \hbox (badness 10000) in paragraph at lines 18--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--139
+Underfull \hbox (badness 10000) in paragraph at lines 18--133
 
  []
 
@@ -5280,30 +5465,31 @@ ter in X-
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 169.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
  [120]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 169.
- (Final_project.aux (tex/abstract.aux) (tex/1Introduction.aux)
-(tex/2QuadcopterModel.aux) (tex/3SmartphoneBasedQuadrotorPrototype.aux)
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+ (Final_project.aux (tex/abstract.aux) (tex/abbreviation.aux)
+(tex/1Introduction.aux) (tex/2QuadcopterModel.aux)
+(tex/3SmartphoneBasedQuadrotorPrototype.aux)
 (tex/4ControlStrategiesAndEstimation.aux) (tex/5Implementation.aux)
 (tex/conclusions.aux) (tex/appendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 169.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 169.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
 Package rerunfilecheck Info: File `Final_project.out' has not changed.
 (rerunfilecheck)             Checksum: 0A3030E02C6D546761719897534C078B;5157.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 27754 strings out of 493333
- 500407 string characters out of 3139198
- 608934 words of memory out of 3000000
- 30038 multiletter control sequences out of 15000+200000
+ 33442 strings out of 493333
+ 608954 string characters out of 3139198
+ 758361 words of memory out of 3000000
+ 35606 multiletter control sequences out of 15000+200000
  554845 words of font info for 120 fonts, out of 3000000 for 9000
- 1188 hyphenation exceptions out of 8191
+ 1189 hyphenation exceptions out of 8191
  53i,27n,92p,10362b,773s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Asus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\t
 crm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.p
@@ -5331,7 +5517,7 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.
 type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/
 2.9/fonts/type1/public/esvect/vect10.pfb><C:/Users/Asus/AppData/Roaming/MiKTeX/
 2.9/fonts/type1/public/esvect/vect8.pfb>
-Output written on Final_project.pdf (138 pages, 15639580 bytes).
+Output written on Final_project.pdf (138 pages, 14535720 bytes).
 PDF statistics:
  2407 PDF objects out of 2487 (max. 8388607)
  550 named destinations out of 1000 (max. 500000)
