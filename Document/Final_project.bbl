@@ -134,6 +134,11 @@ B.~Fan, J.~Sun, and Y.~Yu, ``{A LQR controller for a quadrotor: Design and
   experiment},'' \emph{Proceedings - 2016 31st Youth Academic Annual Conference
   of Chinese Association of Automation, YAC 2016}, pp. 81--86, 2017.
 
+\bibitem{Munoz2017}
+P.~{Mu{\~{n}}oz}, ``{Control de Elevaci{\'{o}}n Para Cuadric{\'{o}}ptero Usando
+  Un Celular Inteligente},'' Bachelor Thesis, Universidad del Valle, Cali,
+  2017.
+
 \bibitem{Zhang2016}
 K.~Zhang, J.~Chen, Y.~Chang, and Y.~Shi, ``{EKF-based LQR tracking control of a
   quadrotor helicopter subject to uncertainties},'' \emph{IECON Proceedings
@@ -190,11 +195,6 @@ A.~Prayitno, V.~Indrawati, and C.~Arron, ``{H-Infinity Control for Pitch-Roll
 J.~P. Ortiz, L.~I. Minchala, and M.~J. Reinoso, ``{Nonlinear Robust H-Infinity
   PID Controller for the Multivariable System Quadrotor},'' \emph{IEEE Latin
   America Transactions}, vol.~14, no.~3, pp. 1176--1183, mar 2016.
-
-\bibitem{Munoz2017}
-P.~{Mu{\~{n}}oz}, ``{Control de Elevaci{\'{o}}n Para Cuadric{\'{o}}ptero Usando
-  Un Celular Inteligente},'' Bachelor Thesis, Universidad del Valle, Cali,
-  2017.
 
 \bibitem{Moghadam2015}
 M.~Moghadam and F.~Caliskan, ``{Actuator and Sensor Fault Detection and
@@ -470,6 +470,12 @@ R.~M. Murray, \emph{{Optimization-Based Control}}.\hskip 1em plus 0.5em minus
 B.~Anderson and J.~Moore, \emph{{Optimal Control, Linear Quadratic Methods}},
   T.~Kailath, Ed.\hskip 1em plus 0.5em minus 0.4em\relax Prentice Hall
   International, Inc., 1989, vol.~1.
+
+\bibitem{Araar2014}
+O.~Araar and N.~Aouf, ``{Full linear control of a quadrotor UAV, LQ vs
+  H{$\infty$}},'' in \emph{2014 UKACC International Conference on Control
+  (CONTROL)}, no. July.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, jul 2014,
+  pp. 133--138.
 
 \bibitem{Skogestad2005}
 S.~Skogestad and I.~Postlethwaite, \emph{{Multivariable Feedback Control:

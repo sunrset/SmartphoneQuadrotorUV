@@ -11,107 +11,107 @@
 \contentsline {subsection}{\numberline {1.2.2}Rotary-Wing UAVs}{3}{subsection.1.2.2}
 \contentsline {section}{\numberline {1.3}Literature Review}{5}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Control Strategies and State Estimation in Quadrotors}{5}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Quadrotor Flight Modes}{6}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.2}Quadrotor Flight Modes}{7}{subsection.1.3.2}
 \contentsline {subsection}{\numberline {1.3.3}Smartphones in Control Systems}{8}{subsection.1.3.3}
 \contentsline {subsection}{\numberline {1.3.4}Smartphone-based Quadrotors}{9}{subsection.1.3.4}
 \contentsline {subsubsection}{Smartphone-based Quadrotor Limitations}{10}{section*.11}
-\contentsline {subsection}{\numberline {1.3.5}Contribution of this Work}{11}{subsection.1.3.5}
 \contentsline {section}{\numberline {1.4}Research Problem}{11}{section.1.4}
 \contentsline {section}{\numberline {1.5}Objectives}{11}{section.1.5}
 \contentsline {subsubsection}{General Objective}{11}{section*.12}
 \contentsline {subsubsection}{Specific Objectives}{11}{section*.13}
-\contentsline {section}{\numberline {1.6}Outline}{12}{section.1.6}
-\contentsline {chapter}{\numberline {2}Dynamic Model of the Quadrotor }{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Quadrotors Configurations}{13}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}The `+' Configuration}{14}{subsection.2.1.1}
-\contentsline {subsubsection}{Input Settings in `+' Configuration}{16}{section*.15}
-\contentsline {subsection}{\numberline {2.1.2}The `X' Configuration}{16}{subsection.2.1.2}
-\contentsline {subsubsection}{Input Settings in `X' Configuration}{18}{section*.17}
-\contentsline {subsubsection}{Maximum Torque about $x$ and $y$ Axes in `X' Configuration}{18}{section*.18}
-\contentsline {section}{\numberline {2.2}Non-linear Model}{19}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Newton-Euler Approach}{19}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Euler-Lagrange Approach}{23}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Linearized Model}{26}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Jacobian Linearization}{26}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Thrust Compensation}{27}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}Conclusions}{28}{section.2.4}
-\contentsline {chapter}{\numberline {3}Quadrotor Components and Parameter Identification}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Quadrotor Components}{30}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Frame}{30}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Smartphone}{31}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Motors and Electronic Speed Controllers}{32}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Smartphone-to-ESC Gateway}{33}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Battery}{34}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}3D-printed Parts}{35}{subsection.3.1.6}
-\contentsline {subsubsection}{Smartphone Support}{35}{section*.27}
-\contentsline {subsubsection}{Arduino Mega ADK and ESC supports}{36}{section*.29}
-\contentsline {subsubsection}{Dome}{36}{section*.31}
-\contentsline {subsection}{\numberline {3.1.7}Assembled Smartphone-based Quadrotor}{37}{subsection.3.1.7}
-\contentsline {section}{\numberline {3.2}Quadrotor Parameters}{38}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Mass}{38}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Moments of Inertia}{38}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Motor Thrust}{41}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Motor Torque}{43}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Conclusions}{44}{section.3.3}
-\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{45}{chapter.4}
-\contentsline {section}{\numberline {4.1}Concept and Generalities}{46}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{46}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{46}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Control Strategies}{47}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Integral Controller}{48}{subsection.4.2.1}
-\contentsline {subsubsection}{Optimal Problem Solution}{48}{section*.42}
-\contentsline {subsubsection}{Reference Tracking}{49}{section*.43}
-\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{51}{subsection.4.2.2}
-\contentsline {subsubsection}{$H_\infty $ Synthesis for Controller Design}{51}{section*.45}
-\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{52}{section*.48}
-\contentsline {section}{\numberline {4.3}Design and Simulation of Controllers}{53}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{53}{subsection.4.3.1}
-\contentsline {subsubsection}{Dynamic Model}{53}{section*.49}
-\contentsline {subsubsection}{LQI Controller}{54}{section*.50}
-\contentsline {subsubsection}{$H_\infty $ Controller}{55}{section*.52}
-\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{57}{subsection.4.3.2}
-\contentsline {subsubsection}{Dynamic Model}{58}{section*.56}
-\contentsline {subsubsection}{LQI Controller}{59}{section*.57}
-\contentsline {subsubsection}{$H_\infty $ Controller}{60}{section*.59}
-\contentsline {subsection}{\numberline {4.3.3}GNSS-Dependent Flight Modes}{63}{subsection.4.3.3}
-\contentsline {subsubsection}{Dynamic Model}{63}{section*.63}
-\contentsline {subsubsection}{LQI Controller}{64}{section*.64}
-\contentsline {subsubsection}{$H_\infty $ Controller}{66}{section*.67}
-\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{69}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{69}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Position Measurement}{70}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}State Estimation}{70}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Conclusions}{72}{section.4.5}
-\contentsline {chapter}{\numberline {5}Implementation and Results}{73}{chapter.5}
-\contentsline {section}{\numberline {5.1}Android Application}{74}{section.5.1}
-\contentsline {subsubsection}{Launch Activity}{74}{section*.74}
-\contentsline {subsubsection}{Main Activity}{74}{section*.75}
-\contentsline {subsubsection}{Mission Activity}{76}{section*.77}
-\contentsline {subsubsection}{Information Activity}{76}{section*.78}
-\contentsline {subsubsection}{Tests Activity}{76}{section*.79}
-\contentsline {subsubsection}{Communication Test Activity}{76}{section*.80}
-\contentsline {subsubsection}{Position Test Activity}{77}{section*.81}
-\contentsline {subsubsection}{Attitude Test Activity}{77}{section*.82}
-\contentsline {subsubsection}{Motors Test Activity}{77}{section*.83}
-\contentsline {section}{\numberline {5.2}Ground Control Station}{77}{section.5.2}
-\contentsline {section}{\numberline {5.3}Flight Tests}{80}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Stabilize Mode}{81}{subsection.5.3.1}
-\contentsline {subsubsection}{LQI Controller}{82}{section*.94}
-\contentsline {subsubsection}{$H_\infty $ Controller}{83}{section*.96}
-\contentsline {subsubsection}{Performance}{83}{section*.98}
-\contentsline {subsection}{\numberline {5.3.2}Altitude Hold Mode}{84}{subsection.5.3.2}
-\contentsline {subsubsection}{LQI Controller}{84}{section*.101}
-\contentsline {subsubsection}{$H_\infty $ Controller}{86}{section*.103}
-\contentsline {subsubsection}{Performance}{86}{section*.105}
-\contentsline {subsection}{\numberline {5.3.3}GNSS-Dependent Modes}{87}{subsection.5.3.3}
-\contentsline {subsubsection}{LQI Controller}{88}{section*.109}
-\contentsline {subsubsection}{$H_\infty $ Controller}{89}{section*.111}
-\contentsline {subsubsection}{Performance}{89}{section*.113}
-\contentsline {section}{\numberline {5.4}Conclusions}{90}{section.5.4}
-\contentsline {chapter}{\numberline {6}Conclusions and Outlook }{91}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusions}{91}{section.6.1}
-\contentsline {section}{\numberline {6.2}Outlook}{92}{section.6.2}
-\contentsline {chapter}{Appendix \numberline {A}Publications}{95}{Appendix.a.A}
-\contentsline {chapter}{Appendix \numberline {B}Supplementary Material}{97}{Appendix.a.B}
-\contentsline {chapter}{Appendix \numberline {C}Control Signals in Flight Tests}{99}{Appendix.a.C}
-\contentsline {chapter}{Bibliography}{113}{appendix*.137}
+\contentsline {section}{\numberline {1.6}Contribution of this Work}{12}{section.1.6}
+\contentsline {section}{\numberline {1.7}Outline}{12}{section.1.7}
+\contentsline {chapter}{\numberline {2}Dynamic Model of the Quadrotor }{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Quadrotors Configurations}{15}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}The `+' Configuration}{16}{subsection.2.1.1}
+\contentsline {subsubsection}{Input Settings in `+' Configuration}{18}{section*.15}
+\contentsline {subsection}{\numberline {2.1.2}The `X' Configuration}{18}{subsection.2.1.2}
+\contentsline {subsubsection}{Input Settings in `X' Configuration}{20}{section*.17}
+\contentsline {subsubsection}{Maximum Torque about $x$ and $y$ Axes in `X' Configuration}{20}{section*.18}
+\contentsline {section}{\numberline {2.2}Non-linear Model}{21}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Newton-Euler Approach}{21}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Euler-Lagrange Approach}{25}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Linearized Model}{28}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Jacobian Linearization}{28}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Thrust Compensation}{29}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Conclusions}{30}{section.2.4}
+\contentsline {chapter}{\numberline {3}Quadrotor Components and Parameter Identification}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Quadrotor Components}{32}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Frame}{32}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Smartphone}{33}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Motors and Electronic Speed Controllers}{34}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Smartphone-to-ESC Gateway}{35}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Battery}{36}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}3D-printed Parts}{37}{subsection.3.1.6}
+\contentsline {subsubsection}{Smartphone Support}{37}{section*.27}
+\contentsline {subsubsection}{Arduino Mega ADK and ESC supports}{38}{section*.29}
+\contentsline {subsubsection}{Dome}{38}{section*.31}
+\contentsline {subsection}{\numberline {3.1.7}Assembled Smartphone-based Quadrotor}{39}{subsection.3.1.7}
+\contentsline {section}{\numberline {3.2}Quadrotor Parameters}{40}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Mass}{40}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Moments of Inertia}{40}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Motor Thrust}{43}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Motor Torque}{45}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Conclusions}{46}{section.3.3}
+\contentsline {chapter}{\numberline {4}Control Strategies and State Estimation}{49}{chapter.4}
+\contentsline {section}{\numberline {4.1}Concept and Generalities}{50}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}State Space Representation}{50}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Controllability and Observability}{51}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Control Strategies}{52}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Linear Quadratic Regulator with Integral Feedback}{52}{subsection.4.2.1}
+\contentsline {subsubsection}{Optimal Problem Solution}{52}{section*.43}
+\contentsline {subsubsection}{Reference Tracking}{54}{section*.44}
+\contentsline {subsection}{\numberline {4.2.2}$H_\infty $ Controller}{55}{subsection.4.2.2}
+\contentsline {subsubsection}{$H_\infty $ Synthesis for Controller Design}{55}{section*.46}
+\contentsline {subsubsection}{$H_\infty $ Controller Order Reduction}{57}{section*.49}
+\contentsline {section}{\numberline {4.3}Design and Simulation of Controllers}{58}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Stabilize Mode}{58}{subsection.4.3.1}
+\contentsline {subsubsection}{Dynamic Model}{58}{section*.50}
+\contentsline {subsubsection}{LQI Controller}{59}{section*.51}
+\contentsline {subsubsection}{$H_\infty $ Controller}{60}{section*.53}
+\contentsline {subsection}{\numberline {4.3.2}Altitude Hold Mode}{62}{subsection.4.3.2}
+\contentsline {subsubsection}{Dynamic Model}{63}{section*.57}
+\contentsline {subsubsection}{LQI Controller}{64}{section*.58}
+\contentsline {subsubsection}{$H_\infty $ Controller}{65}{section*.60}
+\contentsline {subsection}{\numberline {4.3.3}GNSS-Dependent Flight Modes}{68}{subsection.4.3.3}
+\contentsline {subsubsection}{Dynamic Model}{68}{section*.64}
+\contentsline {subsubsection}{LQI Controller}{69}{section*.65}
+\contentsline {subsubsection}{$H_\infty $ Controller}{71}{section*.68}
+\contentsline {section}{\numberline {4.4}State Estimation Through Kalman Filter}{74}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Attitude Estimation}{74}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Position Measurement}{75}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}State Estimation}{75}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Conclusions}{77}{section.4.5}
+\contentsline {chapter}{\numberline {5}Implementation and Results}{79}{chapter.5}
+\contentsline {section}{\numberline {5.1}Android Application}{80}{section.5.1}
+\contentsline {subsubsection}{Launch Activity}{80}{section*.75}
+\contentsline {subsubsection}{Main Activity}{80}{section*.76}
+\contentsline {subsubsection}{Mission Activity}{82}{section*.78}
+\contentsline {subsubsection}{Information Activity}{82}{section*.79}
+\contentsline {subsubsection}{Tests Activity}{82}{section*.80}
+\contentsline {subsubsection}{Communication Test Activity}{82}{section*.81}
+\contentsline {subsubsection}{Position Test Activity}{83}{section*.82}
+\contentsline {subsubsection}{Attitude Test Activity}{83}{section*.83}
+\contentsline {subsubsection}{Motors Test Activity}{83}{section*.84}
+\contentsline {section}{\numberline {5.2}Ground Control Station}{83}{section.5.2}
+\contentsline {section}{\numberline {5.3}Flight Tests}{86}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Stabilize Mode}{87}{subsection.5.3.1}
+\contentsline {subsubsection}{LQI Controller}{88}{section*.94}
+\contentsline {subsubsection}{$H_\infty $ Controller}{89}{section*.96}
+\contentsline {subsubsection}{Performance}{89}{section*.98}
+\contentsline {subsection}{\numberline {5.3.2}Altitude Hold Mode}{90}{subsection.5.3.2}
+\contentsline {subsubsection}{LQI Controller}{90}{section*.101}
+\contentsline {subsubsection}{$H_\infty $ Controller}{92}{section*.103}
+\contentsline {subsubsection}{Performance}{92}{section*.105}
+\contentsline {subsection}{\numberline {5.3.3}GNSS-Dependent Modes}{93}{subsection.5.3.3}
+\contentsline {subsubsection}{LQI Controller}{94}{section*.109}
+\contentsline {subsubsection}{$H_\infty $ Controller}{95}{section*.111}
+\contentsline {subsubsection}{Performance}{95}{section*.113}
+\contentsline {section}{\numberline {5.4}Conclusions}{96}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusions and Outlook }{97}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusions}{97}{section.6.1}
+\contentsline {section}{\numberline {6.2}Outlook}{98}{section.6.2}
+\contentsline {chapter}{Appendix \numberline {A}Publications}{101}{Appendix.a.A}
+\contentsline {chapter}{Appendix \numberline {B}Supplementary Material}{103}{Appendix.a.B}
+\contentsline {chapter}{Appendix \numberline {C}Control Signals in Flight Tests}{105}{Appendix.a.C}
+\contentsline {chapter}{Bibliography}{119}{appendix*.137}

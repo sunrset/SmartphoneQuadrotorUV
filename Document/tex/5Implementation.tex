@@ -64,11 +64,11 @@ Finally, the motors test activity allows the user to test the established commun
 \section{Ground Control Station}\label{sec:gcs}
 The GCS is the land-based control station that adds monitoring and remote control functions for a UAV. For this project, the GCS software is designed using the Java programming language. The Java language is chosen in order to add portability to the application.
 \\\\
-As mentioned earlier, the Android application creates a TCP server in order to let the GCS, acting as a TCP client, exchange data packets with the smartphone. The communication between the Android application and the GCS, is based on a packet-based communication using the TCP and IP protocols. 
+As mentioned earlier, the Android application creates a TCP server in order to let the GCS, acting as a TCP client, exchange data packets with the smartphone. The communication between the Android application and the GCS, is based on a packet-based communication using the TCP and IP protocols. Both the smartphone and the GCS must be connected to the same WLAN in order to establish a connection channel. This WLAN can be created by the smartphone itself, the GCS or an external switch. In this project, the WLAN is created by the smartphone, using the Android mobile hotspot feature.
 \\\\
 The GCS graphic user interface (GUI) should allow the user to establish a connection with the quadrotor, change its flight mode, arm or disarm the motors, add or edit waypoints, and monitor the instantaneous state of the quadrotor. The user can interact with the GCS through the mouse or touchscreen of the computer, or using a control for video games (remote controller) connected through the USB interface of the computer. Using button sequence commands through the remote controller, the user can establish and finish the connection with the quadrotor, change the flight mode, and arm or disarm the motors. Also, the quadrotor position and attitude references can be changed using the remote controller joysticks.
 \\\\
-The GUI is composed by six main panels. They are shown in Fig. \ref{fig:missionGCS}. A detailed description of the GUI is depicted as follows:
+The GUI is composed by six main panels. They are shown in Fig. \ref{fig:missionGCS}. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\textwidth]{missionGCS.jpg}  
@@ -76,7 +76,7 @@ The GUI is composed by six main panels. They are shown in Fig. \ref{fig:missionG
 \label{fig:missionGCS}
 \end{center}
 \end{figure}
-
+\\A detailed description of the GUI is depicted as follows:
 \subsubsection*{Connection Panel}
 Located at the upper left edge of the GCS interface, this panel allows the user to select the quadrotor to which the user wants to connect and establish its IP address. This is the only panel enabled after the execution of the GCS. Once the connection with the quadrotor is established, the other panels are enabled.
 \subsubsection*{Flight Modes Panel}
@@ -89,23 +89,23 @@ In order to check the current position of the quadrotor, a map is displayed in t
 The Waypoints panel is located on the left flank of the Map panel. This panel shows the list of waypoints dynamically, so it is updated each time a waypoint is added in the Map panel. Also, the waypoint coordinates can be edited by the user, and their position is automatically updated in the map.
 \subsubsection*{Quadrotor State Panel}
 The quadrotor state data is composed by the quadrotor position, the quadrotor attitude, the quadrotor battery level and the smartphone battery level. This data is shown in the Quadrotor State panel, located on the right of the Map panel. The quadrotor state values are updated each $100\ ms$.
-\subsubsection*{Communication Tab}
-Additionally, the GCS GUI have a Communication tab, which includes a Controller Settings Panel shown in Fig. \ref{fig:commGCS}. This panel shows the connection status of the GCS with the remote controller. Also, it presents the current value of the remote controller joysticks and its button states.
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.55\textwidth]{commGCS.jpg}  
-\caption{Controller settings in GCS} 
-\label{fig:commGCS}
-\end{center}
-\end{figure}
-\\\\
+\\\\\\\\
 In order to obtain a wide range of wireless communication between the Android application and the GCS, an external high-gain WLAN antenna was used. Using this antenna, the quadrotor was tested to fly $200$ meters from the GCS with line of sight, without failing to keep a constant communication with the GCS.
 
 \section{Flight Tests} \label{sec:tests}
-The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation} were implemented in the Android application. This application is executed in the smartphone on board the quadrotor. Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. The logged data is analysed using MATLAB and the results of are shown in this section. The control signals $\mathbf{U} = \begin{bmatrix}
+The control and estimation algorithms designed in Chapter \ref{ch:controlandestimation} were implemented in the Android application. This application is executed in the smartphone on board the quadrotor. The flight controller algorithms are executed each $t_k = 10\ ms$ within a temporized thread. This sampling time is chosen based on the bandwidth of the larger system singular value, as explained in Section \ref{sec:generalities}. In Fig. \ref{fig:sampletime}, is shown the sampling time histogram logged during a test.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=9.5cm]{sampleTime.pdf}    
+		\caption{Histogram of the measured sample time after a test execution} 
+		\label{fig:sampletime}
+	\end{center}
+\end{figure}
+\\The temporized thread is mainly executed each $10.16\ ms$, with a standard deviation of $0.47\ ms$.
+\\\\
+Using the smartphone-based quadrotor, the controllers are tested subjecting the system to disturbances and reference changes, within their flight modes. All the controllers use as feedback the state estimation delivered by the Kalman filter. The logged data is analysed using MATLAB and the results of are shown in this section. The control signals $\mathbf{U} = \begin{bmatrix}
 T_u & \tau_\psi & \tau_\theta & \tau_\phi
 \end{bmatrix}^{T}$, and the \textit{PWM} signals, logged during each of the tests are shown in Appendix \ref{controlsignals}.
-
 \subsection{Stabilize Mode}
 A test bench based on a tripod and a ball head is used in the stabilize mode tests. The stabilize mode test bench, shown in Fig. \ref{fig:tripod}, was designed and built within the framework of this project. This test bench allows only rotational movements of the quadrotor, blocking its translational movements.
 
@@ -186,6 +186,8 @@ In this case, as seen in Fig. \ref{fig:stabilize_h_imp}, the disturbances are ap
 \end{figure}
 \subsubsection{Performance}
 Both of the controllers were capable of stabilize the quadrotor attitude dynamics. For the stabilize mode tests, the performance of the controllers is evaluated taking into account the setting time and overshoot of the controlled signals. These indices are shown in Table \ref{tb:stabilize_index}.
+\\\\
+The performance indices for the stabilize mode tests show that both the LQI and $H_\infty$ controllers designed for the stabilize flight mode have similar setting time, but different overshoot percentage. The $H_\infty$ controller is the one with the lower overshoot and setting time, except for the setting time of the $\phi$ signal, which is lower when using the LQI controller.
 \begin{table}[H]
 \small
 \begin{center}
@@ -204,8 +206,6 @@ Both of the controllers were capable of stabilize the quadrotor attitude dynamic
 \end{tabular}
 \end{center}
 \end{table}
-The performance indices for the stabilize mode tests show that both the LQI and $H_\infty$ controllers designed for the stabilize flight mode have similar setting time, but different overshoot percentage. The $H_\infty$ controller is the one with the lower overshoot and setting time, except for the setting time of the $\phi$ signal, which is lower when using the LQI controller.
-\\\\
 \subsection{Altitude Hold Mode}
 The altitude flight mode tests were performed on a football field of the Universidad del Valle. This place was chosen because it is an open space free of obstacles, where the quadrotor has total freedom to move without being at risk of colliding with something or somebody.
 \\\\

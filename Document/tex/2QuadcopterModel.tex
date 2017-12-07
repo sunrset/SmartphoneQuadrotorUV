@@ -33,7 +33,7 @@ The geometry used in quadrotors built in `+' configuration is shown in Fig. \ref
     \end{center}
 \end{figure}
 In Fig. \ref{fig:quadcopterplus}, ($\phi$, $\theta$, $\psi$) are the angular deviations (pitch, roll and yaw, respectively) of the quadrotor about the body-frame;
- ($x$, $y$, $z$) are the body-frame axes;  ($X_W$, $Y_W$, $Z_W$) are the earth-frame axes; $L$ is the distance from the quadrotor center of gravity ($CoG$) to the motors center; $F_{M_i}$ is the thrust force exerted by each motor $M_i$; and $\omega_i$ is the angular velocity of $M_i$, with $i = 1,2,3,4$. In this configuration, the body-frame axes $x$ and $y$, coincide with the lines that connect motors of opposite sides in the quadrotor frame.
+ ($x$, $y$, $z$) are the body-frame axes;  ($X_W$, $Y_W$, $Z_W$) are the Earth-frame axes; $L$ is the distance from the quadrotor center of gravity ($CoG$) to the motors center; $F_{M_i}$ is the thrust force exerted by each motor $M_i$; and $\omega_i$ is the angular velocity of $M_i$, with $i = 1,2,3,4$. In this configuration, the body-frame axes $x$ and $y$, coincide with the lines that connect motors of opposite sides in the quadrotor frame.
 \\\\
 The quadrotor is a system with six $DoF$. Since a quadrotor has four actuators, it can be considered an underactuated system. This means that, it is only possible to reach a desired state for four $DoF$. However, it is possible to indirectly control the two remaining $DoF$ using the proper control signals. These control signals, or inputs, represent the quadrotor basic movements and are described below.
 
@@ -149,7 +149,7 @@ Due to the $CW$ positive direction of the $\phi$ angle, and considering the sign
 \end{itemize}
 
 \subsubsection{Input Settings in `X' Configuration}
-In the `X' configuration, the quadrotor inputs remain the same regarding the `+' configuration. However both $\tau_\theta$ and $\tau_\phi$ are affected by the interaction of all the motors and the change in the distance of the point of the forces applications on the $x$ and $y$ axes. The linear equations system that shows the input settings for a quadrotor in `X' configuration is defined as
+In the `X' configuration, the quadrotor inputs remain the same regarding the `+' configuration. However both $\tau_\theta$ and $\tau_\phi$ are affected both by the interaction of all the motors and the change in the distance of the point of the forces applications on the $x$ and $y$ axes. The linear equations system that shows the input settings for a quadrotor in `X' configuration is defined as
 \begin{equation}
 	\mathbf{u_{(X)}} = \begin{bmatrix}
 	T_u\\[5pt]
@@ -189,14 +189,14 @@ Thereby, the quadrotor in `X' configuration has $2\cdot \cos(\pi/4)$ times more 
 \section{Non-linear Model}
 \label{sec:nonlinear}
 
-This section describes the dynamic modeling used to develop the quadrotor control, based on the study carried out in \cite{Bouabdallah2007} and \cite{Bresciani2008}. This model represents the quadrotor as a solid symmetrical object, subject to a total thrust ($T_u$) and three torques ($\tau_\psi$, $\tau_\theta$ and $\tau_\phi$), assuming that the quadrotor $CoG$ coincides with the origin of the body-frame and without considering the actuator dynamics. The modeling of the quadrotor system is done by two different methods. First, the Newton-Euler approach which is based on the quadrotor body-frame; and second, the Euler-Lagrange approach which is based on the earth-frame for its translation while keeping its rotational equations related to the body-frame.
+This section describes the dynamic modeling used to develop the quadrotor control, based on the study carried out in \cite{Bouabdallah2007} and \cite{Bresciani2008}. This model represents the quadrotor as a solid symmetrical object, subject to a total thrust ($T_u$) and three torques ($\tau_\psi$, $\tau_\theta$ and $\tau_\phi$), assuming that the quadrotor $CoG$ coincides with the origin of the body-frame and without considering the actuator dynamics. The modeling of the quadrotor system is done by two different methods. First, the Newton-Euler approach which is based on the quadrotor body-frame; and second, the Euler-Lagrange approach which is based on the Earth-frame for its translation while keeping its rotational equations related to the body-frame.
 
 \subsection{Newton-Euler Approach}
 Following the quadrotor geometry shown in Fig. \ref{fig:quadrotorX}, the quadrotor position vector ($\mathbf{\Xi}$), composed by the translational position ($\mathbf{\xi_W} = \begin{bmatrix}
 X_W & Y_W & Z_W
 \end{bmatrix}^{T} $, given in $m$), and rotational position ($\mathbf{\Theta_W} = \begin{bmatrix}
 \psi & \theta & \phi
-\end{bmatrix}^{T} $, given in $rad$) regarding the earth-frame, is defined as
+\end{bmatrix}^{T} $, given in $rad$) regarding the Earth-frame, is defined as
 \begin{equation}
 \mathbf{\Xi} = \begin{bmatrix}
 \mathbf{\xi_W} \\ \mathbf{\Theta_W}
@@ -311,7 +311,7 @@ m g \cos(\theta)\sin(\phi) \\[5pt]
 \mathbf{0_{3\times 1}}
 \end{bmatrix},
 \end{equation}
-where $\mathbf{F_{G\xi}}=\mathbf{R_{b}^{w}}\mathbf{\hat{F}_{Gb}}$ is the translational force due to  gravity in the earth-frame, and $\mathbf{R_{w}^{b}} = (\mathbf{R_{b}^{w})^{-1}}$ is the rotation matrix from the world to the body-frame.
+where $\mathbf{F_{G\xi}}=\mathbf{R_{b}^{w}}\mathbf{\hat{F}_{Gb}}$ is the translational force due to  gravity in the Earth-frame, and $\mathbf{R_{w}^{b}} = (\mathbf{R_{b}^{w})^{-1}}$ is the rotation matrix from the world to the body-frame.
 \\\\
 From Section \ref{sec:configurations}, it follows that the quadrotor inputs are proportional to the motor forces $F_{M_i}$, and do not affect the $x$ and $y$ components of $\mathbf{F_B}$. These inputs, depend on the quadrotor configuration (`+' or `X') and are set as
 \begin{equation}
@@ -568,7 +568,7 @@ The linearization of a non-linear system is done about an equilibrium point $\ov
 \end{bmatrix}^{T},
 \end{split}
 \end{align}
-where $\overline{x}$, $\overline{y}$ and $\overline{z}$ define a constant desired position in the body and earth-frame. When the quadrotor state is near the equilibrium point, the body and earth frames are assumed to coincide and thus $\mathbf{\dot{\xi}_W}\to \mathbf{V_{B}}$, $X_W \to x$, $Y_W \to y$, and $Z_W \to z$ \cite{Sabatino2015}.\\\\
+where $\overline{x}$, $\overline{y}$ and $\overline{z}$ define a constant desired position in the body and Earth-frame. When the quadrotor state is near the equilibrium point, the body and Earth frames are assumed to coincide and thus $\mathbf{\dot{\xi}_W}\to \mathbf{V_{B}}$, $X_W \to x$, $Y_W \to y$, and $Z_W \to z$ \cite{Sabatino2015}.\\\\
 The equilibrium point shown in equation (\ref{ec:equilibrium}), is obtained using a constant input value
 \begin{equation}
 \overline{\mathbf{u}} = \begin{bmatrix}
@@ -632,7 +632,7 @@ B = \frac{\partial f(\mathbf{x},\mathbf{u})}{\partial \mathbf{u}}\Bigr|_{\substa
 
 \subsection{Thrust Compensation}
 %\url{https://robotics.stackexchange.com/questions/4247/tilt-compensated-motor-output-to-keep-altitude-for-quadcopter}
-The forces $F_{M_i}$ applied by the motors in the quadrotor are parallel to the body-frame $z$-axis and not to the earth-frame $Z_W$-axis. A compensated thrust input $u_{1}^{*}$ must be set so that its projection $u_1$ (third component of $F_\xi$) on the $Z_W$-axis is such that it allows to keep the inputs of the system close to the equilibrium input, even though there are deviations in $\theta$ or $\phi$.
+The forces $F_{M_i}$ applied by the motors in the quadrotor are parallel to the body-frame $z$-axis and not to the Earth-frame $Z_W$-axis. A compensated thrust input $u_{1}^{*}$ must be set so that its projection $u_1$ (third component of $F_\xi$) on the $Z_W$-axis is such that it allows to keep the inputs of the system close to the equilibrium input, even though there are deviations in $\theta$ or $\phi$.
 \\\\
 Given the linearization consideration where the $z$ and $Z_W$ axes coincide, if a linear controller is designed to control the quadrotor, it takes the projection $u_{1}$ of $u_{1}^{*} = T_{u}$ on the $Z_W$-axis as its thrust control signal. From linear algebra, and following the geometry seen in Fig. \ref{fig:quadrotorX}, the projection $u_{1}$ is defined as
 \begin{equation}
@@ -645,4 +645,4 @@ u_{1}^{*} = \dfrac{u_{1}}{\cos(\theta)\cos(\phi)},
 keeping the desired vertical thrust, despite any deviation about the $x$ or $y$ axes. 
 \\\\For simplicity, the rest of the document assumes that $u_1 = u_{1}^{*}$, however during the real implementation the thrust compensation is taken into account.
 \section{Conclusions}
-This chapter describes the dynamic model of the quadrotor system, based on its reference frame and geometry configuration. The `+' and `X' quadrotor configurations are detailed, including the setting of the quadrotor inputs and its dependence on the quadrotor motor forces. The dynamic model is obtained using the Newton-Euler approach, for a body-frame base model, and an Euler-Lagrange approach, for a hybrid earth-frame-position/body-frame-attitude model. In order to design linear controllers for the flight dynamics of the quadrotor, a Jacobian linearization about an equilibrium point is implemented. This linearized model is valid for low translational and rotation speed flights with small angular deviations, where both of the non-linear models tend to be equivalent. This equilibrium point is achieved by an equilibrium input, which must be added to any control action set by the controller during its implementation.  Finally, it is considered the decompensation of the force set by the controller to be exerted by the motors on the earth-frame $Z_W$-axis, so it can be compensated in the real quadrotor implementation.
+This chapter describes the dynamic model of the quadrotor system, based on its reference frame and geometry configuration. The `+' and `X' quadrotor configurations are detailed, including the setting of the quadrotor inputs and its dependence on the quadrotor motor forces. The dynamic model is obtained using the Newton-Euler approach, for a body-frame base model, and an Euler-Lagrange approach, for a hybrid Earth-frame-position/body-frame-attitude model. In order to design linear controllers for the flight dynamics of the quadrotor, a Jacobian linearization about an equilibrium point is implemented. This linearized model is valid for low translational and rotation speed flights with small angular deviations, where both of the non-linear models tend to be equivalent. This equilibrium point is achieved by an equilibrium input, which must be added to any control action set by the controller during its implementation.  Finally, it is considered the decompensation of the force set by the controller to be exerted by the motors on the Earth-frame $Z_W$-axis, so it can be compensated in the real quadrotor implementation.

@@ -12,10 +12,10 @@
 \BOOKMARK [2][-]{subsection.1.3.2}{Quadrotor Flight Modes}{section.1.3}% 12
 \BOOKMARK [2][-]{subsection.1.3.3}{Smartphones in Control Systems}{section.1.3}% 13
 \BOOKMARK [2][-]{subsection.1.3.4}{Smartphone-based Quadrotors}{section.1.3}% 14
-\BOOKMARK [2][-]{subsection.1.3.5}{Contribution of this Work}{section.1.3}% 15
-\BOOKMARK [1][-]{section.1.4}{Research Problem}{chapter.1}% 16
-\BOOKMARK [1][-]{section.1.5}{Objectives}{chapter.1}% 17
-\BOOKMARK [1][-]{section.1.6}{Outline}{chapter.1}% 18
+\BOOKMARK [1][-]{section.1.4}{Research Problem}{chapter.1}% 15
+\BOOKMARK [1][-]{section.1.5}{Objectives}{chapter.1}% 16
+\BOOKMARK [1][-]{section.1.6}{Contribution of this Work}{chapter.1}% 17
+\BOOKMARK [1][-]{section.1.7}{Outline}{chapter.1}% 18
 \BOOKMARK [0][-]{chapter.2}{Dynamic Model of the Quadrotor }{}% 19
 \BOOKMARK [1][-]{section.2.1}{Quadrotors Configurations}{chapter.2}% 20
 \BOOKMARK [2][-]{subsection.2.1.1}{The `+' Configuration}{section.2.1}% 21
@@ -47,7 +47,7 @@
 \BOOKMARK [2][-]{subsection.4.1.1}{State Space Representation}{section.4.1}% 47
 \BOOKMARK [2][-]{subsection.4.1.2}{Controllability and Observability}{section.4.1}% 48
 \BOOKMARK [1][-]{section.4.2}{Control Strategies}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Integral Controller}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.1}{Linear Quadratic Regulator with Integral Feedback}{section.4.2}% 50
 \BOOKMARK [2][-]{subsection.4.2.2}{H Controller}{section.4.2}% 51
 \BOOKMARK [1][-]{section.4.3}{Design and Simulation of Controllers}{chapter.4}% 52
 \BOOKMARK [2][-]{subsection.4.3.1}{Stabilize Mode}{section.4.3}% 53
