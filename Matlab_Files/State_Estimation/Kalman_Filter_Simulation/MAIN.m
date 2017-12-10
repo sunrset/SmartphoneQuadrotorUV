@@ -8,6 +8,8 @@
             clear;
             clc;
             
+            global G Gss_d X0 P_k_0 Ts F;
+            
             m = 1.568;
             g = 9.807;
             Ixx = 0.0135;
@@ -29,8 +31,7 @@
             
             F = lqrDesign(Gss_d);          % Controller design (LQR)
             
-            kalmanSet();                   % Kalman filter creation
-            
+            P_k_0 = eye(12);
             
 function G = Quadrotor_model4(m, g, Ixx, Iyy, Izz)
 
@@ -126,13 +127,13 @@ function F = lqrDesign(Gss_d)
 end
 
 function X0 = initialConditions()
-            x_Init         =  2         ;
+            x_Init         =  0         ;
             x_dot_Init     =  0           ;
-            y_Init         =  2          ;
+            y_Init         =  0          ;
             y_dot_Init     =  0           ;
-            z_Init         =  1.5           ;
+            z_Init         =  0           ;
             z_dot_Init     =  0           ;
-            psi_Init       =  45 * pi/180 ;
+            psi_Init       =  0 * pi/180 ;
             psi_dot_Init   =  0           ;
             theta_Init     =  0 * pi/180 ;
             theta_dot_Init =  0           ;
@@ -151,8 +152,4 @@ function X0 = initialConditions()
                   theta_dot_Init  ;
                   phi_Init        ;
                   phi_dot_Init   ];
-end
-
-function kalmanSet()
-    P_k_1 = eye(12);
 end
