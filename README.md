@@ -1,5 +1,5 @@
 # Design and Implementation of Flight Dynamics Control Strategies for a Smartphone-based Quadrotor
-Master thesis development.
+Master's thesis development.
 
 ## Developed By
 
