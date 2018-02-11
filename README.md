@@ -6,6 +6,11 @@ Master's thesis development.
 * __Alejandro Astudillo V., Industrial Control Research Group (GICI) - Universidad del Valle__ <br />
 <alejandro.astudillo@correounivalle.edu.co>
 
+## Videos
+* Flight test using a <img src="https://latex.codecogs.com/gif.latex?$H_\infty$" title="$H_\infty$" /></a> controller
+
+[![Flight Test Video](https://img.youtube.com/vi/j2ythmjcvrs/0.jpg)](https://www.youtube.com/watch?v=j2ythmjcvrs "Flight Test Video")
+
 ## Publications: 
 - A. Astudillo, P. Muñoz, F. Alvarez and E. Rosero, “Altitude and attitude cascade controller for a smartphone-based quadcopter,” in 2017 International Conference on Unmanned Aircraft Systems (ICUAS). IEEE, jun 2017, pp. 1447–1454. [Online].
 Available: http://ieeexplore.ieee.org/document/7991400/
