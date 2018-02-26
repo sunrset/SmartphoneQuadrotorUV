@@ -15,7 +15,7 @@ Available: http://ieeexplore.ieee.org/document/7991400/
 Available: http://ieeexplore.ieee.org/document/8276392/
 
 ## Videos
-* Flight test using a <img src="https://latex.codecogs.com/gif.latex?$H_\infty$" title="$H_\infty$" /></a> controller
+* Flight test using an <img src="https://latex.codecogs.com/gif.latex?$H_\infty$" title="$H_\infty$" /></a> controller
 
 [![Flight Test Video](https://img.youtube.com/vi/j2ythmjcvrs/0.jpg)](https://www.youtube.com/watch?v=j2ythmjcvrs "Flight Test Video")
 
