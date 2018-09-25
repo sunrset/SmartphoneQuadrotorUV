@@ -11,6 +11,7 @@ import com.survey360.quadcoptercontroluv.Utils.PermissionsRequest;
 import com.survey360.quadcoptercontroluv.Utils.SaveFile;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.AltHoldKalmanFilter;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.DataCollection;
+import com.survey360.quadcoptercontroluv.Utils.StateEstimation.EKF;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.InitialConditions;
 import com.survey360.quadcoptercontroluv.Utils.StateEstimation.PositionKalmanFilter;
 
@@ -37,6 +38,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
     public AdkCommunicator adkCommunicator;
     public MotorsPowers motorsPowers;
     public AltHoldKalmanFilter altHoldKF;
+    public EKF EKF;
 
     Context ctx;
     Activity act;
@@ -109,6 +111,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         adkCommunicator = new AdkCommunicator(this, ctx);   // Communication with the Arduino Mega ADK
         motorsPowers = new MotorsPowers();                  // Class that contains the signals sent to the motors
         altHoldKF = new AltHoldKalmanFilter(ctx);
+        EKF = new EKF(ctx);
 
 
         try {
@@ -139,6 +142,7 @@ public class FlightController implements AdkCommunicator.AdbListener {
         }
 
         altHoldKF.initAltHoldKF(QUAD_MASS, I_XX, I_YY, I_ZZ);
+        EKF.initEKF(QUAD_MASS, I_XX, I_YY, I_ZZ);
         posKF.initPositionKF();                             // Initialize the Position Kalman Filter matrices
         mDataCollection.register();                         // Begins to acquire sensor data
 
@@ -185,13 +189,13 @@ public class FlightController implements AdkCommunicator.AdbListener {
             if(FlightMode.equals("Stabilize")) {
 
                 //Throttle = ((MissionActivity.mDataExchange.throttleJoystick)-50f)*0.05f; // [N] [-1, 1]
-                Throttle = Throttle + ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(0.005f/50);
-                //Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.2f*3.1416f/180)/50);
-                //if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
-                //if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
+                Throttle = Throttle + ((MissionActivity.mDataExchange.throttleJoystick)-50f)*(0.01f/50);
+                Psi_ref = Psi_ref + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.2f*3.1416f/180)/50);
+                if(Psi_ref <=-150*3.1416f/180){Psi_ref = -150*3.1416f/180;}
+                if(Psi_ref >=150*3.1416f/180){Psi_ref = 150*3.1416f/180;}
 
-                joystick_gain3 = joystick_gain3 + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.005f)/50);
-                if(joystick_gain3 <= 0){joystick_gain3 = 0;}
+                //joystick_gain3 = joystick_gain3 + ((MissionActivity.mDataExchange.yawJoystick)-50f)*((0.005f)/50);
+                //if(joystick_gain3 <= 0){joystick_gain3 = 0;}
 
                 Theta_ref = ((MissionActivity.mDataExchange.rollJoystick)-50f)*((12*3.1416f/180)/50);
                 Phi_ref = ((MissionActivity.mDataExchange.pitchJoystick)-50f)*((12*3.1416f/180)/50);
@@ -492,8 +496,15 @@ public class FlightController implements AdkCommunicator.AdbListener {
                     "," + df.format(altHoldKF.getEstimatedState()[6]) + "," + df.format(altHoldKF.getEstimatedState()[7]) +
                     "," + df.format(altHoldKF.getEstimatedState()[8]) + "," + df.format(altHoldKF.getEstimatedState()[9]) +
                     "," + df.format(altHoldKF.getEstimatedState()[10]) + "," + df.format(altHoldKF.getEstimatedState()[11]) +
-                    "," + joystick_gain + "," + joystick_gain2 + "," + joystick_gain3 + "," + df.format(controlSignals[0]) + "," + df.format(Thrust_Compensation) +
+                    "," + df.format(EKF.getEstimatedState()[0]) + "," + df.format(EKF.getEstimatedState()[1]) +
+                    "," + df.format(EKF.getEstimatedState()[2]) + "," + df.format(EKF.getEstimatedState()[3]) +
+                    "," + df.format(EKF.getEstimatedState()[4]) + "," + df.format(EKF.getEstimatedState()[5]) +
+                    "," + df.format(EKF.getEstimatedState()[6]) + "," + df.format(EKF.getEstimatedState()[7]) +
+                    "," + df.format(EKF.getEstimatedState()[8]) + "," + df.format(EKF.getEstimatedState()[9]) +
+                    "," + df.format(EKF.getEstimatedState()[10]) + "," + df.format(EKF.getEstimatedState()[11]) +
+                    "," + joystick_gain + "," + joystick_gain2 + "," + joystick_gain3 + "," + df.format(Thrust_Compensation) +
                     "," + batteryCorrection + System.lineSeparator());
+
             editGUI();
         }
 
@@ -541,14 +552,17 @@ public class FlightController implements AdkCommunicator.AdbListener {
             //altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.theta,mDataCollection.phi,controlSignals, M_G_Throttle);
             //altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.psi_dot,mDataCollection.theta,mDataCollection.theta_dot,mDataCollection.phi,mDataCollection.phi_dot,((controlSignals[0]/Thrust_Compensation)-M_G_Throttle),controlSignals[1],controlSignals[2],controlSignals[3]);
             altHoldKF.executeAltHoldKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,mDataCollection.theta,mDataCollection.phi,((controlSignals[0]/Thrust_Compensation)-M_G_Throttle),controlSignals[1],controlSignals[2],controlSignals[3]);
-            // TODO: Test this KF
-            // TODO: Add integral part of LQI control
+
+            EKF.executeEKF((float)this_x, (float)this_y, mDataCollection.baroElevation,mDataCollection.psi,controlSignals[0],controlSignals[1],controlSignals[2],controlSignals[3]);
+
             this_xKF = altHoldKF.getEstimatedState()[0];
             this_xdotKF = altHoldKF.getEstimatedState()[1];
             this_yKF = altHoldKF.getEstimatedState()[2];
             this_ydotKF = altHoldKF.getEstimatedState()[3];
             this_zKF = altHoldKF.getEstimatedState()[4];
             this_zdotKF = altHoldKF.getEstimatedState()[5];
+
+
             setQuadrotorState();
         }
 
